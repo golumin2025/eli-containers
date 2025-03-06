@@ -1,0 +1,34 @@
+---
+import HowPodsWorks from "@components/sections/HowPodsWorks.astro";
+import MainHero from "@components/sections/MainHero.astro";
+import ReviewsSlider from "@components/sections/ReviewsSlider.astro";
+import FeaturedImage from "@components/ui/FeaturedImage.astro";
+import Faqs from "@components/sections/Faq.astro";
+import Layout from "@layouts/Layout.astro";
+import { getEntry } from "astro:content";
+
+const homePage = await getEntry("pages", "home");
+---
+
+<Layout
+  title={homePage.data.seoData.seoTitle}
+  description={homePage.data.seoData.seoDescription}
+>
+  {
+    homePage?.data.blocks.map((item: any) => (
+      <>
+        {item.discriminant === "mainHero" && <MainHero {...item.value} />}
+        {item.discriminant === "howPodsWork" && (
+          <HowPodsWorks {...item.value} />
+        )}
+        {item.discriminant === "featuredImage" && (
+          <FeaturedImage {...item.value} />
+        )}
+        {item.discriminant === "reviewsSlider" && (
+          <ReviewsSlider {...item.value} />
+        )}
+        {item.discriminant === "faqs" && <Faqs {...item.value} />}
+      </>
+    ))
+  }
+</Layout>

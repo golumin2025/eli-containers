@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+@theme {
+  --color-primary: #ce202f;
+  --color-secondary: #002a5c;
+  --color-background: #0069e5;
+}
+.custom-container {
+  @apply lg:max-w-[1100px] xl:max-w-[1380px] mx-auto  max-w-full px-8;
+}

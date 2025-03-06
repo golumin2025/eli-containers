@@ -1,0 +1,137 @@
+---
+const { faqs, title } = Astro.props;
+interface Faq {
+  question: string;
+  answer: string;
+}
+import { marked } from "marked";
+function renderText(data: string) {
+  const content = marked.parse(data);
+  return content;
+}
+---
+
+<div class="faq-accordion py-16 w-full">
+  <div
+    class="flex justify-between relative custom-container mx-auto !max-w-[900px] lg:flex-row flex-col items-start gap-8"
+  >
+    <div class="w-full">
+      <h2
+        class="mb-12 text-secondary text-center sm:text-4xl text-3xl font-bold"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        set:html={title}
+      />
+      <dl class="space-y-5">
+        {
+          faqs.map((faq: Faq, index: number) => (
+            <div
+              class="p-4 bg-[#FAFAFA] border border-[#E8E8E8] rounded-lg transition-all duration-300"
+              data-aos="fade-up"
+              data-aos-delay={100 + index * 50}
+              data-aos-duration="600"
+              data-aos-easing="ease-out"
+            >
+              <dt class="text-lg">
+                <button
+                  class="text-left w-full flex justify-between items-start focus:outline-none group"
+                  aria-controls={`faq-${index}`}
+                  aria-expanded="false"
+                  id={`faq-button-${index}`}
+                >
+                  <span class="font-medium text-secondary  transition-colors duration-200">
+                    {faq.question}
+                  </span>
+                  <span class="ml-6 h-7 flex items-center">
+                    <svg
+                      width="64px"
+                      class="h-6 w-6 transform transition-transform text-primary duration-300 ease-in-out rotate-180"
+                      height="64px"
+                      viewBox="0 0 24.00 24.00"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      transform="rotate(270)"
+                    >
+                      <path
+                        d="M14.2893 5.70708C13.8988 5.31655 13.2657 5.31655 12.8751 5.70708L7.98768 10.5993C7.20729 11.3805 7.2076 12.6463 7.98837 13.427L12.8787 18.3174C13.2693 18.7079 13.9024 18.7079 14.293 18.3174C14.6835 17.9269 14.6835 17.2937 14.293 16.9032L10.1073 12.7175C9.71678 12.327 9.71678 11.6939 10.1073 11.3033L14.2893 7.12129C14.6799 6.73077 14.6799 6.0976 14.2893 5.70708Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </dt>
+              <dd
+                class="overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+                id={`faq-${index}`}
+                aria-labelledby={`faq-button-${index}`}
+              >
+                <div
+                  class="pt-3  prose text-text/80"
+                  set:html={renderText(faq.answer)}
+                />
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</div>
+
+<style>
+  .faq-accordion button[aria-expanded="true"] svg {
+    @apply rotate-0;
+  }
+
+  .faq-accordion dd[aria-hidden="false"] {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  function init() {
+    const faqButtons = document.querySelectorAll(".faq-accordion dt button");
+    let currentlyOpenContent: HTMLElement | null = null;
+
+    faqButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const content = button.parentElement!.nextElementSibling as HTMLElement;
+        const container = button.closest(".p-4");
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+        // Remove active class from all containers
+        document.querySelectorAll(".faq-accordion .p-4").forEach((el) => {
+          el.classList.remove("active");
+        });
+
+        if (!isExpanded) {
+          container?.classList.add("active");
+          button.setAttribute("aria-expanded", "true");
+          content.style.maxHeight = content.scrollHeight + "px";
+          currentlyOpenContent = content;
+        } else {
+          container?.classList.remove("active");
+          button.setAttribute("aria-expanded", "false");
+          content.style.maxHeight = "0";
+          currentlyOpenContent = null;
+        }
+
+        button.querySelector("svg")!.classList.toggle("!rotate-180");
+      });
+    });
+  }
+
+  init();
+  document.addEventListener("astro:after-swap", init);
+</script>

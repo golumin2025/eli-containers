@@ -1,0 +1,141 @@
+title: Home
+seoData: {}
+blocks:
+  - discriminant: mainHero
+    value:
+      Sliderimages:
+        - image: /images/home/home/blocks/0/value/Sliderimages/0/image.webp
+          title: Your space, your schedule.
+          description: Convenient moving and storage on your terms.
+        - image: /images/home/home/blocks/0/value/Sliderimages/1/image.webp
+          title: Store today, decide tomorrow.
+          description: On-site storage that flexes with your plans.
+  - discriminant: howPodsWork
+    value:
+      heading: How PODS works
+      tabs:
+        - title: Moving
+          steps:
+            - title: We deliver your container
+              description: >+
+                Choose from 8', 12', or 16' weather-resistant containers,
+                delivered right to your door.
+
+            - title: Pack at your own pace
+              description: >+
+                Your first 30 days are included, then rent monthly if needed.
+                Need help loading? We can connect you with pros.
+
+            - title: 'Next stop: your new home'
+              description: >+
+                We'll deliver to your new home whenever you're ready. Need
+                storage between homes? You have the option to keep your
+                container at one of our secure Storage Centers.
+
+        - title: Storage
+          steps:
+            - title: We deliver your container
+              description: >+
+                Choose from 8', 12', or 16' weather-resistant containers,
+                delivered right to your door.
+
+            - title: Load at your own pace
+              description: >+
+                Your first 30 days are included, then rent monthly if needed.
+                Need help loading? We can connect you with pros.
+
+            - title: Store at home or with us
+              description: >+
+                Keep your container at home for 24/7 access, or we'll move it to
+                a secure PODS Facility where you can retrieve items when needed.
+
+  - discriminant: featuredImage
+    value:
+      image: /src/assets/images/home/blocks/2/value/image.webp
+      title: 6 million moves
+      description: |
+        in 25 years
+  - discriminant: reviewsSlider
+    value:
+      title: 'Rated #1 in moving and customer service'
+      logos:
+        - image: /src/assets/images/home/blocks/3/value/logos/0/image.avif
+        - image: /src/assets/images/home/blocks/3/value/logos/1/image.avif
+        - image: /src/assets/images/home/blocks/3/value/logos/2/image.avif
+        - image: /src/assets/images/home/blocks/3/value/logos/3/image.avif
+  - discriminant: faqs
+    value:
+      title: Faqs
+      faqs:
+        - question: How do Billing & Payments Work with PODS?
+          answer: >
+            **No deposits, no obligations:** Like most hotel reservations, you
+            can reserve your PODS container with a credit card – no payments are
+            due until 7 days before your container delivery.
+
+
+            **Easy cancellation:** If you change your dates or change your mind,
+            it's no worries! Visit pods.com/cancel to view our full cancellation
+            policy.
+
+
+            **No surprise costs:** We're transparent with our pricing in your
+            detailed quote, which you'll receive via email.
+
+
+            **Avoid late fees:** Your containers are rented by the month, so you
+            can take your time loading and unloading – without worrying about
+            extra fees that can come with a truck rental.
+
+
+            **Flexible scheduling:** With PODS there are no rigid schedules. If
+            your plans change you can login to my.pods.com to update your
+            schedule.
+        - question: How long do I have to load or unload my PODS container?
+          answer: >
+            Take your time - your PODS container rental is monthly, giving you
+            the flexibility to pack and unload at your own pace. Your 30-day
+            billing cycle starts when we deliver your container.
+        - question: How are PODS Moving prices calculated?
+          answer: >
+            We personalize your moving quote based on your unique journey:
+
+
+            - Pick-up and delivery locations
+
+            - Travel distance
+
+            - Time needed for your move
+
+            - Size and number of containers
+
+
+            [Get your custom quote in minutes](https://booking.pods.com/home)
+            and see why millions choose PODS for a smoother move.
+        - question: How are PODS Storage prices calculated?
+          answer: >
+            Your PODS storage quote is personalized based on your unique needs,
+            including:
+
+
+            - Your location
+
+            - Length of storage and time of year
+
+            - Container size and quantity
+
+            - Storage location - at your property or in a secure, indoor,
+            climate-controlled PODS Storage Center
+
+            - Special offers and promotions available in your area
+
+
+            [Get your custom quote in minutes](https://booking.pods.com/home),
+            or explore our current [discount offers](https://www.pods.com/promo)
+            to start saving.
+        - question: Are PODS Storage Centers climate-controlled?
+          answer: >
+            If you keep your things at one of our Storage Centers, they'll
+            receive the best and most secure treatment available. PODS Storage
+            Centers are clean, safe, dry, and many are climate-controlled. PODS
+            has hundreds of convenient and safe locations across the country.

@@ -1,0 +1,35 @@
+menuItems:
+  - name: Moving
+    link: '#'
+    subMenu:
+      - name: 'Moving '
+        link: '#'
+      - name: Storage
+        link: '#'
+      - name: Moving Overview
+        link: '#'
+      - name: Moving Costs
+        link: '#'
+  - name: Storage
+    link: '#'
+    subMenu:
+      - name: Storage Container
+        link: '#'
+      - name: Storage Overview
+        link: '#'
+      - name: Storage Consts
+        link: '#'
+  - name: Locations
+    link: /locations
+    subMenu: []
+  - name: For business
+    link: '#'
+    subMenu:
+      - name: Contact us
+        link: '#'
+      - name: Case Studies
+        link: '#'
+button:
+  enable: true
+  label: Login
+  link: '#'

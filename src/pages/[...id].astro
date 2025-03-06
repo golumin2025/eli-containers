@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from "@layouts/Layout.astro";
+import MainHero from "@components/sections/MainHero.astro";
+
+export async function getStaticPaths() {
+  const allpages = await getCollection("pages");
+  const filteredPages = allpages.filter(
+    ({ id }: { id: string }) => id !== "home"
+  );
+  return filteredPages.map(({ id, data }: { id: string; data: any }) => {
+    return {
+      params: { id },
+      props: { data },
+    };
+  });
+}
+const { id }: any = Astro.params;
+const { data }: { data: any } = Astro.props;
+---
+
+<Layout
+  title={data?.seoData.seoTitle as string}
+  description={data?.seoData.seoDesription as string}
+>
+  <div>
+    {
+      data?.blocks.map((item: any) => (
+        <>{item.discriminant === "mainHero" && <MainHero {...item.value} />}</>
+      ))
+    }
+  </div>
+</Layout>

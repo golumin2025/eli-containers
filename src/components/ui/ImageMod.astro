@@ -1,0 +1,46 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  className?: string;
+  format?: string;
+  loading?: "lazy" | "eager";
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  className,
+  format = "",
+  loading = "lazy",
+} = Astro.props;
+
+const images = await import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/**/**/*.{jpeg,jpg,png,gif,webp,svg,avif}"
+);
+if (!images[src]) {
+  console.warn(`Image ${src} not found`);
+}
+const imageSource = images[src] ? await images[src]() : null;
+---
+
+{
+  imageSource && (
+    <Image
+      src={imageSource.default}
+      alt={alt || ""}
+      width={width}
+      height={height}
+      class={className}
+      loading={loading}
+      format={format}
+    />
+  )
+}
