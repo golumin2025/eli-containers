@@ -17,6 +17,11 @@ export const general = {
           directory: "/src/assets/images/general",
           publicPath: "/src/assets/images/general/",
         }),
+        footerLogo: fields.image({
+          label: "Footer Logo",
+          directory: "/src/assets/images/general",
+          publicPath: "/src/assets/images/general/",
+        }),
       },
       {
         label: "Site Images",

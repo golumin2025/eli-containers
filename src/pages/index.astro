@@ -6,6 +6,8 @@ import FeaturedImage from "@components/ui/FeaturedImage.astro";
 import Faqs from "@components/sections/Faq.astro";
 import Layout from "@layouts/Layout.astro";
 import { getEntry } from "astro:content";
+import Masonry from "@components/sections/Masonry.astro";
+import PodsHelping from "@components/sections/PodsHelping.astro";
 
 const homePage = await getEntry("pages", "home");
 ---
@@ -28,6 +30,10 @@ const homePage = await getEntry("pages", "home");
           <ReviewsSlider {...item.value} />
         )}
         {item.discriminant === "faqs" && <Faqs {...item.value} />}
+        {item.discriminant === "masonaryGallery" && <Masonry {...item.value} />}
+        {/* {item.discriminant === "podsHelpingBintoGrid" && (
+          <PodsHelping {...item.value} />
+        )} */}
       </>
     ))
   }

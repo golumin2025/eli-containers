@@ -2,13 +2,13 @@
 const { heading, tabs } = Astro.props;
 ---
 
-<div class="max-w-6xl mx-auto !py-16 lg:!py-24">
+<div class="max-w-6xl px-6 mx-auto !py-16 lg:!py-24">
   <h2 class="text-4xl text-secondary text-center font-semibold mb-8">
     {heading}
   </h2>
   <div>
     <!-- Tabs -->
-    <div class="flex justify-center items-center gap-20">
+    <div class="flex justify-center items-center lg:flex-row flex-col gap-20">
       <div class="h-auto relative lg:w-1/2 w-full">
         {
           tabs.map((tab, index) => (
@@ -22,7 +22,7 @@ const { heading, tabs } = Astro.props;
             >
               {tab.steps.map((item, index) => (
                 <div class="relative flex items-start  ">
-                  <div class="relative pr-5">
+                  <div class="relative pr-5 h-full ">
                     <div class="bg-background number">{index + 1}</div>
                     {index !== tab.steps.length - 1 && (
                       <div class="number-line bg-background" />
@@ -99,12 +99,19 @@ const { heading, tabs } = Astro.props;
     height: 48px;
     color: #fff;
     font-size: 32px;
+    position: relative;
   }
   .number-line {
     position: absolute;
-    left: 33.3%;
     width: 4px;
     height: 100%;
+    left: 33.33%;
+    top: 48px;
+    transform: translateX(-50%);
+    height: calc(100% + 4rem);
+    @media (min-width: 1024px) {
+      height: calc(100% + 6rem);
+    }
   }
 </style>
 

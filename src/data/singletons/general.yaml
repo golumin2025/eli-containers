@@ -1,5 +1,6 @@
 businessName: Pods
 logo:
   logo: /src/assets/images/general/logo/logo.svg
+  footerLogo: /src/assets/images/general/logo/footerLogo.png
 contactInformation: {}
 analyticsScripts: []

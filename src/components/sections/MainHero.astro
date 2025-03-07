@@ -4,6 +4,9 @@ const { Sliderimages } = Astro.props;
 ---
 
 <div class="md:h-[700px] h-full relative">
+  <div class="w-full bg-white rounded-lg md:hidden block p-4 md:p-8">
+    <QuoteForm client:load />
+  </div>
   <div class="swiper main-slider h-full">
     <div class="swiper-wrapper">
       {
@@ -11,10 +14,10 @@ const { Sliderimages } = Astro.props;
           <div class="swiper-slide">
             <div
               class="slide-content bg-cover bg-center h-full"
-              style={`background-image: linear-gradient(to top, rgba(36, 112, 163, 1), rgba(41, 147, 188, 0), rgba(41, 147, 188, 0)), url(${slide.image})`}
+              style={`background-image: var(--gradient-direction), url(${slide.image})`}
             >
               <div class="custom-container mx-auto h-full flex items-end  px-4 md:px-8">
-                <div class="text-white md:w-1/2 pb-12 ">
+                <div class="text-white md:w-1/2 py-12 ">
                   <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 fade-up">
                     {slide.title}
                   </h1>
@@ -31,7 +34,7 @@ const { Sliderimages } = Astro.props;
   </div>
   <!-- Mobile Quote Form -->
   <div
-    class="md:absolute top-0 right-0 h-full w-full md:w-1/2 flex items-center justify-center z-10"
+    class="md:absolute md:flex hidden top-0 right-0 h-full w-full md:w-1/2 items-center justify-center z-10"
   >
     <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
       <QuoteForm client:load />
@@ -57,6 +60,24 @@ const { Sliderimages } = Astro.props;
 </script>
 
 <style>
+  :root {
+    --gradient-direction: linear-gradient(
+      to bottom,
+      rgba(36, 112, 163, 1),
+      rgba(41, 147, 188, 0)
+    );
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --gradient-direction: linear-gradient(
+        to top,
+        rgba(36, 112, 163, 1),
+        rgba(41, 147, 188, 0),
+        rgba(41, 147, 188, 0)
+      );
+    }
+  }
   .slide-content {
     width: 100%;
     height: 100%;

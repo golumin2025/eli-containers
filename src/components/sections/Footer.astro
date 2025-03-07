@@ -1,0 +1,66 @@
+---
+import ImageMod from "@components/ui/ImageMod.astro";
+import { getEntry } from "astro:content";
+const footer = await getEntry("singletons", "footer");
+const general = await getEntry("singletons", "general");
+const footerData = footer.data;
+---
+
+<footer class="bg-[#004B99] text-white py-12 lg:py-16">
+  <div class="custom-container mx-auto flex flex-wrap justify-between">
+    <div class="w-full flex justify-center mb-6">
+      <ImageMod
+        src={general.data.logo.footerLogo}
+        alt="Logo"
+        className="h-24 object-contain"
+      />
+    </div>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full my-14 items-start gap-4"
+    >
+      {
+        footerData.navitems.map((section) => (
+          <div class="w-full  mb-6">
+            <h3 class="text-lg font-semibold">{section.title}</h3>
+            <ul class="mt-2 space-y-2">
+              {section.links.map((link) => (
+                <li>
+                  <a href={link.url} class="text-gray-300 hover:text-white">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+      <div class="">
+        <h3 class="text-lg font-semibold mb-2">Follow Us</h3>
+        <div class="flex space-x-4">
+          {
+            footerData.socialLinks.map((social) => (
+              <a href={social.url} class="text-white text-2xl">
+                <ImageMod src={social.icon} alt={social.name} className="h-8" />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center md:flex-row flex-col w-full gap-4">
+      {
+        footerData.legal.map((item) => (
+          <a href={item.link} class="text-white text-xs">
+            {item.title}
+          </a>
+        ))
+      }
+    </div>
+    <div class="w-full text-center text-sm mt-6 text-gray-300">
+      © 2006 - {new Date().getFullYear()} PODS Enterprises LLC. All rights reserved.
+      PODS® is a registered trademark of PODS Enterprises LLC.
+    </div>
+  </div>
+</footer>

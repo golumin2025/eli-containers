@@ -26,7 +26,7 @@ blocks:
                 Your first 30 days are included, then rent monthly if needed.
                 Need help loading? We can connect you with pros.
 
-            - title: 'Next stop: your new home'
+            - title: "Next stop: your new home"
               description: >+
                 We'll deliver to your new home whenever you're ready. Need
                 storage between homes? You have the option to keep your
@@ -57,12 +57,24 @@ blocks:
         in 25 years
   - discriminant: reviewsSlider
     value:
-      title: 'Rated #1 in moving and customer service'
+      title: "Rated #1 in moving and customer service"
       logos:
         - image: /src/assets/images/home/blocks/3/value/logos/0/image.avif
         - image: /src/assets/images/home/blocks/3/value/logos/1/image.avif
         - image: /src/assets/images/home/blocks/3/value/logos/2/image.avif
         - image: /src/assets/images/home/blocks/3/value/logos/3/image.avif
+  - discriminant: masonaryGallery
+    value:
+      title: Real stories, real moves
+      images:
+        - /src/assets/images/home/blocks/4/value/images/0.webp
+        - /src/assets/images/home/blocks/4/value/images/1.webp
+        - /src/assets/images/home/blocks/4/value/images/2.webp
+        - /src/assets/images/home/blocks/4/value/images/3.webp
+        - /src/assets/images/home/blocks/4/value/images/4.webp
+        - /src/assets/images/home/blocks/4/value/images/5.webp
+        - /src/assets/images/home/blocks/4/value/images/6.webp
+        - /src/assets/images/home/blocks/4/value/images/7.webp
   - discriminant: faqs
     value:
       title: Faqs
@@ -139,3 +151,42 @@ blocks:
             receive the best and most secure treatment available. PODS Storage
             Centers are clean, safe, dry, and many are climate-controlled. PODS
             has hundreds of convenient and safe locations across the country.
+  - discriminant: podsHelpingBintoGrid
+    value:
+      heading: Let PODS help you start fresh
+      cards:
+        - title: "You don’t have to worry about driving"
+          description: "You can cross 'learn how to drive a moving truck' off your list, PODS will transport your container wherever it needs to go."
+          image: "/images/truck-driver.jpg"
+          icon: null
+          size: "wide"
+
+        - title: "Home-to-home without the hassle"
+          description: "You have the option to store your belongings at our Storage Centers while you're between homes."
+          image: "/images/storage-center.jpg"
+          icon: null
+          size: "normal"
+
+        - title: "Move now, pay later"
+          description: "Monthly financing is available to make your move fit your budget."
+          image: null
+          icon: "/icons/payment.svg"
+          size: "normal"
+
+        - title: "Ditch the moving deadline"
+          description: "Our monthly rentals mean you can tackle your move one box at a time."
+          image: null
+          icon: "/icons/calendar.svg"
+          size: "normal"
+
+        - title: "Manage your move online"
+          description: "Track your move and easily update delivery or pickup dates."
+          image: "/images/phone-app.jpg"
+          icon: null
+          size: "wide"
+
+        - title: "10x safer for your stuff"
+          description: "Our content damage claims rate is less than 1/10th the moving industry average."
+          image: null
+          icon: "/icons/safety.svg"
+          size: "normal"

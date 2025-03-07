@@ -6,6 +6,8 @@ import {
   findYouFit,
   reviewsSlider,
   faqs,
+  masonaryGallery,
+  podsHelpingBintoGrid,
 } from "@keystatic/blocks";
 
 export const pages = {
@@ -37,7 +39,9 @@ export const pages = {
         featuredImage,
         reviewsSlider,
         findYouFit,
-        faqs
+        faqs,
+        masonaryGallery,
+        podsHelpingBintoGrid
       },
       { label: "Blocks" },
     ),

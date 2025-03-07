@@ -124,3 +124,44 @@ export const faqs = {
     ),
   })
 };
+
+export const masonaryGallery = {
+  label: "Masonary Gallery",
+  schema: fields.object({
+    title: fields.text({ label: "Title" }),
+    images: fields.array(
+      fields.image({
+        label: "Image",
+        directory: "/src/assets/images/",
+        publicPath: "/src/assets/images/",
+      }),
+      {
+        label: "Images",
+      }
+    ),
+  })
+}
+
+export const podsHelpingBintoGrid = {
+  label: 'PODS Helping Binto Grid',
+  schema: fields.object({
+    heading: fields.text({ label: "Heading" }),
+    cards: fields.array(
+      fields.object({
+        title: fields.text({ label: 'Title' }),
+        description: fields.text({ label: 'Description', multiline: true }),
+        image: fields.image({ label: 'Image', directory: '/src/assets/images' }),
+        icon: fields.image({ label: 'Icon', directory: '/src/assets/icons', }),
+        size: fields.select({
+          label: 'Size',
+          options: [
+            { label: 'Normal', value: 'normal' },
+            { label: 'Wide', value: 'wide' },
+            { label: 'Tall', value: 'tall' },
+          ],
+          defaultValue: 'normal',
+        }),
+      })
+    ),
+  }),
+}
