@@ -2,5 +2,7 @@ businessName: Pods
 logo:
   logo: /src/assets/images/general/logo/logo.svg
   footerLogo: /src/assets/images/general/logo/footerLogo.png
-contactInformation: {}
+contactInformation:
+  phone: '8557064758'
+  phoneDisplay: (855) 706-4758
 analyticsScripts: []
