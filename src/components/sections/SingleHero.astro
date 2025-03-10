@@ -1,0 +1,46 @@
+---
+const { title, description, bgImage } = Astro.props;
+import QuoteForm from "../forms/QuoteForm.svelte";
+---
+
+<section class="relative custom-container mt-6 rounded-xl overflow-hidden">
+  <img
+    src={bgImage}
+    alt="Hero background"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+  <div class="absolute inset-0 gradient-overlay"></div>
+  <div
+    class="relative py-16 flex flex-col md:flex-row gap-8 justify-between items-center text-white z-10"
+  >
+    <div class="md:w-1/2 w-full">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
+      <p class="text-xl">{description}</p>
+    </div>
+    <div class="md:w-1/2 w-full flex justify-end">
+      <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
+        <QuoteForm client:load />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gradient-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.1)
+    );
+  }
+
+  @media (min-width: 768px) {
+    .gradient-overlay {
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.1)
+      );
+    }
+  }
+</style>

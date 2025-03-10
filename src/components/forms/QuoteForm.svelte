@@ -145,17 +145,17 @@
   >
     <button
       type="button"
-      class={`py-3 px-4 rounded-md flex-1 transition-colors shadow-lg cursor-pointer ${form.serviceType === "keep-it" ? "bg-primary text-white shadow-lg" : "bg-gray-200 hover:bg-gray-300"}`}
+      class={`py-3 px-4 rounded-md flex-1 transition-colors  ${form.serviceType === "keep-it" ? "bg-primary text-white" : "bg-gray-200 text-black hover:bg-gray-300"}`}
       onclick={() => (form.serviceType = "keep-it")}>Keep It</button
     >
     <button
       type="button"
-      class={`py-3 px-4 rounded-md transition-colors flex-1 shadow-lg cursor-pointer ${form.serviceType === "move-it" ? "bg-primary text-white shadow-lg" : "bg-gray-200 hover:bg-gray-300"}`}
+      class={`py-3 px-4 rounded-md transition-colors flex-1 ${form.serviceType === "move-it" ? "bg-primary text-white" : "bg-gray-200 text-black hover:bg-gray-300"}`}
       onclick={() => (form.serviceType = "move-it")}>Move It</button
     >
     <button
       type="button"
-      class={`py-3 px-4 rounded-md transition-colors flex-1 shadow-lg cursor-pointer ${form.serviceType === "store-it" ? "bg-primary text-white shadow-lg" : "bg-gray-200 hover:bg-gray-300"}`}
+      class={`py-3 px-4 rounded-md transition-colors flex-1 ${form.serviceType === "store-it" ? "bg-primary text-white" : "bg-gray-200 text-black hover:bg-gray-300"}`}
       onclick={() => (form.serviceType = "store-it")}>Store It</button
     >
   </div>
@@ -165,7 +165,7 @@
         <input
           type="text"
           id="firstName"
-          class="outline-secondary border border-black w-full py-3 text-base rounded px-3"
+          class="outline-secondary border border-black w-full py-3 text-base rounded px-3 placeholder:text-black"
           bind:value={form.firstName}
           placeholder="First Name"
         />
@@ -178,7 +178,7 @@
         <input
           type="text"
           id="lastName"
-          class="outline-secondary border border-black w-full py-3 text-base rounded px-3"
+          class="outline-secondary border border-black w-full py-3 text-base rounded px-3 placeholder:text-black"
           bind:value={form.lastName}
           placeholder="Last Name"
         />
@@ -190,7 +190,7 @@
     <div class="flex gap-2">
       <div class="w-full">
         <input
-          class="outline-secondary border border-black w-full py-3 text-base rounded px-3"
+          class="outline-secondary border border-black w-full py-3 text-base rounded px-3 placeholder:text-black"
           type="text"
           id="initialDeliveryZip"
           bind:value={form.initialDeliveryZip}
@@ -206,7 +206,7 @@
       {#if form.serviceType === "move-it"}
         <div class="w-full">
           <input
-            class="outline-secondary border border-black w-full py-3 text-base rounded px-3"
+            class="outline-secondary border border-black w-full py-3 text-base rounded px-3 placeholder:text-black"
             type="text"
             id="final-delivery-zip"
             placeholder="Relocation Zip Code"
@@ -235,7 +235,7 @@
         id="email"
         placeholder="Email Address"
         bind:value={form.email}
-        class="outline-secondary border border-black w-full py-3 text-base rounded px-3"
+        class="outline-secondary border border-black w-full py-3 text-base rounded px-3 placeholder:text-black"
       />
       {#if form.errors?.email}
         <p class="text-red-800">{form.errors.email}</p>
@@ -248,7 +248,7 @@
         id="phone"
         placeholder="Phone Number"
         bind:value={form.phone}
-        class="outline-secondary border border-black w-full py-3 text-base rounded px-3"
+        class="outline-secondary border border-black w-full py-3 text-base rounded px-3 placeholder:text-black"
       />
       {#if form.errors?.phone}
         <p class="text-red-800">{form.errors.phone}</p>

@@ -37,7 +37,7 @@ const { Sliderimages } = Astro.props;
     class="md:absolute md:flex hidden top-0 right-0 h-full w-full md:w-1/2 items-center justify-center z-10"
   >
     <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
-      <QuoteForm client:load />
+      <QuoteForm client:only="svelte" />
     </div>
   </div>
 </div>

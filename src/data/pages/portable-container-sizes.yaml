@@ -1,0 +1,171 @@
+title: Moving
+seoData:
+  seoTitle: Moving Container & Storage Unit Sizes | PODS
+  seoDescription: >-
+    Compare our 8-foot, 12-foot & 16-foot steel-framed storage containers to
+    find the PODS container size that’s right for your moving or storage needs.
+blocks:
+  - discriminant: singleHero
+    value:
+      bgImage: /src/assets/images/portable-container-sizes/blocks/0/value/bgImage.png
+      title: " Moving container & storage unit sizes"
+      description: >
+        Keeping your things safe is our priority, so we've built our containers
+        for protection. We've got multiple size options to choose from, and you
+        can mix and match to fit your needs.
+  - discriminant: storageOptions
+    value:
+      title: "Find Your Fit: Moving and Storage Unit Size Options"
+      cards:
+        - image: >-
+            /src/assets/images/portable-container-sizes/blocks/1/value/cards/0/image.png
+          size: Large Container
+          dimension: 16 Foot
+          description:
+            - Ideal for a 2-bedroom home, or up to 1,200 sq. ft.*
+            - About the length of a standard parking spot
+            - Comparable to a 10'x15' storage unit or a 20' truck
+          link: "#"
+        - image: >-
+            /src/assets/images/portable-container-sizes/blocks/1/value/cards/1/image.png
+          size: Medium Container
+          dimension: 12-Foot
+          description:
+            - Perfect for a 1-bedroom home, or a 500-800 sq. ft. space*
+            - Great for packing away things from 2 or 3 rooms
+            - Compare to a 10'x10' storage unit or 15' truck
+          link: "#"
+        - image: >-
+            /src/assets/images/portable-container-sizes/blocks/1/value/cards/2/image.png
+          size: Small Container
+          dimension: 8-Foot
+          description:
+            - Great for a studio or room of 500 sq. ft. or less*
+            - A popular choice for college students
+            - Comparable to a 5'x10' storage unit or 10' truck
+          link: "#"
+  - discriminant: protectionConvenience
+    value:
+      title: Designed for Protection & Convenience
+      cards:
+        - icon: >-
+            /src/assets/icons/portable-container-sizes/blocks/2/value/cards/0/icon.svg
+          title: Sturdy steel construction
+          description: >+
+            PODS steel-frame, weather-resistant containers are built to keep
+            your belongings protected from the elements. Watch out for some
+            companies that advertise their containers as “all steel,” which may
+            only be lightweight metal sheeting that offers no added security for
+            your belongings.
+
+        - icon: >-
+            /src/assets/icons/portable-container-sizes/blocks/2/value/cards/1/icon.svg
+          title: Impact-resistant wall paneling
+          description: >+
+            Our containers are specially designed with impact- and
+            weather-resistant high-tech polymer wall panels, or sturdy wood
+            reinforced with an aluminum exterior sheet for extra security and
+            protection.
+
+        - icon: >-
+            /src/assets/icons/portable-container-sizes/blocks/2/value/cards/2/icon.svg
+          title: Safe & secure
+          description: >+
+            Since you own the lock and key, you’re the only one who has access
+            to your stuff.
+
+        - icon: >-
+            /src/assets/icons/portable-container-sizes/blocks/2/value/cards/3/icon.svg
+          title: Built-in tie-down rings
+          description: >+
+            Convenient tie-down rings enable you to secure your belongings for
+            transit with ropes or straps.
+
+        - icon: >-
+            /src/assets/icons/portable-container-sizes/blocks/2/value/cards/4/icon.svg
+          title: Convenient roll-up door
+          description: >+
+            Unlike swing doors, our roll-up doors don’t require as much space to
+            open. This means you have more room in your driveway.
+
+        - icon: >-
+            /src/assets/icons/portable-container-sizes/blocks/2/value/cards/5/icon.svg
+          title: Ramp-free loading
+          description: |+
+            Our containers make loading easier with ground-level access.
+
+  - discriminant: twoCol
+    value:
+      heading: Large Container — 16-Foot
+      image: /src/assets/images/portable-container-sizes/blocks/3/value/image.png
+      imagePlacement: left
+      description: >
+        ## **The Perfect Size for Bigger Households**
+
+
+        - Perfect for a 1,200 sq. ft. space* or smaller
+
+        - Great for moves requiring temporary storage
+
+        - Our largest size, and a popular choice for moving a home with 3 to 4
+        rooms
+
+        - Comparable to a 10'x15' storage unit or a 20' rental truck
+
+        - Imagine a parking space in 3D&nbsp;
+
+        - 835 cubic ft.
+
+        - Dimensions: 16' x 8' x 8'*
+
+
+        Watch our [What Fits in a 16-Foot
+        Container](https://www.pods.com/portable-container-sizes/16-foot-container)&nbsp;video.\
+
+        Try our [Moving and Storage
+        Calculator](https://www.pods.com/resource-center/moving-and-storage-calculator)&nbsp;to
+        determine which size and how many you need.
+      button:
+        label: Get 16-foot container pricing
+        link: "#"
+      colors: "#0069e5/5"
+  - discriminant: cards
+    value:
+      title: Your One-Stop Moving and Storage Resource
+      cards:
+        - image: >-
+            /src/assets/images/portable-container-sizes/blocks/4/value/cards/0/image.png
+          title: Hourly labor help
+          description: >
+            PODS offers self-moving services with full-service options, like
+            referrals for [**professional packing and
+            loading**](https://www.pods.com/packing-and-loading-assistance)&nbsp;companies
+            in your area that will do as much, or as little, of the work as
+            you’d like.&nbsp;[**Priority
+            Scheduling**](https://www.pods.com/priority-scheduling) will help
+            you take control of moving day by securing specific delivery and
+            pickup time windows that work for you.
+        - image: >-
+            /src/assets/images/portable-container-sizes/blocks/4/value/cards/0/image.png
+          title: Hourly labor help
+          description: >
+            PODS offers self-moving services with full-service options, like
+            referrals for [**professional packing and
+            loading**](https://www.pods.com/packing-and-loading-assistance)&nbsp;companies
+            in your area that will do as much, or as little, of the work as
+            you’d like.&nbsp;[**Priority
+            Scheduling**](https://www.pods.com/priority-scheduling) will help
+            you take control of moving day by securing specific delivery and
+            pickup time windows that work for you.
+        - image: >-
+            /src/assets/images/portable-container-sizes/blocks/4/value/cards/0/image.png
+          title: Hourly labor help
+          description: >
+            PODS offers self-moving services with full-service options, like
+            referrals for [**professional packing and
+            loading**](https://www.pods.com/packing-and-loading-assistance)&nbsp;companies
+            in your area that will do as much, or as little, of the work as
+            you’d like.&nbsp;[**Priority
+            Scheduling**](https://www.pods.com/priority-scheduling) will help
+            you take control of moving day by securing specific delivery and
+            pickup time windows that work for you.

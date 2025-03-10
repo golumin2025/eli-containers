@@ -169,4 +169,90 @@ export const podsHelpingBintoGrid = {
       }),
     ),
   }),
+}
+
+export const singleHero = {
+  label: "Single Hero",
+  schema: fields.object({
+    bgImage: fields.image({ label: "BackGround Image", directory: "/src/assets/images", publicPath: "/src/assets/images" }),
+    title: fields.text({ label: "Title" }),
+    description: fields.text({ label: "Description", multiline: true }),
+  })
+}
+
+
+export const storageOptions = {
+  label: "Storage Options",
+  schema: fields.object({
+    title: fields.text({ label: "Title" }),
+    cards: fields.array(
+      fields.object({
+        image: fields.image({ label: "Image", directory: "/src/assets/images", publicPath: "/src/assets/images" }),
+        size: fields.text({ label: "Size" }),
+        dimension: fields.text({ label: "Dimension" }),
+        description: fields.array(fields.text({ label: "Description" }), { label: "Description Items" }),
+        link: fields.text({ label: "CTA Link" }),
+      }),
+      { label: "Storage Containers", itemLabel: (item) => item.fields.size.value }
+    )
+  })
+};
+
+export const protectionConvenience = {
+  label: "Protection & Convenience Features",
+  schema: fields.object({
+    title: fields.text({ label: "Title" }),
+    cards: fields.array(
+      fields.object({
+        icon: fields.image({ label: "Icon", directory: "/src/assets/icons", publicPath: "/src/assets/icons" }),
+        title: fields.text({ label: "Title" }),
+        description: fields.text({ label: "Description", multiline: true }),
+      }),
+      { label: "Storage Containers", itemLabel: (item) => item.fields.title.value }
+    )
+  })
+};
+
+export const twoCol = {
+  label: "Two Column",
+  schema: fields.object({
+    heading: fields.text({ label: "Heading" }),
+    image: fields.image({ label: "Image", directory: "/src/assets/images", publicPath: "/src/assets/images" }),
+    imagePlacement: fields.select({
+      label: "Image Placement",
+      options: [
+        { label: "Left", value: "left" },
+        { label: "Right", value: "right" },
+      ],
+      defaultValue: "left",
+    }),
+    description: fields.markdoc.inline({ label: "Description", }),
+    button: fields.object({
+      label: fields.text({ label: "Button Label" }),
+      link: fields.text({ label: "Button link" }),
+    }),
+    colors: fields.select({
+      label: "Color Scheme",
+      options: [
+        { label: "#0069e5", value: "#0069e5" },
+        { label: "#0069e5 with 5 opacity", value: "#0069e5/5" },
+      ],
+      defaultValue: "#0069e5/5",
+    }),
+  }),
+};
+
+export const cards = {
+  label: "Cards With Title",
+  schema: fields.object({
+    title: fields.text({ label: "Title" }),
+    cards: fields.array(
+      fields.object({
+        image: fields.image({ label: "Image", directory: "/src/assets/images", publicPath: "/src/assets/images" }),
+        title: fields.text({ label: "Title" }),
+        description: fields.markdoc.inline({ label: "Description", }),
+      }),
+      { label: "Storage Containers", itemLabel: (item) => item.fields.title.value }
+    )
+  })
 };

@@ -1,0 +1,44 @@
+---
+import Button from "@components/ui/Button.astro";
+import ImageMod from "@components/ui/ImageMod.astro";
+import { marked } from "marked";
+
+const { heading, description, image, imagePlacement, colors, button } =
+  Astro.props;
+
+let renderDescription = marked.parse(description);
+---
+
+<div class="custom-container py-10">
+  <h2 class="text-4xl text-secondary mb-12 text-center font-semibold">
+    {heading}
+  </h2>
+  <div
+    class={`flex flex-col ${imagePlacement === "left" ? "lg:flex-row" : "lg:flex-row-reverse"} items-stretch `}
+  >
+    <div
+      class={`w-full lg:w-1/2 p-8 flex justify-center items-start flex-col ${
+        colors === "#0069e5"
+          ? "bg-background prose-headings:text-white prose-p:text-white prose-li:text-white prose-a:text-white"
+          : "bg-background/10 prose-p:text-black/80 prose-a:text-primary"
+      }`}
+    >
+      <div class="mb-6 prose" set:html={renderDescription} />
+      <div class="flex items-start justify-start">
+        <a
+          href={button.link}
+          class="rounded-md bg-white px-4.5 py-2.5 text-sm font-semibold !text-black shadow-sm focus-visible:outline"
+        >
+          {button.label}
+        </a>
+      </div>
+    </div>
+    <div class="w-full lg:w-1/2 h-full">
+      <ImageMod
+        src={image}
+        alt={"Featured Image"}
+        className="object-cover w-full h-full min-h-[200px]"
+      />
+    </div>
+  </div>
+</div>

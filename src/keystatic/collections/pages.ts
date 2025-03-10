@@ -8,6 +8,11 @@ import {
   faqs,
   masonaryGallery,
   podsHelpingBintoGrid,
+  singleHero,
+  storageOptions,
+  protectionConvenience,
+  twoCol,
+  cards,
 } from "@keystatic/blocks";
 
 export const pages = {
@@ -42,6 +47,11 @@ export const pages = {
         faqs,
         masonaryGallery,
         podsHelpingBintoGrid,
+        singleHero,
+        storageOptions,
+        protectionConvenience,
+        twoCol,
+        cards
       },
       { label: "Blocks" },
     ),

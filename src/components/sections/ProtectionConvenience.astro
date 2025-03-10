@@ -1,0 +1,26 @@
+---
+import ImageMod from "@components/ui/ImageMod.astro";
+
+const { cards, title } = Astro.props;
+---
+
+<section class="custom-container mx-auto px-4 py-10 lg:py-24">
+  <h2 class="text-3xl font-bold text-center mb-6">
+    {title}
+  </h2>
+  <div class="bg-white shadow-md lg:!max-w-6xl mx-auto rounded-lg p-6">
+    <div class="grid md:grid-cols-2 gap-6">
+      {
+        cards.map((feature) => (
+          <div class="flex items-start space-x-4">
+            <ImageMod src={feature.icon} alt="icon" className="w-6 h-6 mt-1" />
+            <div>
+              <h3 class="text-lg font-semibold mb-1">{feature.title}</h3>
+              <p class="text-sm text-black/70">{feature.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
