@@ -13,7 +13,7 @@ const { logos, title } = Astro.props;
       class="custom-container flex items-center gap-12 justify-between xl:flex-row flex-col mb-12"
     >
       <h2 class="text-2xl xl:w-1/6">{title}</h2>
-      <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-4 gap-8">
         {
           logos.map((logo) => (
             <ImageMod src={logo.image} alt="logo" width={200} height={200} />
