@@ -41,7 +41,7 @@ export const pages = {
         findYouFit,
         faqs,
         masonaryGallery,
-        podsHelpingBintoGrid
+        podsHelpingBintoGrid,
       },
       { label: "Blocks" },
     ),

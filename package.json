@@ -34,5 +34,11 @@
     "swiper": "^11.2.5",
     "tailwindcss": "^4.0.11",
     "typescript": "^5.8.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
   }
 }

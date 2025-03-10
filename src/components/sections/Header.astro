@@ -14,7 +14,7 @@ const general = await getEntry("singletons", "general");
   <div class="">
     <div class="flex custom-container justify-between items-center py-4">
       <!-- Logo -->
-      <a href="/" class="text-xl font-bold text-gray-800">
+      <a href="/" class="text-xl font-bold text-gray-800 max-w-36">
         <ImageMod src={general.data.logo.logo} alt="Logo" />
       </a>
 
@@ -60,7 +60,7 @@ const general = await getEntry("singletons", "general");
                   ))}
                 </div>
               </div>
-            )
+            ),
           )
         }
       </nav>
@@ -133,7 +133,7 @@ const general = await getEntry("singletons", "general");
                 ))}
               </div>
             </div>
-          )
+          ),
         )
       }
     </nav>

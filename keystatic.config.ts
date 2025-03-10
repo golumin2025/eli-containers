@@ -13,7 +13,7 @@ export default config({
     kind: import.meta.env.DEV ? "local" : "cloud",
   },
   ui: {
-    brand: { name: "Pods" },
+    brand: { name: "Rocket Shell Storage" },
   },
   collections: {
     blogs: collection(blogs),

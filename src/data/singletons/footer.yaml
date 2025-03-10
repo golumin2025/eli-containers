@@ -1,59 +1,59 @@
 navitems:
-  - title: About PODS
+  - title: About Rocket Shell Portable Storage
     links:
-      - name: How PODS Works
-        url: '#'
+      - name: How Rocket Shell Portable Storage Works
+        url: "#"
       - name: Careers
-        url: '#'
+        url: "#"
       - name: Contact Us
-        url: '#'
+        url: "#"
       - name: About Us
-        url: '#'
+        url: "#"
   - title: Services
     links:
       - name: Moving
-        url: '#'
+        url: "#"
       - name: Storage
-        url: '#'
-      - name: PODS Containers
-        url: '#'
+        url: "#"
+      - name: Rocket Shell Portable Storage Containers
+        url: "#"
       - name: Financing
-        url: '#'
+        url: "#"
       - name: Car Shipping
-        url: '#'
+        url: "#"
       - name: Packing & Loading Assistance
-        url: '#'
+        url: "#"
   - title: Resources
     links:
       - name: Log In
-        url: '#'
+        url: "#"
       - name: FAQs
-        url: '#'
+        url: "#"
       - name: Moving Costs
-        url: '#'
+        url: "#"
       - name: Storage Costs
-        url: '#'
+        url: "#"
       - name: Locations
-        url: '#'
+        url: "#"
       - name: What To Expect When Moving
-        url: '#'
+        url: "#"
 socialLinks:
   - icon: /src/assets/images/social/socialLinks/0/icon.svg
-    url: '#'
+    url: "#"
   - icon: /src/assets/images/social/socialLinks/1/icon.svg
-    url: '#'
+    url: "#"
   - icon: /src/assets/images/social/socialLinks/2/icon.svg
-    url: '#'
+    url: "#"
 legal:
   - title: Web Accessibility
-    link: '#'
+    link: "#"
   - title: Terms & Conditions
-    link: '#'
+    link: "#"
   - title: California Privacy Notice
-    link: '#'
+    link: "#"
   - title: Privacy Policy
-    link: '#'
+    link: "#"
   - title: Your Privacy Choices
-    link: '#'
+    link: "#"
   - title: Sitemap
-    link: '#'
+    link: "#"

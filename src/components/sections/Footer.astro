@@ -6,7 +6,7 @@ const general = await getEntry("singletons", "general");
 const footerData = footer.data;
 ---
 
-<footer class="bg-[#004B99] text-white py-12 lg:py-16">
+<footer class="bg-[#f7f7f7] text-dark py-12 lg:py-16">
   <div class="custom-container mx-auto flex flex-wrap justify-between">
     <div class="w-full flex justify-center mb-6">
       <ImageMod
@@ -26,7 +26,7 @@ const footerData = footer.data;
             <ul class="mt-2 space-y-2">
               {section.links.map((link) => (
                 <li>
-                  <a href={link.url} class="text-gray-300 hover:text-white">
+                  <a href={link.url} class="text-dark hover:text-dark">
                     {link.name}
                   </a>
                 </li>
@@ -40,7 +40,7 @@ const footerData = footer.data;
         <div class="flex space-x-4">
           {
             footerData.socialLinks.map((social) => (
-              <a href={social.url} class="text-white text-2xl">
+              <a href={social.url} class="text-dark text-2xl">
                 <ImageMod src={social.icon} alt={social.name} className="h-8" />
               </a>
             ))
@@ -52,15 +52,16 @@ const footerData = footer.data;
     <div class="flex justify-center md:flex-row flex-col w-full gap-4">
       {
         footerData.legal.map((item) => (
-          <a href={item.link} class="text-white text-xs">
+          <a href={item.link} class="text-dark text-xs">
             {item.title}
           </a>
         ))
       }
     </div>
-    <div class="w-full text-center text-sm mt-6 text-gray-300">
-      © 2006 - {new Date().getFullYear()} PODS Enterprises LLC. All rights reserved.
-      PODS® is a registered trademark of PODS Enterprises LLC.
+    <div class="w-full text-center text-sm mt-6 text-dark">
+      © 2006 - {new Date().getFullYear()} Rocket Shell Portable Storage Enterprises
+      LLC. All rights reserved. Rocket Shell Portable Storage® is a registered trademark
+      of Rocket Shell Portable Storage Enterprises LLC.
     </div>
   </div>
 </footer>

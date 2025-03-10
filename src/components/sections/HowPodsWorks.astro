@@ -23,9 +23,9 @@ const { heading, tabs } = Astro.props;
               {tab.steps.map((item, index) => (
                 <div class="relative flex items-start  ">
                   <div class="relative pr-5 h-full ">
-                    <div class="bg-background number">{index + 1}</div>
+                    <div class="bg-red-800 number">{index + 1}</div>
                     {index !== tab.steps.length - 1 && (
-                      <div class="number-line bg-background" />
+                      <div class="number-line bg-red-800" />
                     )}{" "}
                   </div>
 

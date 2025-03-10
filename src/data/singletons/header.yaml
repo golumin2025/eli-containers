@@ -31,5 +31,5 @@ menuItems:
         link: '#'
 button:
   enable: true
-  label: Login
-  link: '#'
+  label: (888) 811-2212
+  link: tel:(888) 811-2212

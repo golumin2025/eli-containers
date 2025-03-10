@@ -64,7 +64,7 @@ export const sendQuoteEmail = async ({
     </mj-raw>
     <mj-section background-color="white" padding="20px">
       <mj-column>
-        <mj-text css-class="header" align="center">Your Local, Lower-Priced Alternative to PODS© & 1-800-PACK-RAT©</mj-text>
+        <mj-text css-class="header" align="center">Your Local, Lower-Priced Alternative to Rocket Shell Portable Storage© & 1-800-PACK-RAT©</mj-text>
         <mj-text css-class="content" align="center">Our team is here to make your moving and storage experience seamless. If you have questions, call us at <strong>${companyPhone}</strong>.</mj-text>
       </mj-column>
     </mj-section>

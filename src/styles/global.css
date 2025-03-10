@@ -2,8 +2,8 @@
 
 @plugin "@tailwindcss/typography";
 @theme {
-  --color-primary: #ce202f;
-  --color-secondary: #002a5c;
+  --color-primary: #a1272d;
+  --color-secondary: #2d2d2d;
   --color-background: #0069e5;
 }
 .custom-container {

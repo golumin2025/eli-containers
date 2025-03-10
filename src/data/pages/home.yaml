@@ -4,15 +4,12 @@ blocks:
   - discriminant: mainHero
     value:
       Sliderimages:
-        - image: /images/home/home/blocks/0/value/Sliderimages/0/image.webp
+        - image: /images/home/home/blocks/0/value/Sliderimages/0/image.jpg
           title: Your space, your schedule.
           description: Convenient moving and storage on your terms.
-        - image: /images/home/home/blocks/0/value/Sliderimages/1/image.webp
-          title: Store today, decide tomorrow.
-          description: On-site storage that flexes with your plans.
   - discriminant: howPodsWork
     value:
-      heading: How PODS works
+      heading: How Rocket Shell Portable Storage works
       tabs:
         - title: Moving
           steps:
@@ -26,7 +23,7 @@ blocks:
                 Your first 30 days are included, then rent monthly if needed.
                 Need help loading? We can connect you with pros.
 
-            - title: "Next stop: your new home"
+            - title: 'Next stop: your new home'
               description: >+
                 We'll deliver to your new home whenever you're ready. Need
                 storage between homes? You have the option to keep your
@@ -47,17 +44,18 @@ blocks:
             - title: Store at home or with us
               description: >+
                 Keep your container at home for 24/7 access, or we'll move it to
-                a secure PODS Facility where you can retrieve items when needed.
+                a secure Rocket Shell Portable Storage Facility where you can
+                retrieve items when needed.
 
   - discriminant: featuredImage
     value:
-      image: /src/assets/images/home/blocks/2/value/image.webp
+      image: /src/assets/images/home/blocks/2/value/image.jpg
       title: 6 million moves
       description: |
         in 25 years
   - discriminant: reviewsSlider
     value:
-      title: "Rated #1 in moving and customer service"
+      title: 'Rated #1 in moving and customer service'
       logos:
         - image: /src/assets/images/home/blocks/3/value/logos/0/image.avif
         - image: /src/assets/images/home/blocks/3/value/logos/1/image.avif
@@ -79,11 +77,12 @@ blocks:
     value:
       title: Faqs
       faqs:
-        - question: How do Billing & Payments Work with PODS?
+        - question: How do Billing & Payments Work with Rocket Shell Portable Storage?
           answer: >
             **No deposits, no obligations:** Like most hotel reservations, you
-            can reserve your PODS container with a credit card – no payments are
-            due until 7 days before your container delivery.
+            can reserve your Rocket Shell Portable Storage container with a
+            credit card – no payments are due until 7 days before your container
+            delivery.
 
 
             **Easy cancellation:** If you change your dates or change your mind,
@@ -100,15 +99,18 @@ blocks:
             extra fees that can come with a truck rental.
 
 
-            **Flexible scheduling:** With PODS there are no rigid schedules. If
-            your plans change you can login to my.pods.com to update your
-            schedule.
-        - question: How long do I have to load or unload my PODS container?
+            **Flexible scheduling:** With Rocket Shell Portable Storage there
+            are no rigid schedules. If your plans change you can login to
+            my.pods.com to update your schedule.
+        - question: >-
+            How long do I have to load or unload my Rocket Shell Portable
+            Storage container?
           answer: >
-            Take your time - your PODS container rental is monthly, giving you
-            the flexibility to pack and unload at your own pace. Your 30-day
-            billing cycle starts when we deliver your container.
-        - question: How are PODS Moving prices calculated?
+            Take your time - your Rocket Shell Portable Storage container rental
+            is monthly, giving you the flexibility to pack and unload at your
+            own pace. Your 30-day billing cycle starts when we deliver your
+            container.
+        - question: How are Rocket Shell Portable Storage Moving prices calculated?
           answer: >
             We personalize your moving quote based on your unique journey:
 
@@ -123,11 +125,12 @@ blocks:
 
 
             [Get your custom quote in minutes](https://booking.pods.com/home)
-            and see why millions choose PODS for a smoother move.
-        - question: How are PODS Storage prices calculated?
+            and see why millions choose Rocket Shell Portable Storage for a
+            smoother move.
+        - question: How are Rocket Shell Portable Storage Storage prices calculated?
           answer: >
-            Your PODS storage quote is personalized based on your unique needs,
-            including:
+            Your Rocket Shell Portable Storage storage quote is personalized
+            based on your unique needs, including:
 
 
             - Your location
@@ -137,7 +140,7 @@ blocks:
             - Container size and quantity
 
             - Storage location - at your property or in a secure, indoor,
-            climate-controlled PODS Storage Center
+            climate-controlled Rocket Shell Portable Storage Storage Center
 
             - Special offers and promotions available in your area
 
@@ -145,48 +148,41 @@ blocks:
             [Get your custom quote in minutes](https://booking.pods.com/home),
             or explore our current [discount offers](https://www.pods.com/promo)
             to start saving.
-        - question: Are PODS Storage Centers climate-controlled?
+        - question: >-
+            Are Rocket Shell Portable Storage Storage Centers
+            climate-controlled?
           answer: >
             If you keep your things at one of our Storage Centers, they'll
-            receive the best and most secure treatment available. PODS Storage
-            Centers are clean, safe, dry, and many are climate-controlled. PODS
-            has hundreds of convenient and safe locations across the country.
+            receive the best and most secure treatment available. Rocket Shell
+            Portable Storage Storage Centers are clean, safe, dry, and many are
+            climate-controlled. Rocket Shell Portable Storage has hundreds of
+            convenient and safe locations across the country.
   - discriminant: podsHelpingBintoGrid
     value:
-      heading: Let PODS help you start fresh
+      heading: Let Rocket Shell Portable Storage help you start fresh
       cards:
-        - title: "You don’t have to worry about driving"
-          description: "You can cross 'learn how to drive a moving truck' off your list, PODS will transport your container wherever it needs to go."
-          image: "/images/truck-driver.jpg"
-          icon: null
-          size: "wide"
-
-        - title: "Home-to-home without the hassle"
-          description: "You have the option to store your belongings at our Storage Centers while you're between homes."
-          image: "/images/storage-center.jpg"
-          icon: null
-          size: "normal"
-
-        - title: "Move now, pay later"
-          description: "Monthly financing is available to make your move fit your budget."
-          image: null
-          icon: "/icons/payment.svg"
-          size: "normal"
-
-        - title: "Ditch the moving deadline"
-          description: "Our monthly rentals mean you can tackle your move one box at a time."
-          image: null
-          icon: "/icons/calendar.svg"
-          size: "normal"
-
-        - title: "Manage your move online"
-          description: "Track your move and easily update delivery or pickup dates."
-          image: "/images/phone-app.jpg"
-          icon: null
-          size: "wide"
-
-        - title: "10x safer for your stuff"
-          description: "Our content damage claims rate is less than 1/10th the moving industry average."
-          image: null
-          icon: "/icons/safety.svg"
-          size: "normal"
+        - title: You don’t have to worry about driving
+          description: >-
+            You can cross 'learn how to drive a moving truck' off your list,
+            Rocket Shell Portable Storage will transport your container wherever
+            it needs to go.
+          size: wide
+        - title: Home-to-home without the hassle
+          description: >-
+            You have the option to store your belongings at our Storage Centers
+            while you're between homes.
+          size: normal
+        - title: Move now, pay later
+          description: Monthly financing is available to make your move fit your budget.
+          size: normal
+        - title: Ditch the moving deadline
+          description: Our monthly rentals mean you can tackle your move one box at a time.
+          size: normal
+        - title: Manage your move online
+          description: Track your move and easily update delivery or pickup dates.
+          size: wide
+        - title: 10x safer for your stuff
+          description: >-
+            Our content damage claims rate is less than 1/10th the moving
+            industry average.
+          size: normal

@@ -1,6 +1,6 @@
-businessName: Pods
+businessName: Rocket Shell Portable Storage
 logo:
-  logo: /src/assets/images/general/logo/logo.svg
-  footerLogo: /src/assets/images/general/logo/footerLogo.png
+  logo: /src/assets/images/general/logo/logo.webp
+  footerLogo: /src/assets/images/general/logo/footerLogo.webp
 contactInformation: {}
 analyticsScripts: []
