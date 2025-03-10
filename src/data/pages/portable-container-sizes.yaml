@@ -8,14 +8,14 @@ blocks:
   - discriminant: singleHero
     value:
       bgImage: /src/assets/images/portable-container-sizes/blocks/0/value/bgImage.png
-      title: " Moving container & storage unit sizes"
+      title: ' Moving container & storage unit sizes'
       description: >
         Keeping your things safe is our priority, so we've built our containers
         for protection. We've got multiple size options to choose from, and you
         can mix and match to fit your needs.
   - discriminant: storageOptions
     value:
-      title: "Find Your Fit: Moving and Storage Unit Size Options"
+      title: 'Find Your Fit: Moving and Storage Unit Size Options'
       cards:
         - image: >-
             /src/assets/images/portable-container-sizes/blocks/1/value/cards/0/image.png
@@ -25,7 +25,7 @@ blocks:
             - Ideal for a 2-bedroom home, or up to 1,200 sq. ft.*
             - About the length of a standard parking spot
             - Comparable to a 10'x15' storage unit or a 20' truck
-          link: "#"
+          link: '#'
         - image: >-
             /src/assets/images/portable-container-sizes/blocks/1/value/cards/1/image.png
           size: Medium Container
@@ -34,7 +34,7 @@ blocks:
             - Perfect for a 1-bedroom home, or a 500-800 sq. ft. space*
             - Great for packing away things from 2 or 3 rooms
             - Compare to a 10'x10' storage unit or 15' truck
-          link: "#"
+          link: '#'
         - image: >-
             /src/assets/images/portable-container-sizes/blocks/1/value/cards/2/image.png
           size: Small Container
@@ -43,7 +43,7 @@ blocks:
             - Great for a studio or room of 500 sq. ft. or less*
             - A popular choice for college students
             - Comparable to a 5'x10' storage unit or 10' truck
-          link: "#"
+          link: '#'
   - discriminant: protectionConvenience
     value:
       title: Designed for Protection & Convenience
@@ -127,14 +127,38 @@ blocks:
         determine which size and how many you need.
       button:
         label: Get 16-foot container pricing
-        link: "#"
-      colors: "#0069e5/5"
+        link: '#'
+      colors: '#0069e5/5'
+  - discriminant: twoCol
+    value:
+      image: /src/assets/images/portable-container-sizes/blocks/4/value/image.png
+      imagePlacement: right
+      description: >
+        ## **Supporting Business Storage Needs**
+
+
+        PODS for Business offers portable containers for both short and
+        long-term rentals with three sizes. Exclusively offering an All-Steel
+        Commercial Container for business customers.
+
+
+        - 8-Foot Container
+
+        - 12-Foot Container&nbsp;
+
+        - 16-Foot Container&nbsp;
+
+        - 16-Foot All-Steel Container
+      button:
+        label: Learn More ..
+        link: '#'
+      colors: '#0069e5'
   - discriminant: cards
     value:
       title: Your One-Stop Moving and Storage Resource
       cards:
         - image: >-
-            /src/assets/images/portable-container-sizes/blocks/4/value/cards/0/image.png
+            /src/assets/images/portable-container-sizes/blocks/5/value/cards/0/image.png
           title: Hourly labor help
           description: >
             PODS offers self-moving services with full-service options, like
@@ -146,7 +170,7 @@ blocks:
             you take control of moving day by securing specific delivery and
             pickup time windows that work for you.
         - image: >-
-            /src/assets/images/portable-container-sizes/blocks/4/value/cards/0/image.png
+            /src/assets/images/portable-container-sizes/blocks/5/value/cards/1/image.png
           title: Hourly labor help
           description: >
             PODS offers self-moving services with full-service options, like
@@ -158,7 +182,7 @@ blocks:
             you take control of moving day by securing specific delivery and
             pickup time windows that work for you.
         - image: >-
-            /src/assets/images/portable-container-sizes/blocks/4/value/cards/0/image.png
+            /src/assets/images/portable-container-sizes/blocks/5/value/cards/2/image.png
           title: Hourly labor help
           description: >
             PODS offers self-moving services with full-service options, like
