@@ -13,10 +13,10 @@ export default config({
     kind: import.meta.env.DEV ? "local" : "cloud",
   },
   cloud: {
-    project: "mi-box-ne/mibox-newengland",
+    project: "mi-box-wv/miboxvw",
   },
   ui: {
-    brand: { name: "MI-Box New England" },
+    brand: { name: "MI-Box Vermont" },
   },
   collections: {
     blogs: collection(blogs),
