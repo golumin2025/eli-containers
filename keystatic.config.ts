@@ -12,8 +12,11 @@ export default config({
   storage: {
     kind: import.meta.env.DEV ? "local" : "cloud",
   },
+  cloud: {
+    project: "mi-box-ne/mibox-newengland",
+  },
   ui: {
-    brand: { name: "Rocket Shell Storage" },
+    brand: { name: "MI-Box New England" },
   },
   collections: {
     blogs: collection(blogs),
