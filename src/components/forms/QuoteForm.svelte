@@ -138,7 +138,7 @@
   });
 </script>
 
-<form method="POST" onsubmit={handleSubmit}>
+<form id="quote-form" method="POST" onsubmit={handleSubmit}>
   <div
     class="flex justify-around items-center my-6 gap-4"
     style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 1rem;"

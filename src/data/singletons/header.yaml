@@ -22,13 +22,9 @@ menuItems:
   - name: Locations
     link: /locations
     subMenu: []
-  - name: For business
-    link: '#'
-    subMenu:
-      - name: Contact us
-        link: '#'
-      - name: Case Studies
-        link: '#'
+  - name: Contact Us
+    link: /contact-us
+    subMenu: []
 button:
   enable: true
   label: (888) 811-2212

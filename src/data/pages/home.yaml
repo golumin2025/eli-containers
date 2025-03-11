@@ -9,7 +9,7 @@ blocks:
           description: Convenient moving and storage on your terms.
   - discriminant: howPodsWork
     value:
-      heading: How Rocket Shell Portable Storage works
+      heading: How Rocket Shell Portable Storage Works
       tabs:
         - title: Moving
           steps:
@@ -47,9 +47,21 @@ blocks:
                 a secure Rocket Shell Portable Storage Facility where you can
                 retrieve items when needed.
 
+  - discriminant: masonaryGallery
+    value:
+      title: Real stories, real moves
+      images:
+        - /src/assets/images/home/blocks/2/value/images/0.webp
+        - /src/assets/images/home/blocks/2/value/images/1.webp
+        - /src/assets/images/home/blocks/2/value/images/2.webp
+        - /src/assets/images/home/blocks/2/value/images/3.webp
+        - /src/assets/images/home/blocks/2/value/images/4.webp
+        - /src/assets/images/home/blocks/2/value/images/5.webp
+        - /src/assets/images/home/blocks/2/value/images/6.webp
+        - /src/assets/images/home/blocks/2/value/images/7.webp
   - discriminant: featuredImage
     value:
-      image: /src/assets/images/home/blocks/2/value/image.jpg
+      image: /src/assets/images/home/blocks/3/value/image.jpg
       title: 6 million moves
       description: |
         in 25 years
@@ -57,22 +69,10 @@ blocks:
     value:
       title: 'Rated #1 in moving and customer service'
       logos:
-        - image: /src/assets/images/home/blocks/3/value/logos/0/image.avif
-        - image: /src/assets/images/home/blocks/3/value/logos/1/image.avif
-        - image: /src/assets/images/home/blocks/3/value/logos/2/image.avif
-        - image: /src/assets/images/home/blocks/3/value/logos/3/image.avif
-  - discriminant: masonaryGallery
-    value:
-      title: Real stories, real moves
-      images:
-        - /src/assets/images/home/blocks/4/value/images/0.webp
-        - /src/assets/images/home/blocks/4/value/images/1.webp
-        - /src/assets/images/home/blocks/4/value/images/2.webp
-        - /src/assets/images/home/blocks/4/value/images/3.webp
-        - /src/assets/images/home/blocks/4/value/images/4.webp
-        - /src/assets/images/home/blocks/4/value/images/5.webp
-        - /src/assets/images/home/blocks/4/value/images/6.webp
-        - /src/assets/images/home/blocks/4/value/images/7.webp
+        - image: /src/assets/images/home/blocks/4/value/logos/0/image.avif
+        - image: /src/assets/images/home/blocks/4/value/logos/1/image.avif
+        - image: /src/assets/images/home/blocks/4/value/logos/2/image.avif
+        - image: /src/assets/images/home/blocks/4/value/logos/3/image.avif
   - discriminant: faqs
     value:
       title: Faqs
