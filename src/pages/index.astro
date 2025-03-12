@@ -8,6 +8,11 @@ import Layout from "@layouts/Layout.astro";
 import { getEntry } from "astro:content";
 import Masonry from "@components/sections/Masonry.astro";
 import SingleHero from "@components/sections/SingleHero.astro";
+import Cards from "@components/sections/Cards.astro";
+import ProtectionConvenience from "@components/sections/ProtectionConvenience.astro";
+import StorageOptions from "@components/sections/StorageOptions.astro";
+import TwoCol from "@components/sections/TwoCol.astro";
+import FindYouFit from "@components/sections/FindYouFit.astro";
 
 const homePage = await getEntry("pages", "home");
 ---
@@ -31,7 +36,16 @@ const homePage = await getEntry("pages", "home");
         )}
         {item.discriminant === "faqs" && <Faqs {...item.value} />}
         {item.discriminant === "masonaryGallery" && <Masonry {...item.value} />}
+        {item.discriminant === "findYouFit" && <FindYouFit {...item.value} />}
         {item.discriminant === "singleHero" && <SingleHero {...item.value} />}
+        {item.discriminant === "storageOptions" && (
+          <StorageOptions {...item.value} />
+        )}
+        {item.discriminant === "protectionConvenience" && (
+          <ProtectionConvenience {...item.value} />
+        )}
+        {item.discriminant === "twoCol" && <TwoCol {...item.value} />}
+        {item.discriminant === "cards" && <Cards {...item.value} />}
       </>
     ))
   }

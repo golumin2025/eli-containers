@@ -11,23 +11,24 @@ blocks:
   - discriminant: twoCol
     value:
       heading: Who We Are
-      image: /src/assets/images/who-we-are/blocks/1/value/image.jpg
-      imagePlacement: left
-      description: >
+      description: |
         Rocket Shell is a locally owned and managed moving & storage company
         focused on customer service. Our portable storage containers are
         designed to offer affordable, safe, and secure portable storage needs
         for residential and commercial customers.
 
-
         Rocket Shell seeks to be a desirable, safe, and customer-oriented
         company perfectly suited for moving & storing your valued personal and
         business belongings.
 
-
         We offer affordable, convenient, and secure portable storage operated by
         professional staff who care about your belongings as much as you do.
+      media:
+        discriminant: false
+        value:
+          image: /src/assets/images/who-we-are/blocks/1/value/media/value/image.webp
+      imagePlacement: left
+      colors: '#0069e5/5'
       button:
         label: Get a Quote Today!
-        link: '#quote-form'
-      colors: '#0069e5/5'
+        link: /#quote-form

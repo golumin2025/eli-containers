@@ -41,7 +41,11 @@ const footerData = footer.data;
           {
             footerData.socialLinks.map((social) => (
               <a href={social.url} class="text-dark text-2xl">
-                <ImageMod src={social.icon} alt={social.name} className="h-8" />
+                <ImageMod
+                  src={social.icon}
+                  alt={social.name}
+                  className="h-8 w-fit"
+                />
               </a>
             ))
           }

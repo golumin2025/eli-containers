@@ -28,7 +28,7 @@
     };
   }
 
-  let { development_mode, quoteFormContent } = $props();
+  let { quoteFormTitle } = $props();
 
   let containerTypes: string[] = $state([]);
   let storageTypes: string[] = $state([]);
@@ -139,6 +139,9 @@
 </script>
 
 <form id="quote-form" method="POST" onsubmit={handleSubmit}>
+  <h2 class="md:text-3xl text-xl text-center font-bold block">
+    {quoteFormTitle}
+  </h2>
   <div
     class="flex justify-around items-center my-6 gap-4"
     style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 1rem;"

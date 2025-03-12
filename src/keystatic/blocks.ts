@@ -18,6 +18,7 @@ export const mainHero = {
         itemLabel: (props) => props.fields.title.value,
       },
     ),
+    quoteFormTitle: fields.text({ label: "Quote Form Title" }),
   }),
 };
 
@@ -54,17 +55,15 @@ export const findYouFit = {
   label: "Find Your Fit",
   schema: fields.object({
     heading: fields.text({ label: "Heading" }),
-    tabs: fields.array(
+    cards: fields.array(
       fields.object({
         title: fields.text({ label: "Tab Title" }),
-        images: fields.array(
-          fields.image({
-            label: "Image URL",
-            directory: "/src/assets/images/",
-            publicPath: "/src/assets/images/",
-          }),
-          { label: "Images" },
-        ),
+        image: fields.image({
+          label: "Image URL",
+          directory: "/src/assets/images/",
+          publicPath: "/src/assets/images/",
+        }),
+
         description: fields.text({ label: "Description", multiline: true }),
         dimensions: fields.text({ label: "Dimensions" }),
         storageSize: fields.text({ label: "Storage Size" }),
@@ -236,11 +235,26 @@ export const twoCol = {
   label: "Two Column",
   schema: fields.object({
     heading: fields.text({ label: "Heading" }),
-    image: fields.image({
-      label: "Image",
-      directory: "/src/assets/images",
-      publicPath: "/src/assets/images",
-    }),
+    description: fields.markdoc.inline({ label: "Description" }),
+    media: fields.conditional(
+      fields.checkbox({
+        label: "Use Video Instead of Image",
+        defaultValue: false,
+      }),
+      {
+        true: fields.object({
+          videoUrl: fields.text({ label: "Video URL" }),
+          videoTitle: fields.text({ label: "Video Title" }),
+        }),
+        false: fields.object({
+          image: fields.image({
+            label: "Image",
+            directory: "/src/assets/images",
+            publicPath: "/src/assets/images",
+          }),
+        }),
+      }
+    ),
     imagePlacement: fields.select({
       label: "Image Placement",
       options: [
@@ -248,11 +262,6 @@ export const twoCol = {
         { label: "Right", value: "right" },
       ],
       defaultValue: "left",
-    }),
-    description: fields.markdoc.inline({ label: "Description" }),
-    button: fields.object({
-      label: fields.text({ label: "Button Label" }),
-      link: fields.text({ label: "Button link" }),
     }),
     colors: fields.select({
       label: "Color Scheme",
@@ -262,8 +271,13 @@ export const twoCol = {
       ],
       defaultValue: "#0069e5/5",
     }),
+    button: fields.object({
+      label: fields.text({ label: "Button Label" }),
+      link: fields.text({ label: "Button Link" }),
+    }),
   }),
 };
+
 
 export const cards = {
   label: "Cards With Title",

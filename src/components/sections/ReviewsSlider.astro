@@ -7,16 +7,27 @@ const reviews = shuffleArray(allReviews);
 const { logos, title } = Astro.props;
 ---
 
-<div class="overflow-hidden lg:py-16 px-6 lg:px-0 py-12" data-aos="fade-up">
+<div
+  class="overflow-hidden custom-container lg:py-16 px-6 lg:px-0 py-12"
+  data-aos="fade-up"
+>
   <div class="fade-up relative">
-    <div
-      class="custom-container flex items-center gap-12 justify-between xl:flex-row flex-col mb-12"
-    >
-      <h2 class="text-2xl xl:w-1/6">{title}</h2>
-      <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-4 gap-8">
+    <div class="flex items-center gap-12 justify-between flex-col mb-12">
+      {title && <h2 class="text-2xl text-center mb-8">{title}</h2>}
+      <div
+        class="flex items-center gap-8 min-w-max md:min-w-0 md:grid md:grid-cols-5"
+      >
         {
           logos.map((logo) => (
-            <ImageMod src={logo.image} alt="logo" width={200} height={200} />
+            <div class="w-[120px] h-[60px] md:w-full md:h-[80px] flex items-center justify-center">
+              <ImageMod
+                src={logo.image}
+                alt="logo"
+                width={400}
+                height={200}
+                className="object-contain w-full h-full px-2"
+              />
+            </div>
           ))
         }
       </div>

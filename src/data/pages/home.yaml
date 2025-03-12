@@ -11,38 +11,47 @@ blocks:
             delivered direct to you.
 
             We'll beat any competitor quote by 10%!
+      quoteFormTitle: Start Here
   - discriminant: twoCol
     value:
-      image: /src/assets/images/home/blocks/1/value/image.png
-      imagePlacement: right
       description: >
         # **Get a Free Quote Today & Save.**
 
 
-        ## Our prices can't be beat! Pricing & discounts are for online visitors
+        \## Our prices can't be beat! Pricing & discounts are for online
+        visitors
+
         only.&nbsp;
 
 
         Convenient &&nbsp;On-Demand\
 
+
         Weatherproof Containers\
+
 
         Boxes From 8' to 20' Long\
 
+
         Climate Controlled Warehouse\
 
+
         Locked & Fully Secure
-      button: {}
+      media:
+        discriminant: false
+        value:
+          image: /src/assets/images/home/blocks/1/value/media/value/image.png
+      imagePlacement: right
       colors: '#0069e5/5'
+      button: {}
   - discriminant: findYouFit
     value:
       heading: >-
         Low Rates Won't Last! Call now. ***Terms and Conditions Apply – Call or
-        Submit a Quote for Details. 
-      tabs:
+        Submit a Quote for Details.
+      cards:
         - title: Small
-          images:
-            - /src/assets/images/home/blocks/2/value/tabs/0/images/0.png
+          image: /src/assets/images/home/blocks/2/value/cards/0/image.png
           description: >-
             Ideal for storing the contents of a studio apartment, including a
             number of boxes, kitchen appliances, small mattress set, chairs, or
@@ -50,8 +59,7 @@ blocks:
           dimensions: 8 FT x 8 FT x 8FT
           storageSize: 8 FT
         - title: Medium
-          images:
-            - /src/assets/images/home/blocks/2/value/tabs/1/images/0.png
+          image: /src/assets/images/home/blocks/2/value/cards/1/image.png
           description: >-
             Commonly holds 2-3 bedrooms. Perfect for holding an entertainment
             center, king-size mattresses, larger appliances, dining room,
@@ -59,8 +67,7 @@ blocks:
           dimensions: 16 FT x 8FT x 8 FT
           storageSize: 16 FT
         - title: Large (Onsite Only)
-          images:
-            - /src/assets/images/home/blocks/2/value/tabs/2/images/0.png
+          image: /src/assets/images/home/blocks/2/value/cards/2/image.png
           description: >-
             Can usually hold the contents of a 3-4 bedrooms. Great for storing
             bikes and other sporting equipment, large furniture or full dining
@@ -100,19 +107,22 @@ blocks:
                 will deliver it to a location of your choice.
   - discriminant: twoCol
     value:
-      image: /src/assets/images/home/blocks/5/value/image.png
-      imagePlacement: left
-      description: >
+      description: |
         # **Storage delivered Anywhere.**
-
 
         Because of the unique capabilities of the MI-BOX Level-Lift system, we
         can place a mobile storage container where you need it and do that
         better than anyone else in the portable storage industry.&nbsp;
+      media:
+        discriminant: true
+        value:
+          videoUrl: https://youtu.be/v1JVp0xaFIk?list=TLGGxz66NPFGyRMxMjAzMjAyNQ
+          videoTitle: Storage delivered Anywhere.
+      imagePlacement: left
+      colors: '#0069e5/5'
       button:
         label: 'Free Online Quote '
-        link: '#quote-form'
-      colors: '#0069e5/5'
+        link: /#quote-form
   - discriminant: featuredImage
     value:
       image: /src/assets/images/home/blocks/6/value/image.jpeg
@@ -127,13 +137,10 @@ blocks:
   - discriminant: twoCol
     value:
       heading: Locally Owned & Operated
-      image: /src/assets/images/home/blocks/7/value/image.jpg
-      imagePlacement: left
-      description: >
+      description: |
         Hi, we're the owners of MI-BOX of Vermont and Central & Western
         Massachusetts. Please call us today as our goal is to make moving and
         storage easy and convenient for you.
-
 
         MI-BOX of Vermont is owned by Chad Branon and Joel Berg. Chad was born
         and raised in Vermont and is thrilled to provide the best possible
@@ -143,8 +150,13 @@ blocks:
         a large corporate call center. Experience the difference a locally owned
         and operated moving and storage company can do for you. Give us a call
         or submit the contact form on this page and let us earn your business.
-      button: {}
+      media:
+        discriminant: false
+        value:
+          image: /src/assets/images/home/blocks/7/value/media/value/image.jpg
+      imagePlacement: left
       colors: '#0069e5/5'
+      button: {}
   - discriminant: reviewsSlider
     value:
       logos:

@@ -97,8 +97,6 @@ blocks:
   - discriminant: twoCol
     value:
       heading: Large Container — 16-Foot
-      image: /src/assets/images/portable-container-sizes/blocks/3/value/image.png
-      imagePlacement: left
       description: >
         ## **The Perfect Size for Bigger Households**
 
@@ -108,8 +106,7 @@ blocks:
         - Great for moves requiring temporary storage
 
         - Our largest size, and a popular choice for moving a home with 3 to 4
-        rooms
-
+          rooms
         - Comparable to a 10'x15' storage unit or a 20' rental truck
 
         - Imagine a parking space in 3D&nbsp;
@@ -119,28 +116,34 @@ blocks:
         - Dimensions: 16' x 8' x 8'*
 
 
-        Watch our [What Fits in a 16-Foot
-        Container](https://www.pods.com/portable-container-sizes/16-foot-container)&nbsp;video.\
+        Watch our [What Fits in a
+        16-Foot](https://www.pods.com/portable-container-sizes/16-foot-container)
 
-        Try our [Moving and Storage
-        Calculator](https://www.pods.com/resource-center/moving-and-storage-calculator)&nbsp;to
+        [Container](https://www.pods.com/portable-container-sizes/16-foot-container)&nbsp;video.\
+
+
+        Try our [Moving and
+        Storage](https://www.pods.com/resource-center/moving-and-storage-calculator)
+
+        [Calculator](https://www.pods.com/resource-center/moving-and-storage-calculator)&nbsp;to
+
         determine which size and how many you need.
-      button:
-        label: Get 16-foot container pricing
-        link: '#'
+      media:
+        discriminant: false
+        value:
+          image: >-
+            /src/assets/images/portable-container-sizes/blocks/3/value/media/value/image.png
+      imagePlacement: left
       colors: '#0069e5/5'
+      button: {}
   - discriminant: twoCol
     value:
-      image: /src/assets/images/portable-container-sizes/blocks/4/value/image.png
-      imagePlacement: right
-      description: >
-        ## **Supporting Business Storage Needs**
-
+      description: |
+        \## **Supporting Business Storage Needs**
 
         PODS for Business offers portable containers for both short and
         long-term rentals with three sizes. Exclusively offering an All-Steel
         Commercial Container for business customers.
-
 
         - 8-Foot Container
 
@@ -149,10 +152,16 @@ blocks:
         - 16-Foot Container&nbsp;
 
         - 16-Foot All-Steel Container
-      button:
-        label: Learn More ..
-        link: '#'
+      media:
+        discriminant: false
+        value:
+          image: >-
+            /src/assets/images/portable-container-sizes/blocks/4/value/media/value/image.png
+      imagePlacement: right
       colors: '#0069e5'
+      button:
+        label: Learn more
+        link: '#'
   - discriminant: cards
     value:
       title: Your One-Stop Moving and Storage Resource

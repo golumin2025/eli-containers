@@ -1,23 +1,32 @@
 ---
 import QuoteForm from "@components/forms/QuoteForm.svelte";
-const { Sliderimages } = Astro.props;
+import Image from "astro/components/Image.astro";
+const { Sliderimages, quoteFormTitle } = Astro.props;
 ---
 
 <div class="md:h-[700px] h-full relative">
   <div class="w-full bg-white rounded-lg md:hidden block p-4 md:p-8">
-    <QuoteForm client:load />
+    <QuoteForm client:load quoteFormTitle={quoteFormTitle} />
   </div>
   <div class="swiper main-slider h-full">
     <div class="swiper-wrapper">
       {
         Sliderimages.map((slide: any) => (
           <div class="swiper-slide">
-            <div
-              class="slide-content bg-cover bg-center h-full"
-              style={`background-image: var(--gradient-direction), url(${slide.image})`}
-            >
-              <div class="custom-container mx-auto h-full flex items-end  px-4 md:px-8">
-                <div class="text-white md:w-1/2 py-12 ">
+            <div class="slide-content bg-cover bg-center h-full relative">
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                width={1920}
+                height={1080}
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0"
+                style={`background: var(--gradient-direction)`}
+              />
+              <div class="custom-container mx-auto h-full flex items-end px-4 md:px-8 relative">
+                <div class="text-white md:w-1/2 py-12">
                   <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 fade-up">
                     {slide.title}
                   </h1>
@@ -36,8 +45,8 @@ const { Sliderimages } = Astro.props;
   <div
     class="md:absolute md:flex hidden top-0 right-0 h-full w-full md:w-1/2 items-center justify-center z-10"
   >
-    <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
-      <QuoteForm client:only="svelte" />
+    <div class="w-full bg-white rounded-lg lg:max-w-[450px] p-4 md:p-8">
+      <QuoteForm client:only="svelte" quoteFormTitle={quoteFormTitle} />
     </div>
   </div>
 </div>
@@ -63,7 +72,7 @@ const { Sliderimages } = Astro.props;
   :root {
     --gradient-direction: linear-gradient(
       to bottom,
-      rgb(68, 68, 68, 1),
+      rgba(239, 214, 72, 0.7),
       rgba(41, 147, 188, 0)
     );
   }
@@ -72,7 +81,7 @@ const { Sliderimages } = Astro.props;
     :root {
       --gradient-direction: linear-gradient(
         to top,
-        rgb(68, 68, 68, 1),
+        rgba(239, 214, 72, 0.7),
         rgba(41, 147, 188, 0),
         rgba(41, 147, 188, 0)
       );
