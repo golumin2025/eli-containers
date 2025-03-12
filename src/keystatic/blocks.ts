@@ -22,7 +22,7 @@ export const mainHero = {
 };
 
 export const howPodsWork = {
-  label: "How Rocket Shell Portable Storage Works",
+  label: "How MI-BOX Moving & Mobile Storage Works",
   schema: fields.object({
     heading: fields.text({ label: "Heading" }),
     tabs: fields.array(
@@ -145,7 +145,7 @@ export const masonaryGallery = {
 };
 
 export const podsHelpingBintoGrid = {
-  label: "Rocket Shell Portable Storage Helping Binto Grid",
+  label: "MI-BOX Moving & Mobile Storage Helping Binto Grid",
   schema: fields.object({
     heading: fields.text({ label: "Heading" }),
     cards: fields.array(
@@ -169,17 +169,20 @@ export const podsHelpingBintoGrid = {
       }),
     ),
   }),
-}
+};
 
 export const singleHero = {
   label: "Single Hero",
   schema: fields.object({
-    bgImage: fields.image({ label: "BackGround Image", directory: "/src/assets/images", publicPath: "/src/assets/images" }),
+    bgImage: fields.image({
+      label: "BackGround Image",
+      directory: "/src/assets/images",
+      publicPath: "/src/assets/images",
+    }),
     title: fields.text({ label: "Title" }),
     description: fields.text({ label: "Description", multiline: true }),
-  })
-}
-
+  }),
+};
 
 export const storageOptions = {
   label: "Storage Options",
@@ -187,15 +190,24 @@ export const storageOptions = {
     title: fields.text({ label: "Title" }),
     cards: fields.array(
       fields.object({
-        image: fields.image({ label: "Image", directory: "/src/assets/images", publicPath: "/src/assets/images" }),
+        image: fields.image({
+          label: "Image",
+          directory: "/src/assets/images",
+          publicPath: "/src/assets/images",
+        }),
         size: fields.text({ label: "Size" }),
         dimension: fields.text({ label: "Dimension" }),
-        description: fields.array(fields.text({ label: "Description" }), { label: "Description Items" }),
+        description: fields.array(fields.text({ label: "Description" }), {
+          label: "Description Items",
+        }),
         link: fields.text({ label: "CTA Link" }),
       }),
-      { label: "Storage Containers", itemLabel: (item) => item.fields.size.value }
-    )
-  })
+      {
+        label: "Storage Containers",
+        itemLabel: (item) => item.fields.size.value,
+      },
+    ),
+  }),
 };
 
 export const protectionConvenience = {
@@ -204,20 +216,31 @@ export const protectionConvenience = {
     title: fields.text({ label: "Title" }),
     cards: fields.array(
       fields.object({
-        icon: fields.image({ label: "Icon", directory: "/src/assets/icons", publicPath: "/src/assets/icons" }),
+        icon: fields.image({
+          label: "Icon",
+          directory: "/src/assets/icons",
+          publicPath: "/src/assets/icons",
+        }),
         title: fields.text({ label: "Title" }),
         description: fields.text({ label: "Description", multiline: true }),
       }),
-      { label: "Storage Containers", itemLabel: (item) => item.fields.title.value }
-    )
-  })
+      {
+        label: "Storage Containers",
+        itemLabel: (item) => item.fields.title.value,
+      },
+    ),
+  }),
 };
 
 export const twoCol = {
   label: "Two Column",
   schema: fields.object({
     heading: fields.text({ label: "Heading" }),
-    image: fields.image({ label: "Image", directory: "/src/assets/images", publicPath: "/src/assets/images" }),
+    image: fields.image({
+      label: "Image",
+      directory: "/src/assets/images",
+      publicPath: "/src/assets/images",
+    }),
     imagePlacement: fields.select({
       label: "Image Placement",
       options: [
@@ -226,7 +249,7 @@ export const twoCol = {
       ],
       defaultValue: "left",
     }),
-    description: fields.markdoc.inline({ label: "Description", }),
+    description: fields.markdoc.inline({ label: "Description" }),
     button: fields.object({
       label: fields.text({ label: "Button Label" }),
       link: fields.text({ label: "Button link" }),
@@ -248,11 +271,18 @@ export const cards = {
     title: fields.text({ label: "Title" }),
     cards: fields.array(
       fields.object({
-        image: fields.image({ label: "Image", directory: "/src/assets/images", publicPath: "/src/assets/images" }),
+        image: fields.image({
+          label: "Image",
+          directory: "/src/assets/images",
+          publicPath: "/src/assets/images",
+        }),
         title: fields.text({ label: "Title" }),
-        description: fields.markdoc.inline({ label: "Description", }),
+        description: fields.markdoc.inline({ label: "Description" }),
       }),
-      { label: "Storage Containers", itemLabel: (item) => item.fields.title.value }
-    )
-  })
+      {
+        label: "Storage Containers",
+        itemLabel: (item) => item.fields.title.value,
+      },
+    ),
+  }),
 };

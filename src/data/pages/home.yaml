@@ -33,7 +33,7 @@ blocks:
 
         Locked & Fully Secure
       button: {}
-      colors: '#0069e5/5'
+      colors: "#0069e5/5"
   - discriminant: featuredImage
     value:
       image: /src/assets/images/home/blocks/2/value/image.jpeg
@@ -51,7 +51,7 @@ blocks:
     value:
       heading: How it works
       tabs:
-        - title: 'Moving or Storing '
+        - title: "Moving or Storing "
           steps:
             - title: We bring it
               description: >-
@@ -77,9 +77,9 @@ blocks:
         can place a mobile storage container where you need it and do that
         better than anyone else in the portable storage industry.&nbsp;
       button:
-        label: 'Free Online Quote '
-        link: '#quote-form'
-      colors: '#0069e5/5'
+        label: "Free Online Quote "
+        link: "#quote-form"
+      colors: "#0069e5/5"
   - discriminant: featuredImage
     value:
       image: /src/assets/images/home/blocks/5/value/image.jpeg
@@ -111,10 +111,10 @@ blocks:
         and operated moving and storage company can do for you. Give us a call
         or submit the contact form on this page and let us earn your business.
       button: {}
-      colors: '#0069e5/5'
+      colors: "#0069e5/5"
   - discriminant: reviewsSlider
     value:
-      title: 'Rated #1 in moving and customer service'
+      title: "Rated #1 in moving and customer service"
       logos:
         - image: /src/assets/images/home/blocks/7/value/logos/0/image.avif
         - image: /src/assets/images/home/blocks/7/value/logos/1/image.avif
@@ -135,10 +135,10 @@ blocks:
     value:
       title: Faqs
       faqs:
-        - question: How do Billing & Payments Work with Rocket Shell Portable Storage?
+        - question: How do Billing & Payments Work with MI-BOX Moving & Mobile Storage?
           answer: >
             **No deposits, no obligations:** Like most hotel reservations, you
-            can reserve your Rocket Shell Portable Storage container with a
+            can reserve your MI-BOX Moving & Mobile Storage container with a
             credit card – no payments are due until 7 days before your container
             delivery.
 
@@ -157,18 +157,18 @@ blocks:
             extra fees that can come with a truck rental.
 
 
-            **Flexible scheduling:** With Rocket Shell Portable Storage there
+            **Flexible scheduling:** With MI-BOX Moving & Mobile Storage there
             are no rigid schedules. If your plans change you can login to
             my.pods.com to update your schedule.
         - question: >-
             How long do I have to load or unload my Rocket Shell Portable
             Storage container?
           answer: >
-            Take your time - your Rocket Shell Portable Storage container rental
+            Take your time - your MI-BOX Moving & Mobile Storage container rental
             is monthly, giving you the flexibility to pack and unload at your
             own pace. Your 30-day billing cycle starts when we deliver your
             container.
-        - question: How are Rocket Shell Portable Storage Moving prices calculated?
+        - question: How are MI-BOX Moving & Mobile Storage Moving prices calculated?
           answer: >
             We personalize your moving quote based on your unique journey:
 
@@ -183,11 +183,11 @@ blocks:
 
 
             [Get your custom quote in minutes](https://booking.pods.com/home)
-            and see why millions choose Rocket Shell Portable Storage for a
+            and see why millions choose MI-BOX Moving & Mobile Storage for a
             smoother move.
-        - question: How are Rocket Shell Portable Storage Storage prices calculated?
+        - question: How are MI-BOX Moving & Mobile Storage Storage prices calculated?
           answer: >
-            Your Rocket Shell Portable Storage storage quote is personalized
+            Your MI-BOX Moving & Mobile Storage storage quote is personalized
             based on your unique needs, including:
 
 
@@ -198,7 +198,7 @@ blocks:
             - Container size and quantity
 
             - Storage location - at your property or in a secure, indoor,
-            climate-controlled Rocket Shell Portable Storage Storage Center
+            climate-controlled MI-BOX Moving & Mobile Storage Storage Center
 
             - Special offers and promotions available in your area
 
@@ -207,22 +207,22 @@ blocks:
             or explore our current [discount offers](https://www.pods.com/promo)
             to start saving.
         - question: >-
-            Are Rocket Shell Portable Storage Storage Centers
+            Are MI-BOX Moving & Mobile Storage Storage Centers
             climate-controlled?
           answer: >
             If you keep your things at one of our Storage Centers, they'll
             receive the best and most secure treatment available. Rocket Shell
             Portable Storage Storage Centers are clean, safe, dry, and many are
-            climate-controlled. Rocket Shell Portable Storage has hundreds of
+            climate-controlled. MI-BOX Moving & Mobile Storage has hundreds of
             convenient and safe locations across the country.
   - discriminant: podsHelpingBintoGrid
     value:
-      heading: Let Rocket Shell Portable Storage help you start fresh
+      heading: Let MI-BOX Moving & Mobile Storage help you start fresh
       cards:
         - title: You don’t have to worry about driving
           description: >-
             You can cross 'learn how to drive a moving truck' off your list,
-            Rocket Shell Portable Storage will transport your container wherever
+            MI-BOX Moving & Mobile Storage will transport your container wherever
             it needs to go.
           size: wide
         - title: Home-to-home without the hassle
