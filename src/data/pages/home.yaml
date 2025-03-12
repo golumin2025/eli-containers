@@ -4,9 +4,13 @@ blocks:
   - discriminant: mainHero
     value:
       Sliderimages:
-        - image: /images/home/home/blocks/0/value/Sliderimages/0/image.jpg
-          title: Your space, your schedule.
-          description: Convenient moving and storage on your terms.
+        - image: /images/home/home/blocks/0/value/Sliderimages/0/image.png
+          title: Moving & Portable Storage Starting at $99/mo Your 1st Month
+          description: >-
+            Month to month rentals. No change or cancel fees. Portable storage
+            delivered direct to you.
+
+            We'll beat any competitor quote by 10%!
   - discriminant: howPodsWork
     value:
       heading: How Rocket Shell Portable Storage Works
