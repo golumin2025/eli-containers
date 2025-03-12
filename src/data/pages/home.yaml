@@ -40,9 +40,7 @@ blocks:
       button: {}
   - discriminant: findYouFit
     value:
-      heading: >-
-        Low Rates Won't Last! Call now. ***Terms and Conditions Apply – Call or
-        Submit a Quote for Details.
+      heading: Low Rates Won't Last! Call Today & Save
       cards:
         - title: Small
           image: /src/assets/images/home/blocks/2/value/cards/0/image.png
