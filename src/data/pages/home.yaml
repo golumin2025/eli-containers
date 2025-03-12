@@ -65,26 +65,41 @@ blocks:
               description: >-
                 Free access at our secure, climate controlled facility or we
                 will deliver it to a location of your choice.
+  - discriminant: twoCol
+    value:
+      image: /src/assets/images/home/blocks/4/value/image.png
+      imagePlacement: left
+      description: >
+        # **Storage delivered Anywhere.**
+
+
+        Because of the unique capabilities of the MI-BOX Level-Lift system, we
+        can place a mobile storage container where you need it and do that
+        better than anyone else in the portable storage industry.&nbsp;
+      button:
+        label: 'Free Online Quote '
+        link: '#quote-form'
+      colors: '#0069e5/5'
   - discriminant: reviewsSlider
     value:
       title: 'Rated #1 in moving and customer service'
       logos:
-        - image: /src/assets/images/home/blocks/4/value/logos/0/image.avif
-        - image: /src/assets/images/home/blocks/4/value/logos/1/image.avif
-        - image: /src/assets/images/home/blocks/4/value/logos/2/image.avif
-        - image: /src/assets/images/home/blocks/4/value/logos/3/image.avif
+        - image: /src/assets/images/home/blocks/5/value/logos/0/image.avif
+        - image: /src/assets/images/home/blocks/5/value/logos/1/image.avif
+        - image: /src/assets/images/home/blocks/5/value/logos/2/image.avif
+        - image: /src/assets/images/home/blocks/5/value/logos/3/image.avif
   - discriminant: masonaryGallery
     value:
       title: Real stories, real moves
       images:
-        - /src/assets/images/home/blocks/5/value/images/0.webp
-        - /src/assets/images/home/blocks/5/value/images/1.webp
-        - /src/assets/images/home/blocks/5/value/images/2.webp
-        - /src/assets/images/home/blocks/5/value/images/3.webp
-        - /src/assets/images/home/blocks/5/value/images/4.webp
-        - /src/assets/images/home/blocks/5/value/images/5.webp
-        - /src/assets/images/home/blocks/5/value/images/6.webp
-        - /src/assets/images/home/blocks/5/value/images/7.webp
+        - /src/assets/images/home/blocks/6/value/images/0.webp
+        - /src/assets/images/home/blocks/6/value/images/1.webp
+        - /src/assets/images/home/blocks/6/value/images/2.webp
+        - /src/assets/images/home/blocks/6/value/images/3.webp
+        - /src/assets/images/home/blocks/6/value/images/4.webp
+        - /src/assets/images/home/blocks/6/value/images/5.webp
+        - /src/assets/images/home/blocks/6/value/images/6.webp
+        - /src/assets/images/home/blocks/6/value/images/7.webp
   - discriminant: faqs
     value:
       title: Faqs
@@ -198,18 +213,3 @@ blocks:
             Our content damage claims rate is less than 1/10th the moving
             industry average.
           size: normal
-  - discriminant: twoCol
-    value:
-      image: /src/assets/images/home/blocks/8/value/image.png
-      imagePlacement: left
-      description: >
-        # **Storage delivered Anywhere.**
-
-
-        Because of the unique capabilities of the MI-BOX Level-Lift system, we
-        can place a mobile storage container where you need it and do that
-        better than anyone else in the portable storage industry.&nbsp;
-      button:
-        label: 'Free Online Quote '
-        link: '#quote-form'
-      colors: '#0069e5/5'
