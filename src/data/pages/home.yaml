@@ -52,7 +52,7 @@ blocks:
       cards:
         - title: Small
           image: /src/assets/images/home/blocks/2/value/cards/0/image.png
-          description: >-
+          description: >
             Ideal for storing the contents of a studio apartment, including a
             number of boxes, kitchen appliances, small mattress set, chairs, or
             even a motorcycle.
@@ -68,7 +68,7 @@ blocks:
           storageSize: 16 FT
         - title: Large (Onsite Only)
           image: /src/assets/images/home/blocks/2/value/cards/2/image.png
-          description: >-
+          description: >
             Can usually hold the contents of a 3-4 bedrooms. Great for storing
             bikes and other sporting equipment, large furniture or full dining
             room sets.
@@ -91,7 +91,7 @@ blocks:
     value:
       heading: How it works
       tabs:
-        - title: 'Moving or Storing '
+        - title: Moving
           steps:
             - title: We bring it
               description: >-
@@ -105,6 +105,21 @@ blocks:
               description: >-
                 Free access at our secure, climate controlled facility or we
                 will deliver it to a location of your choice.
+        - title: Storage
+          steps:
+            - title: We Bring
+              description: >-
+                Large, secure, weatherproof storage containers delivered to your
+                door. You won't need to rent a delivery truck.
+            - title: Pack at Your Own Pace
+              description: >-
+                Your first 30 days are included, then rent monthly if needed.
+                Need help loading? We can connect you with pros.
+            - title: On the Way to Your New Place
+              description: >-
+                We'll deliver to your new home whenever you're ready. Need
+                storage between homes? You have the option to keep your
+                container at one of our secure Storage Centers.
   - discriminant: twoCol
     value:
       description: |
