@@ -47,21 +47,6 @@ blocks:
         hesitate to be repeat customers if we need similar storage again.
 
         - Miguel Fernandez, 5-Star Review
-  - discriminant: twoCol
-    value:
-      image: /src/assets/images/home/blocks/3/value/image.png
-      imagePlacement: left
-      description: >
-        # **Storage delivered Anywhere.**
-
-
-        Because of the unique capabilities of the MI-BOX Level-Lift system, we
-        can place a mobile storage container where you need it and do that
-        better than anyone else in the portable storage industry.&nbsp;
-      button:
-        label: 'Free Online Quote '
-        link: '#quote-form'
-      colors: '#0069e5/5'
   - discriminant: howPodsWork
     value:
       heading: How it works
@@ -82,8 +67,34 @@ blocks:
                 will deliver it to a location of your choice.
   - discriminant: twoCol
     value:
+      image: /src/assets/images/home/blocks/4/value/image.png
+      imagePlacement: left
+      description: >
+        # **Storage delivered Anywhere.**
+
+
+        Because of the unique capabilities of the MI-BOX Level-Lift system, we
+        can place a mobile storage container where you need it and do that
+        better than anyone else in the portable storage industry.&nbsp;
+      button:
+        label: 'Free Online Quote '
+        link: '#quote-form'
+      colors: '#0069e5/5'
+  - discriminant: featuredImage
+    value:
+      image: /src/assets/images/home/blocks/5/value/image.jpeg
+      title: '"MI-BOX made our move such a smooth and stress-free process."'
+      description: >-
+        Megan was friendly, responsive, and super helpful from start to finish.
+        Each of our drivers, Steve, Nick, and Seth were very communicative,
+        friendly, and professional. We have moved quite a few times throughout
+        the US and this was by far the greatest experience we have had.
+
+        ~ Steve Almeida, 5-Star Facebook Review
+  - discriminant: twoCol
+    value:
       heading: Locally Owned & Operated
-      image: /src/assets/images/home/blocks/5/value/image.jpg
+      image: /src/assets/images/home/blocks/6/value/image.jpg
       imagePlacement: left
       description: >
         Hi, we're the owners of MI-BOX of Vermont and Central & Western
@@ -101,17 +112,6 @@ blocks:
         or submit the contact form on this page and let us earn your business.
       button: {}
       colors: '#0069e5/5'
-  - discriminant: featuredImage
-    value:
-      image: /src/assets/images/home/blocks/6/value/image.jpeg
-      title: '"MI-BOX made our move such a smooth and stress-free process."'
-      description: >-
-        Megan was friendly, responsive, and super helpful from start to finish.
-        Each of our drivers, Steve, Nick, and Seth were very communicative,
-        friendly, and professional. We have moved quite a few times throughout
-        the US and this was by far the greatest experience we have had.
-
-        ~ Steve Almeida, 5-Star Facebook Review
   - discriminant: reviewsSlider
     value:
       title: 'Rated #1 in moving and customer service'
