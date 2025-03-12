@@ -3,7 +3,7 @@ seoData: {}
 blocks:
   - discriminant: singleHero
     value:
-      bgImage: /src/assets/images/thank-you/blocks/0/value/bgImage.png
+      bgImage: /src/assets/images/thank-you/blocks/0/value/bgImage.jpg
       title: 'Thank you! '
       description: |2
          A moving and storage specialist will contact you in 15 minutes or less.
