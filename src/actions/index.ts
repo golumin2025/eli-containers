@@ -5,9 +5,6 @@ import mjml2html from "mjml";
 import { adminEmailTemplate } from "./email-templates/adminEmailTemplate";
 import { clientEmailTemplate } from "./email-templates/clientEmailTemplate";
 import { getEntry } from "astro:content";
-
-const DEV_MODE = import.meta.env.DEV;
-
 export const server = {
   quoteForm: defineAction({
     input: z.object({
@@ -65,44 +62,41 @@ export const server = {
         adminEmailTemplate.html(input, emailSettings.data, general.data)
       );
 
-      // Send emails in production mode
-      if (!DEV_MODE) {
-        const postmarkServerToken = import.meta.env.POSTMARK_SERVER_TOKEN;
-        const client = new postmark.ServerClient(postmarkServerToken);
-        try {
-          // Send email to client
-          await client.sendEmail({
-            From: `${emailSettings.data.fromEmailName} <${emailSettings.data.fromEmail}>`,
-            To: `${input.email}`,
-            Cc: emailSettings.data.clientEmailRecipientsBcc
-              .map((recipient) => recipient.email)
-              .join(", "),
-            Subject: "Thank You for Your Free Quote Request",
-            HtmlBody: clientEmailBody,
-            MessageStream: "outbound",
-          });
+      console.log("Sending emails...");
+      const postmarkServerToken = import.meta.env.POSTMARK_SERVER_TOKEN;
+      const client = new postmark.ServerClient(postmarkServerToken);
+      try {
+        // Send email to client
+        await client.sendEmail({
+          From: `${emailSettings.data.fromEmailName} <${emailSettings.data.fromEmail}>`,
+          To: `${input.email}`,
+          Cc: emailSettings.data.clientEmailRecipientsBcc
+            .map((recipient) => recipient.email)
+            .join(", "),
+          Subject: "Thank You for Your Free Quote Request",
+          HtmlBody: clientEmailBody,
+          MessageStream: "outbound",
+        });
 
-          // Send email to admin
-          await client.sendEmail({
-            From: `${emailSettings.data.fromEmailName} <${emailSettings.data.fromEmail}>`,
-            To: emailSettings.data.adminEmailRecipients
-              .map((recipient) => recipient.email)
-              .join(", "),
-            Subject: "New Free Quote Submission",
-            HtmlBody: adminEmailBody,
-            MessageStream: "outbound",
-          });
-        } catch (error) {
-          console.error("Error sending email:", error);
-          return {
-            success: false,
-            error: {
-              message: "An error occurred while sending the email.",
-            },
-          };
-        }
+        // Send email to admin
+        await client.sendEmail({
+          From: `${emailSettings.data.fromEmailName} <${emailSettings.data.fromEmail}>`,
+          To: emailSettings.data.adminEmailRecipients
+            .map((recipient) => recipient.email)
+            .join(", "),
+          Subject: "New Free Quote Submission",
+          HtmlBody: adminEmailBody,
+          MessageStream: "outbound",
+        });
+      } catch (error) {
+        console.error("Error sending email:", error);
+        return {
+          success: false,
+          error: {
+            message: "An error occurred while sending the email.",
+          },
+        };
       }
-
       // Return success response
       return {
         success: true,
