@@ -1,31 +1,5 @@
-menuItems:
-  - name: Moving
-    link: '#'
-    subMenu:
-      - name: 'Moving '
-        link: /portable-container-sizes
-      - name: Storage
-        link: '#'
-      - name: Moving Overview
-        link: '#'
-      - name: Moving Costs
-        link: '#'
-  - name: Storage
-    link: '#'
-    subMenu:
-      - name: Storage Container
-        link: '#'
-      - name: Storage Overview
-        link: '#'
-      - name: Storage Consts
-        link: '#'
-  - name: Locations
-    link: /locations
-    subMenu: []
-  - name: Contact Us
-    link: /contact-us
-    subMenu: []
+menuItems: []
 button:
   enable: true
-  label: (888) 811-2212
-  link: tel:(888) 811-2212
+  label: (802) 242-2022
+  link: tel:(802) 242-2022
