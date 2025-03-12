@@ -34,6 +34,19 @@ blocks:
         Locked & Fully Secure
       button: {}
       colors: '#0069e5/5'
+  - discriminant: featuredImage
+    value:
+      image: /src/assets/images/home/blocks/2/value/image.jpeg
+      title: '"We are super happy with our MI-BOX experience."'
+      description: >-
+        They were friendly and informative on the phone and offered excellent
+        customer service. Nick was our driver for both drop off and pick up and
+        he couldn't have been nicer. He explained everything clearly, was
+        professional and on time in both directions. We felt as though we got
+        excellent value for our money and just what we needed. We would not
+        hesitate to be repeat customers if we need similar storage again.
+
+        - Miguel Fernandez, 5-Star Review
   - discriminant: howPodsWork
     value:
       heading: How it works
@@ -52,32 +65,26 @@ blocks:
               description: >-
                 Free access at our secure, climate controlled facility or we
                 will deliver it to a location of your choice.
-  - discriminant: masonaryGallery
-    value:
-      title: Real stories, real moves
-      images:
-        - /src/assets/images/home/blocks/3/value/images/0.webp
-        - /src/assets/images/home/blocks/3/value/images/1.webp
-        - /src/assets/images/home/blocks/3/value/images/2.webp
-        - /src/assets/images/home/blocks/3/value/images/3.webp
-        - /src/assets/images/home/blocks/3/value/images/4.webp
-        - /src/assets/images/home/blocks/3/value/images/5.webp
-        - /src/assets/images/home/blocks/3/value/images/6.webp
-        - /src/assets/images/home/blocks/3/value/images/7.webp
-  - discriminant: featuredImage
-    value:
-      image: /src/assets/images/home/blocks/4/value/image.jpg
-      title: 6 million moves
-      description: |
-        in 25 years
   - discriminant: reviewsSlider
     value:
       title: 'Rated #1 in moving and customer service'
       logos:
-        - image: /src/assets/images/home/blocks/5/value/logos/0/image.avif
-        - image: /src/assets/images/home/blocks/5/value/logos/1/image.avif
-        - image: /src/assets/images/home/blocks/5/value/logos/2/image.avif
-        - image: /src/assets/images/home/blocks/5/value/logos/3/image.avif
+        - image: /src/assets/images/home/blocks/4/value/logos/0/image.avif
+        - image: /src/assets/images/home/blocks/4/value/logos/1/image.avif
+        - image: /src/assets/images/home/blocks/4/value/logos/2/image.avif
+        - image: /src/assets/images/home/blocks/4/value/logos/3/image.avif
+  - discriminant: masonaryGallery
+    value:
+      title: Real stories, real moves
+      images:
+        - /src/assets/images/home/blocks/5/value/images/0.webp
+        - /src/assets/images/home/blocks/5/value/images/1.webp
+        - /src/assets/images/home/blocks/5/value/images/2.webp
+        - /src/assets/images/home/blocks/5/value/images/3.webp
+        - /src/assets/images/home/blocks/5/value/images/4.webp
+        - /src/assets/images/home/blocks/5/value/images/5.webp
+        - /src/assets/images/home/blocks/5/value/images/6.webp
+        - /src/assets/images/home/blocks/5/value/images/7.webp
   - discriminant: faqs
     value:
       title: Faqs
