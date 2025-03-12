@@ -91,26 +91,47 @@ blocks:
         the US and this was by far the greatest experience we have had.
 
         ~ Steve Almeida, 5-Star Facebook Review
+  - discriminant: twoCol
+    value:
+      heading: Locally Owned & Operated
+      image: /src/assets/images/home/blocks/6/value/image.jpg
+      imagePlacement: left
+      description: >
+        Hi, we're the owners of MI-BOX of Vermont and Central & Western
+        Massachusetts. Please call us today as our goal is to make moving and
+        storage easy and convenient for you.
+
+
+        MI-BOX of Vermont is owned by Chad Branon and Joel Berg. Chad was born
+        and raised in Vermont and is thrilled to provide the best possible
+        moving and mobile storage services to his fellow Vermonters. MI-BOX of
+        Vermont is locally owned and operated so when you call in to our office
+        you'll be speaking with someone locally rather than someone overseas in
+        a large corporate call center. Experience the difference a locally owned
+        and operated moving and storage company can do for you. Give us a call
+        or submit the contact form on this page and let us earn your business.
+      button: {}
+      colors: '#0069e5/5'
   - discriminant: reviewsSlider
     value:
       title: 'Rated #1 in moving and customer service'
       logos:
-        - image: /src/assets/images/home/blocks/6/value/logos/0/image.avif
-        - image: /src/assets/images/home/blocks/6/value/logos/1/image.avif
-        - image: /src/assets/images/home/blocks/6/value/logos/2/image.avif
-        - image: /src/assets/images/home/blocks/6/value/logos/3/image.avif
+        - image: /src/assets/images/home/blocks/7/value/logos/0/image.avif
+        - image: /src/assets/images/home/blocks/7/value/logos/1/image.avif
+        - image: /src/assets/images/home/blocks/7/value/logos/2/image.avif
+        - image: /src/assets/images/home/blocks/7/value/logos/3/image.avif
   - discriminant: masonaryGallery
     value:
       title: Real stories, real moves
       images:
-        - /src/assets/images/home/blocks/7/value/images/0.webp
-        - /src/assets/images/home/blocks/7/value/images/1.webp
-        - /src/assets/images/home/blocks/7/value/images/2.webp
-        - /src/assets/images/home/blocks/7/value/images/3.webp
-        - /src/assets/images/home/blocks/7/value/images/4.webp
-        - /src/assets/images/home/blocks/7/value/images/5.webp
-        - /src/assets/images/home/blocks/7/value/images/6.webp
-        - /src/assets/images/home/blocks/7/value/images/7.webp
+        - /src/assets/images/home/blocks/8/value/images/0.webp
+        - /src/assets/images/home/blocks/8/value/images/1.webp
+        - /src/assets/images/home/blocks/8/value/images/2.webp
+        - /src/assets/images/home/blocks/8/value/images/3.webp
+        - /src/assets/images/home/blocks/8/value/images/4.webp
+        - /src/assets/images/home/blocks/8/value/images/5.webp
+        - /src/assets/images/home/blocks/8/value/images/6.webp
+        - /src/assets/images/home/blocks/8/value/images/7.webp
   - discriminant: faqs
     value:
       title: Faqs
