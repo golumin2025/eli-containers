@@ -40,7 +40,7 @@ export const server = {
         {
           method: "POST",
           body: formData,
-        },
+        }
       );
 
       const turnstileCheck = await result.json();
@@ -52,7 +52,6 @@ export const server = {
             message: "Turnstile verification failed. Please try again.",
           },
         };
-
       }
       // Fetch email settings and general settings
       const emailSettings = await getEntry("singletons", "email");
@@ -60,17 +59,16 @@ export const server = {
 
       // Prepare email templates
       const { html: clientEmailBody } = mjml2html(
-        clientEmailTemplate.html(input, emailSettings.data, general.data),
+        clientEmailTemplate.html(input, emailSettings.data, general.data)
       );
       const { html: adminEmailBody } = mjml2html(
-        adminEmailTemplate.html(input, emailSettings.data, general.data),
+        adminEmailTemplate.html(input, emailSettings.data, general.data)
       );
 
       // Send emails in production mode
-      if (DEV_MODE) {
+      if (!DEV_MODE) {
         const postmarkServerToken = import.meta.env.POSTMARK_SERVER_TOKEN;
         const client = new postmark.ServerClient(postmarkServerToken);
-
         try {
           // Send email to client
           await client.sendEmail({
