@@ -1,8 +1,9 @@
-businessName: Rocket Shell Portable Storage
+businessName: MI-BOX Vermont
 logo:
-  logo: /src/assets/images/general/logo/logo.webp
-  footerLogo: /src/assets/images/general/logo/footerLogo.webp
+  logo: /src/assets/images/general/logo/logo.png
+  footerLogo: /src/assets/images/general/logo/footerLogo.png
 contactInformation:
-  phone: "8557064758"
-  phoneDisplay: (855) 706-4758
+  phone: '18022422022'
+  phoneDisplay: (802) 242-2022
+businessHours: 8am - 5pm Mon - Fri, 8am - 3pm Sat, Closed Sun
 analyticsScripts: []
