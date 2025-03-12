@@ -533,7 +533,8 @@ const singleHero = {
       publicPath: "/src/assets/images"
     }),
     title: fields.text({ label: "Title" }),
-    description: fields.text({ label: "Description", multiline: true })
+    description: fields.text({ label: "Description", multiline: true }),
+    showQuoteForm: fields.checkbox({ label: "Show Quote Form", defaultValue: true })
   })
 };
 const storageOptions = {

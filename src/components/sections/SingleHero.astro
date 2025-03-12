@@ -1,9 +1,11 @@
 ---
-const { title, description, bgImage } = Astro.props;
+const { title, description, bgImage, showQuoteForm } = Astro.props;
 import QuoteForm from "../forms/QuoteForm.svelte";
 ---
 
-<section class="relative custom-container mt-6 rounded-xl overflow-hidden">
+<section
+  class="relative custom-container min-h-[450px] mt-6 rounded-xl overflow-hidden"
+>
   <img
     src={bgImage}
     alt="Hero background"
@@ -17,11 +19,15 @@ import QuoteForm from "../forms/QuoteForm.svelte";
       <h1 class="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
       <p class="text-xl">{description}</p>
     </div>
-    <div class="md:w-1/2 w-full flex justify-end">
-      <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
-        <QuoteForm client:load />
-      </div>
-    </div>
+    {
+      showQuoteForm && (
+        <div class="md:w-1/2 w-full flex justify-end">
+          <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
+            <QuoteForm client:load />
+          </div>
+        </div>
+      )
+    }
   </div>
 </section>
 

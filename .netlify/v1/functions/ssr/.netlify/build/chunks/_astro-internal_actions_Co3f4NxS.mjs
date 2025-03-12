@@ -1,8 +1,8 @@
-import { g as getEntry } from './_astro_content_OwnNFnzl.mjs';
+import { g as getEntry } from './_astro_content_B-NwJbBQ.mjs';
 import { o as objectType, s as stringType } from './index_DKT5_kWb.mjs';
 import 'postmark';
 import mjml2html from 'mjml';
-import { d as defineAction } from './server_DPWN8o8Z.mjs';
+import { d as defineAction } from './server_CgPAURxL.mjs';
 
 const capitalizeFirstLetter = (str) => {
   const words = str.replace(/-/g, " ").split(" ");
@@ -168,7 +168,7 @@ const server = {
     }),
     handler: async (input) => {
       const formData = new FormData();
-      formData.append("secret", undefined                                      );
+      formData.append("secret", "1x0000000000000000000000000000000AA");
       formData.append("response", input.cfTurnstileResponse);
       const result = await fetch(
         "https://challenges.cloudflare.com/turnstile/v0/siteverify",

@@ -161,7 +161,7 @@ blocks:
     value:
       logos:
         - image: /src/assets/images/home/blocks/8/value/logos/0/image.jpg
-        - image: /src/assets/images/home/blocks/8/value/logos/1/image.png
+        - image: /src/assets/images/home/blocks/8/value/logos/1/image.webp
         - image: /src/assets/images/home/blocks/8/value/logos/2/image.jpg
         - image: /src/assets/images/home/blocks/8/value/logos/3/image.png
         - image: /src/assets/images/home/blocks/8/value/logos/4/image.png
