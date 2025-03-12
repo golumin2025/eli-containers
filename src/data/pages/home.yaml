@@ -80,26 +80,37 @@ blocks:
         label: 'Free Online Quote '
         link: '#quote-form'
       colors: '#0069e5/5'
+  - discriminant: singleHero
+    value:
+      bgImage: /src/assets/images/home/blocks/5/value/bgImage.jpeg
+      title: '"MI-BOX made our move such a smooth and stress-free process."'
+      description: >-
+        Megan was friendly, responsive, and super helpful from start to finish.
+        Each of our drivers, Steve, Nick, and Seth were very communicative,
+        friendly, and professional. We have moved quite a few times throughout
+        the US and this was by far the greatest experience we have had.
+
+        ~ Steve Almeida, 5-Star Facebook Review
   - discriminant: reviewsSlider
     value:
       title: 'Rated #1 in moving and customer service'
       logos:
-        - image: /src/assets/images/home/blocks/5/value/logos/0/image.avif
-        - image: /src/assets/images/home/blocks/5/value/logos/1/image.avif
-        - image: /src/assets/images/home/blocks/5/value/logos/2/image.avif
-        - image: /src/assets/images/home/blocks/5/value/logos/3/image.avif
+        - image: /src/assets/images/home/blocks/6/value/logos/0/image.avif
+        - image: /src/assets/images/home/blocks/6/value/logos/1/image.avif
+        - image: /src/assets/images/home/blocks/6/value/logos/2/image.avif
+        - image: /src/assets/images/home/blocks/6/value/logos/3/image.avif
   - discriminant: masonaryGallery
     value:
       title: Real stories, real moves
       images:
-        - /src/assets/images/home/blocks/6/value/images/0.webp
-        - /src/assets/images/home/blocks/6/value/images/1.webp
-        - /src/assets/images/home/blocks/6/value/images/2.webp
-        - /src/assets/images/home/blocks/6/value/images/3.webp
-        - /src/assets/images/home/blocks/6/value/images/4.webp
-        - /src/assets/images/home/blocks/6/value/images/5.webp
-        - /src/assets/images/home/blocks/6/value/images/6.webp
-        - /src/assets/images/home/blocks/6/value/images/7.webp
+        - /src/assets/images/home/blocks/7/value/images/0.webp
+        - /src/assets/images/home/blocks/7/value/images/1.webp
+        - /src/assets/images/home/blocks/7/value/images/2.webp
+        - /src/assets/images/home/blocks/7/value/images/3.webp
+        - /src/assets/images/home/blocks/7/value/images/4.webp
+        - /src/assets/images/home/blocks/7/value/images/5.webp
+        - /src/assets/images/home/blocks/7/value/images/6.webp
+        - /src/assets/images/home/blocks/7/value/images/7.webp
   - discriminant: faqs
     value:
       title: Faqs
