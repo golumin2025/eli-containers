@@ -11,6 +11,29 @@ blocks:
             delivered direct to you.
 
             We'll beat any competitor quote by 10%!
+  - discriminant: twoCol
+    value:
+      image: /src/assets/images/home/blocks/1/value/image.png
+      imagePlacement: right
+      description: >
+        # **Get a Free Quote Today & Save.**
+
+
+        ## Our prices can't be beat! Pricing & discounts are for online visitors
+        only.&nbsp;
+
+
+        Convenient &&nbsp;On-Demand\
+
+        Weatherproof Containers\
+
+        Boxes From 8' to 20' Long\
+
+        Climate Controlled Warehouse\
+
+        Locked & Fully Secure
+      button: {}
+      colors: '#0069e5/5'
   - discriminant: howPodsWork
     value:
       heading: How Rocket Shell Portable Storage Works
@@ -55,17 +78,17 @@ blocks:
     value:
       title: Real stories, real moves
       images:
-        - /src/assets/images/home/blocks/2/value/images/0.webp
-        - /src/assets/images/home/blocks/2/value/images/1.webp
-        - /src/assets/images/home/blocks/2/value/images/2.webp
-        - /src/assets/images/home/blocks/2/value/images/3.webp
-        - /src/assets/images/home/blocks/2/value/images/4.webp
-        - /src/assets/images/home/blocks/2/value/images/5.webp
-        - /src/assets/images/home/blocks/2/value/images/6.webp
-        - /src/assets/images/home/blocks/2/value/images/7.webp
+        - /src/assets/images/home/blocks/3/value/images/0.webp
+        - /src/assets/images/home/blocks/3/value/images/1.webp
+        - /src/assets/images/home/blocks/3/value/images/2.webp
+        - /src/assets/images/home/blocks/3/value/images/3.webp
+        - /src/assets/images/home/blocks/3/value/images/4.webp
+        - /src/assets/images/home/blocks/3/value/images/5.webp
+        - /src/assets/images/home/blocks/3/value/images/6.webp
+        - /src/assets/images/home/blocks/3/value/images/7.webp
   - discriminant: featuredImage
     value:
-      image: /src/assets/images/home/blocks/3/value/image.jpg
+      image: /src/assets/images/home/blocks/4/value/image.jpg
       title: 6 million moves
       description: |
         in 25 years
@@ -73,10 +96,10 @@ blocks:
     value:
       title: 'Rated #1 in moving and customer service'
       logos:
-        - image: /src/assets/images/home/blocks/4/value/logos/0/image.avif
-        - image: /src/assets/images/home/blocks/4/value/logos/1/image.avif
-        - image: /src/assets/images/home/blocks/4/value/logos/2/image.avif
-        - image: /src/assets/images/home/blocks/4/value/logos/3/image.avif
+        - image: /src/assets/images/home/blocks/5/value/logos/0/image.avif
+        - image: /src/assets/images/home/blocks/5/value/logos/1/image.avif
+        - image: /src/assets/images/home/blocks/5/value/logos/2/image.avif
+        - image: /src/assets/images/home/blocks/5/value/logos/3/image.avif
   - discriminant: faqs
     value:
       title: Faqs
@@ -190,26 +213,3 @@ blocks:
             Our content damage claims rate is less than 1/10th the moving
             industry average.
           size: normal
-  - discriminant: twoCol
-    value:
-      image: /src/assets/images/home/blocks/7/value/image.png
-      imagePlacement: right
-      description: >
-        # **Get a Free Quote Today & Save.**
-
-
-        ## Our prices can't be beat! Pricing & discounts are for online visitors
-        only.&nbsp;
-
-
-        Convenient &&nbsp;On-Demand\
-
-        Weatherproof Containers\
-
-        Boxes From 8' to 20' Long\
-
-        Climate Controlled Warehouse\
-
-        Locked & Fully Secure
-      button: {}
-      colors: '#0069e5/5'
