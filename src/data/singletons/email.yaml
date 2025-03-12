@@ -11,4 +11,8 @@ adminEmailRecipients:
     email: ted@golumin.io
   - name: Rachel
     email: rachel@getmibox.com
+  - name: Vermont Front Office
+    email: vermont@getmibox.com
+  - name: Central/Western Front Office
+    email: cwma@getmibox.com
 clientEmailRecipientsBcc: []
