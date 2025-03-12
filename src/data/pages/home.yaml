@@ -18,8 +18,8 @@ blocks:
         # **Get a Free Quote Today & Save.**
 
 
-        ### Our prices can't be beat! Pricing & discounts are for online
-        visitors only.&nbsp;
+        ## Our prices can't be beat! Pricing & discounts are for online visitors
+        only.&nbsp;
 
 
         - Convenient &&nbsp;On-Demand
@@ -83,7 +83,7 @@ blocks:
         - Miguel Fernandez, 5-Star Review
   - discriminant: howPodsWork
     value:
-      heading: How It Works
+      heading: How it works
       tabs:
         - title: Moving
           steps:
@@ -170,7 +170,7 @@ blocks:
     value:
       logos:
         - image: /src/assets/images/home/blocks/8/value/logos/0/image.jpg
-        - image: /src/assets/images/home/blocks/8/value/logos/1/image.png
+        - image: /src/assets/images/home/blocks/8/value/logos/1/image.webp
         - image: /src/assets/images/home/blocks/8/value/logos/2/image.jpg
         - image: /src/assets/images/home/blocks/8/value/logos/3/image.png
         - image: /src/assets/images/home/blocks/8/value/logos/4/image.png
