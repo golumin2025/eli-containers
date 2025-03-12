@@ -9,4 +9,6 @@ adminEmailRecipients:
     email: jordan@golumin.io
   - name: Ted Martin
     email: ted@golumin.io
+  - name: Rachel
+    email: rachel@getmibox.com
 clientEmailRecipientsBcc: []
