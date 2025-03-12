@@ -120,7 +120,6 @@ blocks:
         - image: /src/assets/images/home/blocks/7/value/logos/2/image.jpg
         - image: /src/assets/images/home/blocks/7/value/logos/3/image.png
         - image: /src/assets/images/home/blocks/7/value/logos/4/image.png
-        - image: /src/assets/images/home/blocks/7/value/logos/5/image.png
   - discriminant: masonaryGallery
     value:
       title: >-
