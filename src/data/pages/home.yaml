@@ -141,9 +141,7 @@ blocks:
         - /src/assets/images/home/blocks/8/value/images/12.jpg
   - discriminant: faqs
     value:
-      title: >-
-        No matter where you are, where you're going, or what you're storing,
-        MI-BOX Portable Storage can handle it.
+      title: Frequently Asked Questions
       faqs:
         - question: How much does it cost to rent a MI-BOX storage unit?
           answer: >
