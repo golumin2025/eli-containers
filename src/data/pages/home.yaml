@@ -122,16 +122,15 @@ blocks:
         - image: /src/assets/images/home/blocks/7/value/logos/3/image.avif
   - discriminant: masonaryGallery
     value:
-      title: Real stories, real moves
+      title: >-
+        No matter where you are, where you're going, or what you're storing,
+        MI-BOX Portable Storage can handle it.
       images:
-        - /src/assets/images/home/blocks/8/value/images/0.webp
-        - /src/assets/images/home/blocks/8/value/images/1.webp
-        - /src/assets/images/home/blocks/8/value/images/2.webp
-        - /src/assets/images/home/blocks/8/value/images/3.webp
-        - /src/assets/images/home/blocks/8/value/images/4.webp
-        - /src/assets/images/home/blocks/8/value/images/5.webp
-        - /src/assets/images/home/blocks/8/value/images/6.webp
-        - /src/assets/images/home/blocks/8/value/images/7.webp
+        - /src/assets/images/home/blocks/8/value/images/0.jpeg
+        - /src/assets/images/home/blocks/8/value/images/1.png
+        - /src/assets/images/home/blocks/8/value/images/2.jpeg
+        - /src/assets/images/home/blocks/8/value/images/3.jpg
+        - /src/assets/images/home/blocks/8/value/images/4.png
   - discriminant: faqs
     value:
       title: Faqs
