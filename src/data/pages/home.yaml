@@ -190,3 +190,26 @@ blocks:
             Our content damage claims rate is less than 1/10th the moving
             industry average.
           size: normal
+  - discriminant: twoCol
+    value:
+      image: /src/assets/images/home/blocks/7/value/image.png
+      imagePlacement: right
+      description: >
+        # **Get a Free Quote Today & Save.**
+
+
+        ## Our prices can't be beat! Pricing & discounts are for online visitors
+        only.&nbsp;
+
+
+        Convenient &&nbsp;On-Demand\
+
+        Weatherproof Containers\
+
+        Boxes From 8' to 20' Long\
+
+        Climate Controlled Warehouse\
+
+        Locked & Fully Secure
+      button: {}
+      colors: '#0069e5/5'
