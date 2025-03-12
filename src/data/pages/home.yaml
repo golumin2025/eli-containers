@@ -36,44 +36,22 @@ blocks:
       colors: '#0069e5/5'
   - discriminant: howPodsWork
     value:
-      heading: How Rocket Shell Portable Storage Works
+      heading: How it works
       tabs:
-        - title: Moving
+        - title: 'Moving or Storing '
           steps:
-            - title: We deliver your container
-              description: >+
-                Choose from 8', 12', or 16' weather-resistant containers,
-                delivered right to your door.
-
-            - title: Pack at your own pace
-              description: >+
-                Your first 30 days are included, then rent monthly if needed.
-                Need help loading? We can connect you with pros.
-
-            - title: 'Next stop: your new home'
-              description: >+
-                We'll deliver to your new home whenever you're ready. Need
-                storage between homes? You have the option to keep your
-                container at one of our secure Storage Centers.
-
-        - title: Storage
-          steps:
-            - title: We deliver your container
-              description: >+
-                Choose from 8', 12', or 16' weather-resistant containers,
-                delivered right to your door.
-
-            - title: Load at your own pace
-              description: >+
-                Your first 30 days are included, then rent monthly if needed.
-                Need help loading? We can connect you with pros.
-
-            - title: Store at home or with us
-              description: >+
-                Keep your container at home for 24/7 access, or we'll move it to
-                a secure Rocket Shell Portable Storage Facility where you can
-                retrieve items when needed.
-
+            - title: We bring it
+              description: >-
+                Large, secure, weatherproof storage containers delivered to your
+                door. You won't need to rent a delivery truck.
+            - title: You load it
+              description: >-
+                Pack at your own pace & take your time. There are zero time
+                constraints and no long term contracts.
+            - title: We move or store it
+              description: >-
+                Free access at our secure, climate controlled facility or we
+                will deliver it to a location of your choice.
   - discriminant: masonaryGallery
     value:
       title: Real stories, real moves
