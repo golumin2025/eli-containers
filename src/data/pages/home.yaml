@@ -141,88 +141,37 @@ blocks:
         - /src/assets/images/home/blocks/8/value/images/12.jpg
   - discriminant: faqs
     value:
-      title: Faqs
+      title: >-
+        No matter where you are, where you're going, or what you're storing,
+        MI-BOX Portable Storage can handle it.
       faqs:
-        - question: How do Billing & Payments Work with Rocket Shell Portable Storage?
+        - question: How much does it cost to rent a MI-BOX storage unit?
           answer: >
-            **No deposits, no obligations:** Like most hotel reservations, you
-            can reserve your Rocket Shell Portable Storage container with a
-            credit card – no payments are due until 7 days before your container
-            delivery.
-
-
-            **Easy cancellation:** If you change your dates or change your mind,
-            it's no worries! Visit pods.com/cancel to view our full cancellation
-            policy.
-
-
-            **No surprise costs:** We're transparent with our pricing in your
-            detailed quote, which you'll receive via email.
-
-
-            **Avoid late fees:** Your containers are rented by the month, so you
-            can take your time loading and unloading – without worrying about
-            extra fees that can come with a truck rental.
-
-
-            **Flexible scheduling:** With Rocket Shell Portable Storage there
-            are no rigid schedules. If your plans change you can login to
-            my.pods.com to update your schedule.
-        - question: >-
-            How long do I have to load or unload my Rocket Shell Portable
-            Storage container?
+            Storing a MI-BOX container at your property starts from at $99 a
+            month. There is no minimum or maximum stay. You can rent a MI-BOX
+            storage container for as long as you need.&nbsp;
+        - question: 'Can you store the box for me? '
           answer: >
-            Take your time - your Rocket Shell Portable Storage container rental
-            is monthly, giving you the flexibility to pack and unload at your
-            own pace. Your 30-day billing cycle starts when we deliver your
-            container.
-        - question: How are Rocket Shell Portable Storage Moving prices calculated?
+            Yes! We offer a climate controlled storage warehouse and offer
+            several storage warehouse options. Climate storage starts at $60 a
+            month, or we can store the box outside for $20.&nbsp;
+        - question: Can I access my storage container while it's in storage?
           answer: >
-            We personalize your moving quote based on your unique journey:
-
-
-            - Pick-up and delivery locations
-
-            - Travel distance
-
-            - Time needed for your move
-
-            - Size and number of containers
-
-
-            [Get your custom quote in minutes](https://booking.pods.com/home)
-            and see why millions choose Rocket Shell Portable Storage for a
-            smoother move.
-        - question: How are Rocket Shell Portable Storage Storage prices calculated?
+            Yes! You can access your storage unit during normal business hours
+            at no charge.
+        - question: How does your pricing work?
           answer: >
-            Your Rocket Shell Portable Storage storage quote is personalized
-            based on your unique needs, including:
-
-
-            - Your location
-
-            - Length of storage and time of year
-
-            - Container size and quantity
-
-            - Storage location - at your property or in a secure, indoor,
-            climate-controlled Rocket Shell Portable Storage Storage Center
-
-            - Special offers and promotions available in your area
-
-
-            [Get your custom quote in minutes](https://booking.pods.com/home),
-            or explore our current [discount offers](https://www.pods.com/promo)
-            to start saving.
-        - question: >-
-            Are Rocket Shell Portable Storage Storage Centers
-            climate-controlled?
+            Monthly rental is due at the initial delivery date and on the
+            anniversary date for the following months.&nbsp; There is an
+            additional fee for unit delivery and pick-up and any additional
+            moves.&nbsp; We are happy to move your container as much as needed
+            with notice. A credit/debit card is required and will auto-bill on
+            the anniversary date.
+        - question: How long can I keep my MI-BOX?
           answer: >
-            If you keep your things at one of our Storage Centers, they'll
-            receive the best and most secure treatment available. Rocket Shell
-            Portable Storage Storage Centers are clean, safe, dry, and many are
-            climate-controlled. Rocket Shell Portable Storage has hundreds of
-            convenient and safe locations across the country.
+            Keep your container for&nbsp;as long as you like!&nbsp; We will send
+            you an invoice on your monthly anniversary date with the monthly
+            charges and autobill receipt.
   - discriminant: podsHelpingBintoGrid
     value:
       heading: Let Rocket Shell Portable Storage help you start fresh
