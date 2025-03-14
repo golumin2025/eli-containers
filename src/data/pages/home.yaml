@@ -58,7 +58,7 @@ blocks:
             furniture, and other various items.
           dimensions: 16 FT x 8FT x 8 FT
           storageSize: 16 FT
-        - title: Large (Onsite Only)
+        - title: Large
           image: /src/assets/images/home/blocks/2/value/cards/2/image.png
           description: >
             Can usually hold the contents of a 3-4 bedrooms. Great for storing
@@ -123,7 +123,7 @@ blocks:
       media:
         discriminant: true
         value:
-          videoUrl: https://youtu.be/v1JVp0xaFIk?list=TLGGxz66NPFGyRMxMjAzMjAyNQ
+          videoUrl: https://youtu.be/v1JVp0xaFIk?si=pykrIWqRBVVxLZmF
           videoTitle: Storage delivered Anywhere.
       imagePlacement: left
       colors: '#0069e5/5'
