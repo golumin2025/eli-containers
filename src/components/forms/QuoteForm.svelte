@@ -148,17 +148,17 @@
   >
     <button
       type="button"
-      class={`py-3 px-4 rounded-md flex-1 transition-colors  ${form.serviceType === "keep-it" ? "bg-primary text-white" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+      class={`py-3 px-4 rounded-md flex-1 shadow-[0px_4px_8px_0px_#00000040] transition-colors  ${form.serviceType === "keep-it" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
       onclick={() => (form.serviceType = "keep-it")}>Keep It</button
     >
     <button
       type="button"
-      class={`py-3 px-4 rounded-md transition-colors flex-1 ${form.serviceType === "move-it" ? "bg-primary text-white" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors flex-1 ${form.serviceType === "move-it" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
       onclick={() => (form.serviceType = "move-it")}>Move It</button
     >
     <button
       type="button"
-      class={`py-3 px-4 rounded-md transition-colors flex-1 ${form.serviceType === "store-it" ? "bg-primary text-white" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+      class={`py-3 px-4 rounded-md  shadow-[0px_4px_8px_0px_#00000040] transition-colors flex-1 ${form.serviceType === "store-it" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
       onclick={() => (form.serviceType = "store-it")}>Store It</button
     >
   </div>
@@ -274,7 +274,7 @@
     <button
       type="submit"
       disabled={isLoading || typeof error === "string" ? true : error}
-      class="submit-btn shadow-lg cursor-pointer"
+      class="submit-btn shadow-[0px_4px_8px_0px_#00000040] cursor-pointer"
     >
       {#if isLoading}
         Submitting...
