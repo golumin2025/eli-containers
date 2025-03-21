@@ -1,15 +1,16 @@
 ---
 const { title, description, bgImage, showQuoteForm } = Astro.props;
+import ImageMod from "@components/ui/ImageMod.astro";
 import QuoteForm from "../forms/QuoteForm.svelte";
 ---
 
 <section
   class="relative custom-container min-h-[450px] mt-6 rounded-xl overflow-hidden"
 >
-  <img
+  <ImageMod
     src={bgImage}
     alt="Hero background"
-    class="absolute inset-0 w-full h-full object-cover"
+    className="absolute inset-0 w-full h-full object-cover"
   />
   <div class="absolute inset-0 gradient-overlay"></div>
   <div
