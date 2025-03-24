@@ -2,6 +2,8 @@
   import { actions, isInputError } from "astro:actions";
   import { DateInput } from "date-picker-svelte";
   import { turnstile } from "@svelte-put/cloudflare-turnstile";
+  import { onMount } from "svelte";
+  import Modal from "@components/ui/Modal.svelte";
 
   interface FormData {
     serviceType: "keep-it" | "move-it" | "store-it";
@@ -15,6 +17,7 @@
     phone: string;
     storeItType: string;
     cfTurnstileResponse: string;
+    isExcludedZip: boolean;
     errors: {
       firstName?: string;
       lastName?: string;
@@ -25,6 +28,7 @@
       phone?: string;
       cfTurnstileResponse?: string;
       general?: string;
+      excludedZip?: string;
     };
   }
 
@@ -36,6 +40,8 @@
   let isLoading = $state(false);
   let error: string | boolean | null = $state(null);
   const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+  let showZipModal = $state(false);
+  let modalMessage = $state("");
 
   let form: FormData = $state({
     serviceType: "keep-it",
@@ -49,11 +55,11 @@
     phone: "",
     storeItType: "",
     cfTurnstileResponse: "",
+    isExcludedZip: true, // Default to true as requested
     errors: {},
   });
 
   let previousServiceType = $state(form.serviceType);
-
   let validZipCodes: string[] = $state([]);
 
   $effect(() => {
@@ -70,6 +76,7 @@
         email: "",
         phone: "",
         storeItType: "",
+        isExcludedZip: true, // Reset to true when service type changes
         errors: {},
       };
       containerTypes = [];
@@ -80,14 +87,34 @@
   async function handleSubmit(event: Event) {
     event.preventDefault();
     isLoading = true;
-    const result = await actions.quoteForm(form);
+    form.errors = {};
+
+    // Validate zip code before submission
+    if (form.initialDeliveryZip.length === 5) {
+      form.isExcludedZip = !validZipCodes.includes(form.initialDeliveryZip);
+    }
+
+    // Submit the form regardless of zip code status
+    const result: any = await actions.quoteForm(form);
+
     if (isInputError(result.error)) {
       form.errors = result.error.fields;
-    } else if (result && !result.error) {
-      window.location.href = `/thank-you`;
+    } else if (result.success) {
+      // Only redirect if zip is valid
+      if (!form.isExcludedZip) {
+        window.location.href = `/thank-you`;
+      }
     } else if (result.error) {
       form.errors = { general: result.error.message };
     }
+
+    // Show modal if zip is excluded (after submission)
+    if (form.isExcludedZip) {
+      modalMessage =
+        "Sorry, we currently don't service this area. Please try a different zip code or contact our support team for assistance.";
+      showZipModal = true;
+    }
+
     isLoading = false;
   }
 
@@ -110,6 +137,7 @@
   });
 
   const isValidZipCode = (zipCode: string): boolean => {
+    if (zipCode.length < 5) return false;
     return validZipCodes.includes(zipCode);
   };
 
@@ -119,12 +147,13 @@
     if (!zipcode || zipcode.length < 5) {
       containerTypes = [];
       storageTypes = [];
+      form.isExcludedZip = true; // Assume excluded until verified
       return;
     }
 
     if (zipcode.length === 5) {
-      if (!isValidZipCode(zipcode)) {
-        error = "Invalid zip code for service area";
+      form.isExcludedZip = !isValidZipCode(zipcode);
+      if (form.isExcludedZip) {
         containerTypes = [];
         storageTypes = [];
         return;
@@ -133,34 +162,43 @@
       error = false;
     }
   }
+
   $effect(() => {
     fetchContainerTypes();
   });
+
+  function closeModal() {
+    showZipModal = false;
+    modalMessage = "";
+  }
 </script>
 
 <form id="quote-form" method="POST" onsubmit={handleSubmit}>
   <h2 class="md:text-3xl text-xl text-center font-bold block">
     {quoteFormTitle}
   </h2>
-  <div
-    class="flex justify-around items-center my-6 gap-4"
-    style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 1rem;"
-  >
+  <div class="flex justify-around items-center my-6 gap-4">
     <button
       type="button"
-      class={`py-3 px-4 rounded-md flex-1 shadow-[0px_4px_8px_0px_#00000040] transition-colors  ${form.serviceType === "keep-it" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
-      onclick={() => (form.serviceType = "keep-it")}>Keep It</button
+      class={`py-3 px-4 rounded-md flex-1 shadow-[0px_4px_8px_0px_#00000040] transition-colors ${form.serviceType === "keep-it" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+      onclick={() => (form.serviceType = "keep-it")}
     >
+      Keep It
+    </button>
     <button
       type="button"
       class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors flex-1 ${form.serviceType === "move-it" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
-      onclick={() => (form.serviceType = "move-it")}>Move It</button
+      onclick={() => (form.serviceType = "move-it")}
     >
+      Move It
+    </button>
     <button
       type="button"
-      class={`py-3 px-4 rounded-md  shadow-[0px_4px_8px_0px_#00000040] transition-colors flex-1 ${form.serviceType === "store-it" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
-      onclick={() => (form.serviceType = "store-it")}>Store It</button
+      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors flex-1 ${form.serviceType === "store-it" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+      onclick={() => (form.serviceType = "store-it")}
     >
+      Store It
+    </button>
   </div>
   <div class="space-y-2">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -176,7 +214,6 @@
           <p class="text-red-800">{form.errors.firstName}</p>
         {/if}
       </div>
-
       <div>
         <input
           type="text"
@@ -231,7 +268,6 @@
         <p class="text-red-800">{form.errors.deliveryDate}</p>
       {/if}
     </div>
-
     <div>
       <input
         type="email"
@@ -244,7 +280,6 @@
         <p class="text-red-800">{form.errors.email}</p>
       {/if}
     </div>
-
     <div>
       <input
         type="phone"
@@ -273,7 +308,7 @@
     {/if}
     <button
       type="submit"
-      disabled={isLoading || typeof error === "string" ? true : error}
+      disabled={isLoading}
       class="submit-btn shadow-[0px_4px_8px_0px_#00000040] cursor-pointer"
     >
       {#if isLoading}
@@ -303,6 +338,21 @@
       {/if}
     </button>
   </div>
+  <Modal show={showZipModal} onClose={closeModal}>
+    <div class="space-y-4">
+      <h3 class="text-xl font-bold text-gray-900">Service Area Notice</h3>
+      <p class="text-gray-600">{modalMessage}</p>
+      <div class="flex justify-end">
+        <button
+          type="button"
+          class="bg-primary text-white px-4 py-2 rounded hover:bg-opacity-90"
+          onclick={closeModal}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </Modal>
 </form>
 
 <style>
