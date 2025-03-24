@@ -2,9 +2,17 @@ logo:
   imageUrl: >-
     https://miboxvw.netlify.app/.netlify/images?url=_astro%2Flogo.DSeDsUnm.png&w=420&h=120
   altTag: MI-BOX Vermont Logo
-fromEmail: info@brem.io
+fromEmail: hello@golumin.io
 fromEmailName: MI-BOX Vermont
 adminEmailRecipients:
-  - name: Shahid TEST
-    email: shahidazizadina@gmail.com
+  - name: Jordan Tag
+    email: jordan@golumin.io
+  - name: Ted Martin
+    email: ted@golumin.io
+  - name: Rachel
+    email: rachel@getmibox.com
+  - name: Vermont Front Office
+    email: vermont@getmibox.com
+  - name: Central/Western Front Office
+    email: cwma@getmibox.com
 clientEmailRecipientsBcc: []
