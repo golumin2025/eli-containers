@@ -4,7 +4,6 @@
   import { turnstile } from "@svelte-put/cloudflare-turnstile";
   import { onMount } from "svelte";
   import Modal from "@components/ui/Modal.svelte";
-
   interface FormData {
     serviceType: "keep-it" | "move-it" | "store-it";
     firstName: string;
@@ -32,7 +31,7 @@
     };
   }
 
-  let { quoteFormTitle } = $props();
+  let { quoteFormTitle, phoneNumber } = $props();
 
   let containerTypes: string[] = $state([]);
   let storageTypes: string[] = $state([]);
@@ -110,8 +109,21 @@
 
     // Show modal if zip is excluded (after submission)
     if (form.isExcludedZip) {
-      modalMessage =
-        "Sorry, we currently don't service this area. Please try a different zip code or contact our support team for assistance.";
+      modalMessage = `<div class="text-center">
+      <svg class="w-16 h-16 mx-auto mb-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+      <h3 class="mb-4 text-xl font-bold text-gray-900">Service Area Notice</h3>
+      <p class="mb-4 text-gray-600">
+        Sorry, we currently don't service this area. Please try a different zip code or contact our support team for assistance.
+      </p>
+      <div class="mt-4 text-gray-700">
+        <p>If you think this message is in error, please call:</p>
+        <a href="tel:${phoneNumber}" class="inline-block mt-2 text-xl font-bold text-primary hover:text-primary-dark">
+          ${phoneNumber}
+        </a>
+      </div>
+    </div>`;
       showZipModal = true;
     }
 
@@ -340,8 +352,7 @@
   </div>
   <Modal show={showZipModal} onClose={closeModal}>
     <div class="space-y-4">
-      <h3 class="text-xl font-bold text-gray-900">Service Area Notice</h3>
-      <p class="text-gray-600">{modalMessage}</p>
+      {@html modalMessage}
       <div class="flex justify-end">
         <button
           type="button"
