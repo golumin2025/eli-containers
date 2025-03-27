@@ -6,4 +6,17 @@ contactInformation:
   phone: '18022422022'
   phoneDisplay: (802) 242-2022
 businessHours: 8am - 5pm Mon - Fri, 8am - 3pm Sat, Closed Sun
-analyticsScripts: []
+analyticsScripts:
+  - name: Google Tag Manager
+    script: >-
+      <script async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-10789120362"></script>
+
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-10789120362');
+      </script>
+    location: head
