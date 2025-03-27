@@ -7,12 +7,12 @@ fromEmailName: MI-BOX Vermont
 adminEmailRecipients:
   - name: Jordan Tag
     email: jordan@golumin.io
-  - name: Ted Martin
-    email: ted@golumin.io
   - name: Rachel
     email: rachel@getmibox.com
   - name: Vermont Front Office
     email: vermont@getmibox.com
   - name: Central/Western Front Office
     email: cwma@getmibox.com
-clientEmailRecipientsBcc: []
+clientEmailRecipientsBcc:
+  - name: Jordan Tag
+    email: jordan@golumin.io
