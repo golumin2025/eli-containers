@@ -6,18 +6,25 @@ menuItems:
       - name: Moving
         link: /portable-container-sizes
       - name: Moving Overview
+        link: /moving-overview
   - name: Storage
     link: /portable-container-sizes
     subMenu:
       - name: Storage
         link: /portable-container-sizes
       - name: Storage Overview
+        link: /storage-overview
   - name: Locations
+    link: /locations
     subMenu:
       - name: Vermont
+        link: /vermont-service-area
       - name: Central Massachusetts
+        link: /central-massachusetts-service-area
       - name: Western Massachusetts
+        link: /western-massachusetts-service-area
   - name: Business
+    link: /commercial-business
     subMenu: []
 button:
   enable: true
