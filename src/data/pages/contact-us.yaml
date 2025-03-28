@@ -1,0 +1,35 @@
+title: Contact Us
+seoData:
+  seoTitle: Contact MI-BOX | Portable Storage & Moving | Get a Free Quote
+  seoDescription: >-
+    Contact MI-BOX for portable storage and moving solutions. Get a free quote
+    for on-site storage, warehouse options, and relocation services. Reach us
+    today!
+blocks:
+  - discriminant: singleHero
+    value:
+      bgImage: /src/assets/images/contact-us/blocks/0/value/bgImage.jpg
+      title: 'Contact MI-BOX: Get Your Portable Storage & Moving Quote Today'
+      showQuoteForm: true
+  - discriminant: twoCol
+    value:
+      heading: Find your nearest MI-BOX location
+      description: >
+        Have questions about our portable storage and moving solutions? The
+        MI-BOX team is here to help! Contact us today to learn more about our
+        on-site storage, warehouse storage, and moving services.
+
+
+        ### Phone [(802) 242-2022](tel:(802) 242-2022)
+
+
+        ### Email [vermont@getmibox.com](mailto:vermont@getmibox.com)
+      media:
+        discriminant: false
+        value:
+          image: /src/assets/images/contact-us/blocks/1/value/media/value/image.jpg
+      imagePlacement: left
+      colors: '#0069e5/5'
+      button:
+        label: Get a Quote Today!
+        link: /#quote

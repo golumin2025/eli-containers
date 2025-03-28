@@ -28,5 +28,8 @@ socialLinks:
     url: '#'
 legal:
   - title: Web Accessibility
+    link: /website-accessibility
   - title: Terms & Conditions
+    link: /terms-and-conditions
   - title: Privacy Policy
+    link: /privacy-policy

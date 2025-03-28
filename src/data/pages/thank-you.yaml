@@ -9,3 +9,6 @@ blocks:
         A moving and storage specialist will contact you in 15 minutes or less.
         If you need immediate assistance, please call (802) 242-2022.
       showQuoteForm: false
+  - discriminant: reviewsSlider
+    value:
+      logos: []
