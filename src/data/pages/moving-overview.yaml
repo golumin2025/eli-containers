@@ -8,11 +8,12 @@ seoData:
 blocks:
   - discriminant: singleHero
     value:
-      bgImage: /src/assets/images/Moving Overview/blocks/0/value/bgImage.jpg
+      bgImage: /src/assets/images/moving-overview/blocks/0/value/bgImage.jpg
       title: 'Portable Moving Containers: Stress-Free Relocation'
       showQuoteForm: true
   - discriminant: twoCol
     value:
+      heading: MI-Box Portable Moving & Storage Containers
       description: >
         Moving can be a daunting task, but with our portable moving containers,
         you can simplify the process. Whether you're relocating your home or
@@ -26,8 +27,7 @@ blocks:
         discriminant: false
         value:
           image: >-
-            /src/assets/images/Moving
-            Overview/blocks/1/value/media/value/image.jpg
+            /src/assets/images/moving-overview/blocks/1/value/media/value/image.jpg
       imagePlacement: right
       colors: '#0069e5/5'
       button:
@@ -37,7 +37,7 @@ blocks:
     value:
       title: Moving Services
       cards:
-        - image: /src/assets/images/Moving Overview/blocks/2/value/cards/0/image.jpg
+        - image: /src/assets/images/moving-overview/blocks/2/value/cards/0/image.jpg
           title: Moving & Relocation
           description: >
             Make your move easier with MI-BOX portable moving solutions. We
@@ -49,7 +49,7 @@ blocks:
 
 
             #### [Learn more](/moving-services)
-        - image: /src/assets/images/Moving Overview/blocks/2/value/cards/1/image.jpg
+        - image: /src/assets/images/moving-overview/blocks/2/value/cards/1/image.jpg
           title: Onsite Storage
           description: >
             We deliver a secure, weatherproof storage container directly to your
@@ -61,7 +61,7 @@ blocks:
 
 
             #### [Learn more](/onsite-storage-services)
-        - image: /src/assets/images/Moving Overview/blocks/2/value/cards/2/image.jpg
+        - image: /src/assets/images/moving-overview/blocks/2/value/cards/2/image.jpg
           title: MI-Box Warehouse Storage
           description: >
             For those needing secure, long-term storage, MI-BOX provides a
@@ -127,8 +127,8 @@ blocks:
   - discriminant: reviewsSlider
     value:
       logos:
-        - image: /src/assets/images/Moving Overview/blocks/5/value/logos/0/image.jpg
-        - image: /src/assets/images/Moving Overview/blocks/5/value/logos/1/image.png
-        - image: /src/assets/images/Moving Overview/blocks/5/value/logos/2/image.jpg
-        - image: /src/assets/images/Moving Overview/blocks/5/value/logos/3/image.png
-        - image: /src/assets/images/Moving Overview/blocks/5/value/logos/4/image.png
+        - image: /src/assets/images/moving-overview/blocks/5/value/logos/0/image.jpg
+        - image: /src/assets/images/moving-overview/blocks/5/value/logos/1/image.png
+        - image: /src/assets/images/moving-overview/blocks/5/value/logos/2/image.jpg
+        - image: /src/assets/images/moving-overview/blocks/5/value/logos/3/image.png
+        - image: /src/assets/images/moving-overview/blocks/5/value/logos/4/image.png
