@@ -1,34 +1,40 @@
 title: Who We Are
-seoData: {}
+seoData:
+  seoTitle: Secure & Affordable Portable Storage | MI-BOX Moving & Storage
+  seoDescription: >-
+    MI-BOX is a locally owned and operated moving and storage company dedicated
+    to providing reliable, customer-focused service. We offer secure,
+    weather-resistant portable storage solutions tailored for both residential
+    and business needs.
 blocks:
   - discriminant: singleHero
     value:
       bgImage: /src/assets/images/who-we-are/blocks/0/value/bgImage.jpg
       title: Who We Are
-      description: >-
-        Locally owned and managed moving & storage company focused on customer
-        service
+      showQuoteForm: true
   - discriminant: twoCol
     value:
       heading: Who We Are
-      description: |
-        Rocket Shell is a locally owned and managed moving & storage company
-        focused on customer service. Our portable storage containers are
-        designed to offer affordable, safe, and secure portable storage needs
-        for residential and commercial customers.
+      description: >
+        MI-BOX is a trusted, locally owned moving and storage company dedicated
+        to providing secure, affordable, and convenient portable storage
+        solutions for homes and businesses.
 
-        Rocket Shell seeks to be a desirable, safe, and customer-oriented
-        company perfectly suited for moving & storing your valued personal and
-        business belongings.
 
-        We offer affordable, convenient, and secure portable storage operated by
-        professional staff who care about your belongings as much as you do.
+        Our durable, weather-resistant storage containers keep your belongings
+        safe during moves, renovations, or long-term storage. With flexible
+        delivery and pickup options, MI-BOX makes storage easy and stress-free.
+
+
+        Backed by exceptional customer service, MI-BOX offers reliable,
+        on-demand portable storage to meet your residential and commercial
+        needs.
       media:
         discriminant: false
         value:
-          image: /src/assets/images/who-we-are/blocks/1/value/media/value/image.webp
+          image: /src/assets/images/who-we-are/blocks/1/value/media/value/image.jpg
       imagePlacement: left
       colors: '#0069e5/5'
       button:
         label: Get a Quote Today!
-        link: /#quote-form
+        link: /#quote
