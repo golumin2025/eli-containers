@@ -1,4 +1,17 @@
-navitems: []
+navitems:
+  - title: About MI-Box
+    links:
+      - name: About Us
+      - name: Contact Us
+  - title: Services
+    links:
+      - name: MI-Box Portable Storage Containers
+      - name: Moving
+      - name: Storage
+  - title: Resources
+    links:
+      - name: FAQs
+      - name: Locations
 socialLinks:
   - icon: /src/assets/images/social/socialLinks/0/icon.svg
     url: https://www.facebook.com/
