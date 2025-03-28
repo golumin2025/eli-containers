@@ -1,0 +1,150 @@
+title: Commercial Business
+seoData:
+  seoTitle: MI-BOX Commercial Business | Storage & Moving Solutions
+  seoDescription: >-
+    Optimize your business with MI-BOX commercial storage and moving solutions.
+    Secure on-site storage, warehouse options, and efficient relocation
+    services. Get a free business quote!
+blocks:
+  - discriminant: singleHero
+    value:
+      bgImage: /src/assets/images/commercial-business/blocks/0/value/bgImage.jpg
+      title: MI-BOX Commercial Solutions
+      showQuoteForm: true
+  - discriminant: twoCol
+    value:
+      heading: Streamline Your Business Storage & Moving
+      description: >
+        MI-BOX offers tailored commercial storage and moving solutions designed
+        to streamline your business operations. Whether you need secure on-site
+        storage for inventory, flexible warehouse options for long-term needs,
+        or efficient relocation services for your office or equipment, MI-BOX
+        provides the flexibility and convenience your business demands.
+      media:
+        discriminant: false
+        value:
+          image: >-
+            /src/assets/images/commercial-business/blocks/1/value/media/value/image.jpg
+      imagePlacement: right
+      colors: '#0069e5/5'
+      button:
+        label: Get a quote
+        link: /#quote
+  - discriminant: cards
+    value:
+      title: Moving & Storage Services
+      cards:
+        - image: >-
+            /src/assets/images/commercial-business/blocks/2/value/cards/0/image.jpg
+          title: Onsite Storage
+          description: >
+            Maximize your workspace and keep essential materials within easy
+            reach with MI-BOX on-site storage. Perfect for inventory management,
+            equipment storage, and temporary storage during renovations or
+            expansions. Our weatherproof and secure containers are delivered
+            directly to your location, providing instant access when you need
+            it.
+
+
+            #### [Learn more](/onsite-storage-services)
+        - image: >-
+            /src/assets/images/commercial-business/blocks/2/value/cards/1/image.jpg
+          title: MI-Box Warehouse Storage
+          description: >
+            For businesses requiring long-term storage solutions, MI-BOX offers
+            secure, climate-controlled warehouse storage. We'll pick up your
+            loaded MI-BOX and store it safely until you're ready. Ideal for
+            seasonal inventory, archived documents, and excess equipment.
+
+
+            #### [Learn more](warehouse-storage-services)
+        - image: >-
+            /src/assets/images/commercial-business/blocks/2/value/cards/2/image.jpg
+          title: Moving & Relocation
+          description: >
+            Minimize downtime and ensure a smooth transition with MI-BOX
+            commercial moving services. We handle the logistics of relocating
+            your office, equipment, or inventory, whether you're moving across
+            town or across the region. Our portable storage containers allow you
+            to pack at your own pace, and we'll take care of the transportation.
+
+
+            #### [Learn more](/moving-services)
+  - discriminant: twoCol
+    value:
+      heading: Why Choose MI-BOX for Your Business?
+      description: >
+        **✔️ Flexibility:** Tailored solutions to meet your specific business
+        needs.
+
+
+        **✔️ Security:** Weatherproof and secure storage containers and
+        warehouse facilities.
+
+
+        **✔️ Convenience:** On-site delivery and pick-up, minimizing disruptions
+        to your operations.
+
+
+        **✔️ Efficiency:** Streamlined moving and storage processes to save you
+        time and money.
+
+
+        **✔️ Reliability:** Dependable service from a trusted name in portable
+        storage.
+      media:
+        discriminant: true
+        value:
+          videoUrl: https://youtu.be/v1JVp0xaFIk?si=pykrIWqRBVVxLZmF
+          videoTitle: Storage delivered anywhere.
+      imagePlacement: left
+      colors: '#0069e5/5'
+      button:
+        label: Get a Free Commercial Business Quote Today!
+        link: /#quote
+  - discriminant: howPodsWork
+    value:
+      heading: How It Works
+      tabs:
+        - title: Moving
+          steps:
+            - title: We bring it
+              description: >-
+                Large, secure, weatherproof storage containers delivered to your
+                door. You won't need to rent a delivery truck.
+            - title: You load it
+              description: >-
+                Pack at your own pace & take your time. There are zero time
+                constraints and no long term contracts.
+            - title: We move or store it
+              description: >-
+                Free access at our secure, climate controlled facility or we
+                will deliver it to a location of your choice.
+        - title: Storage
+          steps:
+            - title: We Bring
+              description: >-
+                Large, secure, weatherproof storage containers delivered to your
+                door. You won't need to rent a delivery truck.
+            - title: Pack at Your Own Pace
+              description: >-
+                Your first 30 days are included, then rent monthly if needed.
+                Need help loading? We can connect you with pros.
+            - title: On the Way to Your New Place
+              description: >-
+                We'll deliver to your new home whenever you're ready. Need
+                storage between homes? You have the option to keep your
+                container at one of our secure Storage Centers.
+  - discriminant: reviewsSlider
+    value:
+      logos:
+        - image: >-
+            /src/assets/images/commercial-business/blocks/5/value/logos/0/image.jpg
+        - image: >-
+            /src/assets/images/commercial-business/blocks/5/value/logos/1/image.png
+        - image: >-
+            /src/assets/images/commercial-business/blocks/5/value/logos/2/image.jpg
+        - image: >-
+            /src/assets/images/commercial-business/blocks/5/value/logos/3/image.png
+        - image: >-
+            /src/assets/images/commercial-business/blocks/5/value/logos/4/image.png
