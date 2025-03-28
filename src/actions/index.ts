@@ -67,7 +67,7 @@ export const server = {
           // Send notification for excluded zip code
           await client.sendEmail({
             From: `${emailSettings.data.fromEmailName} <${emailSettings.data.fromEmail}>`,
-            To: emailSettings.data.adminEmailRecipients
+            To: emailSettings.data.outOfTerritoryRecipients
               .map((recipient: any) => recipient.email)
               .join(", "),
             Subject: "Out of Service Area Submission",

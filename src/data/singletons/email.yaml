@@ -16,3 +16,8 @@ adminEmailRecipients:
 clientEmailRecipientsBcc:
   - name: Jordan Tag
     email: jordan@golumin.io
+outOfTerritoryRecipients:
+  - name: VT
+    email: Vermont@getmibox.com
+  - name: MA
+    email: cwma@getmibox.com

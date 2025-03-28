@@ -47,5 +47,15 @@ export const email = {
         itemLabel: (props) => props.fields.name.value,
       },
     ),
+    outOfTerritoryRecipients: fields.array(
+      fields.object({
+        name: fields.text({ label: "Name" }),
+        email: fields.text({ label: "Email" }),
+      }),
+      {
+        label: "Out of Territory Recipients",
+        itemLabel: (props) => props.fields.name.value,
+      },
+    ),
   },
 };
