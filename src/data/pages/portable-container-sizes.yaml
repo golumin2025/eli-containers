@@ -1,18 +1,21 @@
-title: Moving
+title: Portable Container Sizes
 seoData:
-  seoTitle: Moving Container & Storage Unit Sizes | PODS
-  seoDescription: >-
-    Compare our 8-foot, 12-foot & 16-foot steel-framed storage containers to
-    find the PODS container size that’s right for your moving or storage needs.
+  seoTitle: Portable Moving & Storage Container Sizes | MI-Box
+  seoDescription: >
+    Find the perfect portable storage container with MI-Box. Choose from 8-foot,
+    12-foot, and 16-foot secure, weather-resistant containers designed for home
+    and business moving & storage.
 blocks:
   - discriminant: singleHero
     value:
       bgImage: /src/assets/images/portable-container-sizes/blocks/0/value/bgImage.png
-      title: ' Moving container & storage unit sizes'
-      description: >
-        Keeping your things safe is our priority, so we've built our containers
-        for protection. We've got multiple size options to choose from, and you
-        can mix and match to fit your needs.
+      title: Portable Storage & Moving Container Sizes
+      description: >-
+        At MI-Box, protecting your belongings is our top priority. Our durable,
+        weather-resistant storage containers are built for security and
+        convenience. With multiple size options available, you can mix and match
+        to fit your specific needs.
+      showQuoteForm: true
   - discriminant: storageOptions
     value:
       title: 'Find Your Fit: Moving and Storage Unit Size Options'
@@ -46,117 +49,97 @@ blocks:
           link: '#'
   - discriminant: protectionConvenience
     value:
-      title: Designed for Protection & Convenience
+      title: Built for Security & Convenience
       cards:
         - icon: >-
             /src/assets/icons/portable-container-sizes/blocks/2/value/cards/0/icon.svg
-          title: Sturdy steel construction
-          description: >+
-            PODS steel-frame, weather-resistant containers are built to keep
-            your belongings protected from the elements. Watch out for some
-            companies that advertise their containers as “all steel,” which may
-            only be lightweight metal sheeting that offers no added security for
-            your belongings.
-
+          title: Durable Steel Construction
+          description: >-
+            MI-Box containers are engineered with heavy-duty steel frames and
+            weather-resistant materials to keep your belongings safe from the
+            elements. MI-Box provides true structural strength and protection.
         - icon: >-
             /src/assets/icons/portable-container-sizes/blocks/2/value/cards/1/icon.svg
-          title: Impact-resistant wall paneling
-          description: >+
-            Our containers are specially designed with impact- and
-            weather-resistant high-tech polymer wall panels, or sturdy wood
-            reinforced with an aluminum exterior sheet for extra security and
-            protection.
-
+          title: Impact-Resistant Wall Panels
+          description: >-
+            Built with reinforced, weather-resistant materials, MI-Box
+            containers provide superior protection against harsh conditions and
+            accidental impacts.
         - icon: >-
             /src/assets/icons/portable-container-sizes/blocks/2/value/cards/2/icon.svg
           title: Safe & secure
-          description: >+
-            Since you own the lock and key, you’re the only one who has access
-            to your stuff.
-
+          description: >
+            You control the lock and key, ensuring that only you have access to
+            your stored items.
         - icon: >-
             /src/assets/icons/portable-container-sizes/blocks/2/value/cards/3/icon.svg
-          title: Built-in tie-down rings
-          description: >+
-            Convenient tie-down rings enable you to secure your belongings for
-            transit with ropes or straps.
-
+          title: Built-in Tie-Down Rings
+          description: >-
+            Secure your belongings with ease using the strategically placed
+            tie-down rings, designed for added safety during transport.
         - icon: >-
             /src/assets/icons/portable-container-sizes/blocks/2/value/cards/4/icon.svg
-          title: Convenient roll-up door
-          description: >+
-            Unlike swing doors, our roll-up doors don’t require as much space to
-            open. This means you have more room in your driveway.
-
+          title: Space-Saving Roll-Up Doors
+          description: >-
+            Our roll-up doors require less clearance than swing doors, providing
+            more flexibility for driveway and property placement.
         - icon: >-
             /src/assets/icons/portable-container-sizes/blocks/2/value/cards/5/icon.svg
-          title: Ramp-free loading
-          description: |+
-            Our containers make loading easier with ground-level access.
-
+          title: Ground-Level, Ramp-Free Loading
+          description: >-
+            No need for ramps—MI-Box containers are placed at ground level for
+            hassle-free loading and unloading.
   - discriminant: twoCol
     value:
       heading: Large Container — 16-Foot
-      description: >
+      description: |
         ## **The Perfect Size for Bigger Households**
 
+        - **The Ideal Size for Bigger Moves**
 
-        - Perfect for a 1,200 sq. ft. space* or smaller
+          • Perfect for homes up to **1,200 sq. ft.**
 
-        - Great for moves requiring temporary storage
+          • Great for moves requiring **temporary storage**
 
-        - Our largest size, and a popular choice for moving a home with 3 to 4
-          rooms
-        - Comparable to a 10'x15' storage unit or a 20' rental truck
+          • Ideal for **3 to 4-room homes**
 
-        - Imagine a parking space in 3D&nbsp;
+          • **Comparable to a 10’ x 15’ storage unit or a 20’ rental truck**
 
-        - 835 cubic ft.
+          • Holds up to **835 cubic feet**
 
-        - Dimensions: 16' x 8' x 8'*
-
-
-        Watch our [What Fits in a
-        16-Foot](https://www.pods.com/portable-container-sizes/16-foot-container)
-
-        [Container](https://www.pods.com/portable-container-sizes/16-foot-container)&nbsp;video.\
-
-
-        Try our [Moving and
-        Storage](https://www.pods.com/resource-center/moving-and-storage-calculator)
-
-        [Calculator](https://www.pods.com/resource-center/moving-and-storage-calculator)&nbsp;to
-
-        determine which size and how many you need.
+          • **Dimensions:** 16’ x 8’ x 8’
       media:
         discriminant: false
         value:
           image: >-
-            /src/assets/images/portable-container-sizes/blocks/3/value/media/value/image.png
+            /src/assets/images/portable-container-sizes/blocks/3/value/media/value/image.jpg
       imagePlacement: left
       colors: '#0069e5/5'
       button: {}
   - discriminant: twoCol
     value:
-      description: |
-        \## **Supporting Business Storage Needs**
+      description: >
+        **Supporting Business Storage Needs**
 
-        PODS for Business offers portable containers for both short and
-        long-term rentals with three sizes. Exclusively offering an All-Steel
-        Commercial Container for business customers.
 
-        - 8-Foot Container
+        MI-Box provides portable storage solutions for businesses with flexible
+        short- and long-term rentals. Our containers are ideal for retail
+        storage, restoration projects, construction sites, and more.
 
-        - 12-Foot Container&nbsp;
 
-        - 16-Foot Container&nbsp;
+        - 8**-Foot Container** – Compact & efficient for smaller storage needs
 
-        - 16-Foot All-Steel Container
+        - **12-Foot Container** – Mid-size option for flexible storage & moving
+
+        - **16-Foot Container** – Largest option, great for home & business use
+
+        - **16-Foot All-Steel Container** – Designed for commercial & industrial
+        storage
       media:
         discriminant: false
         value:
           image: >-
-            /src/assets/images/portable-container-sizes/blocks/4/value/media/value/image.png
+            /src/assets/images/portable-container-sizes/blocks/4/value/media/value/image.jpg
       imagePlacement: right
       colors: '#0069e5'
       button:
@@ -164,7 +147,7 @@ blocks:
         link: '#'
   - discriminant: cards
     value:
-      title: Your One-Stop Moving and Storage Resource
+      title: Your Trusted Moving & Storage Solution
       cards:
         - image: >-
             /src/assets/images/portable-container-sizes/blocks/5/value/cards/0/image.png
