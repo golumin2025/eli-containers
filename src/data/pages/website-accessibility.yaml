@@ -1,0 +1,36 @@
+title: Website Accessibility
+seoData: {}
+blocks:
+  - discriminant: singleHero
+    value:
+      title: Website Accessibility
+      showQuoteForm: false
+  - discriminant: twoCol
+    value:
+      description: >
+        MI-Box is committed to ensuring our website is accessible to all users,
+        including individuals with disabilities. We continuously work to improve
+        accessibility and usability across our site.
+
+
+        We welcome your feedback on these efforts. If you experience any
+        difficulty accessing, using, or navigating our website, please contact
+        us at vermont@getmibox.com. When reaching out, please provide:
+
+
+        - The URL of the page where you encountered the issue
+
+        - A brief description of the accessibility concern
+
+        - The type of assistive technology or browser you were using
+
+
+        If you are unable to access any of our services online, please call us
+        at (802) 242-2022 or email us at vermont@getmibox.com, and we will work
+        to provide an alternative way to assist you.
+      media:
+        discriminant: false
+        value: {}
+      imagePlacement: left
+      colors: '#0069e5/5'
+      button: {}
