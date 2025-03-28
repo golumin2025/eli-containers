@@ -1,5 +1,20 @@
 subHeader: MI-BOX Vermont
-menuItems: []
+menuItems:
+  - name: Moving
+    subMenu:
+      - name: Moving
+      - name: Moving Overview
+  - name: Storage
+    subMenu:
+      - name: Storage
+      - name: Storage Overview
+  - name: Locations
+    subMenu:
+      - name: Vermont
+      - name: Central Massachusetts
+      - name: Western Massachusetts
+  - name: Business
+    subMenu: []
 button:
   enable: true
   label: (802) 242-2022
