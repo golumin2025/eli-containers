@@ -6,6 +6,7 @@ navitems:
   - title: Services
     links:
       - name: MI-Box Portable Storage Containers
+        url: /portable-container-sizes
       - name: Moving
       - name: Storage
   - title: Resources
