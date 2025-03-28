@@ -1,0 +1,97 @@
+title: Moving Services
+seoData:
+  seoTitle: MI-BOX Moving & Relocation | Portable Storage | Local & Long-Distance
+  seoDescription: >-
+    Simplify your move with MI-BOX portable storage. Pack at your pace, and
+    we'll handle the transport, locally or long-distance. Get a free MI-BOX
+    moving quote today!
+blocks:
+  - discriminant: singleHero
+    value:
+      bgImage: /src/assets/images/moving-services/blocks/0/value/bgImage.jpg
+      title: MI-BOX Moving & Relocation
+      showQuoteForm: true
+  - discriminant: twoCol
+    value:
+      heading: Stress-Free, Portable Moving Solutions
+      description: >
+        Make your move easier with MI-BOX portable moving solutions. We deliver
+        a MI-BOX to your door, allowing you to pack at your own pace. Once
+        you're ready, we'll handle the transportation, whether you're moving
+        across town or across the country. Experience the flexibility and
+        convenience of MI-BOX, and eliminate the stress of traditional moving.
+        With MI-BOX, your move is in good hands.
+      media:
+        discriminant: false
+        value:
+          image: >-
+            /src/assets/images/moving-services/blocks/1/value/media/value/image.jpg
+      imagePlacement: right
+      colors: '#0069e5/5'
+      button:
+        label: Get a quote
+        link: /#quote
+  - discriminant: twoCol
+    value:
+      heading: Discover the MI-BOX difference
+      description: |
+        **✔️ Portable Storage:** Pack and unpack at your own pace.
+
+        **✔️ Local & Long-Distance Moving:** We handle the transport.
+
+        **✔️ Door-to-Door Service:** Convenient delivery and pick-up.
+
+        **✔️ Secure Transportation:** Protect your belongings during transit.
+
+        **✔️ Flexible Scheduling:** Move on your timeline.
+      media:
+        discriminant: true
+        value:
+          videoUrl: https://youtu.be/v1JVp0xaFIk?si=pykrIWqRBVVxLZmF
+          videoTitle: Storage delivered Anywhere.
+      imagePlacement: left
+      colors: '#0069e5/5'
+      button:
+        label: 'Free Online Quote '
+        link: /#quote
+  - discriminant: howPodsWork
+    value:
+      heading: How It Works
+      tabs:
+        - title: Moving
+          steps:
+            - title: We bring it
+              description: >-
+                Large, secure, weatherproof storage containers delivered to your
+                door. You won't need to rent a delivery truck.
+            - title: You load it
+              description: >-
+                Pack at your own pace & take your time. There are zero time
+                constraints and no long term contracts.
+            - title: We move or store it
+              description: >-
+                Free access at our secure, climate controlled facility or we
+                will deliver it to a location of your choice.
+        - title: Storage
+          steps:
+            - title: We Bring
+              description: >-
+                Large, secure, weatherproof storage containers delivered to your
+                door. You won't need to rent a delivery truck.
+            - title: Pack at Your Own Pace
+              description: >-
+                Your first 30 days are included, then rent monthly if needed.
+                Need help loading? We can connect you with pros.
+            - title: On the Way to Your New Place
+              description: >-
+                We'll deliver to your new home whenever you're ready. Need
+                storage between homes? You have the option to keep your
+                container at one of our secure Storage Centers.
+  - discriminant: reviewsSlider
+    value:
+      logos:
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/0/image.jpg
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/1/image.png
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/2/image.jpg
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/3/image.png
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/4/image.png
