@@ -1,13 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-interface ZipCodeResponse {
-  validZipCodes?: string[];
-  excludedZips?: string[];
-  error?: string;
-}
-
-export async function getZipCodes(): Promise<ZipCodeResponse> {
+export async function getZipCodes() {
   try {
     const filePath = path.join(process.cwd(), 'data', 'zip_codes.ts')
     const fileContent = await fs.readFile(filePath, 'utf-8')

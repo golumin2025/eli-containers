@@ -6,7 +6,7 @@ import { adminEmailTemplate } from "./email-templates/adminEmailTemplate";
 import { clientEmailTemplate } from "./email-templates/clientEmailTemplate";
 import { excludedZipCodeAdminEmailTemplate } from "./email-templates/excludedZipCodeAdminEmail";
 import { getEntry } from "astro:content";
-import { getZipCodes, isExcludedZipCode, isValidZipCode } from "@utils/getZipcodes";
+import { getZipCodes, } from "@utils/getZipcodes";
 
 export const server = {
   quoteForm: defineAction({
@@ -53,12 +53,11 @@ export const server = {
       try {
         // 4. Check zip code status
         const zipCodesResponse = await getZipCodes();
+
         // Determine if zip is excluded or not serviceable
-        const isExcluded = input.isExcludedZip ||
-          (zipCodesResponse.excludedZips && isExcludedZipCode(input.initialDeliveryZip, zipCodesResponse.excludedZips)) ||
-          (zipCodesResponse.validZipCodes && !isValidZipCode(input.initialDeliveryZip, zipCodesResponse.validZipCodes));
-        console.log("isExcluded", isExcluded);
+        const isExcluded = !zipCodesResponse.includes(input.initialDeliveryZip);
         if (isExcluded) {
+
           console.log("Processing excluded zip code submission:", input.initialDeliveryZip);
 
           const { html: excludedAdminEmailBody } = mjml2html(
