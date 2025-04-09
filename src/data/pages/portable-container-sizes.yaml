@@ -8,7 +8,7 @@ seoData:
 blocks:
   - discriminant: singleHero
     value:
-      bgImage: /src/assets/images/portable-container-sizes/blocks/0/value/bgImage.png
+      bgImage: /src/assets/images/portable-container-sizes/blocks/0/value/bgImage.jpg
       title: Portable Storage & Moving Container Sizes
       description: >-
         At MI-Box, protecting your belongings is our top priority. Our durable,
