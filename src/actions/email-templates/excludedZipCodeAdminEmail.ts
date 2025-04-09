@@ -6,7 +6,7 @@ export const excludedZipCodeAdminEmailTemplate = {
   html: (data, emailSettings, general) => `
   <mjml>
     <mj-head>
-      <mj-preview>New Quote Request</mj-preview>
+      <mj-preview>Out of Service Area Submission</mj-preview>
       <mj-style inline="inline">
         a { color: #ffd51d; text-decoration: none; font-weight: 600; }
       </mj-style>
