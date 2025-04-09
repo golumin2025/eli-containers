@@ -115,7 +115,7 @@
       </svg>
       <h3 class="mb-4 text-xl font-bold text-gray-900">Service Area Notice</h3>
       <p class="mb-4 text-gray-600">
-        Sorry, we currently don't service this area. Please try a different zip code or contact our support team for assistance.
+        Sorry, we currently don't service this area. Please visit <a href="https://getmibox.com">https://getmibox.com</a> to find a dealer near you or please call our support line if you think this is a mistake.
       </p>
       <div class="mt-4 text-gray-700">
         <p>If you think this message is in error, please call:</p>
