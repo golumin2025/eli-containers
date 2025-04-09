@@ -22,17 +22,17 @@ blocks:
       cards:
         - image: >-
             /src/assets/images/portable-container-sizes/blocks/1/value/cards/0/image.png
-          size: Large Container
-          dimension: 16 Foot
+          size: Small Container
+          dimension: 8-Foot
           description:
-            - Ideal for a 2-bedroom home, or up to 1,200 sq. ft.*
-            - About the length of a standard parking spot
-            - Comparable to a 10'x15' storage unit or a 20' truck
+            - Great for a studio or room of 500 sq. ft. or less*
+            - A popular choice for college students
+            - Comparable to a 5'x10' storage unit or 10' truck
           link: '#'
         - image: >-
             /src/assets/images/portable-container-sizes/blocks/1/value/cards/1/image.png
           size: Medium Container
-          dimension: 12-Foot
+          dimension: 16-Foot
           description:
             - Perfect for a 1-bedroom home, or a 500-800 sq. ft. space*
             - Great for packing away things from 2 or 3 rooms
@@ -40,12 +40,12 @@ blocks:
           link: '#'
         - image: >-
             /src/assets/images/portable-container-sizes/blocks/1/value/cards/2/image.png
-          size: Small Container
-          dimension: 8-Foot
+          size: Large Container
+          dimension: 20 Foot
           description:
-            - Great for a studio or room of 500 sq. ft. or less*
-            - A popular choice for college students
-            - Comparable to a 5'x10' storage unit or 10' truck
+            - Ideal for a 2-bedroom home, or up to 1,200 sq. ft.*
+            - About the length of a standard parking spot
+            - Comparable to a 10'x15' storage unit or a 20' truck
           link: '#'
   - discriminant: protectionConvenience
     value:
