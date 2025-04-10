@@ -7,6 +7,8 @@ import { clientEmailTemplate } from "./email-templates/clientEmailTemplate";
 import { excludedZipCodeAdminEmailTemplate } from "./email-templates/excludedZipCodeAdminEmail";
 import { getEntry } from "astro:content";
 import { getZipCodes, } from "@utils/getZipcodes";
+import { formatDate } from "@utils/dateformatter";
+const DEV_MODE = import.meta.env.DEV_MODE === "true";
 
 export const server = {
   quoteForm: defineAction({
@@ -113,7 +115,36 @@ export const server = {
           HtmlBody: adminEmailBody,
           MessageStream: "outbound"
         });
+        if (!DEV_MODE) {
+          try {
+            const stellaWebhookUrl = import.meta.env.STELLA_WEBHOOK_URL;
 
+            if (!stellaWebhookUrl) {
+              console.error('STELLA_WEBHOOK_URL is not defined in environment variables');
+              throw new Error('Missing webhook URL configuration');
+            }
+
+            await fetch(stellaWebhookUrl, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                serviceType: input.serviceType,
+                initialDeliveryZip: input.initialDeliveryZip,
+                finalDeliveryZip: input.finalDeliveryZip,
+                idDate: formatDate(input.deliveryDate),
+                firstName: input.firstName,
+                lastName: input.lastName,
+                email: input.email,
+                phone: input.phone,
+              }),
+            });
+          } catch (error) {
+            console.error("Stella webhook error:", error);
+            // Continue execution even if webhook fails
+          }
+        }
         return {
           success: true,
           data: {
