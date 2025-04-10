@@ -36,7 +36,7 @@ blocks:
         value:
           image: /src/assets/images/home/blocks/1/value/media/value/image.png
       imagePlacement: right
-      colors: '#0069e5/5'
+      colors: "#0069e5/5"
       button: {}
   - discriminant: findYouFit
     value:
@@ -126,9 +126,9 @@ blocks:
           videoUrl: https://youtu.be/v1JVp0xaFIk?si=pykrIWqRBVVxLZmF
           videoTitle: Storage delivered Anywhere.
       imagePlacement: left
-      colors: '#0069e5/5'
+      colors: "#0069e5/5"
       button:
-        label: 'Free Online Quote '
+        label: "Free Online Quote "
         link: /#quote-form
   - discriminant: featuredImage
     value:
@@ -162,7 +162,7 @@ blocks:
         value:
           image: /src/assets/images/home/blocks/7/value/media/value/image.jpg
       imagePlacement: left
-      colors: '#0069e5/5'
+      colors: "#0069e5/5"
       button: {}
   - discriminant: reviewsSlider
     value:
@@ -200,7 +200,7 @@ blocks:
             Storing a MI-BOX container at your property starts from at $99 a
             month. There is no minimum or maximum stay. You can rent a MI-BOX
             storage container for as long as you need.&nbsp;
-        - question: 'Can you store the box for me? '
+        - question: "Can you store the box for me? "
           answer: >
             Yes! We offer a climate controlled storage warehouse and offer
             several storage warehouse options. Climate storage starts at $60 a

@@ -1,5 +1,5 @@
 ---
-const { faqs, title } = Astro.props;
+const { faqs, title, anchorLink } = Astro.props;
 interface Faq {
   question: string;
   answer: string;
@@ -11,7 +11,12 @@ function renderText(data: string) {
 }
 ---
 
-<div class="faq-accordion py-16 w-full">
+<div class="faq-accordion py-16 w-full relative">
+  {
+    anchorLink && (
+      <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />
+    )
+  }
   <div
     class="flex justify-between relative custom-container mx-auto !max-w-[900px] lg:flex-row flex-col items-start gap-8"
   >

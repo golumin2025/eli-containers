@@ -1,5 +1,5 @@
 ---
-const { title, description, bgImage, showQuoteForm } = Astro.props;
+const { title, anchorLink, description, bgImage, showQuoteForm } = Astro.props;
 import ImageMod from "@components/ui/ImageMod.astro";
 import QuoteForm from "../forms/QuoteForm.svelte";
 ---
@@ -7,6 +7,11 @@ import QuoteForm from "../forms/QuoteForm.svelte";
 <section
   class="relative custom-container min-h-[450px] mt-6 rounded-xl overflow-hidden"
 >
+  {
+    anchorLink && (
+      <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />
+    )
+  }
   <ImageMod
     src={bgImage}
     alt="Hero background"

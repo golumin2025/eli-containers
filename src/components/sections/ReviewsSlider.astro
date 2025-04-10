@@ -4,13 +4,18 @@ import { shuffleArray } from "@utils/Randomize";
 import { getCollection } from "astro:content";
 const allReviews = await getCollection("reviews");
 const reviews = shuffleArray(allReviews);
-const { logos, title } = Astro.props;
+const { logos, title, anchorLink } = Astro.props;
 ---
 
 <div
-  class="overflow-hidden custom-container lg:py-16 px-6 lg:px-0 py-12"
+  class="overflow-hidden custom-container lg:py-16 px-6 lg:px-0 py-12 relative"
   data-aos="fade-up"
 >
+  {
+    anchorLink && (
+      <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />
+    )
+  }
   <div class="fade-up relative">
     <div class="flex items-center gap-12 justify-between flex-col mb-12">
       {title && <h2 class="text-2xl text-center mb-8">{title}</h2>}

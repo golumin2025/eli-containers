@@ -1,8 +1,13 @@
 ---
-const { heading, tabs } = Astro.props;
+const { heading, tabs, anchorLink } = Astro.props;
 ---
 
-<div class="max-w-6xl px-6 mx-auto !py-16 lg:!py-24">
+<div class="max-w-6xl px-6 mx-auto !py-16 lg:!py-24 relative">
+  {
+    anchorLink && (
+      <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />
+    )
+  }
   <h2 class="text-4xl text-secondary text-center font-semibold mb-8">
     {heading}
   </h2>

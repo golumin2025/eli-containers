@@ -13,6 +13,7 @@ import StorageOptions from "@components/sections/StorageOptions.astro";
 import ProtectionConvenience from "@components/sections/ProtectionConvenience.astro";
 import TwoCol from "@components/sections/TwoCol.astro";
 import Cards from "@components/sections/Cards.astro";
+import RichText from "@components/sections/RichText.astro";
 
 export async function getStaticPaths() {
   const allpages = await getCollection("pages");
@@ -61,6 +62,7 @@ const { data }: { data: any } = Astro.props;
           )}
           {item.discriminant === "twoCol" && <TwoCol {...item.value} />}
           {item.discriminant === "cards" && <Cards {...item.value} />}
+          {item.discriminant === "richText" && <RichText {...item.value} />}
         </>
       ))
     }

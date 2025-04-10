@@ -2,8 +2,15 @@
 import ImageMod from "@components/ui/ImageMod.astro";
 import { marked } from "marked";
 
-const { heading, description, media, imagePlacement, colors, button } =
-  Astro.props;
+const {
+  heading,
+  description,
+  media,
+  imagePlacement,
+  colors,
+  button,
+  anchorLink,
+} = Astro.props;
 
 let renderDescription = marked.parse(description);
 
@@ -18,7 +25,12 @@ function getEmbedUrl(videoLink) {
 }
 ---
 
-<div class="custom-container py-10">
+<div class="custom-container py-10 relative">
+  {
+    anchorLink && (
+      <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />
+    )
+  }
   <h2 class="text-4xl text-secondary mb-12 text-center font-semibold">
     {heading}
   </h2>

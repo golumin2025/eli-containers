@@ -2,14 +2,19 @@
 import ImageMod from "@components/ui/ImageMod.astro";
 import { marked } from "marked";
 
-const { cards, title } = Astro.props;
+const { cards, title, anchorLink } = Astro.props;
 
 let renderDescription = (description) => {
   return marked.parse(description);
 };
 ---
 
-<section class="custom-container mx-auto px-4 py-10 lg:py-24">
+<section class="custom-container mx-auto px-4 relative py-10 lg:py-24">
+  {
+    anchorLink && (
+      <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />
+    )
+  }
   <h2 class="text-3xl font-bold text-center mb-12">{title}</h2>
   <div class="md:grid hidden md:grid-cols-3 divide-x gap-6">
     {

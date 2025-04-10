@@ -1,10 +1,15 @@
 ---
 import ImageMod from "@components/ui/ImageMod.astro";
 
-const { images, title } = Astro.props;
+const { images, title, anchorLink } = Astro.props;
 ---
 
-<section class="custom-container py-12">
+<section class="custom-container py-12 relative">
+  {
+    anchorLink && (
+      <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />
+    )
+  }
   <h2
     class="text-4xl text-secondary lg:text-5xl text-center font-semibold mb-8"
   >

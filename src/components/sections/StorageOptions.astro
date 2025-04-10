@@ -1,10 +1,15 @@
 ---
 import ImageMod from "@components/ui/ImageMod.astro";
 
-const { cards, title } = Astro.props;
+const { cards, title, anchorLink } = Astro.props;
 ---
 
-<section class="custom-container mx-auto px-4 py-10 lg:py-24">
+<section class="custom-container mx-auto px-4 py-10 lg:py-24 relative">
+  {
+    anchorLink && (
+      <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />
+    )
+  }
   <h2 class="text-3xl font-bold text-center mb-12">{title}</h2>
   <div class="md:grid hidden md:grid-cols-3 gap-6">
     {

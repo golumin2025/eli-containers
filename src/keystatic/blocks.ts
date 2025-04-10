@@ -3,6 +3,9 @@ import { fields } from "@keystatic/core";
 export const mainHero = {
   label: "Main Hero",
   schema: fields.object({
+    anchorLink: fields.text({
+      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+    }),
     Sliderimages: fields.array(
       fields.object({
         image: fields.image({
@@ -25,6 +28,9 @@ export const mainHero = {
 export const howPodsWork = {
   label: "How MI-BOX Moving & Mobile Storage Works",
   schema: fields.object({
+    anchorLink: fields.text({
+      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+    }),
     heading: fields.text({ label: "Heading" }),
     tabs: fields.array(
       fields.object({
@@ -54,6 +60,9 @@ export const howPodsWork = {
 export const findYouFit = {
   label: "Find Your Fit",
   schema: fields.object({
+    anchorLink: fields.text({
+      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+    }),
     heading: fields.text({ label: "Heading" }),
     cards: fields.array(
       fields.object({
@@ -80,6 +89,9 @@ export const findYouFit = {
 export const featuredImage = {
   label: "Featured Image",
   schema: fields.object({
+    anchorLink: fields.text({
+      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+    }),
     image: fields.image({
       label: "Image",
       directory: "/src/assets/images/",
@@ -93,6 +105,9 @@ export const featuredImage = {
 export const reviewsSlider = {
   label: "Reviews Slider",
   schema: fields.object({
+    anchorLink: fields.text({
+      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+    }),
     title: fields.text({ label: "title" }),
     logos: fields.array(
       fields.object({
@@ -112,6 +127,9 @@ export const reviewsSlider = {
 export const faqs = {
   label: "FAQs",
   schema: fields.object({
+    anchorLink: fields.text({
+      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+    }),
     title: fields.text({ label: "Title" }),
     faqs: fields.array(
       fields.object({
@@ -129,6 +147,9 @@ export const faqs = {
 export const masonaryGallery = {
   label: "Masonary Gallery",
   schema: fields.object({
+    anchorLink: fields.text({
+      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+    }),
     title: fields.text({ label: "Title" }),
     images: fields.array(
       fields.image({
@@ -146,6 +167,9 @@ export const masonaryGallery = {
 export const podsHelpingBintoGrid = {
   label: "MI-BOX Moving & Mobile Storage Helping Binto Grid",
   schema: fields.object({
+    anchorLink: fields.text({
+      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+    }),
     heading: fields.text({ label: "Heading" }),
     cards: fields.array(
       fields.object({
@@ -173,6 +197,9 @@ export const podsHelpingBintoGrid = {
 export const singleHero = {
   label: "Single Hero",
   schema: fields.object({
+    anchorLink: fields.text({
+      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+    }),
     bgImage: fields.image({
       label: "BackGround Image",
       directory: "/src/assets/images",
@@ -187,6 +214,9 @@ export const singleHero = {
 export const storageOptions = {
   label: "Storage Options",
   schema: fields.object({
+    anchorLink: fields.text({
+      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+    }),
     title: fields.text({ label: "Title" }),
     cards: fields.array(
       fields.object({
@@ -213,6 +243,9 @@ export const storageOptions = {
 export const protectionConvenience = {
   label: "Protection & Convenience Features",
   schema: fields.object({
+    anchorLink: fields.text({
+      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+    }),
     title: fields.text({ label: "Title" }),
     cards: fields.array(
       fields.object({
@@ -235,6 +268,9 @@ export const protectionConvenience = {
 export const twoCol = {
   label: "Two Column",
   schema: fields.object({
+    anchorLink: fields.text({
+      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+    }),
     heading: fields.text({ label: "Heading" }),
     description: fields.markdoc.inline({ label: "Description" }),
     media: fields.conditional(
@@ -283,6 +319,9 @@ export const twoCol = {
 export const cards = {
   label: "Cards With Title",
   schema: fields.object({
+    anchorLink: fields.text({
+      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+    }),
     title: fields.text({ label: "Title" }),
     cards: fields.array(
       fields.object({
@@ -299,5 +338,24 @@ export const cards = {
         itemLabel: (item) => item.fields.title.value,
       },
     ),
+  }),
+};
+
+export const richText = {
+  label: "Rich Text",
+  schema: fields.object({
+    isCentered: fields.checkbox({
+      label: "Centered text",
+      defaultValue: false,
+    }),
+    content: fields.markdoc.inline({
+      label: "Content",
+      options: {
+        image: {
+          directory: "/public/images/",
+          publicPath: "/images/",
+        },
+      },
+    }),
   }),
 };

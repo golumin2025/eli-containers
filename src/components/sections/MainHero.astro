@@ -2,11 +2,16 @@
 import QuoteForm from "@components/forms/QuoteForm.svelte";
 import Image from "astro/components/Image.astro";
 import { getEntry } from "astro:content";
-const { Sliderimages, quoteFormTitle } = Astro.props;
+const { Sliderimages, quoteFormTitle, anchorLink } = Astro.props;
 const general = await getEntry("singletons", "general");
 ---
 
 <div class="md:h-[700px] h-full relative">
+  {
+    anchorLink && (
+      <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />
+    )
+  }
   <div class="w-full bg-white rounded-lg md:hidden block p-4 md:p-8">
     <QuoteForm client:load quoteFormTitle={quoteFormTitle} />
   </div>
