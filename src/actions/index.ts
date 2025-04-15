@@ -6,7 +6,7 @@ import { adminEmailTemplate } from "./email-templates/adminEmailTemplate";
 import { clientEmailTemplate } from "./email-templates/clientEmailTemplate";
 import { excludedZipCodeAdminEmailTemplate } from "./email-templates/excludedZipCodeAdminEmail";
 import { getEntry } from "astro:content";
-import { getZipCodes, } from "@utils/getZipcodes";
+import { getZipCodes } from "@utils/getZipcodes";
 import { formatDate } from "@utils/dateformatter";
 const DEV_MODE = import.meta.env.DEV_MODE === "true";
 
@@ -32,16 +32,16 @@ export const server = {
       formData.append("secret", import.meta.env.TURNSTILE_SECRET_TOKEN);
       formData.append("response", input.cfTurnstileResponse);
 
-      const result = await fetch(
-        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-        { method: "POST", body: formData }
-      );
+      const result = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+        method: "POST",
+        body: formData,
+      });
 
       const turnstileCheck = await result.json();
       if (!turnstileCheck.success) {
         return {
           success: false,
-          error: { message: "Turnstile verification failed. Please try again." }
+          error: { message: "Turnstile verification failed. Please try again." },
         };
       }
 
@@ -59,11 +59,10 @@ export const server = {
         // Determine if zip is excluded or not serviceable
         const isExcluded = !zipCodesResponse.includes(input.initialDeliveryZip);
         if (isExcluded) {
-
           console.log("Processing excluded zip code submission:", input.initialDeliveryZip);
 
           const { html: excludedAdminEmailBody } = mjml2html(
-            excludedZipCodeAdminEmailTemplate.html(input, emailSettings.data, general.data)
+            excludedZipCodeAdminEmailTemplate.html(input, emailSettings.data, general.data),
           );
           // Send notification for excluded zip code
           await client.sendEmail({
@@ -73,24 +72,24 @@ export const server = {
               .join(", "),
             Subject: "Out of Service Area Submission",
             HtmlBody: excludedAdminEmailBody,
-            MessageStream: "outbound"
+            MessageStream: "outbound",
           });
 
           return {
             success: false,
             error: {
               message: "Sorry, we do not service this zip code.",
-              excludedZip: true
-            }
+              excludedZip: true,
+            },
           };
         }
 
         // 5. Process valid zip codes
         const { html: clientEmailBody } = mjml2html(
-          clientEmailTemplate.html(input, emailSettings.data, general.data)
+          clientEmailTemplate.html(input, emailSettings.data, general.data),
         );
         const { html: adminEmailBody } = mjml2html(
-          adminEmailTemplate.html(input, emailSettings.data, general.data)
+          adminEmailTemplate.html(input, emailSettings.data, general.data),
         );
 
         // Send client email
@@ -102,7 +101,7 @@ export const server = {
             .join(", "),
           Subject: "Thank You for Your Free Quote Request",
           HtmlBody: clientEmailBody,
-          MessageStream: "outbound"
+          MessageStream: "outbound",
         });
 
         // Send admin email
@@ -113,15 +112,15 @@ export const server = {
             .join(", "),
           Subject: "New Free Quote Submission",
           HtmlBody: adminEmailBody,
-          MessageStream: "outbound"
+          MessageStream: "outbound",
         });
         if (!DEV_MODE) {
           try {
             const stellaWebhookUrl = import.meta.env.STELLA_WEBHOOK_URL;
 
             if (!stellaWebhookUrl) {
-              console.error('STELLA_WEBHOOK_URL is not defined in environment variables');
-              throw new Error('Missing webhook URL configuration');
+              console.error("STELLA_WEBHOOK_URL is not defined in environment variables");
+              throw new Error("Missing webhook URL configuration");
             }
 
             await fetch(stellaWebhookUrl, {
@@ -130,14 +129,14 @@ export const server = {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                serviceType: input.serviceType,
-                initialDeliveryZip: input.initialDeliveryZip,
-                finalDeliveryZip: input.finalDeliveryZip,
-                idDate: formatDate(input.deliveryDate),
-                firstName: input.firstName,
-                lastName: input.lastName,
-                email: input.email,
-                phone: input.phone,
+                type: input.serviceType,
+                id_zip: input.initialDeliveryZip,
+                relo_zip: input.finalDeliveryZip,
+                id_date: formatDate(input.deliveryDate),
+                first_name: input.firstName,
+                last_name: input.lastName,
+                customer_email: input.email,
+                customer_phone: input.phone,
               }),
             });
           } catch (error) {
@@ -151,14 +150,13 @@ export const server = {
             serviceType: input.serviceType,
             initialDeliveryZip: input.initialDeliveryZip,
             finalDeliveryZip: input.finalDeliveryZip,
-          }
+          },
         };
-
       } catch (error) {
         console.error("Error processing form submission:", error);
         return {
           success: false,
-          error: { message: "An error occurred while processing your request." }
+          error: { message: "An error occurred while processing your request." },
         };
       }
     },
