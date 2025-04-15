@@ -135,8 +135,8 @@ export const server = {
                 id_date: formatDate(input.deliveryDate),
                 first_name: input.firstName,
                 last_name: input.lastName,
-                customer_email: input.email,
-                customer_phone: input.phone,
+                custom_email: input.email,
+                custom_phone: input.phone,
               }),
             });
           } catch (error) {
