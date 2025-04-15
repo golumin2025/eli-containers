@@ -88,27 +88,23 @@
     isLoading = true;
     form.errors = {};
 
-    // Validate zip code before submission
-    if (form.initialDeliveryZip.length === 5) {
-      form.isExcludedZip = !validZipCodes.includes(form.initialDeliveryZip);
-    }
-
     // Submit the form regardless of zip code status
-    const result: any = await actions.quoteForm(form);
-
+    const result = await actions.quoteForm(form);
+    console.log("result", result);
+    console.log("form", result.data.error.excludedZip);
     if (isInputError(result.error)) {
-      form.errors = result.error.fields;
-    } else if (result.success) {
-      // Only redirect if zip is valid
-      if (!form.isExcludedZip) {
-        window.location.href = `/thank-you`;
-      }
-    } else if (result.error) {
-      form.errors = { general: result.error.message };
-    }
-
-    // Show modal if zip is excluded (after submission)
-    if (form.isExcludedZip) {
+      // Handle input validation errors
+      form.errors = Object.fromEntries(
+        Object.entries(result.error.fields).map(([key, value]) => [
+          key,
+          Array.isArray(value) ? value[0] : value,
+        ])
+      );
+    } else if (result.data.success) {
+      // Successful submission with valid zip code
+      window.location.href = `/thank-you`;
+    } else if (result.data.error.excludedZip) {
+      // Handle excluded zip code
       modalMessage = `<div class="text-center">
       <svg class="w-16 h-16 mx-auto mb-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -125,11 +121,14 @@
       </div>
     </div>`;
       showZipModal = true;
+      form.errors = { general: result.data.error.message };
+    } else if (result.data.error) {
+      // Handle other errors
+      form.errors = { general: result.data.error.message };
     }
 
     isLoading = false;
   }
-
   const fetchZipCodes = async () => {
     try {
       const response = await fetch("/api/get_zip-codes");

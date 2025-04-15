@@ -56,6 +56,9 @@ export const server = {
         // 4. Check zip code status
         const zipCodesResponse = await getZipCodes();
 
+        if ('error' in zipCodesResponse) {
+          throw new Error('Failed to load zip codes');
+        }
         // Determine if zip is excluded or not serviceable
         const isExcluded = !zipCodesResponse.includes(input.initialDeliveryZip);
         if (isExcluded) {
@@ -150,6 +153,7 @@ export const server = {
             serviceType: input.serviceType,
             initialDeliveryZip: input.initialDeliveryZip,
             finalDeliveryZip: input.finalDeliveryZip,
+            excludedZip: false,
           },
         };
       } catch (error) {

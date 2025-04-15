@@ -5,8 +5,14 @@ export async function getZipCodes() {
   try {
     const filePath = path.join(process.cwd(), 'data', 'zip_codes.ts')
     const fileContent = await fs.readFile(filePath, 'utf-8')
-    const zipCodes = JSON.parse(fileContent)
-    return zipCodes
+    const cleanedContent = fileContent
+      .replace(/^\[/, '') // Remove opening bracket
+      .replace(/\];?\s*$/, '') // Remove closing bracket and semicolon
+      .split(',')
+      .map(zip => zip.trim().replace(/"/g, ''))
+      .filter(zip => zip.length > 0)
+
+    return cleanedContent
   } catch (error) {
     console.error('Error loading zip codes:', error)
     return { error: 'Failed to load zip codes' }
