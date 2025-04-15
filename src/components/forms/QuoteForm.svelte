@@ -137,7 +137,12 @@
         throw new Error("Failed to fetch zip codes");
       }
       const data = await response.json();
-      validZipCodes = data;
+      if (Array.isArray(data)) {
+        validZipCodes = data;
+      } else {
+        console.warn("API returned non-array for zip codes:", data);
+        validZipCodes = []; // Ensure it's an array
+      }
     } catch (error) {
       console.error("Error fetching zip codes:", error);
       validZipCodes = [];
