@@ -8,7 +8,7 @@ contactInformation:
 businessHours: 8am - 5pm Mon - Fri, 8am - 3pm Sat, Closed Sun
 analyticsScripts:
   - name: Google Tag Manager
-    script: >-
+    scriptContent: >-
       <script async
       src="https://www.googletagmanager.com/gtag/js?id=AW-10789120362"></script>
 
@@ -21,7 +21,7 @@ analyticsScripts:
       </script>
     location: head
   - name: Google Ads - Global Snippet
-    script: >-
+    scriptContent: >-
       <!-- Google tag (gtag.js) -->
 
       <script async

@@ -1,18 +1,21 @@
 ---
 import "../../styles/global.css";
+import keystaticConfig from "../../../keystatic.config";
+import { createReader } from "@keystatic/core/reader";
 interface Props {
   title: string;
   description: string;
   image?: any;
 }
-
+const reader = createReader(process.cwd(), keystaticConfig);
+const general = await reader.singletons.general.read();
 const { title, description, image } = Astro.props;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="icon" type="image/png+xml" href={general?.logo?.favicon} />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Primary Meta Tags -->

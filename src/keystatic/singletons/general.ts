@@ -14,8 +14,8 @@ export const general = {
         }),
         favicon: fields.image({
           label: "Favicon",
-          directory: "/src/assets/images/general",
-          publicPath: "/src/assets/images/general/",
+          directory: "public/images/favicon",
+          publicPath: "/images/favicon/",
         }),
         footerLogo: fields.image({
           label: "Footer Logo",
@@ -49,7 +49,7 @@ export const general = {
     analyticsScripts: fields.array(
       fields.object({
         name: fields.text({ label: "Name" }),
-        script: fields.text({ label: "Script", multiline: true }),
+        scriptContent: fields.text({ label: "Script", multiline: true }),
         location: fields.select({
           label: "Location",
           options: [
