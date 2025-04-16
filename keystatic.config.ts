@@ -13,7 +13,7 @@ export default config({
     kind: import.meta.env.DEV ? "local" : "cloud",
   },
   cloud: {
-    project: "mi-box-wv/miboxvw",
+    project: 'mi-box-eli/marketing',
   },
   ui: {
     brand: { name: "MI-Box Vermont" },
