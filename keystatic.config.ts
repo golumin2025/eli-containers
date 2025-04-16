@@ -16,7 +16,7 @@ export default config({
     project: 'mi-box-eli/marketing',
   },
   ui: {
-    brand: { name: "MI-Box Vermont" },
+    brand: { name: "MI-Box Gulf Coast" },
   },
   collections: {
     blogs: collection(blogs),
