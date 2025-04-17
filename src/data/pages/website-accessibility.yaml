@@ -1,21 +1,30 @@
 title: Website Accessibility
-seoData: {}
+seoData:
+  seoTitle: MI-BOX Moving & Storage Accessibility Statement | Website Access
+  seoDescription: >-
+    Read the MI-BOX Moving Mobile & Storage Accessibility Statement. Learn about
+    our commitment to website accessibility for all users, including those with
+    disabilities.
 blocks:
   - discriminant: singleHero
     value:
-      title: Website Accessibility
+      bgImage: /src/assets/images/website-accessibility/blocks/0/value/bgImage.jpg
+      title: MI-BOX Website Accessibility Statement
       showQuoteForm: false
   - discriminant: twoCol
     value:
+      heading: Accessibility Statement for MI-BOX Moving Mobile & Storage
       description: >
-        MI-Box is committed to ensuring our website is accessible to all users,
-        including individuals with disabilities. We continuously work to improve
-        accessibility and usability across our site.
+        MI-BOX Moving Mobile & Storage is committed to ensuring our website is
+        accessible to all users, including individuals with disabilities. We
+        continuously work to improve accessibility and usability across our
+        site, adhering to the Web Content Accessibility Guidelines (WCAG) 2.1
+        Level AA standards where feasible.
 
 
         We welcome your feedback on these efforts. If you experience any
         difficulty accessing, using, or navigating our website, please contact
-        us at vermont@getmibox.com. When reaching out, please provide:
+        us at **941-777-7269**. When reaching out, please provide:
 
 
         - The URL of the page where you encountered the issue
@@ -26,11 +35,18 @@ blocks:
 
 
         If you are unable to access any of our services online, please call us
-        at (802) 242-2022 or email us at vermont@getmibox.com, and we will work
-        to provide an alternative way to assist you.
+        at **941-777-7269**, and we will work to provide an alternative way to
+        assist you.
+
+
+        We strive to make our website a positive experience for everyone, and we
+        appreciate your patience and understanding as we continue to make
+        improvements.
       media:
         discriminant: false
-        value: {}
+        value:
+          image: >-
+            /src/assets/images/website-accessibility/blocks/1/value/media/value/image.jpg
       imagePlacement: left
       colors: '#0069e5/5'
       button: {}
