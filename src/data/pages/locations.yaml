@@ -1,37 +1,149 @@
 title: Locations
 seoData:
-  seoTitle: >-
-    MI-BOX Locations | Portable Storage & Moving Near You | Vermont | Central MA
-    | Western MA
+  seoTitle: Moving & Storage Services in Manatee & Sarasota Counties | MI-BOX
   seoDescription: >-
-    Find your nearest MI-BOX location for portable storage and moving solutions.
-    We offer convenient on-site storage, warehouse storage, and relocation
-    services. Find a location today!
+    MI-BOX Moving & Storage provides reliable moving and storage solutions
+    throughout Manatee and Sarasota Counties. See our service areas and get a
+    quote today!
 blocks:
   - discriminant: singleHero
     value:
       bgImage: /src/assets/images/locations/blocks/0/value/bgImage.jpg
-      title: 'MI-BOX Locations: Find Portable Storage & Moving Services Near You'
+      title: Services in Manatee & Sarasota Counties
+      description: >-
+        MI-BOX Moving & Storage provides reliable moving and storage solutions
+        throughout Manatee and Sarasota Counties. See our service areas and get
+        a quote today!
       showQuoteForm: true
   - discriminant: twoCol
     value:
-      heading: Find your nearest MI-BOX location
+      heading: Neighborhoods We Serve
       description: >
-        MI-BOX is dedicated to providing convenient and reliable portable
-        storage and moving solutions across your state and beyond. Find a
-        service area near you below. We offer a range of services, including
-        on-site storage, secure warehouse storage, and efficient moving and
-        relocation assistance. Whether you need temporary storage during a
-        renovation or a long-distance moving solution, MI-BOX is here to help.
+        We provide top-rated moving and storage services across Manatee and
+        Sarasota Counties. See the areas we cover and get a free quote today!
 
 
-        - ### [Vermont Service Area](/vermont-service-area)
+        {% table %}
 
-        - ### [Central Massachusetts Service
-        Area](/central-massachusetts-service-area)
+        - City
 
-        - ### [Western Massachusetts Service
-        Area](/western-massachusetts-service-area)
+        - City
+
+        - City
+
+        ---
+
+        - Anna Maria
+
+        - Laurel
+
+        - Sarasota Springs
+
+        ---
+
+        - Bayshore Gardens
+
+        - Longboat Key
+
+        - Siesta Key
+
+        ---
+
+        - Bee Ridge
+
+        - Memphis
+
+        - South Bradenton
+
+        ---
+
+        - Bradenton
+
+        - Myakka City
+
+        - South Gate Ridge
+
+        ---
+
+        - Bradenton Beach
+
+        - Nokomis
+
+        - South Sarasota
+
+        ---
+
+        - Cortez
+
+        - North Port
+
+        - South Venice
+
+        ---
+
+        - Ellenton
+
+        - Osprey
+
+        - Southgate
+
+        ---
+
+        - Englewood
+
+        - Palmetto
+
+        - Terra Ceia
+
+        ---
+
+        - Fruitville
+
+        - Palmer Ranch
+
+        - The Meadows
+
+        ---
+
+        - Gulf Gate Estates
+
+        - Parrish
+
+        - Vamo
+
+        ---
+
+        - Holmes Beach
+
+        - Plantation
+
+        - Venice
+
+        ---
+
+        - Kensington Park
+
+        - Ridge Wood Heights
+
+        - Warm Mineral Springs
+
+        ---
+
+        - Lake Sarasota
+
+        - Samoset
+
+        - West Samoset
+
+        ---
+
+        - Lakewood Ranch
+
+        - Sarasota
+
+        - Whitfield
+
+        {% /table %}
       media:
         discriminant: false
         value:
