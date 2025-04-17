@@ -1,25 +1,11 @@
 logo:
-  imageUrl: >-
-    https://miboxvw.netlify.app/.netlify/images?url=_astro%2Flogo.DSeDsUnm.png&w=420&h=120
-  altTag: MI-BOX Vermont Logo
+  altTag: MI-BOX Moving Mobile & Storage
 fromEmail: hello@golumin.io
-fromEmailName: MI-BOX Vermont
+fromEmailName: MI-BOX Moving Mobile & Storage
 adminEmailRecipients:
   - name: Jordan Tag
     email: jordan@golumin.io
-  - name: Rachel
-    email: rachel@getmibox.com
-  - name: Vermont Front Office
-    email: vermont@getmibox.com
-  - name: Central/Western Front Office
-    email: cwma@getmibox.com
 clientEmailRecipientsBcc:
   - name: Jordan Tag
     email: jordan@golumin.io
-outOfTerritoryRecipients:
-  - name: VT
-    email: Vermont@getmibox.com
-  - name: MA
-    email: cwma@getmibox.com
-  - name: Rachel
-    email: rachel@getmibox.com
+outOfTerritoryRecipients: []
