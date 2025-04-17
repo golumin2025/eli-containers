@@ -2,34 +2,28 @@ navitems:
   - title: About MI-Box
     links:
       - name: About Us
-        url: /who-we-are
+        url: /about-us
       - name: Contact Us
         url: /contact-us
   - title: Services
     links:
-      - name: MI-Box Portable Storage Containers
-        url: /portable-container-sizes
       - name: Moving
-        url: /moving-overview
+        url: /moving-services
       - name: Storage
-        url: /storage-overview
+        url: /storage-services
+      - name: Cool Storage
+        url: /cool-storage-containers
   - title: Resources
     links:
       - name: FAQs
         url: /#faq
       - name: Locations
         url: /locations
-socialLinks:
-  - icon: /src/assets/images/social/socialLinks/0/icon.svg
-    url: https://www.facebook.com/MiBoxCWMA
-  - icon: /src/assets/images/social/socialLinks/1/icon.svg
-    url: https://www.instagram.com/getmibox/
-  - icon: /src/assets/images/social/socialLinks/2/icon.svg
-    url: '#'
+socialLinks: []
 legal:
   - title: Web Accessibility
     link: /website-accessibility
   - title: Terms & Conditions
-    link: /terms-and-conditions
+    link: /terms-conditions
   - title: Privacy Policy
     link: /privacy-policy
