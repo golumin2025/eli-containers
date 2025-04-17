@@ -6,8 +6,8 @@ menuItems:
   - name: Storage
     link: /storage-services
     subMenu: []
-  - name: Cool Storage
-    link: /cool-storage-containers
+  - name: Cold Storage
+    link: /cold-storage-containers
     subMenu: []
   - name: Service Areas
     link: /service-areas
