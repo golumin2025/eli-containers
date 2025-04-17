@@ -34,6 +34,62 @@ blocks:
           description: >
             Order a refrigerated trailer for your event. Delivered, sanitized,
             and inspected for quality assurance.&nbsp;
+  - discriminant: twoCol
+    value:
+      heading: What’s Included With Rental
+      description: >
+        When we deliver our&nbsp; Ice Cold Storage trailer, we work with you in
+        positioning it in the most efficient working location. Then we lock down
+        the trailer with a Hitch Lock and wheel lock for security. We will
+        stabilize the Ice Cold Storage Trailer with leveling jacks, secure the
+        tires with wheel chocks, and provide you with locks for the doors to
+        secure your product. It will also come with a hitch pin, and 25′ 110V
+        power cord.
+
+
+        ### **Trailer Size: 7 X 12ft**
+
+
+        - Daily Rate: $220
+
+        - Weekly Rate: $998
+
+        - Monthly Rate: $2650
+
+
+        ### **Delivery Fees?**
+
+
+        Our delivery charges are based on zip code distance from our warehouse
+        location. The minimum drop-off fee is $125 and the minimum pick-up fee
+        is $125.
+      media:
+        discriminant: false
+        value:
+          image: >-
+            /src/assets/images/cool-storage-containers/blocks/2/value/media/value/image.jpg
+      imagePlacement: right
+      colors: '#0069e5/5'
+      button:
+        label: Get a quote
+        link: /#quote-form
+  - discriminant: twoCol
+    value:
+      heading: Ice Cold Storage Portable Refrigeration Units
+      description: |
+        - Easy pickup or delivery
+        - Temp range 0° to 40°
+        - Plug and play to a standard 110v outlet
+      media:
+        discriminant: false
+        value:
+          image: >-
+            /src/assets/images/cool-storage-containers/blocks/3/value/media/value/image.png
+      imagePlacement: left
+      colors: '#0069e5/5'
+      button:
+        label: Get a quote
+        link: /#quote-form
   - discriminant: howPodsWork
     value:
       heading: How It Works
@@ -70,62 +126,6 @@ blocks:
                 We will pick up your stuff and secure it in our secure location,
                 or deliver it to your new destination. Whatever is convenient
                 for you.
-  - discriminant: twoCol
-    value:
-      heading: What’s Included With Rental
-      description: >
-        When we deliver our&nbsp; Ice Cold Storage trailer, we work with you in
-        positioning it in the most efficient working location. Then we lock down
-        the trailer with a Hitch Lock and wheel lock for security. We will
-        stabilize the Ice Cold Storage Trailer with leveling jacks, secure the
-        tires with wheel chocks, and provide you with locks for the doors to
-        secure your product. It will also come with a hitch pin, and 25′ 110V
-        power cord.
-
-
-        ### **Trailer Size: 7 X 12ft**
-
-
-        - Daily Rate: $220
-
-        - Weekly Rate: $998
-
-        - Monthly Rate: $2650
-
-
-        ### **Delivery Fees?**
-
-
-        Our delivery charges are based on zip code distance from our warehouse
-        location. The minimum drop-off fee is $125 and the minimum pick-up fee
-        is $125.
-      media:
-        discriminant: false
-        value:
-          image: >-
-            /src/assets/images/cool-storage-containers/blocks/3/value/media/value/image.jpg
-      imagePlacement: right
-      colors: '#0069e5/5'
-      button:
-        label: Get a quote
-        link: /#quote-form
-  - discriminant: twoCol
-    value:
-      heading: Ice Cold Storage Portable Refrigeration Units
-      description: |
-        - Easy pickup or delivery
-        - Temp range 0° to 40°
-        - Plug and play to a standard 110v outlet
-      media:
-        discriminant: false
-        value:
-          image: >-
-            /src/assets/images/cool-storage-containers/blocks/4/value/media/value/image.png
-      imagePlacement: left
-      colors: '#0069e5/5'
-      button:
-        label: Get a quote
-        link: /#quote-form
   - discriminant: reviewsSlider
     value:
       title: Our Happy Customers
