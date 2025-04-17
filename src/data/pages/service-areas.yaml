@@ -1,4 +1,4 @@
-title: Locations
+title: Service Areas
 seoData:
   seoTitle: Moving & Storage Services in Manatee & Sarasota Counties | MI-BOX
   seoDescription: >-
@@ -8,7 +8,7 @@ seoData:
 blocks:
   - discriminant: singleHero
     value:
-      bgImage: /src/assets/images/locations/blocks/0/value/bgImage.jpg
+      bgImage: /src/assets/images/service-areas/blocks/0/value/bgImage.jpg
       title: Services in Manatee & Sarasota Counties
       description: >-
         MI-BOX Moving & Storage provides reliable moving and storage solutions
@@ -147,7 +147,8 @@ blocks:
       media:
         discriminant: false
         value:
-          image: /src/assets/images/locations/blocks/1/value/media/value/image.jpg
+          image: >-
+            /src/assets/images/service-areas/blocks/1/value/media/value/image.jpg
       imagePlacement: left
       colors: '#0069e5/5'
       button:
