@@ -1,253 +1,204 @@
 title: Home
-seoData: {}
+seoData:
+  seoTitle: Top Moving & Storage Services in Manatee & Sarasota Counties | MiBox
+  seoDescription: >-
+    Reliable and affordable moving and storage solutions in Manatee and Sarasota
+    Counties. Get a free quote from MiBox Moving & Storage today!
 blocks:
   - discriminant: mainHero
     value:
       Sliderimages:
         - image: /images/home/home/blocks/0/value/Sliderimages/0/image.jpg
-          title: Moving & Portable Storage Starting at $99/mo Your 1st Month
-          description: >-
-            Month to month rentals. No change or cancel fees. Portable storage
-            delivered direct to you.
-
-            We'll beat any competitor quote by 10%!
-      quoteFormTitle: Start Here
-  - discriminant: twoCol
-    value:
-      description: >
-        # **Get a Free Quote Today & Save.**
-
-
-        ### Our prices can't be beat! Pricing & discounts are for online
-        visitors only.&nbsp;
-
-
-        - Convenient &&nbsp;On-Demand
-
-        - Weatherproof Containers
-
-        - Boxes From 8' to 20' Long
-
-        - Climate Controlled Warehouse
-
-        - Locked & Fully Secure
-      media:
-        discriminant: false
-        value:
-          image: /src/assets/images/home/blocks/1/value/media/value/image.png
-      imagePlacement: right
-      colors: "#0069e5/5"
-      button: {}
-  - discriminant: findYouFit
-    value:
-      heading: Low Rates Won't Last! Call Today & Save
-      cards:
-        - title: Small
-          image: /src/assets/images/home/blocks/2/value/cards/0/image.png
-          description: >
-            Ideal for storing the contents of a studio apartment, including a
-            number of boxes, kitchen appliances, small mattress set, chairs, or
-            even a motorcycle.
-          dimensions: 8 FT x 8 FT x 8FT
-          storageSize: 8 FT
-        - title: Medium
-          image: /src/assets/images/home/blocks/2/value/cards/1/image.png
-          description: >-
-            Commonly holds 2-3 bedrooms. Perfect for holding an entertainment
-            center, king-size mattresses, larger appliances, dining room,
-            furniture, and other various items.
-          dimensions: 16 FT x 8FT x 8 FT
-          storageSize: 16 FT
-        - title: Large
-          image: /src/assets/images/home/blocks/2/value/cards/2/image.png
-          description: >
-            Can usually hold the contents of a 3-4 bedrooms. Great for storing
-            bikes and other sporting equipment, large furniture or full dining
-            room sets.
-          dimensions: 20 FT x 8 FT x 8FT
-          storageSize: 20 FT
-  - discriminant: featuredImage
-    value:
-      image: /src/assets/images/home/blocks/3/value/image.jpeg
-      title: '"We are super happy with our MI-BOX experience."'
-      description: >-
-        They were friendly and informative on the phone and offered excellent
-        customer service. Nick was our driver for both drop off and pick up and
-        he couldn't have been nicer. He explained everything clearly, was
-        professional and on time in both directions. We felt as though we got
-        excellent value for our money and just what we needed. We would not
-        hesitate to be repeat customers if we need similar storage again.
-
-        - Miguel Fernandez, 5-Star Review
+          title: Florida's best moving and storage company.
+          description: Save 25% on moving and storage.
+      quoteFormTitle: Start Here!
   - discriminant: howPodsWork
     value:
       heading: How It Works
       tabs:
         - title: Moving
           steps:
-            - title: We bring it
+            - title: We Deliver
               description: >-
-                Large, secure, weatherproof storage containers delivered to your
-                door. You won't need to rent a delivery truck.
-            - title: You load it
+                We'll bring your storage unit directly to you. Our containers
+                are street legal and fit wherever you need them to go - even
+                areas off the beaten path!
+            - title: You Load
               description: >-
-                Pack at your own pace & take your time. There are zero time
-                constraints and no long term contracts.
-            - title: We move or store it
+                Pack at a time and pace that's convenient for you. Or our
+                certified movers can do it for you!
+            - title: We Move
               description: >-
-                Free access at our secure, climate controlled facility or we
-                will deliver it to a location of your choice.
+                We will pick up your stuff and secure it in our secure location,
+                or deliver it to your new destination. Whatever is convenient
+                for you.
         - title: Storage
           steps:
-            - title: We Bring
+            - title: We Deliver
               description: >-
-                Large, secure, weatherproof storage containers delivered to your
-                door. You won't need to rent a delivery truck.
-            - title: Pack at Your Own Pace
+                We'll bring your storage unit directly to you. Our containers
+                are street legal and fit wherever you need them to go - even
+                areas off the beaten path!
+            - title: We Load
               description: >-
-                Your first 30 days are included, then rent monthly if needed.
-                Need help loading? We can connect you with pros.
-            - title: On the Way to Your New Place
+                Pack at a time and pace that's convenient for you. Or our
+                certified movers can do it for you!
+            - title: We Store
               description: >-
-                We'll deliver to your new home whenever you're ready. Need
-                storage between homes? You have the option to keep your
-                container at one of our secure Storage Centers.
+                We will pick up your stuff and secure it in our secure location,
+                or deliver it to your new destination. Whatever is convenient
+                for you.
+  - discriminant: findYouFit
+    value:
+      heading: Prices That Can't Be Beat. Guaranteed.
+      cards:
+        - title: Small
+          image: /src/assets/images/home/blocks/2/value/cards/0/image.png
+          description: >-
+            Ideal for storing the contents of a studio apartment, including a
+            number of boxes, kitchen appliances, small mattress set, chairs, or
+            even a motorcycle.
+          dimensions: 8 FT x 8 FT x 8 FT
+          storageSize: 8 FT
+        - title: Medium
+          image: /src/assets/images/home/blocks/2/value/cards/1/image.png
+          description: >-
+            Commonly holds 3-4 rooms. Perfect for holding an entertainment
+            center, king-size mattresses, larger appliances, dining room,
+            furniture, boxes and other various items.
+          dimensions: 16 FT x 8 FT x 8 FT
+          storageSize: 16 FT
+        - title: Large
+          image: /src/assets/images/home/blocks/2/value/cards/2/image.png
+          description: >-
+            Commonly holds 4-5 rooms. Perfect for holding an entertainment
+            center, king-size mattresses, larger appliances, dining room,
+            furniture, boxes and other various items.
+          dimensions: 20 FT x 8 FT x 8 FT
+          storageSize: 20 FT
   - discriminant: twoCol
     value:
+      heading: On-Site Climate Control
       description: |
-        # **Storage delivered Anywhere.**
-
-        Because of the unique capabilities of the MI-BOX Level-Lift system, we
-        can place a mobile storage container where you need it and do that
-        better than anyone else in the portable storage industry.&nbsp;
-      media:
-        discriminant: true
-        value:
-          videoUrl: https://youtu.be/v1JVp0xaFIk?si=pykrIWqRBVVxLZmF
-          videoTitle: Storage delivered Anywhere.
-      imagePlacement: left
-      colors: "#0069e5/5"
-      button:
-        label: "Free Online Quote "
-        link: /#quote-form
-  - discriminant: featuredImage
-    value:
-      image: /src/assets/images/home/blocks/6/value/image.jpeg
-      title: '"MI-BOX made our move such a smooth and stress-free process."'
-      description: >-
-        Megan was friendly, responsive, and super helpful from start to finish.
-        Each of our drivers, Steve, Nick, and Seth were very communicative,
-        friendly, and professional. We have moved quite a few times throughout
-        the US and this was by far the greatest experience we have had.
-
-        ~ Steve Almeida, 5-Star Facebook Review
-  - discriminant: twoCol
-    value:
-      heading: Locally Owned & Operated
-      description: |
-        Hi, we're the owners of MI-BOX of Vermont and Central & Western
-        Massachusetts. Please call us today as our goal is to make moving and
-        storage easy and convenient for you.
-
-        MI-BOX of Vermont is owned by Chad Branon and Joel Berg. Chad was born
-        and raised in Vermont and is thrilled to provide the best possible
-        moving and mobile storage services to his fellow Vermonters. MI-BOX of
-        Vermont is locally owned and operated so when you call in to our office
-        you'll be speaking with someone locally rather than someone overseas in
-        a large corporate call center. Experience the difference a locally owned
-        and operated moving and storage company can do for you. Give us a call
-        or submit the contact form on this page and let us earn your business.
+        1. We Deliver
+        1. Plug In
+        1. Turn On AC
+        1. Your Stuff Stays Cool
       media:
         discriminant: false
         value:
-          image: /src/assets/images/home/blocks/7/value/media/value/image.jpg
+          image: /src/assets/images/home/blocks/3/value/media/value/image.jpg
+      imagePlacement: right
+      colors: '#0069e5/5'
+      button:
+        label: Learn more
+        link: /cool-storage-containers
+  - discriminant: twoCol
+    value:
+      heading: Moving, Storage, Remodeling, Restoration
+      description: ''
+      media:
+        discriminant: true
+        value:
+          videoUrl: https://youtu.be/JKig6_-1w-0
+          videoTitle: MI-BOX Portable Storage Delivery System
       imagePlacement: left
-      colors: "#0069e5/5"
-      button: {}
+      colors: '#0069e5/5'
+      button:
+        label: 'Free Online Quote '
+        link: /#quote-form
+  - discriminant: featuredImage
+    value:
+      image: /src/assets/images/home/blocks/5/value/image.jpg
+      title: Get a Free Estimate Today
+      description: |-
+        ✔️ Best Price Guarantee
+        ✔️ Locally Owned and Operated
+        ✔️ Flexible Delivery Times
+        ✔️ Weather Tight Containers
+        ✔️ Secure and Lockable Rollup Doors
+        ✔️ Onsite and Off-Site Storage
+        ✔️ Level Lift System
+        ✔️ Ground Level Loading
+  - discriminant: cards
+    value:
+      title: Why Rent with Us
+      cards:
+        - image: /src/assets/images/home/blocks/6/value/cards/0/image.webp
+          title: Personalized Support
+          description: >
+            An assigned moving & storage specialist is with you every step of
+            the way who knows and understands your needs.
+        - image: /src/assets/images/home/blocks/6/value/cards/1/image.webp
+          title: Doorstep Convenience
+          description: >
+            No need to rent a truck or travel back and forth to a storage
+            facility. Have storage delivered right to your door.
+        - image: /src/assets/images/home/blocks/6/value/cards/2/image.webp
+          title: Reliable & Secure
+          description: >
+            No matter where you’re going or what you’re storing, your items will
+            arrive safely and on time.
   - discriminant: reviewsSlider
     value:
+      title: Our Happy Customers
       logos:
-        - image: /src/assets/images/home/blocks/8/value/logos/0/image.jpg
-        - image: /src/assets/images/home/blocks/8/value/logos/1/image.png
-        - image: /src/assets/images/home/blocks/8/value/logos/2/image.jpg
-        - image: /src/assets/images/home/blocks/8/value/logos/3/image.png
-        - image: /src/assets/images/home/blocks/8/value/logos/4/image.png
+        - image: /src/assets/images/home/blocks/7/value/logos/0/image.jpeg
+        - image: /src/assets/images/home/blocks/7/value/logos/1/image.png
+        - image: /src/assets/images/home/blocks/7/value/logos/2/image.jpeg
+        - image: /src/assets/images/home/blocks/7/value/logos/3/image.png
+        - image: /src/assets/images/home/blocks/7/value/logos/4/image.jpeg
+        - image: /src/assets/images/home/blocks/7/value/logos/5/image.png
+        - image: /src/assets/images/home/blocks/7/value/logos/6/image.jpeg
+        - image: /src/assets/images/home/blocks/7/value/logos/7/image.png
+        - image: /src/assets/images/home/blocks/7/value/logos/8/image.jpeg
+        - image: /src/assets/images/home/blocks/7/value/logos/9/image.png
+        - image: /src/assets/images/home/blocks/7/value/logos/10/image.jpeg
+        - image: /src/assets/images/home/blocks/7/value/logos/11/image.png
+        - image: /src/assets/images/home/blocks/7/value/logos/12/image.png
+        - image: /src/assets/images/home/blocks/7/value/logos/13/image.png
+        - image: /src/assets/images/home/blocks/7/value/logos/14/image.png
   - discriminant: masonaryGallery
     value:
-      title: >-
-        No matter where you are, where you're going, or what you're storing,
-        MI-BOX Portable Storage can handle it.
+      title: See Our Storage in Action
       images:
-        - /src/assets/images/home/blocks/9/value/images/0.jpeg
-        - /src/assets/images/home/blocks/9/value/images/1.jpg
-        - /src/assets/images/home/blocks/9/value/images/2.jpeg
-        - /src/assets/images/home/blocks/9/value/images/3.jpg
-        - /src/assets/images/home/blocks/9/value/images/4.png
-        - /src/assets/images/home/blocks/9/value/images/5.jfif
-        - /src/assets/images/home/blocks/9/value/images/6.jpg
-        - /src/assets/images/home/blocks/9/value/images/7.jpg
-        - /src/assets/images/home/blocks/9/value/images/8.jpg
-        - /src/assets/images/home/blocks/9/value/images/9.jpg
-        - /src/assets/images/home/blocks/9/value/images/10.jpg
-        - /src/assets/images/home/blocks/9/value/images/11.jpg
-        - /src/assets/images/home/blocks/9/value/images/12.jpg
+        - /src/assets/images/home/blocks/8/value/images/0.jpg
+        - /src/assets/images/home/blocks/8/value/images/1.jpg
+        - /src/assets/images/home/blocks/8/value/images/2.jpg
+        - /src/assets/images/home/blocks/8/value/images/3.jpg
+        - /src/assets/images/home/blocks/8/value/images/4.jpg
+        - /src/assets/images/home/blocks/8/value/images/5.jpg
+        - /src/assets/images/home/blocks/8/value/images/6.jpg
+        - /src/assets/images/home/blocks/8/value/images/7.jpg
+        - /src/assets/images/home/blocks/8/value/images/8.jpg
+        - /src/assets/images/home/blocks/8/value/images/9.jpg
+        - /src/assets/images/home/blocks/8/value/images/10.jpg
+        - /src/assets/images/home/blocks/8/value/images/11.jpg
+        - /src/assets/images/home/blocks/8/value/images/12.jpg
+        - /src/assets/images/home/blocks/8/value/images/13.jpg
+        - /src/assets/images/home/blocks/8/value/images/14.jpg
+        - /src/assets/images/home/blocks/8/value/images/15.jpg
+        - /src/assets/images/home/blocks/8/value/images/16.jpg
+        - /src/assets/images/home/blocks/8/value/images/17.jpg
+        - /src/assets/images/home/blocks/8/value/images/18.jpg
+        - /src/assets/images/home/blocks/8/value/images/19.jpg
+        - /src/assets/images/home/blocks/8/value/images/20.jpg
+        - /src/assets/images/home/blocks/8/value/images/21.jpg
   - discriminant: faqs
     value:
+      anchorLink: faq
       title: Frequently Asked Questions
       faqs:
-        - question: How much does it cost to rent a MI-BOX storage unit?
+        - question: Can I access my MI-BOX container while in storage?
+          answer: |
+            Yes you can access your Storage.
+        - question: I am not moving. Can I still use MI-BOX storage containers?
           answer: >
-            Storing a MI-BOX container at your property starts from at $99 a
-            month. There is no minimum or maximum stay. You can rent a MI-BOX
-            storage container for as long as you need.&nbsp;
-        - question: "Can you store the box for me? "
+            Absolutely! Our customers use MI-BOX storage containers for more
+            than just moving, including: – Renovating – Selling a home –
+            Downsizing – Businesses – Construction If you need to store it,
+            MI-BOX can do it.
+        - question: Does MI-BOX load my storage container for me?
           answer: >
-            Yes! We offer a climate controlled storage warehouse and offer
-            several storage warehouse options. Climate storage starts at $60 a
-            month, or we can store the box outside for $20.&nbsp;
-        - question: Can I access my storage container while it's in storage?
-          answer: >
-            Yes! You can access your storage unit during normal business hours
-            at no charge.
-        - question: How does your pricing work?
-          answer: >
-            Monthly rental is due at the initial delivery date and on the
-            anniversary date for the following months.&nbsp; There is an
-            additional fee for unit delivery and pick-up and any additional
-            moves.&nbsp; We are happy to move your container as much as needed
-            with notice. A credit/debit card is required and will auto-bill on
-            the anniversary date.
-        - question: How long can I keep my MI-BOX?
-          answer: >
-            Keep your container for&nbsp;as long as you like!&nbsp; We will send
-            you an invoice on your monthly anniversary date with the monthly
-            charges and autobill receipt.
-  - discriminant: podsHelpingBintoGrid
-    value:
-      heading: Let Rocket Shell Portable Storage help you start fresh
-      cards:
-        - title: You don’t have to worry about driving
-          description: >-
-            You can cross 'learn how to drive a moving truck' off your list,
-            Rocket Shell Portable Storage will transport your container wherever
-            it needs to go.
-          size: wide
-        - title: Home-to-home without the hassle
-          description: >-
-            You have the option to store your belongings at our Storage Centers
-            while you're between homes.
-          size: normal
-        - title: Move now, pay later
-          description: Monthly financing is available to make your move fit your budget.
-          size: normal
-        - title: Ditch the moving deadline
-          description: Our monthly rentals mean you can tackle your move one box at a time.
-          size: normal
-        - title: Manage your move online
-          description: Track your move and easily update delivery or pickup dates.
-          size: wide
-        - title: 10x safer for your stuff
-          description: >-
-            Our content damage claims rate is less than 1/10th the moving
-            industry average.
-          size: normal
+            MI-BOX does not load or unload containers. But we have a list of
+            local certified partners we can refer you to that can help.
