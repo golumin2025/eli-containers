@@ -1,13 +1,13 @@
-title: Cool Storage Containers
+title: Cold Storage Containers
 seoData:
-  seoTitle: Cool Storage Containers | MI-BOX Moving & Storage
+  seoTitle: Cold Storage Containers | MI-BOX Moving & Storage
   seoDescription: >-
-    Discover cool and convenient storage container solutions from MI-BOX Moving
+    Discover cold and convenient storage container solutions from MI-BOX Moving
     & Storage. Perfect for moving, storage, and more! Get a free quote today.
 blocks:
   - discriminant: singleHero
     value:
-      bgImage: /src/assets/images/cool-storage-containers/blocks/0/value/bgImage.jpg
+      bgImage: /src/assets/images/cold-storage-containers/blocks/0/value/bgImage.jpg
       title: Keep Your Stuff Cool!
       description: With on-site climate-controlled storage.
       showQuoteForm: true
@@ -16,20 +16,20 @@ blocks:
       title: We Make Renting Portable Cold Storage Easy For All Industries
       cards:
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/1/value/cards/0/image.jpg
+            /src/assets/images/cold-storage-containers/blocks/1/value/cards/0/image.jpg
           title: Commercial Cold Storage
           description: >
             Delivered clean and ready to use!&nbsp; With adjustable thermostat
             to set to your desired cooling or freezing temperature.
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/1/value/cards/1/image.jpg
+            /src/assets/images/cold-storage-containers/blocks/1/value/cards/1/image.jpg
           title: Restaurant Cold Storage
           description: >
             Order a restaurant refrigerated portable trailer delivered sanitized
             and inspected for quality assurance. We start cooling your unit
             before it arrives at your location!
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/1/value/cards/2/image.jpg
+            /src/assets/images/cold-storage-containers/blocks/1/value/cards/2/image.jpg
           title: Event Cold Storage
           description: >
             Order a refrigerated trailer for your event. Delivered, sanitized,
@@ -67,7 +67,7 @@ blocks:
         discriminant: false
         value:
           image: >-
-            /src/assets/images/cool-storage-containers/blocks/2/value/media/value/image.jpg
+            /src/assets/images/cold-storage-containers/blocks/2/value/media/value/image.jpg
       imagePlacement: right
       colors: '#0069e5/5'
       button:
@@ -84,7 +84,7 @@ blocks:
         discriminant: false
         value:
           image: >-
-            /src/assets/images/cool-storage-containers/blocks/3/value/media/value/image.png
+            /src/assets/images/cold-storage-containers/blocks/3/value/media/value/image.png
       imagePlacement: left
       colors: '#0069e5/5'
       button:
@@ -131,29 +131,29 @@ blocks:
       title: Our Happy Customers
       logos:
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/5/value/logos/0/image.gif
+            /src/assets/images/cold-storage-containers/blocks/5/value/logos/0/image.gif
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/5/value/logos/1/image.png
+            /src/assets/images/cold-storage-containers/blocks/5/value/logos/1/image.png
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/5/value/logos/2/image.png
+            /src/assets/images/cold-storage-containers/blocks/5/value/logos/2/image.png
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/5/value/logos/3/image.jpeg
+            /src/assets/images/cold-storage-containers/blocks/5/value/logos/3/image.jpeg
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/5/value/logos/4/image.png
+            /src/assets/images/cold-storage-containers/blocks/5/value/logos/4/image.png
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/5/value/logos/5/image.png
+            /src/assets/images/cold-storage-containers/blocks/5/value/logos/5/image.png
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/5/value/logos/6/image.png
+            /src/assets/images/cold-storage-containers/blocks/5/value/logos/6/image.png
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/5/value/logos/7/image.png
+            /src/assets/images/cold-storage-containers/blocks/5/value/logos/7/image.png
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/5/value/logos/8/image.webp
+            /src/assets/images/cold-storage-containers/blocks/5/value/logos/8/image.webp
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/5/value/logos/9/image.png
+            /src/assets/images/cold-storage-containers/blocks/5/value/logos/9/image.png
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/5/value/logos/10/image.png
+            /src/assets/images/cold-storage-containers/blocks/5/value/logos/10/image.png
         - image: >-
-            /src/assets/images/cool-storage-containers/blocks/5/value/logos/11/image.png
+            /src/assets/images/cold-storage-containers/blocks/5/value/logos/11/image.png
   - discriminant: faqs
     value:
       title: Frequently Asked Questions
