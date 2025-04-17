@@ -1,32 +1,18 @@
-subHeader: MI-BOX Vermont
+subHeader: MI-BOX Moving Mobile & Storage
 menuItems:
   - name: Moving
-    link: /portable-container-sizes
-    subMenu:
-      - name: Moving
-        link: /portable-container-sizes
-      - name: Moving Overview
-        link: /moving-overview
+    link: /moving-services
+    subMenu: []
   - name: Storage
-    link: /portable-container-sizes
-    subMenu:
-      - name: Storage
-        link: /portable-container-sizes
-      - name: Storage Overview
-        link: /storage-overview
-  - name: Locations
-    link: /locations
-    subMenu:
-      - name: Vermont
-        link: /vermont-service-area
-      - name: Central Massachusetts
-        link: /central-massachusetts-service-area
-      - name: Western Massachusetts
-        link: /western-massachusetts-service-area
-  - name: Business
-    link: /commercial-business
+    link: /storage-services
+    subMenu: []
+  - name: Cool Storage
+    link: /cool-storage-containers
+    subMenu: []
+  - name: Service Areas
+    link: /service-areas
     subMenu: []
 button:
   enable: true
-  label: (802) 242-2022
-  link: tel:(802) 242-2022
+  label: (941) 777-7269
+  link: tel:(941) 777-7269
