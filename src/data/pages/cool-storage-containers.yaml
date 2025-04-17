@@ -1,0 +1,207 @@
+title: Cool Storage Containers
+seoData:
+  seoTitle: Cool Storage Containers | MI-BOX Moving & Storage
+  seoDescription: >-
+    Discover cool and convenient storage container solutions from MI-BOX Moving
+    & Storage. Perfect for moving, storage, and more! Get a free quote today.
+blocks:
+  - discriminant: singleHero
+    value:
+      bgImage: /src/assets/images/cool-storage-containers/blocks/0/value/bgImage.jpg
+      title: Keep Your Stuff Cool!
+      description: With on-site climate-controlled storage.
+      showQuoteForm: true
+  - discriminant: cards
+    value:
+      title: We Make Renting Portable Cold Storage Easy For All Industries
+      cards:
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/1/value/cards/0/image.jpg
+          title: Commercial Cold Storage
+          description: >
+            Delivered clean and ready to use!&nbsp; With adjustable thermostat
+            to set to your desired cooling or freezing temperature.
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/1/value/cards/1/image.jpg
+          title: Restaurant Cold Storage
+          description: >
+            Order a restaurant refrigerated portable trailer delivered sanitized
+            and inspected for quality assurance. We start cooling your unit
+            before it arrives at your location!
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/1/value/cards/2/image.jpg
+          title: Event Cold Storage
+          description: >
+            Order a refrigerated trailer for your event. Delivered, sanitized,
+            and inspected for quality assurance.&nbsp;
+  - discriminant: howPodsWork
+    value:
+      heading: How It Works
+      tabs:
+        - title: Moving
+          steps:
+            - title: We Deliver
+              description: >-
+                We'll bring your storage unit directly to you. Our containers
+                are street legal and fit wherever you need them to go - even
+                areas off the beaten path!
+            - title: You Load
+              description: >-
+                Pack at a time and pace that's convenient for you. Or our
+                certified movers can do it for you!
+            - title: We Move
+              description: >-
+                We will pick up your stuff and secure it in our secure location,
+                or deliver it to your new destination. Whatever is convenient
+                for you.
+        - title: Storage
+          steps:
+            - title: We Deliver
+              description: >-
+                We'll bring your storage unit directly to you. Our containers
+                are street legal and fit wherever you need them to go - even
+                areas off the beaten path!
+            - title: We Load
+              description: >-
+                Pack at a time and pace that's convenient for you. Or our
+                certified movers can do it for you!
+            - title: We Store
+              description: >-
+                We will pick up your stuff and secure it in our secure location,
+                or deliver it to your new destination. Whatever is convenient
+                for you.
+  - discriminant: findYouFit
+    value:
+      heading: Prices That Can't Be Beat. Guaranteed.
+      cards:
+        - title: Small
+          image: >-
+            /src/assets/images/cool-storage-containers/blocks/3/value/cards/0/image.png
+          description: >-
+            Ideal for storing the contents of a studio apartment, including a
+            number of boxes, kitchen appliances, small mattress set, chairs, or
+            even a motorcycle.
+          dimensions: 8 FT x 8 FT x 8 FT
+          storageSize: 8 FT
+        - title: Medium
+          image: >-
+            /src/assets/images/cool-storage-containers/blocks/3/value/cards/1/image.png
+          description: >-
+            Commonly holds 3-4 rooms. Perfect for holding an entertainment
+            center, king-size mattresses, larger appliances, dining room,
+            furniture, boxes and other various items.
+          dimensions: 16 FT x 8 FT x 8 FT
+          storageSize: 16 FT
+        - title: Large
+          image: >-
+            /src/assets/images/cool-storage-containers/blocks/3/value/cards/2/image.png
+          description: >-
+            Commonly holds 4-5 rooms. Perfect for holding an entertainment
+            center, king-size mattresses, larger appliances, dining room,
+            furniture, boxes and other various items.
+          dimensions: 20 FT x 8 FT x 8 FT
+          storageSize: 20 FT
+  - discriminant: twoCol
+    value:
+      heading: What’s Included With Rental
+      description: >
+        When we deliver our&nbsp; Ice Cold Storage trailer, we work with you in
+        positioning it in the most efficient working location. Then we lock down
+        the trailer with a Hitch Lock and wheel lock for security. We will
+        stabilize the Ice Cold Storage Trailer with leveling jacks, secure the
+        tires with wheel chocks, and provide you with locks for the doors to
+        secure your product. It will also come with a hitch pin, and 25′ 110V
+        power cord.
+
+
+        #### **Trailer Size: 7 X 12ft**
+
+
+        Daily Rate: $220
+
+
+        Weekly Rate: $998
+
+
+        Monthly Rate: $2650
+
+
+        ## **Delivery Fees?**
+
+
+        \*Our delivery charges are based on zip code distance from our warehouse
+        location. The minimum drop-off fee is $125 and the minimum pick-up fee
+        is $125.
+      media:
+        discriminant: false
+        value:
+          image: >-
+            /src/assets/images/cool-storage-containers/blocks/4/value/media/value/image.jpg
+      imagePlacement: right
+      colors: '#0069e5/5'
+      button:
+        label: Get a quote
+        link: /#quote-form
+  - discriminant: reviewsSlider
+    value:
+      title: Our Happy Customers
+      logos:
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/5/value/logos/0/image.gif
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/5/value/logos/1/image.png
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/5/value/logos/2/image.png
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/5/value/logos/3/image.jpeg
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/5/value/logos/4/image.png
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/5/value/logos/5/image.png
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/5/value/logos/6/image.png
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/5/value/logos/7/image.png
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/5/value/logos/8/image.webp
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/5/value/logos/9/image.png
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/5/value/logos/10/image.png
+        - image: >-
+            /src/assets/images/cool-storage-containers/blocks/5/value/logos/11/image.png
+  - discriminant: faqs
+    value:
+      title: Frequently Asked Questions
+      faqs:
+        - question: How does a Cold Storage Trailer work?
+          answer: >
+            Ice Cold Storage makes refrigerated trailer rentals easy.&nbsp;
+            Simply plug the trailer’s power cord into a 110v wall outlet and you
+            are ready to go.&nbsp; If needed we can supply a generator for for
+            rental.
+        - question: What is the temperature range of the trailer?
+          answer: >
+            Ice Cold Storage Trailers can be set to 0° to keep frozen goods or
+            up to 45° for refrigerated goods.&nbsp; (Temp range is 0° to 60°).
+        - question: What is the electrical requirement?
+          answer: >
+            Ice Cold Storage only needs an 11ov outlet with a 20 amp
+            breaker.&nbsp; Once it is plugged in it will keep&nbsp; Anything you
+            need ice cold!
+
+
+            Ice Cold Storage makes refrigerated trailer rentals easy.&nbsp;
+            Simply plug the trailer’s power cord into a 110v wall outlet and you
+            are ready to go.&nbsp; If needed we can supply a generator for for
+            rental.
+
+
+            Ice Cold Storage Trailers can be set to 0° to keep frozen goods or
+            up to 45° for refrigerated goods.&nbsp; (Temp range is 0° to
+            60°)&nbsp;&nbsp;
+
+
+            Ice Cold Storage only needs an 11ov outlet with a 20 amp
+            breaker.&nbsp; Once it is plugged in it will keep&nbsp; Anything you
+            need ice cold!
