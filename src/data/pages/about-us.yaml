@@ -1,0 +1,60 @@
+title: About Us
+seoData:
+  seoTitle: About MI-BOX Moving Mobile & Storage | Your Local Moving & Storage Experts
+  seoDescription: >-
+    Learn more about MI-BOX Moving Mobile & Storage, your trusted local moving
+    and storage company serving Manatee and Sarasota Counties with reliable and
+    friendly service.
+blocks:
+  - discriminant: singleHero
+    value:
+      bgImage: /src/assets/images/about-us/blocks/0/value/bgImage.jpg
+      title: About MI-BOX Moving & Storage
+      showQuoteForm: true
+  - discriminant: cards
+    value:
+      title: Who We Are
+      cards:
+        - image: /src/assets/images/about-us/blocks/1/value/cards/0/image.png
+          title: What is MI-BOX?
+          description: >
+            MI-BOX provides portable moving & storage containers that help you
+            move & store items in a fraction of the time (and cost) of
+            traditional self-storage.
+        - image: /src/assets/images/about-us/blocks/1/value/cards/1/image.png
+          title: Who Is It For?
+          description: >
+            If you’re moving, renovating, staging or selling a home, downsizing,
+            or just looking for some extra space to hold your things – MI-BOX is
+            for you.
+        - image: /src/assets/images/about-us/blocks/1/value/cards/2/image.png
+          title: Why Use Us?
+          description: >
+            Take everything you hate about moving and storage – truck rentals,
+            hidden fees, impractical access hours, long days, transportation
+            etc. – and kiss them goodbye.
+  - discriminant: twoCol
+    value:
+      heading: The MI-BOX Difference
+      description: >
+        Compare PODSⓇ to MI-BOX®, 1-800 Pack Rat® and U-Pack®. Compare moving
+        and storage containers and portable storage delivery services using the
+        chart below. MI-BOX Level Lift System and mobile storage containers were
+        designed and built to protect your belongings, your property and give
+        you peace of mind. All MI-BOX locations are independently owned and
+        operated by local dealers who value your business. You're guaranteed to
+        get the best possible service and prices for all your moving and storage
+        needs. When you compare PODS® moving and storage containers to MI-BOX
+        Mobile Storage & Moving, you might see some similarities, but you
+        experience noticeable differences. MI-BOX dealers are locally owned and
+        operated to give you the best possible prices and service. Compare PODS®
+        to MI-BOX®, 1-800 Pack Rat® and U-Pack®.
+      media:
+        discriminant: false
+        value:
+          image: /src/assets/images/about-us/blocks/2/value/media/value/image.jpg
+      imagePlacement: left
+      colors: '#0069e5/5'
+      button:
+        label: Get a Quote Today!
+        link: /#quote
