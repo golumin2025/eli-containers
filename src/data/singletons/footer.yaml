@@ -11,8 +11,8 @@ navitems:
         url: /moving-services
       - name: Storage
         url: /storage-services
-      - name: Cool Storage
-        url: /cool-storage-containers
+      - name: Cold Storage
+        url: /cold-storage-containers
   - title: Resources
     links:
       - name: FAQs
