@@ -70,37 +70,6 @@ blocks:
                 We will pick up your stuff and secure it in our secure location,
                 or deliver it to your new destination. Whatever is convenient
                 for you.
-  - discriminant: findYouFit
-    value:
-      heading: Prices That Can't Be Beat. Guaranteed.
-      cards:
-        - title: Small
-          image: >-
-            /src/assets/images/cool-storage-containers/blocks/3/value/cards/0/image.png
-          description: >-
-            Ideal for storing the contents of a studio apartment, including a
-            number of boxes, kitchen appliances, small mattress set, chairs, or
-            even a motorcycle.
-          dimensions: 8 FT x 8 FT x 8 FT
-          storageSize: 8 FT
-        - title: Medium
-          image: >-
-            /src/assets/images/cool-storage-containers/blocks/3/value/cards/1/image.png
-          description: >-
-            Commonly holds 3-4 rooms. Perfect for holding an entertainment
-            center, king-size mattresses, larger appliances, dining room,
-            furniture, boxes and other various items.
-          dimensions: 16 FT x 8 FT x 8 FT
-          storageSize: 16 FT
-        - title: Large
-          image: >-
-            /src/assets/images/cool-storage-containers/blocks/3/value/cards/2/image.png
-          description: >-
-            Commonly holds 4-5 rooms. Perfect for holding an entertainment
-            center, king-size mattresses, larger appliances, dining room,
-            furniture, boxes and other various items.
-          dimensions: 20 FT x 8 FT x 8 FT
-          storageSize: 20 FT
   - discriminant: twoCol
     value:
       heading: What’s Included With Rental
@@ -136,8 +105,25 @@ blocks:
         discriminant: false
         value:
           image: >-
-            /src/assets/images/cool-storage-containers/blocks/4/value/media/value/image.jpg
+            /src/assets/images/cool-storage-containers/blocks/3/value/media/value/image.jpg
       imagePlacement: right
+      colors: '#0069e5/5'
+      button:
+        label: Get a quote
+        link: /#quote-form
+  - discriminant: twoCol
+    value:
+      heading: Ice Cold Storage Portable Refrigeration Units
+      description: |
+        - Easy pickup or delivery
+        - Temp range 0° to 40°
+        - Plug and play to a standard 110v outlet
+      media:
+        discriminant: false
+        value:
+          image: >-
+            /src/assets/images/cool-storage-containers/blocks/4/value/media/value/image.png
+      imagePlacement: left
       colors: '#0069e5/5'
       button:
         label: Get a quote
