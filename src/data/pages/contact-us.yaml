@@ -27,7 +27,8 @@ blocks:
         Palmetto, FL 34221
       media:
         discriminant: false
-        value: {}
+        value:
+          image: /src/assets/images/contact-us/blocks/1/value/media/value/image.jpg
       imagePlacement: left
       colors: '#0069e5/5'
       button: {}
