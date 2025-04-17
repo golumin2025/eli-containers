@@ -1,0 +1,133 @@
+title: Moving
+seoData:
+  seoTitle: Professional Moving Services in Manatee & Sarasota Counties | MiBox
+  seoDescription: >-
+    Stress-free local and long-distance moving services in Manatee and Sarasota
+    Counties. Let MiBox Moving & Storage handle your next move with care and
+    efficiency.
+blocks:
+  - discriminant: singleHero
+    value:
+      bgImage: /src/assets/images/moving-services/blocks/0/value/bgImage.jpg
+      title: Professional Moving Services
+      showQuoteForm: true
+  - discriminant: twoCol
+    value:
+      heading: Moving Made Easy in Manatee & Sarasota Counties.
+      description: >
+        Whether you're moving locally or long-distance, MiBox offers flexible
+        and convenient moving solutions tailored to your needs. We handle the
+        heavy lifting so you can focus on your new beginning. Get a free moving
+        quote today!
+      media:
+        discriminant: false
+        value:
+          image: >-
+            /src/assets/images/moving-services/blocks/1/value/media/value/image.jpg
+      imagePlacement: right
+      colors: '#0069e5/5'
+      button:
+        label: Get a quote
+        link: /#quote-form
+  - discriminant: howPodsWork
+    value:
+      heading: How It Works
+      tabs:
+        - title: Moving
+          steps:
+            - title: We Deliver
+              description: >-
+                We'll bring your storage unit directly to you. Our containers
+                are street legal and fit wherever you need them to go - even
+                areas off the beaten path!
+            - title: You Load
+              description: >-
+                Pack at a time and pace that's convenient for you. Or our
+                certified movers can do it for you!
+            - title: We Move
+              description: >-
+                We will pick up your stuff and secure it in our secure location,
+                or deliver it to your new destination. Whatever is convenient
+                for you.
+        - title: Storage
+          steps:
+            - title: We Deliver
+              description: >-
+                We'll bring your storage unit directly to you. Our containers
+                are street legal and fit wherever you need them to go - even
+                areas off the beaten path!
+            - title: We Load
+              description: >-
+                Pack at a time and pace that's convenient for you. Or our
+                certified movers can do it for you!
+            - title: We Store
+              description: >-
+                We will pick up your stuff and secure it in our secure location,
+                or deliver it to your new destination. Whatever is convenient
+                for you.
+  - discriminant: findYouFit
+    value:
+      heading: Prices That Can't Be Beat. Guaranteed.
+      cards:
+        - title: Small
+          image: /src/assets/images/moving-services/blocks/3/value/cards/0/image.png
+          description: >-
+            Ideal for storing the contents of a studio apartment, including a
+            number of boxes, kitchen appliances, small mattress set, chairs, or
+            even a motorcycle.
+          dimensions: 8 FT x 8 FT x 8 FT
+          storageSize: 8 FT
+        - title: Medium
+          image: /src/assets/images/moving-services/blocks/3/value/cards/1/image.png
+          description: >-
+            Commonly holds 3-4 rooms. Perfect for holding an entertainment
+            center, king-size mattresses, larger appliances, dining room,
+            furniture, boxes and other various items.
+          dimensions: 16 FT x 8 FT x 8 FT
+          storageSize: 16 FT
+        - title: Large
+          image: /src/assets/images/moving-services/blocks/3/value/cards/2/image.png
+          description: >-
+            Commonly holds 4-5 rooms. Perfect for holding an entertainment
+            center, king-size mattresses, larger appliances, dining room,
+            furniture, boxes and other various items.
+          dimensions: 20 FT x 8 FT x 8 FT
+          storageSize: 20 FT
+  - discriminant: reviewsSlider
+    value:
+      title: Our Happy Customers
+      logos:
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/0/image.jpeg
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/1/image.png
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/2/image.jpeg
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/3/image.png
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/4/image.jpeg
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/5/image.png
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/6/image.jpeg
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/7/image.png
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/8/image.jpeg
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/9/image.png
+        - image: >-
+            /src/assets/images/moving-services/blocks/4/value/logos/10/image.jpeg
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/11/image.png
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/12/image.png
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/13/image.png
+        - image: /src/assets/images/moving-services/blocks/4/value/logos/14/image.png
+  - discriminant: faqs
+    value:
+      anchorLink: faq
+      title: Frequently Asked Questions
+      faqs:
+        - question: Can I access my MI-BOX container while in storage?
+          answer: |
+            Yes you can access your Storage.
+        - question: I am not moving. Can I still use MI-BOX storage containers?
+          answer: >
+            Absolutely! Our customers use MI-BOX storage containers for more
+            than just moving, including: – Renovating – Selling a home –
+            Downsizing – Businesses – Construction If you need to store it,
+            MI-BOX can do it.
+        - question: Does MI-BOX load my storage container for me?
+          answer: >
+            MI-BOX does not load or unload containers. But we have a list of
+            local certified partners we can refer you to that can help.
