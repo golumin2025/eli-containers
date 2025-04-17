@@ -1,35 +1,33 @@
 title: Contact Us
 seoData:
-  seoTitle: Contact MI-BOX | Portable Storage & Moving | Get a Free Quote
+  seoTitle: >-
+    Contact MI-BOX Moving Mobile & Storage | Get Your Free Moving & Storage
+    Quote
   seoDescription: >-
-    Contact MI-BOX for portable storage and moving solutions. Get a free quote
-    for on-site storage, warehouse options, and relocation services. Reach us
-    today!
+    Contact MI-BOX Moving Mobile & Storage in Manatee and Sarasota Counties for
+    a free quote on your moving or storage needs. Reach our friendly team today!
 blocks:
   - discriminant: singleHero
     value:
       bgImage: /src/assets/images/contact-us/blocks/0/value/bgImage.jpg
-      title: 'Contact MI-BOX: Get Your Portable Storage & Moving Quote Today'
+      title: Contact MI-BOX
       showQuoteForm: true
   - discriminant: twoCol
     value:
       heading: Find your nearest MI-BOX location
       description: >
-        Have questions about our portable storage and moving solutions? The
-        MI-BOX team is here to help! Contact us today to learn more about our
-        on-site storage, warehouse storage, and moving services.
+        ## **Contact Us Today!**
 
 
-        ### Phone [(802) 242-2022](tel:(802) 242-2022)
+        Ready for stress-free moving and storage in Manatee and Sarasota
+        Counties? Call us for a free quote: [**941-777-7269**](**941-777-7269**)
 
 
-        ### Email [vermont@getmibox.com](mailto:vermont@getmibox.com)
+        Visit our location: MI-BOX Moving Mobile & Storage 1804 20th St E
+        Palmetto, FL 34221
       media:
         discriminant: false
-        value:
-          image: /src/assets/images/contact-us/blocks/1/value/media/value/image.jpg
+        value: {}
       imagePlacement: left
       colors: '#0069e5/5'
-      button:
-        label: Get a Quote Today!
-        link: /#quote
+      button: {}
