@@ -78,26 +78,9 @@ blocks:
             furniture, boxes and other various items.
           dimensions: 20 FT x 8 FT x 8 FT
           storageSize: 20 FT
-  - discriminant: twoCol
-    value:
-      heading: On-Site Climate Control
-      description: |
-        1. We Deliver
-        1. Plug In
-        1. Turn On AC
-        1. Your Stuff Stays Cool
-      media:
-        discriminant: false
-        value:
-          image: /src/assets/images/home/blocks/3/value/media/value/image.jpg
-      imagePlacement: right
-      colors: '#0069e5/5'
-      button:
-        label: Learn more
-        link: /cold-storage-containers
   - discriminant: featuredImage
     value:
-      image: /src/assets/images/home/blocks/4/value/image.jpg
+      image: /src/assets/images/home/blocks/3/value/image.jpg
       title: Get a Free Estimate Today
       description: |-
         ☑️ Best Price Guarantee
@@ -119,17 +102,17 @@ blocks:
     value:
       title: Why Rent with Us
       cards:
-        - image: /src/assets/images/home/blocks/5/value/cards/0/image.webp
+        - image: /src/assets/images/home/blocks/4/value/cards/0/image.webp
           title: Personalized Support
           description: >
             An assigned moving & storage specialist is with you every step of
             the way who knows and understands your needs.
-        - image: /src/assets/images/home/blocks/5/value/cards/1/image.webp
+        - image: /src/assets/images/home/blocks/4/value/cards/1/image.webp
           title: Doorstep Convenience
           description: >
             No need to rent a truck or travel back and forth to a storage
             facility. Have storage delivered right to your door.
-        - image: /src/assets/images/home/blocks/5/value/cards/2/image.webp
+        - image: /src/assets/images/home/blocks/4/value/cards/2/image.webp
           title: Reliable & Secure
           description: >
             No matter where you’re going or what you’re storing, your items will
@@ -138,47 +121,47 @@ blocks:
     value:
       title: Our Happy Customers
       logos:
-        - image: /src/assets/images/home/blocks/6/value/logos/0/image.jpeg
-        - image: /src/assets/images/home/blocks/6/value/logos/1/image.png
-        - image: /src/assets/images/home/blocks/6/value/logos/2/image.jpeg
-        - image: /src/assets/images/home/blocks/6/value/logos/3/image.png
-        - image: /src/assets/images/home/blocks/6/value/logos/4/image.jpeg
-        - image: /src/assets/images/home/blocks/6/value/logos/5/image.png
-        - image: /src/assets/images/home/blocks/6/value/logos/6/image.jpeg
-        - image: /src/assets/images/home/blocks/6/value/logos/7/image.png
-        - image: /src/assets/images/home/blocks/6/value/logos/8/image.jpeg
-        - image: /src/assets/images/home/blocks/6/value/logos/9/image.png
-        - image: /src/assets/images/home/blocks/6/value/logos/10/image.jpeg
-        - image: /src/assets/images/home/blocks/6/value/logos/11/image.png
-        - image: /src/assets/images/home/blocks/6/value/logos/12/image.png
-        - image: /src/assets/images/home/blocks/6/value/logos/13/image.png
-        - image: /src/assets/images/home/blocks/6/value/logos/14/image.png
+        - image: /src/assets/images/home/blocks/5/value/logos/0/image.jpeg
+        - image: /src/assets/images/home/blocks/5/value/logos/1/image.png
+        - image: /src/assets/images/home/blocks/5/value/logos/2/image.jpeg
+        - image: /src/assets/images/home/blocks/5/value/logos/3/image.png
+        - image: /src/assets/images/home/blocks/5/value/logos/4/image.jpeg
+        - image: /src/assets/images/home/blocks/5/value/logos/5/image.png
+        - image: /src/assets/images/home/blocks/5/value/logos/6/image.jpeg
+        - image: /src/assets/images/home/blocks/5/value/logos/7/image.png
+        - image: /src/assets/images/home/blocks/5/value/logos/8/image.jpeg
+        - image: /src/assets/images/home/blocks/5/value/logos/9/image.png
+        - image: /src/assets/images/home/blocks/5/value/logos/10/image.jpeg
+        - image: /src/assets/images/home/blocks/5/value/logos/11/image.png
+        - image: /src/assets/images/home/blocks/5/value/logos/12/image.png
+        - image: /src/assets/images/home/blocks/5/value/logos/13/image.png
+        - image: /src/assets/images/home/blocks/5/value/logos/14/image.png
   - discriminant: masonaryGallery
     value:
       title: See Our Storage in Action
       images:
-        - /src/assets/images/home/blocks/7/value/images/0.jpg
-        - /src/assets/images/home/blocks/7/value/images/1.jpg
-        - /src/assets/images/home/blocks/7/value/images/2.jpg
-        - /src/assets/images/home/blocks/7/value/images/3.jpg
-        - /src/assets/images/home/blocks/7/value/images/4.jpg
-        - /src/assets/images/home/blocks/7/value/images/5.jpg
-        - /src/assets/images/home/blocks/7/value/images/6.jpg
-        - /src/assets/images/home/blocks/7/value/images/7.jpg
-        - /src/assets/images/home/blocks/7/value/images/8.jpg
-        - /src/assets/images/home/blocks/7/value/images/9.jpg
-        - /src/assets/images/home/blocks/7/value/images/10.jpg
-        - /src/assets/images/home/blocks/7/value/images/11.jpg
-        - /src/assets/images/home/blocks/7/value/images/12.jpg
-        - /src/assets/images/home/blocks/7/value/images/13.jpg
-        - /src/assets/images/home/blocks/7/value/images/14.jpg
-        - /src/assets/images/home/blocks/7/value/images/15.jpg
-        - /src/assets/images/home/blocks/7/value/images/16.jpg
-        - /src/assets/images/home/blocks/7/value/images/17.jpg
-        - /src/assets/images/home/blocks/7/value/images/18.jpg
-        - /src/assets/images/home/blocks/7/value/images/19.jpg
-        - /src/assets/images/home/blocks/7/value/images/20.jpg
-        - /src/assets/images/home/blocks/7/value/images/21.jpg
+        - /src/assets/images/home/blocks/6/value/images/0.jpg
+        - /src/assets/images/home/blocks/6/value/images/1.jpg
+        - /src/assets/images/home/blocks/6/value/images/2.jpg
+        - /src/assets/images/home/blocks/6/value/images/3.jpg
+        - /src/assets/images/home/blocks/6/value/images/4.jpg
+        - /src/assets/images/home/blocks/6/value/images/5.jpg
+        - /src/assets/images/home/blocks/6/value/images/6.jpg
+        - /src/assets/images/home/blocks/6/value/images/7.jpg
+        - /src/assets/images/home/blocks/6/value/images/8.jpg
+        - /src/assets/images/home/blocks/6/value/images/9.jpg
+        - /src/assets/images/home/blocks/6/value/images/10.jpg
+        - /src/assets/images/home/blocks/6/value/images/11.jpg
+        - /src/assets/images/home/blocks/6/value/images/12.jpg
+        - /src/assets/images/home/blocks/6/value/images/13.jpg
+        - /src/assets/images/home/blocks/6/value/images/14.jpg
+        - /src/assets/images/home/blocks/6/value/images/15.jpg
+        - /src/assets/images/home/blocks/6/value/images/16.jpg
+        - /src/assets/images/home/blocks/6/value/images/17.jpg
+        - /src/assets/images/home/blocks/6/value/images/18.jpg
+        - /src/assets/images/home/blocks/6/value/images/19.jpg
+        - /src/assets/images/home/blocks/6/value/images/20.jpg
+        - /src/assets/images/home/blocks/6/value/images/21.jpg
   - discriminant: faqs
     value:
       anchorLink: faq
