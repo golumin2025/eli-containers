@@ -8,7 +8,7 @@ blocks:
   - discriminant: mainHero
     value:
       Sliderimages:
-        - image: /images/home/home/blocks/0/value/Sliderimages/0/image.jpg
+        - image: /images/home/home/blocks/0/value/Sliderimages/0/image.png
           title: Florida's best moving and storage company.
           description: Save 25% on moving and storage.
       quoteFormTitle: Start Here!
