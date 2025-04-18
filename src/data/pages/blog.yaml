@@ -1,0 +1,13 @@
+title: Blog
+seoData:
+  seoTitle: 'MI-BOX Blog: Easy Mobile Moving & Storage Solutions'
+  seoDescription: >-
+    Discover helpful tips, guides, and insights on stress-free moving and
+    convenient mobile storage with MI-BOX. Learn how our portable units simplify
+    your move and storage needs.
+blocks:
+  - discriminant: singleHero
+    value:
+      bgImage: /src/assets/images/blog/blocks/0/value/bgImage.jpg
+      title: Moving & Storage Blog
+      showQuoteForm: true
