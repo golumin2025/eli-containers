@@ -1,6 +1,6 @@
 title: Cold Storage Containers
 seoData:
-  seoTitle: Cold Storage Containers | MI-BOX Moving & Storage
+  seoTitle: Ice Cold Storage Containers | MI-BOX Moving & Storage
   seoDescription: >-
     Discover cold and convenient storage container solutions from MI-BOX Moving
     & Storage. Perfect for moving, storage, and more! Get a free quote today.
@@ -16,7 +16,7 @@ blocks:
       image: /src/assets/images/cold-storage-containers/blocks/1/value/image.png
       title: What's Included With Your Rental
       description: >-
-        When we deliver our  Ice Cold Storage trailer, we work with you in
+        When we deliver our Ice Cold Storage trailer, we work with you in
         positioning it in the most efficient working location. Then we lock down
         the trailer with a Hitch Lock and wheel lock for security. We will
         stabilize the Ice Cold Storage Trailer with leveling jacks, secure the
@@ -96,7 +96,7 @@ blocks:
         discriminant: false
         value:
           image: >-
-            /src/assets/images/cold-storage-containers/blocks/4/value/media/value/image.png
+            /src/assets/images/cold-storage-containers/blocks/4/value/media/value/image.jpg
       imagePlacement: left
       colors: '#0069e5/5'
       button:
