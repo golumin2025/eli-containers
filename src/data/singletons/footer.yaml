@@ -17,6 +17,8 @@ navitems:
     links:
       - name: FAQs
         url: /#faq
+      - name: Blog
+        url: /blog
       - name: Locations
         url: /service-areas
 socialLinks: []
