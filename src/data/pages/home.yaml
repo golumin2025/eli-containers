@@ -188,3 +188,23 @@ blocks:
           answer: >
             MI-BOX does not load or unload containers. But we have a list of
             local certified partners we can refer you to that can help.
+        - question: What types of storage containers do you offer?
+          answer: >
+            We provide various storage solutions, including convenient on-site
+            storage delivered to your location, secure off-site storage at our
+            dedicated facility, and specialized cold storage container options.
+        - question: What are the standard sizes of your storage containers?
+          answer: >
+            Our standard storage containers come in three main sizes to suit
+            various needs: our compact 8-foot containers, versatile medium-sized
+            options, and our largest 20-foot containers for maximum storage
+            capacity.
+        - question: Do you deliver the storage containers?
+          answer: >
+            Yes, we certainly deliver our storage containers directly to your
+            desired location.
+        - question: What areas do you deliver to?
+          answer: >
+            We proudly offer our reliable moving and storage container delivery
+            services throughout all of Manatee and Sarasota Counties. [See more
+            here.](/service-areas)
