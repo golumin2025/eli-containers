@@ -92,7 +92,7 @@ blocks:
       colors: '#0069e5/5'
       button:
         label: Learn more
-        link: /cool-storage-containers
+        link: /cold-storage-containers
   - discriminant: featuredImage
     value:
       image: /src/assets/images/home/blocks/4/value/image.jpg
