@@ -18,7 +18,7 @@ navitems:
       - name: FAQs
         url: /#faq
       - name: Locations
-        url: /locations
+        url: /service-areas
 socialLinks: []
 legal:
   - title: Web Accessibility
