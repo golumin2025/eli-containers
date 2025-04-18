@@ -14,6 +14,34 @@ blocks:
             MI-BOX Mobile Storage is the Gulf Coast's premier moving & portable
             storage solutions. Call now or get a free quote. 
       quoteFormTitle: Start Here!
+  - discriminant: findYouFit
+    value:
+      heading: Prices That Can't Be Beat. Guaranteed.
+      cards:
+        - title: Small
+          image: /src/assets/images/home/blocks/1/value/cards/0/image.png
+          description: >-
+            Ideal for storing the contents of a studio apartment, including a
+            number of boxes, kitchen appliances, small mattress set, chairs, or
+            even a motorcycle.
+          dimensions: 8 FT x 8 FT x 8 FT
+          storageSize: 8 FT
+        - title: Medium
+          image: /src/assets/images/home/blocks/1/value/cards/1/image.png
+          description: >-
+            Commonly holds 3-4 rooms. Perfect for holding an entertainment
+            center, king-size mattresses, larger appliances, dining room,
+            furniture, boxes and other various items.
+          dimensions: 16 FT x 8 FT x 8 FT
+          storageSize: 16 FT
+        - title: Large
+          image: /src/assets/images/home/blocks/1/value/cards/2/image.png
+          description: >-
+            Commonly holds 4-5 rooms. Perfect for holding an entertainment
+            center, king-size mattresses, larger appliances, dining room,
+            furniture, boxes and other various items.
+          dimensions: 20 FT x 8 FT x 8 FT
+          storageSize: 20 FT
   - discriminant: howPodsWork
     value:
       heading: How It Works
@@ -50,34 +78,6 @@ blocks:
                 We will pick up your stuff and secure it in our secure location,
                 or deliver it to your new destination. Whatever is convenient
                 for you.
-  - discriminant: findYouFit
-    value:
-      heading: Prices That Can't Be Beat. Guaranteed.
-      cards:
-        - title: Small
-          image: /src/assets/images/home/blocks/2/value/cards/0/image.png
-          description: >-
-            Ideal for storing the contents of a studio apartment, including a
-            number of boxes, kitchen appliances, small mattress set, chairs, or
-            even a motorcycle.
-          dimensions: 8 FT x 8 FT x 8 FT
-          storageSize: 8 FT
-        - title: Medium
-          image: /src/assets/images/home/blocks/2/value/cards/1/image.png
-          description: >-
-            Commonly holds 3-4 rooms. Perfect for holding an entertainment
-            center, king-size mattresses, larger appliances, dining room,
-            furniture, boxes and other various items.
-          dimensions: 16 FT x 8 FT x 8 FT
-          storageSize: 16 FT
-        - title: Large
-          image: /src/assets/images/home/blocks/2/value/cards/2/image.png
-          description: >-
-            Commonly holds 4-5 rooms. Perfect for holding an entertainment
-            center, king-size mattresses, larger appliances, dining room,
-            furniture, boxes and other various items.
-          dimensions: 20 FT x 8 FT x 8 FT
-          storageSize: 20 FT
   - discriminant: featuredImage
     value:
       image: /src/assets/images/home/blocks/3/value/image.jpg
