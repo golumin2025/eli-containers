@@ -29,6 +29,29 @@ blocks:
       button:
         label: Get a quote
         link: /#quote-form
+  - discriminant: cards
+    value:
+      title: Storage Services
+      cards:
+        - image: /src/assets/images/storage-services/blocks/2/value/cards/0/image.jpg
+          title: On-Site Storage
+          description: >
+            From home renovations to business expansions, On-Site Storage offers
+            flexible and reliable storage container rentals and sales to fit any
+            project or need. Get the space you require, on your terms.
+        - image: /src/assets/images/storage-services/blocks/2/value/cards/1/image.jpg
+          title: Storage Facility
+          description: >
+            Need a safe and secure place to store your belongings? MI-BOX offers
+            storage solutions at our well-maintained facility, providing you
+            with peace of mind knowing your items are protected and cared for.
+        - image: /src/assets/images/storage-services/blocks/2/value/cards/2/image.jpg
+          title: Cold Storage
+          description: >
+            Keep your temperature-sensitive goods safe and secure with On-Site
+            Storage's refrigerated containers. We deliver reliable cold storage
+            directly to your location, ensuring optimal preservation for your
+            valuable inventory.
   - discriminant: howPodsWork
     value:
       heading: How It Works
@@ -70,7 +93,7 @@ blocks:
       heading: Prices That Can't Be Beat. Guaranteed.
       cards:
         - title: Small
-          image: /src/assets/images/storage-services/blocks/3/value/cards/0/image.png
+          image: /src/assets/images/storage-services/blocks/4/value/cards/0/image.png
           description: >-
             Ideal for storing the contents of a studio apartment, including a
             number of boxes, kitchen appliances, small mattress set, chairs, or
@@ -78,7 +101,7 @@ blocks:
           dimensions: 8 FT x 8 FT x 8 FT
           storageSize: 8 FT
         - title: Medium
-          image: /src/assets/images/storage-services/blocks/3/value/cards/1/image.png
+          image: /src/assets/images/storage-services/blocks/4/value/cards/1/image.png
           description: >-
             Commonly holds 3-4 rooms. Perfect for holding an entertainment
             center, king-size mattresses, larger appliances, dining room,
@@ -86,7 +109,7 @@ blocks:
           dimensions: 16 FT x 8 FT x 8 FT
           storageSize: 16 FT
         - title: Large
-          image: /src/assets/images/storage-services/blocks/3/value/cards/2/image.png
+          image: /src/assets/images/storage-services/blocks/4/value/cards/2/image.png
           description: >-
             Commonly holds 4-5 rooms. Perfect for holding an entertainment
             center, king-size mattresses, larger appliances, dining room,
@@ -98,30 +121,30 @@ blocks:
       title: Our Happy Customers
       logos:
         - image: >-
-            /src/assets/images/storage-services/blocks/4/value/logos/0/image.jpeg
-        - image: /src/assets/images/storage-services/blocks/4/value/logos/1/image.png
+            /src/assets/images/storage-services/blocks/5/value/logos/0/image.jpeg
+        - image: /src/assets/images/storage-services/blocks/5/value/logos/1/image.png
         - image: >-
-            /src/assets/images/storage-services/blocks/4/value/logos/2/image.jpeg
-        - image: /src/assets/images/storage-services/blocks/4/value/logos/3/image.png
+            /src/assets/images/storage-services/blocks/5/value/logos/2/image.jpeg
+        - image: /src/assets/images/storage-services/blocks/5/value/logos/3/image.png
         - image: >-
-            /src/assets/images/storage-services/blocks/4/value/logos/4/image.jpeg
-        - image: /src/assets/images/storage-services/blocks/4/value/logos/5/image.png
+            /src/assets/images/storage-services/blocks/5/value/logos/4/image.jpeg
+        - image: /src/assets/images/storage-services/blocks/5/value/logos/5/image.png
         - image: >-
-            /src/assets/images/storage-services/blocks/4/value/logos/6/image.jpeg
-        - image: /src/assets/images/storage-services/blocks/4/value/logos/7/image.png
+            /src/assets/images/storage-services/blocks/5/value/logos/6/image.jpeg
+        - image: /src/assets/images/storage-services/blocks/5/value/logos/7/image.png
         - image: >-
-            /src/assets/images/storage-services/blocks/4/value/logos/8/image.jpeg
-        - image: /src/assets/images/storage-services/blocks/4/value/logos/9/image.png
+            /src/assets/images/storage-services/blocks/5/value/logos/8/image.jpeg
+        - image: /src/assets/images/storage-services/blocks/5/value/logos/9/image.png
         - image: >-
-            /src/assets/images/storage-services/blocks/4/value/logos/10/image.jpeg
+            /src/assets/images/storage-services/blocks/5/value/logos/10/image.jpeg
         - image: >-
-            /src/assets/images/storage-services/blocks/4/value/logos/11/image.png
+            /src/assets/images/storage-services/blocks/5/value/logos/11/image.png
         - image: >-
-            /src/assets/images/storage-services/blocks/4/value/logos/12/image.png
+            /src/assets/images/storage-services/blocks/5/value/logos/12/image.png
         - image: >-
-            /src/assets/images/storage-services/blocks/4/value/logos/13/image.png
+            /src/assets/images/storage-services/blocks/5/value/logos/13/image.png
         - image: >-
-            /src/assets/images/storage-services/blocks/4/value/logos/14/image.png
+            /src/assets/images/storage-services/blocks/5/value/logos/14/image.png
   - discriminant: faqs
     value:
       anchorLink: faq
