@@ -98,14 +98,14 @@ blocks:
       image: /src/assets/images/home/blocks/4/value/image.jpg
       title: Get a Free Estimate Today
       description: |-
-        ✔️ Best Price Guarantee<br>
-        ✔️ Locally Owned and Operated<br>
-        ✔️ Flexible Delivery Times<br>
-        ✔️ Weather Tight Containers<br>
-        ✔️ Secure and Lockable Rollup Doors<br>
-        ✔️ Onsite and Off-Site Storage<br><br>
-        ✔️ Level Lift System<br>
-        ✔️ Ground Level Loading
+        ☑️ Best Price Guarantee<br>
+        ☑️ Locally Owned and Operated<br>
+        ☑️ Flexible Delivery Times<br>
+        ☑️ Weather Tight Containers<br>
+        ☑️ Secure and Lockable Rollup Doors<br>
+        ☑️ Onsite and Off-Site Storage<br><br>
+        ☑️ Level Lift System<br>
+        ☑️ Ground Level Loading
   - discriminant: cards
     value:
       title: Why Rent with Us
