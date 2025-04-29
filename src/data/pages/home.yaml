@@ -14,12 +14,31 @@ blocks:
             MI-BOX Mobile Storage is the Gulf Coast's premier moving & portable
             storage solutions. Call now or get a free quote. 
       quoteFormTitle: Start Here!
+  - discriminant: reviewsSlider
+    value:
+      title: Our Happy Customers
+      logos:
+        - image: /src/assets/images/home/blocks/1/value/logos/0/image.jpeg
+        - image: /src/assets/images/home/blocks/1/value/logos/1/image.png
+        - image: /src/assets/images/home/blocks/1/value/logos/2/image.jpeg
+        - image: /src/assets/images/home/blocks/1/value/logos/3/image.png
+        - image: /src/assets/images/home/blocks/1/value/logos/4/image.jpeg
+        - image: /src/assets/images/home/blocks/1/value/logos/5/image.png
+        - image: /src/assets/images/home/blocks/1/value/logos/6/image.jpeg
+        - image: /src/assets/images/home/blocks/1/value/logos/7/image.png
+        - image: /src/assets/images/home/blocks/1/value/logos/8/image.jpeg
+        - image: /src/assets/images/home/blocks/1/value/logos/9/image.png
+        - image: /src/assets/images/home/blocks/1/value/logos/10/image.jpeg
+        - image: /src/assets/images/home/blocks/1/value/logos/11/image.png
+        - image: /src/assets/images/home/blocks/1/value/logos/12/image.png
+        - image: /src/assets/images/home/blocks/1/value/logos/13/image.png
+        - image: /src/assets/images/home/blocks/1/value/logos/14/image.png
   - discriminant: findYouFit
     value:
       heading: Prices That Can't Be Beat. Guaranteed.
       cards:
         - title: Small
-          image: /src/assets/images/home/blocks/1/value/cards/0/image.png
+          image: /src/assets/images/home/blocks/2/value/cards/0/image.png
           description: >-
             Ideal for storing the contents of a studio apartment, including a
             number of boxes, kitchen appliances, small mattress set, chairs, or
@@ -27,7 +46,7 @@ blocks:
           dimensions: 8 FT x 8 FT x 8 FT
           storageSize: 8 FT
         - title: Medium
-          image: /src/assets/images/home/blocks/1/value/cards/1/image.png
+          image: /src/assets/images/home/blocks/2/value/cards/1/image.png
           description: >-
             Commonly holds 3-4 rooms. Perfect for holding an entertainment
             center, king-size mattresses, larger appliances, dining room,
@@ -35,7 +54,7 @@ blocks:
           dimensions: 16 FT x 8 FT x 8 FT
           storageSize: 16 FT
         - title: Large
-          image: /src/assets/images/home/blocks/1/value/cards/2/image.png
+          image: /src/assets/images/home/blocks/2/value/cards/2/image.png
           description: >-
             Commonly holds 4-5 rooms. Perfect for holding an entertainment
             center, king-size mattresses, larger appliances, dining room,
@@ -80,7 +99,7 @@ blocks:
                 for you.
   - discriminant: featuredImage
     value:
-      image: /src/assets/images/home/blocks/3/value/image.jpg
+      image: /src/assets/images/home/blocks/4/value/image.jpg
       title: Get a Free Estimate Today
       description: |-
         ☑️ Best Price Guarantee
@@ -102,40 +121,21 @@ blocks:
     value:
       title: Why Rent with Us
       cards:
-        - image: /src/assets/images/home/blocks/4/value/cards/0/image.webp
+        - image: /src/assets/images/home/blocks/5/value/cards/0/image.webp
           title: Personalized Support
           description: >
             An assigned moving & storage specialist is with you every step of
             the way who knows and understands your needs.
-        - image: /src/assets/images/home/blocks/4/value/cards/1/image.webp
+        - image: /src/assets/images/home/blocks/5/value/cards/1/image.webp
           title: Doorstep Convenience
           description: >
             No need to rent a truck or travel back and forth to a storage
             facility. Have storage delivered right to your door.
-        - image: /src/assets/images/home/blocks/4/value/cards/2/image.webp
+        - image: /src/assets/images/home/blocks/5/value/cards/2/image.webp
           title: Reliable & Secure
           description: >
             No matter where you’re going or what you’re storing, your items will
             arrive safely and on time.
-  - discriminant: reviewsSlider
-    value:
-      title: Our Happy Customers
-      logos:
-        - image: /src/assets/images/home/blocks/5/value/logos/0/image.jpeg
-        - image: /src/assets/images/home/blocks/5/value/logos/1/image.png
-        - image: /src/assets/images/home/blocks/5/value/logos/2/image.jpeg
-        - image: /src/assets/images/home/blocks/5/value/logos/3/image.png
-        - image: /src/assets/images/home/blocks/5/value/logos/4/image.jpeg
-        - image: /src/assets/images/home/blocks/5/value/logos/5/image.png
-        - image: /src/assets/images/home/blocks/5/value/logos/6/image.jpeg
-        - image: /src/assets/images/home/blocks/5/value/logos/7/image.png
-        - image: /src/assets/images/home/blocks/5/value/logos/8/image.jpeg
-        - image: /src/assets/images/home/blocks/5/value/logos/9/image.png
-        - image: /src/assets/images/home/blocks/5/value/logos/10/image.jpeg
-        - image: /src/assets/images/home/blocks/5/value/logos/11/image.png
-        - image: /src/assets/images/home/blocks/5/value/logos/12/image.png
-        - image: /src/assets/images/home/blocks/5/value/logos/13/image.png
-        - image: /src/assets/images/home/blocks/5/value/logos/14/image.png
   - discriminant: masonaryGallery
     value:
       title: See Our Storage in Action
