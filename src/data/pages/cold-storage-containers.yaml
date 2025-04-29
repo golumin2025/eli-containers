@@ -11,9 +11,26 @@ blocks:
       title: Keep Your Stuff Cool!
       description: With on-site climate-controlled storage.
       showQuoteForm: true
+  - discriminant: twoCol
+    value:
+      heading: Ice Cold Storage Portable Refrigeration Units
+      description: |
+        - ### Pickup or delivery available
+        - ### Temp range 0° to 40°
+        - ### Plug and play to a standard 110v outlet
+      media:
+        discriminant: false
+        value:
+          image: >-
+            /src/assets/images/cold-storage-containers/blocks/1/value/media/value/image.jpg
+      imagePlacement: left
+      colors: '#0069e5/5'
+      button:
+        label: Get a quote
+        link: /#quote-form
   - discriminant: featuredImage
     value:
-      image: /src/assets/images/cold-storage-containers/blocks/1/value/image.png
+      image: /src/assets/images/cold-storage-containers/blocks/2/value/image.png
       title: What's Included With Your Rental
       description: >-
         When we deliver our Ice Cold Storage trailer, we work with you in
@@ -28,20 +45,20 @@ blocks:
       title: We Make Renting Portable Cold Storage Easy For All Industries
       cards:
         - image: >-
-            /src/assets/images/cold-storage-containers/blocks/2/value/cards/0/image.jpg
+            /src/assets/images/cold-storage-containers/blocks/3/value/cards/0/image.jpg
           title: Commercial Cold Storage
           description: >
             Delivered clean and ready to use!&nbsp; With adjustable thermostat
             to set to your desired cooling or freezing temperature.
         - image: >-
-            /src/assets/images/cold-storage-containers/blocks/2/value/cards/1/image.jpg
+            /src/assets/images/cold-storage-containers/blocks/3/value/cards/1/image.jpg
           title: Restaurant Cold Storage
           description: >
             Order a restaurant refrigerated portable trailer delivered sanitized
             and inspected for quality assurance. We start cooling your unit
             before it arrives at your location!
         - image: >-
-            /src/assets/images/cold-storage-containers/blocks/2/value/cards/2/image.jpg
+            /src/assets/images/cold-storage-containers/blocks/3/value/cards/2/image.jpg
           title: Event Cold Storage
           description: >
             Order a refrigerated trailer for your event. Delivered, sanitized,
@@ -79,25 +96,8 @@ blocks:
         discriminant: false
         value:
           image: >-
-            /src/assets/images/cold-storage-containers/blocks/3/value/media/value/image.jpg
-      imagePlacement: right
-      colors: '#0069e5/5'
-      button:
-        label: Get a quote
-        link: /#quote-form
-  - discriminant: twoCol
-    value:
-      heading: Ice Cold Storage Portable Refrigeration Units
-      description: |
-        - Easy pickup or delivery
-        - Temp range 0° to 40°
-        - Plug and play to a standard 110v outlet
-      media:
-        discriminant: false
-        value:
-          image: >-
             /src/assets/images/cold-storage-containers/blocks/4/value/media/value/image.jpg
-      imagePlacement: left
+      imagePlacement: right
       colors: '#0069e5/5'
       button:
         label: Get a quote
