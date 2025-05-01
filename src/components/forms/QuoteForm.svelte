@@ -1,97 +1,97 @@
 <script lang="ts">
-  import { actions, isInputError } from "astro:actions";
-  import { DateInput } from "date-picker-svelte";
-  import { turnstile } from "@svelte-put/cloudflare-turnstile";
-  import { onMount } from "svelte";
-  import Modal from "@components/ui/Modal.svelte";
+  import { actions, isInputError } from 'astro:actions'
+  import { DateInput } from 'date-picker-svelte'
+  import { turnstile } from '@svelte-put/cloudflare-turnstile'
+  import { onMount } from 'svelte'
+  import Modal from '@components/ui/Modal.svelte'
   interface FormData {
-    serviceType: "keep-it" | "move-it" | "store-it";
-    firstName: string;
-    lastName: string;
-    initialDeliveryZip: string;
-    selectedContainerType: string;
-    finalDeliveryZip: string;
-    deliveryDate: Date;
-    email: string;
-    phone: string;
-    storeItType: string;
-    cfTurnstileResponse: string;
-    isExcludedZip: boolean;
+    serviceType: 'keep-it' | 'move-it' | 'store-it'
+    firstName: string
+    lastName: string
+    initialDeliveryZip: string
+    selectedContainerType: string
+    finalDeliveryZip: string
+    deliveryDate: Date
+    email: string
+    phone: string
+    storeItType: string
+    cfTurnstileResponse: string
+    isExcludedZip: boolean
     errors: {
-      firstName?: string;
-      lastName?: string;
-      initialDeliveryZip?: string;
-      finalDeliveryZip?: string;
-      deliveryDate?: string;
-      email?: string;
-      phone?: string;
-      cfTurnstileResponse?: string;
-      general?: string;
-      excludedZip?: string;
-    };
+      firstName?: string
+      lastName?: string
+      initialDeliveryZip?: string
+      finalDeliveryZip?: string
+      deliveryDate?: string
+      email?: string
+      phone?: string
+      cfTurnstileResponse?: string
+      general?: string
+      excludedZip?: string
+    }
   }
 
-  let { quoteFormTitle, phoneNumber } = $props();
+  let { quoteFormTitle, phoneNumber } = $props()
 
-  let containerTypes: string[] = $state([]);
-  let storageTypes: string[] = $state([]);
-  let isContainerLoading = $state(false);
-  let isLoading = $state(false);
-  let error: string | boolean | null = $state(null);
-  const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
-  let showZipModal = $state(false);
-  let modalMessage = $state("");
+  let containerTypes: string[] = $state([])
+  let storageTypes: string[] = $state([])
+  let isContainerLoading = $state(false)
+  let isLoading = $state(false)
+  let error: string | boolean | null = $state(null)
+  const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY
+  let showZipModal = $state(false)
+  let modalMessage = $state('')
 
   let form: FormData = $state({
-    serviceType: "keep-it",
-    firstName: "",
-    lastName: "",
-    initialDeliveryZip: "",
-    selectedContainerType: "8x8",
-    finalDeliveryZip: "",
+    serviceType: 'keep-it',
+    firstName: '',
+    lastName: '',
+    initialDeliveryZip: '',
+    selectedContainerType: '8x8',
+    finalDeliveryZip: '',
     deliveryDate: new Date(),
-    email: "",
-    phone: "",
-    storeItType: "",
-    cfTurnstileResponse: "",
+    email: '',
+    phone: '',
+    storeItType: '',
+    cfTurnstileResponse: '',
     isExcludedZip: true, // Default to true as requested
     errors: {},
-  });
+  })
 
-  let previousServiceType = $state(form.serviceType);
-  let validZipCodes: string[] = $state([]);
+  let previousServiceType = $state(form.serviceType)
+  let validZipCodes: string[] = $state([])
 
   $effect(() => {
     if (form.serviceType && form.serviceType !== previousServiceType) {
-      previousServiceType = form.serviceType;
+      previousServiceType = form.serviceType
       form = {
         ...form,
-        firstName: "",
-        lastName: "",
-        selectedContainerType: "8x8",
-        initialDeliveryZip: "",
-        finalDeliveryZip: "",
+        firstName: '',
+        lastName: '',
+        selectedContainerType: '8x8',
+        initialDeliveryZip: '',
+        finalDeliveryZip: '',
         deliveryDate: new Date(),
-        email: "",
-        phone: "",
-        storeItType: "",
+        email: '',
+        phone: '',
+        storeItType: '',
         isExcludedZip: true, // Reset to true when service type changes
         errors: {},
-      };
-      containerTypes = [];
-      storageTypes = [];
+      }
+      containerTypes = []
+      storageTypes = []
     }
-  });
+  })
 
   async function handleSubmit(event: Event) {
-    event.preventDefault();
-    isLoading = true;
-    form.errors = {};
+    event.preventDefault()
+    isLoading = true
+    form.errors = {}
 
     // Submit the form regardless of zip code status
-    const result = await actions.quoteForm(form);
-    console.log("result", result);
-    console.log("form", result.data.error.excludedZip);
+    const result = await actions.quoteForm(form)
+    console.log('result', result)
+    console.log('form', result.data.error.excludedZip)
     if (isInputError(result.error)) {
       // Handle input validation errors
       form.errors = Object.fromEntries(
@@ -99,10 +99,10 @@
           key,
           Array.isArray(value) ? value[0] : value,
         ])
-      );
+      )
     } else if (result.data.success) {
       // Successful submission with valid zip code
-      window.location.href = `/thank-you`;
+      window.location.href = `/thank-you`
     } else if (result.data.error.excludedZip) {
       // Handle excluded zip code
       modalMessage = `<div class="text-center">
@@ -119,73 +119,73 @@
           ${phoneNumber}
         </a>
       </div>
-    </div>`;
-      showZipModal = true;
-      form.errors = { general: result.data.error.message };
+    </div>`
+      showZipModal = true
+      form.errors = { general: result.data.error.message }
     } else if (result.data.error) {
       // Handle other errors
-      form.errors = { general: result.data.error.message };
+      form.errors = { general: result.data.error.message }
     }
 
-    isLoading = false;
+    isLoading = false
   }
   const fetchZipCodes = async () => {
     try {
-      const response = await fetch("/api/get_zip-codes");
+      const response = await fetch('/api/get_zip-codes')
       if (!response.ok) {
-        throw new Error("Failed to fetch zip codes");
+        throw new Error('Failed to fetch zip codes')
       }
-      const data = await response.json();
+      const data = await response.json()
       if (Array.isArray(data)) {
-        validZipCodes = data;
+        validZipCodes = data
       } else {
-        console.warn("API returned non-array for zip codes:", data);
-        validZipCodes = []; // Ensure it's an array
+        console.warn('API returned non-array for zip codes:', data)
+        validZipCodes = [] // Ensure it's an array
       }
     } catch (error) {
-      console.error("Error fetching zip codes:", error);
-      validZipCodes = [];
-    }
-  };
-
-  $effect(() => {
-    fetchZipCodes();
-  });
-
-  const isValidZipCode = (zipCode: string): boolean => {
-    if (zipCode.length < 5) return false;
-    return validZipCodes.includes(zipCode);
-  };
-
-  async function fetchContainerTypes() {
-    const zipcode = form.initialDeliveryZip;
-
-    if (!zipcode || zipcode.length < 5) {
-      containerTypes = [];
-      storageTypes = [];
-      form.isExcludedZip = true; // Assume excluded until verified
-      return;
-    }
-
-    if (zipcode.length === 5) {
-      form.isExcludedZip = !isValidZipCode(zipcode);
-      if (form.isExcludedZip) {
-        containerTypes = [];
-        storageTypes = [];
-        return;
-      }
-      isContainerLoading = true;
-      error = false;
+      console.error('Error fetching zip codes:', error)
+      validZipCodes = []
     }
   }
 
   $effect(() => {
-    fetchContainerTypes();
-  });
+    fetchZipCodes()
+  })
+
+  const isValidZipCode = (zipCode: string): boolean => {
+    if (zipCode.length < 5) return false
+    return validZipCodes.includes(zipCode)
+  }
+
+  async function fetchContainerTypes() {
+    const zipcode = form.initialDeliveryZip
+
+    if (!zipcode || zipcode.length < 5) {
+      containerTypes = []
+      storageTypes = []
+      form.isExcludedZip = true // Assume excluded until verified
+      return
+    }
+
+    if (zipcode.length === 5) {
+      form.isExcludedZip = !isValidZipCode(zipcode)
+      if (form.isExcludedZip) {
+        containerTypes = []
+        storageTypes = []
+        return
+      }
+      isContainerLoading = true
+      error = false
+    }
+  }
+
+  $effect(() => {
+    fetchContainerTypes()
+  })
 
   function closeModal() {
-    showZipModal = false;
-    modalMessage = "";
+    showZipModal = false
+    modalMessage = ''
   }
 </script>
 
@@ -196,22 +196,22 @@
   <div class="flex justify-around items-center my-6 gap-4">
     <button
       type="button"
-      class={`py-3 px-4 rounded-md flex-1 shadow-[0px_4px_8px_0px_#00000040] transition-colors ${form.serviceType === "keep-it" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
-      onclick={() => (form.serviceType = "keep-it")}
+      class={`py-3 px-4 rounded-md flex-1 shadow-[0px_4px_8px_0px_#00000040] transition-colors ${form.serviceType === 'keep-it' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
+      onclick={() => (form.serviceType = 'keep-it')}
     >
       Keep It
     </button>
     <button
       type="button"
-      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors flex-1 ${form.serviceType === "move-it" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
-      onclick={() => (form.serviceType = "move-it")}
+      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors flex-1 ${form.serviceType === 'move-it' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
+      onclick={() => (form.serviceType = 'move-it')}
     >
       Move It
     </button>
     <button
       type="button"
-      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors flex-1 ${form.serviceType === "store-it" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
-      onclick={() => (form.serviceType = "store-it")}
+      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors flex-1 ${form.serviceType === 'store-it' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
+      onclick={() => (form.serviceType = 'store-it')}
     >
       Store It
     </button>
@@ -219,24 +219,26 @@
   <div class="space-y-2">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
       <div>
+        <label for="first-name" class="block text-sm/6 font-medium text-gray-900">First Name</label>
         <input
           type="text"
-          id="firstName"
-          class="outline-secondary border border-black w-full py-3 text-base rounded px-3 placeholder:text-black"
+          id="first-name"
+          class="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
           bind:value={form.firstName}
-          placeholder="First Name"
+          placeholder="Bob"
         />
         {#if form.errors?.firstName}
           <p class="text-red-800">{form.errors.firstName}</p>
         {/if}
       </div>
       <div>
+        <label for="last-name" class="block text-sm/6 font-medium text-gray-900">Last Name</label>
         <input
           type="text"
-          id="lastName"
-          class="outline-secondary border border-black w-full py-3 text-base rounded px-3 placeholder:text-black"
+          id="last-name"
+          class="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
           bind:value={form.lastName}
-          placeholder="Last Name"
+          placeholder="Smith"
         />
         {#if form.errors?.lastName}
           <p class="text-red-800">{form.errors.lastName}</p>
@@ -245,12 +247,15 @@
     </div>
     <div class="flex gap-2">
       <div class="w-full">
+        <label for="initial-elivery-zip" class="block text-sm/6 font-medium text-gray-900"
+          >Delivery Zip Code</label
+        >
         <input
-          class="outline-secondary border border-black w-full py-3 text-base rounded px-3 placeholder:text-black"
+          class="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
           type="text"
-          id="initialDeliveryZip"
+          id="initial-elivery-zip"
           bind:value={form.initialDeliveryZip}
-          placeholder="Delivery Zip Code"
+          placeholder="05495"
         />
         {#if form.errors?.initialDeliveryZip}
           <p class="text-red-800">{form.errors.initialDeliveryZip}</p>
@@ -259,24 +264,30 @@
           <p class="text-red-800">{error}</p>
         {/if}
       </div>
-      {#if form.serviceType === "move-it"}
+      {#if form.serviceType === 'move-it'}
         <div class="w-full">
+          <label for="final-delivery-zip" class="block text-sm/6 font-medium text-gray-900"
+            >Final Delivery Zip Code</label
+          >
           <input
-            class="outline-secondary border border-black w-full py-3 text-base rounded px-3 placeholder:text-black"
+            class="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
             type="text"
             id="final-delivery-zip"
-            placeholder="Relocation Zip Code"
+            placeholder="05495"
             bind:value={form.finalDeliveryZip}
           />
         </div>
       {/if}
     </div>
-    <div class="!w-full">
+    <div>
+      <label for="delivery-date" class="block text-sm/6 font-medium text-gray-900"
+        >Delivery Date</label
+      >
       <DateInput
-        class="outline-secondary border border-black text-base rounded !w-full"
+        class="block w-full rounded-md bg-white text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
         id="delivery-date"
         bind:value={form.deliveryDate}
-        max={new Date("2030-12-31")}
+        max={new Date('2030-12-31')}
         format="MM-dd-yyyy"
         closeOnSelection
       />
@@ -285,24 +296,26 @@
       {/if}
     </div>
     <div>
+      <label for="email" class="block text-sm/6 font-medium text-gray-900">Email</label>
       <input
         type="email"
         id="email"
-        placeholder="Email Address"
+        placeholder="user@email.com"
         bind:value={form.email}
-        class="outline-secondary border border-black w-full py-3 text-base rounded px-3 placeholder:text-black"
+        class="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
       />
       {#if form.errors?.email}
         <p class="text-red-800">{form.errors.email}</p>
       {/if}
     </div>
     <div>
+      <label for="emphoneail" class="block text-sm/6 font-medium text-gray-900">Phone</label>
       <input
         type="phone"
         id="phone"
-        placeholder="Phone Number"
+        placeholder="222.222.2222"
         bind:value={form.phone}
-        class="outline-secondary border border-black w-full py-3 text-base rounded px-3 placeholder:text-black"
+        class="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
       />
       {#if form.errors?.phone}
         <p class="text-red-800">{form.errors.phone}</p>
@@ -395,5 +408,11 @@
       line-height: 1.75rem;
       font-weight: 600;
     }
+  }
+
+  .date-time-field #delivery-date {
+    padding: 0.5rem !important;
+    /* padding-block: calc(var(--spacing) * 2.5) !important; */
+    /* padding-inline: calc(var(--spacing) * 3) !important; */
   }
 </style>

@@ -1,24 +1,18 @@
 ---
-import ImageMod from "@components/ui/ImageMod.astro";
-import { getEntry } from "astro:content";
-const footer = await getEntry("singletons", "footer");
-const general = await getEntry("singletons", "general");
-const footerData = footer.data;
+import ImageMod from '@components/ui/ImageMod.astro'
+import { getEntry } from 'astro:content'
+const footer = await getEntry('singletons', 'footer')
+const general = await getEntry('singletons', 'general')
+const footerData = footer.data
 ---
 
 <footer class="bg-[#f7f7f7] text-dark py-12 lg:py-16">
   <div class="custom-container mx-auto flex flex-wrap justify-between">
     <div class="w-full flex justify-center mb-6">
-      <ImageMod
-        src={general.data.logo.footerLogo}
-        alt="Logo"
-        className="h-24 object-contain"
-      />
+      <ImageMod src={general.data.logo.footerLogo} alt="Logo" className="h-24 object-contain" />
     </div>
 
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full my-14 items-start gap-4"
-    >
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full my-14 items-start gap-4">
       {
         footerData.navitems.map((section) => (
           <div class="w-full  mb-6">
@@ -35,22 +29,18 @@ const footerData = footer.data;
           </div>
         ))
       }
-      <div class="">
-        <h3 class="text-lg font-semibold mb-2">Follow Us</h3>
-        <div class="flex space-x-4">
-          {
-            footerData.socialLinks.map((social) => (
+      {
+        footerData.socialLinks.map((social) => (
+          <div class="">
+            <h3 class="text-lg font-semibold mb-2">Follow Us</h3>
+            <div class="flex space-x-4">
               <a href={social.url} class="text-dark text-2xl">
-                <ImageMod
-                  src={social.icon}
-                  alt={social.name}
-                  className="h-8 w-fit"
-                />
+                <ImageMod src={social.icon} alt={social.name} className="h-8 w-fit" />
               </a>
-            ))
-          }
-        </div>
-      </div>
+            </div>
+          </div>
+        ))
+      }
     </div>
 
     <div class="flex justify-center md:flex-row flex-col w-full gap-4">
@@ -63,9 +53,12 @@ const footerData = footer.data;
       }
     </div>
     <div class="w-full text-center text-sm mt-6 text-dark">
-      © 2006 - {new Date().getFullYear()} MI-BOX Moving & Mobile Storage Enterprises
-      LLC. All rights reserved. MI-BOX Moving & Mobile Storage® is a registered
-      trademark of MI-BOX Moving & Mobile Storage Enterprises LLC.
+      <p>© 2006 - {new Date().getFullYear()} MI-BOX Moving & Mobile Storage Enterprises LLC.</p>
+      <p>All rightsreserved.</p>
+      <p>
+        MI-BOX Moving & Mobile Storage® is a registered trademark of MI-BOX Moving & Mobile Storage
+        Enterprises LLC.
+      </p>
     </div>
   </div>
 </footer>

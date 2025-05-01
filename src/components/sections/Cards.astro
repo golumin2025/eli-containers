@@ -1,25 +1,21 @@
 ---
-import ImageMod from "@components/ui/ImageMod.astro";
-import { marked } from "marked";
+import ImageMod from '@components/ui/ImageMod.astro'
+import { marked } from 'marked'
 
-const { cards, title, anchorLink } = Astro.props;
+const { cards, title, anchorLink } = Astro.props
 
 let renderDescription = (description) => {
-  return marked.parse(description);
-};
+  return marked.parse(description)
+}
 ---
 
 <section class="custom-container mx-auto px-4 relative py-10 lg:py-24">
-  {
-    anchorLink && (
-      <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />
-    )
-  }
-  <h2 class="text-3xl font-bold text-center mb-12">{title}</h2>
+  {anchorLink && <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />}
+  <h2 class="text-4xl text-secondary lg:text-5xl text-center font-semibold mb-12">{title}</h2>
   <div class="md:grid hidden md:grid-cols-3 divide-x gap-6">
     {
       cards.map((option) => (
-        <div class="text-center  p-6  flex justify-center items-center flex-col">
+        <div class="text-center p-6 flex justify-center items-center flex-col">
           <div>
             <ImageMod
               src={option.image}
@@ -48,10 +44,7 @@ let renderDescription = (description) => {
                   alt={option.size}
                   className="mx-auto mb-4 rounded-full w-24 h-auto"
                 />
-                <div
-                  class="mb-6 prose"
-                  set:html={renderDescription(option.description)}
-                />
+                <div class="mb-6 prose" set:html={renderDescription(option.description)} />
               </div>
             </div>
           ))
@@ -61,20 +54,20 @@ let renderDescription = (description) => {
   </div>
 </section>
 <script>
-  import Swiper from "swiper";
-  import { Navigation, Autoplay } from "swiper/modules";
-  import "swiper/css";
-  import "swiper/css/navigation";
+  import Swiper from 'swiper'
+  import { Navigation, Autoplay } from 'swiper/modules'
+  import 'swiper/css'
+  import 'swiper/css/navigation'
 
-  document.addEventListener("DOMContentLoaded", function () {
-    new Swiper(".storage-slider", {
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.storage-slider', {
       modules: [Navigation, Autoplay],
       slidesPerView: 1,
       spaceBetween: 20,
       loop: true,
       navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
       autoplay: {
         delay: 2500,
@@ -85,6 +78,6 @@ let renderDescription = (description) => {
           slidesPerView: 1,
         },
       },
-    });
-  });
+    })
+  })
 </script>
