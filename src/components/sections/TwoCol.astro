@@ -49,7 +49,10 @@ function getEmbedUrl(videoLink) {
                     : "bg-background/10 prose-p:text-black/80 prose-a:text-primary"
             }`}
         >
-            <div class="mb-6 prose" set:html={renderDescription} />
+            <div
+                class="mb-6 prose prose-td:border prose-th:border prose-td:px-2 prose-th:px-2"
+                set:html={renderDescription}
+            />
             {
                 button.label && (
                     <div class="flex items-start justify-start">
