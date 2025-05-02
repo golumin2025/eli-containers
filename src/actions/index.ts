@@ -16,7 +16,7 @@ export const server = {
       cfTurnstileResponse: z.string().min(1, { message: 'Turnstile verification required' }),
     }),
     handler: async (input) => {
-      if (import.meta.env.DEV !== true) {
+      if (import.meta.env.DEV === true) {
         try {
           const zohoRequest = await fetch(
             'https://www.zohoapis.com/crm/v2/functions/contact_form/actions/execute?auth_type=apikey&zapikey=1003.9fcdd71d133ac0feb8915e5c2331b4a0.0fca3775643dc9dd8eaf4816e8d82b21',
@@ -39,23 +39,15 @@ export const server = {
             }
           )
           const zohoResponse = await zohoRequest.json()
+          const successUrl = `https://app.miboxmovingandstorage.com/?type=${input.serviceType}&container_types=${input.containerTypes}&email=${input.email}&new_zipcode=${input.finalDeliveryZip}&phone_number=${input.phone}&start_date=${input.deliveryDate}&zipcode=${input.initialDeliveryZip}&promocode=${input.promo}`
+          
         } catch (error) {
           console.error(error)
         }
         return new Response(
           JSON.stringify({
             message: 'Success',
-            data: {
-              full_name: `${input.firstName} ${input.lastName}`,
-              email: input.email,
-              phone: input.phone,
-              current_zip: input.initialDeliveryZip,
-              new_zip: input.finalDeliveryZip,
-              start_date: new Date(input.deliveryDate).toISOString().slice(0, 10),
-              service_type: input.serviceType,
-              storage_location: input.serviceType,
-              promo: 'promo',
-            },
+            successUrl: ''
           }),
           {
             status: 200,

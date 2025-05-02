@@ -1,13 +1,11 @@
 <script>
+  const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY
   import { actions, isInputError } from 'astro:actions'
+  import Input from './Input.svelte'
   import { DateInput } from 'date-picker-svelte'
   import { turnstile } from '@svelte-put/cloudflare-turnstile'
-
   let { quoteFormTitle } = $props()
-
   let isLoading = $state(false)
-  let error = $state(null)
-  const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY
 
   let form = $state({
     serviceType: 'keep-it',
@@ -27,6 +25,7 @@
     event.preventDefault()
     isLoading = true
     form.errors = {}
+    console.log(form)
     const result = await actions.quoteForm(form)
     if (isInputError(result.error)) {
       form.errors = Object.fromEntries(
@@ -39,19 +38,6 @@
       const data = await result.json()
       if (data.message !== 'Success') {
         isLoading = false
-      } else {
-        const urlParams = new URLSearchParams()
-        urlParams.set(`type`, `${type}`)
-        urlParams.set(`container_types`, `${data.data.service_type}`)
-        urlParams.set(`email`, `${data.data.email}`)
-        urlParams.set(`new_zipcode`, `${data.data.new_zip}`)
-        urlParams.set(`phone_number`, `${data.data.phone}`)
-        urlParams.set(`start_date`, `${data.data.start_date}`)
-        urlParams.set(`zipcode`, `${data.data.current_zip}`)
-        urlParams.set(`promocode`, `${data.data.promo}`)
-        const stringParams = urlParams.toString()
-
-        window.location.href = `https://app.miboxmovingandstorage.com/?${stringParams}#wpcf7-f52-p10-o1`
       }
     }
     isLoading = false
@@ -99,77 +85,50 @@
         class={`py-1 px-4 rounded-md transition-colors flex-1 ${form.storeItType === 'MI-BOX Location' ? 'bg-primary text-white shadow-md' : 'bg-yellow-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
         onclick={() => (form.storeItType = 'MI-BOX Location')}
       >
-        Move It
+        MI-BOX Location
       </button>
     {/if}
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-      <div>
-        <label for="first-name" class="block text-sm/6 font-medium text-gray-900">First Name</label>
-        <input
-          type="text"
-          id="first-name"
-          class="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
-          bind:value={form.firstName}
-          placeholder="Bob"
-        />
-        {#if form.errors?.firstName}
-          <p class="text-red-800">{form.errors.firstName}</p>
-        {/if}
-      </div>
-      <div>
-        <label for="last-name" class="block text-sm/6 font-medium text-gray-900">Last Name</label>
-        <input
-          type="text"
-          id="last-name"
-          class="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
-          bind:value={form.lastName}
-          placeholder="Smith"
-        />
-        {#if form.errors?.lastName}
-          <p class="text-red-800">{form.errors.lastName}</p>
-        {/if}
-      </div>
+      <Input
+        forId="first-name"
+        label="First Name"
+        placeholder="Bob"
+        bind:value={form.firstName}
+        errors={form.errors.firstName}
+      />
+      <Input
+        forId="last-name"
+        label="Last Name"
+        placeholder="Smith"
+        bind:value={form.lastName}
+        errors={form.errors.lastName}
+      />
     </div>
     <div class="flex gap-2">
       <div class="w-full">
-        <label for="initial-elivery-zip" class="block text-sm/6 font-medium text-gray-900"
-          >Delivery Zip Code</label
-        >
-        <input
-          class="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
-          type="text"
-          id="initial-elivery-zip"
-          bind:value={form.initialDeliveryZip}
+        <Input
+          forId="initial-delivery-zip"
+          label="Initial Delivery Zip Code"
           placeholder="05495"
+          bind:value={form.initialDeliveryZip}
+          errors={form.errors.initialDeliveryZip}
         />
-        {#if form.errors?.initialDeliveryZip}
-          <p class="text-red-800">{form.errors.initialDeliveryZip}</p>
-        {/if}
-        {#if error}
-          <p class="text-red-800">{error}</p>
-        {/if}
       </div>
       {#if form.serviceType === 'move-it'}
         <div class="w-full">
-          <label for="final-delivery-zip" class="block text-sm/6 font-medium text-gray-900"
-            >Final Delivery Zip Code</label
-          >
-          <input
-            class="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
-            type="text"
-            id="final-delivery-zip"
+          <Input
+            forId="final-delivery-zip"
+            label="Final Delivery Zip Code"
             placeholder="05495"
             bind:value={form.finalDeliveryZip}
+            errors={form.errors.finalDeliveryZip}
           />
         </div>
       {/if}
     </div>
     <div>
-      <label for="delivery-date" class="block text-sm/6 font-medium text-gray-900"
-        >Delivery Date</label
-      >
       <DateInput
-        class="block w-full rounded-md bg-white text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
+        class="outline-secondary border border-black text-base rounded !w-full"
         id="delivery-date"
         bind:value={form.deliveryDate}
         max={new Date('2030-12-31')}
@@ -181,32 +140,8 @@
       {/if}
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-      <div>
-        <label for="email" class="block text-sm/6 font-medium text-gray-900">Email</label>
-        <input
-          type="email"
-          id="email"
-          placeholder="user@email.com"
-          bind:value={form.email}
-          class="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
-        />
-        {#if form.errors?.email}
-          <p class="text-red-800">{form.errors.email}</p>
-        {/if}
-      </div>
-      <div>
-        <label for="emphoneail" class="block text-sm/6 font-medium text-gray-900">Phone</label>
-        <input
-          type="phone"
-          id="phone"
-          placeholder="222.222.2222"
-          bind:value={form.phone}
-          class="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
-        />
-        {#if form.errors?.phone}
-          <p class="text-red-800">{form.errors.phone}</p>
-        {/if}
-      </div>
+      <Input forId="email" label="Email" placeholder="user@email.com" bind:value={form.email} />
+      <Input forId="phone" label="Phone" placeholder="222.222.2222" bind:value={form.phone} />
     </div>
     <div
       use:turnstile
