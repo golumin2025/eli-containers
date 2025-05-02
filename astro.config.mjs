@@ -1,27 +1,27 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config'
 
-import react from '@astrojs/react';
-import markdoc from '@astrojs/markdoc';
+import react from '@astrojs/react'
+import markdoc from '@astrojs/markdoc'
 import keystatic from '@keystatic/astro'
 
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from '@tailwindcss/vite'
 
-import partytown from '@astrojs/partytown';
+import partytown from '@astrojs/partytown'
 
-import sitemap from '@astrojs/sitemap';
+import sitemap from '@astrojs/sitemap'
 
-import svelte from '@astrojs/svelte';
+import svelte from '@astrojs/svelte'
 
-import netlify from '@astrojs/netlify';
+import netlify from '@astrojs/netlify'
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), markdoc(), keystatic(), partytown(), sitemap(), svelte()],
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
-
-  adapter: netlify()
-});
+  output: 'server',
+  adapter: netlify(),
+})

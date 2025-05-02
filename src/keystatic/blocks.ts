@@ -1,361 +1,386 @@
-import { fields } from "@keystatic/core";
+import { fields } from '@keystatic/core'
 
 export const mainHero = {
-  label: "Main Hero",
+  label: 'Main Hero',
   schema: fields.object({
     anchorLink: fields.text({
-      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+      label: 'Anchor Link',
+      description:
+        'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
     Sliderimages: fields.array(
       fields.object({
         image: fields.image({
-          label: "Slider",
-          directory: "/public/images/home",
-          publicPath: "/images/home",
+          label: 'Slider',
+          directory: '/public/images/home',
+          publicPath: '/images/home',
         }),
-        title: fields.text({ label: "Title" }),
-        description: fields.text({ label: "Description", multiline: true }),
+        title: fields.text({ label: 'Title' }),
+        description: fields.text({ label: 'Description', multiline: true }),
       }),
       {
-        label: "Slider Images",
+        label: 'Slider Images',
         itemLabel: (props) => props.fields.title.value,
-      },
+      }
     ),
-    quoteFormTitle: fields.text({ label: "Quote Form Title" }),
+    quoteFormTitle: fields.text({ label: 'Quote Form Title' }),
   }),
-};
+}
 
 export const howPodsWork = {
-  label: "How MI-BOX Moving & Mobile Storage Works",
+  label: 'How MI-BOX Moving & Mobile Storage Works',
   schema: fields.object({
     anchorLink: fields.text({
-      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+      label: 'Anchor Link',
+      description:
+        'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
-    heading: fields.text({ label: "Heading" }),
+    heading: fields.text({ label: 'Heading' }),
     tabs: fields.array(
       fields.object({
-        title: fields.text({ label: "Tab Title" }),
+        title: fields.text({ label: 'Tab Title' }),
         steps: fields.array(
           fields.object({
-            title: fields.text({ label: "Step Title" }),
+            title: fields.text({ label: 'Step Title' }),
             description: fields.text({
-              label: "Step Description",
+              label: 'Step Description',
               multiline: true,
             }),
           }),
           {
-            label: "Steps",
+            label: 'Steps',
             itemLabel: (props) => props.fields.title.value,
-          },
+          }
         ),
       }),
       {
-        label: "Tabs",
+        label: 'Tabs',
         itemLabel: (props) => props.fields.title.value,
-      },
+      }
     ),
   }),
-};
+}
 
 export const findYouFit = {
-  label: "Find Your Fit",
+  label: 'Find Your Fit',
   schema: fields.object({
     anchorLink: fields.text({
-      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+      label: 'Anchor Link',
+      description:
+        'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
-    heading: fields.text({ label: "Heading" }),
+    heading: fields.text({ label: 'Heading' }),
     cards: fields.array(
       fields.object({
-        title: fields.text({ label: "Tab Title" }),
+        title: fields.text({ label: 'Tab Title' }),
         image: fields.image({
-          label: "Image URL",
-          directory: "/src/assets/images/",
-          publicPath: "/src/assets/images/",
+          label: 'Image URL',
+          directory: '/src/assets/images/',
+          publicPath: '/src/assets/images/',
         }),
 
-        description: fields.text({ label: "Description", multiline: true }),
-        dimensions: fields.text({ label: "Dimensions" }),
-        storageSize: fields.text({ label: "Storage Size" }),
-        fits: fields.text({ label: "Fits" }),
+        description: fields.text({ label: 'Description', multiline: true }),
+        dimensions: fields.text({ label: 'Dimensions' }),
+        storageSize: fields.text({ label: 'Storage Size' }),
+        fits: fields.text({ label: 'Fits' }),
       }),
       {
-        label: "Tabs",
+        label: 'Tabs',
         itemLabel: (props) => props.fields.title.value,
-      },
+      }
     ),
   }),
-};
+}
 
 export const featuredImage = {
-  label: "Featured Image",
+  label: 'Featured Image',
   schema: fields.object({
     anchorLink: fields.text({
-      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+      label: 'Anchor Link',
+      description:
+        'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
     image: fields.image({
-      label: "Image",
-      directory: "/src/assets/images/",
-      publicPath: "/src/assets/images/",
+      label: 'Image',
+      directory: '/src/assets/images/',
+      publicPath: '/src/assets/images/',
     }),
-    title: fields.text({ label: "Title" }),
-    description: fields.text({ label: "Description", multiline: true }),
+    title: fields.text({ label: 'Title' }),
+    description: fields.text({ label: 'Description', multiline: true }),
   }),
-};
+}
 
 export const reviewsSlider = {
-  label: "Reviews Slider",
+  label: 'Reviews Slider',
   schema: fields.object({
     anchorLink: fields.text({
-      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+      label: 'Anchor Link',
+      description:
+        'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
-    title: fields.text({ label: "title" }),
+    title: fields.text({ label: 'title' }),
     logos: fields.array(
       fields.object({
         image: fields.image({
-          label: "Logo",
-          directory: "/src/assets/images/",
-          publicPath: "/src/assets/images/",
+          label: 'Logo',
+          directory: '/src/assets/images/',
+          publicPath: '/src/assets/images/',
         }),
       }),
       {
-        label: "Logos",
-      },
+        label: 'Logos',
+      }
     ),
   }),
-};
+}
 
 export const faqs = {
-  label: "FAQs",
+  label: 'FAQs',
   schema: fields.object({
     anchorLink: fields.text({
-      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+      label: 'Anchor Link',
+      description:
+        'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
-    title: fields.text({ label: "Title" }),
+    title: fields.text({ label: 'Title' }),
     faqs: fields.array(
       fields.object({
-        question: fields.text({ label: "Question" }),
-        answer: fields.markdoc.inline({ label: "Answer" }),
+        question: fields.text({ label: 'Question' }),
+        answer: fields.markdoc.inline({ label: 'Answer' }),
       }),
       {
-        label: "FAQs",
+        label: 'FAQs',
         itemLabel: (props) => props.fields.question.value,
-      },
+      }
     ),
   }),
-};
+}
 
 export const masonaryGallery = {
-  label: "Masonary Gallery",
+  label: 'Masonary Gallery',
   schema: fields.object({
     anchorLink: fields.text({
-      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+      label: 'Anchor Link',
+      description:
+        'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
-    title: fields.text({ label: "Title" }),
+    title: fields.text({ label: 'Title' }),
     images: fields.array(
       fields.image({
-        label: "Image",
-        directory: "/src/assets/images/",
-        publicPath: "/src/assets/images/",
+        label: 'Image',
+        directory: '/src/assets/images/',
+        publicPath: '/src/assets/images/',
       }),
       {
-        label: "Images",
-      },
+        label: 'Images',
+      }
     ),
   }),
-};
+}
 
 export const podsHelpingBintoGrid = {
-  label: "MI-BOX Moving & Mobile Storage Helping Binto Grid",
+  label: 'MI-BOX Moving & Mobile Storage Helping Binto Grid',
   schema: fields.object({
     anchorLink: fields.text({
-      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+      label: 'Anchor Link',
+      description:
+        'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
-    heading: fields.text({ label: "Heading" }),
+    heading: fields.text({ label: 'Heading' }),
     cards: fields.array(
       fields.object({
-        title: fields.text({ label: "Title" }),
-        description: fields.text({ label: "Description", multiline: true }),
+        title: fields.text({ label: 'Title' }),
+        description: fields.text({ label: 'Description', multiline: true }),
         image: fields.image({
-          label: "Image",
-          directory: "/src/assets/images",
+          label: 'Image',
+          directory: '/src/assets/images',
         }),
-        icon: fields.image({ label: "Icon", directory: "/src/assets/icons" }),
+        icon: fields.image({ label: 'Icon', directory: '/src/assets/icons' }),
         size: fields.select({
-          label: "Size",
+          label: 'Size',
           options: [
-            { label: "Normal", value: "normal" },
-            { label: "Wide", value: "wide" },
-            { label: "Tall", value: "tall" },
+            { label: 'Normal', value: 'normal' },
+            { label: 'Wide', value: 'wide' },
+            { label: 'Tall', value: 'tall' },
           ],
-          defaultValue: "normal",
+          defaultValue: 'normal',
         }),
-      }),
+      })
     ),
   }),
-};
+}
 
 export const singleHero = {
-  label: "Single Hero",
+  label: 'Single Hero',
   schema: fields.object({
     anchorLink: fields.text({
-      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+      label: 'Anchor Link',
+      description:
+        'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
     bgImage: fields.image({
-      label: "BackGround Image",
-      directory: "/src/assets/images",
-      publicPath: "/src/assets/images",
+      label: 'BackGround Image',
+      directory: '/src/assets/images',
+      publicPath: '/src/assets/images',
     }),
-    title: fields.text({ label: "Title" }),
-    description: fields.text({ label: "Description", multiline: true }),
-    showQuoteForm: fields.checkbox({ label: "Show Quote Form", defaultValue: true }),
+    title: fields.text({ label: 'Title' }),
+    description: fields.text({ label: 'Description', multiline: true }),
+    showQuoteForm: fields.checkbox({ label: 'Show Quote Form', defaultValue: true }),
   }),
-};
+}
 
 export const storageOptions = {
-  label: "Storage Options",
+  label: 'Storage Options',
   schema: fields.object({
     anchorLink: fields.text({
-      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+      label: 'Anchor Link',
+      description:
+        'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
-    title: fields.text({ label: "Title" }),
+    title: fields.text({ label: 'Title' }),
     cards: fields.array(
       fields.object({
         image: fields.image({
-          label: "Image",
-          directory: "/src/assets/images",
-          publicPath: "/src/assets/images",
+          label: 'Image',
+          directory: '/src/assets/images',
+          publicPath: '/src/assets/images',
         }),
-        size: fields.text({ label: "Size" }),
-        dimension: fields.text({ label: "Dimension" }),
-        description: fields.array(fields.text({ label: "Description" }), {
-          label: "Description Items",
+        size: fields.text({ label: 'Size' }),
+        dimension: fields.text({ label: 'Dimension' }),
+        description: fields.array(fields.text({ label: 'Description' }), {
+          label: 'Description Items',
         }),
-        link: fields.text({ label: "CTA Link" }),
+        link: fields.text({ label: 'CTA Link' }),
       }),
       {
-        label: "Storage Containers",
+        label: 'Storage Containers',
         itemLabel: (item) => item.fields.size.value,
-      },
+      }
     ),
   }),
-};
+}
 
 export const protectionConvenience = {
-  label: "Protection & Convenience Features",
+  label: 'Protection & Convenience Features',
   schema: fields.object({
     anchorLink: fields.text({
-      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+      label: 'Anchor Link',
+      description:
+        'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
-    title: fields.text({ label: "Title" }),
+    title: fields.text({ label: 'Title' }),
     cards: fields.array(
       fields.object({
         icon: fields.image({
-          label: "Icon",
-          directory: "/src/assets/icons",
-          publicPath: "/src/assets/icons",
+          label: 'Icon',
+          directory: '/src/assets/icons',
+          publicPath: '/src/assets/icons',
         }),
-        title: fields.text({ label: "Title" }),
-        description: fields.text({ label: "Description", multiline: true }),
+        title: fields.text({ label: 'Title' }),
+        description: fields.text({ label: 'Description', multiline: true }),
       }),
       {
-        label: "Storage Containers",
+        label: 'Storage Containers',
         itemLabel: (item) => item.fields.title.value,
-      },
+      }
     ),
   }),
-};
+}
 
 export const twoCol = {
-  label: "Two Column",
+  label: 'Two Column',
   schema: fields.object({
     anchorLink: fields.text({
-      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+      label: 'Anchor Link',
+      description:
+        'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
-    heading: fields.text({ label: "Heading" }),
-    description: fields.markdoc.inline({ label: "Description" }),
+    heading: fields.text({ label: 'Heading' }),
+    description: fields.markdoc.inline({ label: 'Description' }),
     media: fields.conditional(
       fields.checkbox({
-        label: "Use Video Instead of Image",
+        label: 'Use Video Instead of Image',
         defaultValue: false,
       }),
       {
         true: fields.object({
-          videoUrl: fields.text({ label: "Video URL" }),
-          videoTitle: fields.text({ label: "Video Title" }),
+          videoUrl: fields.text({ label: 'Video URL' }),
+          videoTitle: fields.text({ label: 'Video Title' }),
         }),
         false: fields.object({
           image: fields.image({
-            label: "Image",
-            directory: "/src/assets/images",
-            publicPath: "/src/assets/images",
+            label: 'Image',
+            directory: '/src/assets/images',
+            publicPath: '/src/assets/images',
           }),
         }),
       }
     ),
     imagePlacement: fields.select({
-      label: "Image Placement",
+      label: 'Image Placement',
       options: [
-        { label: "Left", value: "left" },
-        { label: "Right", value: "right" },
+        { label: 'Left', value: 'left' },
+        { label: 'Right', value: 'right' },
       ],
-      defaultValue: "left",
+      defaultValue: 'left',
     }),
     colors: fields.select({
-      label: "Color Scheme",
+      label: 'Color Scheme',
       options: [
-        { label: "#0069e5", value: "#0069e5" },
-        { label: "#0069e5 with 5 opacity", value: "#0069e5/5" },
+        { label: '#0069e5', value: '#0069e5' },
+        { label: '#0069e5 with 5 opacity', value: '#0069e5/5' },
       ],
-      defaultValue: "#0069e5/5",
+      defaultValue: '#0069e5/5',
     }),
     button: fields.object({
-      label: fields.text({ label: "Button Label" }),
-      link: fields.text({ label: "Button Link" }),
+      label: fields.text({ label: 'Button Label' }),
+      link: fields.text({ label: 'Button Link' }),
     }),
   }),
-};
-
+}
 
 export const cards = {
-  label: "Cards With Title",
+  label: 'Cards With Title',
   schema: fields.object({
     anchorLink: fields.text({
-      label: "Anchor Link", description: "Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id"
+      label: 'Anchor Link',
+      description:
+        'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
-    title: fields.text({ label: "Title" }),
+    title: fields.text({ label: 'Title' }),
     cards: fields.array(
       fields.object({
         image: fields.image({
-          label: "Image",
-          directory: "/src/assets/images",
-          publicPath: "/src/assets/images",
+          label: 'Image',
+          directory: '/src/assets/images',
+          publicPath: '/src/assets/images',
         }),
-        title: fields.text({ label: "Title" }),
-        description: fields.markdoc.inline({ label: "Description" }),
+        title: fields.text({ label: 'Title' }),
+        description: fields.markdoc.inline({ label: 'Description' }),
       }),
       {
-        label: "Storage Containers",
+        label: 'Storage Containers',
         itemLabel: (item) => item.fields.title.value,
-      },
+      }
     ),
   }),
-};
+}
 
 export const richText = {
-  label: "Rich Text",
+  label: 'Rich Text',
   schema: fields.object({
     isCentered: fields.checkbox({
-      label: "Centered text",
+      label: 'Centered text',
       defaultValue: false,
     }),
     content: fields.markdoc.inline({
-      label: "Content",
+      label: 'Content',
       options: {
         image: {
-          directory: "/public/images/",
-          publicPath: "/images/",
+          directory: '/public/images/',
+          publicPath: '/images/',
         },
       },
     }),
   }),
-};
+}
