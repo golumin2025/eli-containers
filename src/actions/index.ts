@@ -1,3 +1,4 @@
+export const prerender = false
 import { defineAction } from 'astro:actions'
 import { z } from 'astro:schema'
 
