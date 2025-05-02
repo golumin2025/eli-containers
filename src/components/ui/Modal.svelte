@@ -1,12 +1,11 @@
 <script lang="ts">
-  export let show;
-  export let onClose: () => void;
+  export let show
+  export let onClose: () => void
   const handleBackdropClick = (e: MouseEvent) => {
     if (e.target === e.currentTarget) {
-      onClose();
+      onClose()
     }
-  };
-  console.log("Modal show:", show);
+  }
 </script>
 
 {#if show}

@@ -16,7 +16,6 @@ export const server = {
       cfTurnstileResponse: z.string().min(1, { message: 'Turnstile verification required' }),
     }),
     handler: async (input) => {
-      console.log(input)
       if (import.meta.env.DEV !== true) {
         try {
           const zohoRequest = await fetch(

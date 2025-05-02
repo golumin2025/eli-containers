@@ -24,7 +24,6 @@
   })
 
   async function handleSubmit(event) {
-    console.log(event)
     event.preventDefault()
     isLoading = true
     form.errors = {}
