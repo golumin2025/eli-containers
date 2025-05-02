@@ -143,8 +143,20 @@
       {/if}
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-      <Input forId="email" label="Email" placeholder="user@email.com" bind:value={form.email} />
-      <Input forId="phone" label="Phone" placeholder="222.222.2222" bind:value={form.phone} />
+      <Input
+        forId="email"
+        label="Email"
+        placeholder="user@email.com"
+        bind:value={form.email}
+        errors={form.errors.email}
+      />
+      <Input
+        forId="phone"
+        label="Phone"
+        placeholder="222.222.2222"
+        bind:value={form.phone}
+        errors={form.errors.phone}
+      />
     </div>
     <div
       use:turnstile
