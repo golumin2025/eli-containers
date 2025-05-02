@@ -6,6 +6,7 @@ import keystaticConfig from '../../keystatic.config'
 import { createReader } from '@keystatic/core/reader'
 const reader = createReader(process.cwd(), keystaticConfig)
 const general = await reader.singletons.general.read()
+
 interface Props {
   title: string
   description: string
@@ -19,11 +20,10 @@ const { title, description } = Astro.props
   <head>
     <BaseHead title={title} description={description} />
     {
-      general.analyticsScripts &&
-        general.analyticsScripts.map(
-          (headScript) =>
-            headScript.location === 'head' && <Fragment set:html={headScript.scriptContent} />
-        )
+      general.analyticsScripts.map(
+        (headScript) =>
+          headScript.location === 'head' && <Fragment set:html={headScript.scriptContent} />
+      )
     }
   </head>
   <body class="overflow-x-hidden">
@@ -31,11 +31,10 @@ const { title, description } = Astro.props
     <slot />
     <Footer />
     {
-      general.analyticsScripts &&
-        general.analyticsScripts.map(
-          (footScript) =>
-            footScript.location === 'body' && <Fragment set:html={footScript.scriptContent} />
-        )
+      general.analyticsScripts.map(
+        (footScript) =>
+          footScript.location === 'body' && <Fragment set:html={footScript.scriptContent} />
+      )
     }
   </body>
 </html>
