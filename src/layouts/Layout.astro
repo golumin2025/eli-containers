@@ -4,6 +4,7 @@ import Footer from '@components/sections/Footer.astro'
 import Header from '@components/sections/Header.astro'
 import keystaticConfig from '../../keystatic.config'
 import { createReader } from '@keystatic/core/reader'
+import Topbar from '@components/sections/Topbar.astro'
 const reader = createReader(process.cwd(), keystaticConfig)
 const general = await reader.singletons.general.read()
 
@@ -27,6 +28,7 @@ const { title, description } = Astro.props
     }
   </head>
   <body class="overflow-x-hidden">
+    <Topbar/>
     <Header />
     <slot />
     <Footer />

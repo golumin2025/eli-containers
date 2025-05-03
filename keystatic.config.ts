@@ -7,6 +7,7 @@ import { email } from "@keystatic/singletons/email";
 import { footer } from "@keystatic/singletons/footer";
 import { general } from "@keystatic/singletons/general";
 import { header } from "@keystatic/singletons/header";
+import { topbar } from "@keystatic/singletons/topbar";
 
 export default config({
   storage: {
@@ -28,5 +29,6 @@ export default config({
     email: singleton(email),
     header: singleton(header),
     footer: singleton(footer),
+    topbar: singleton(topbar)
   },
 });

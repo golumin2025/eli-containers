@@ -1,0 +1,17 @@
+---
+import keystaticConfig from 'keystatic.config'
+import { createReader } from '@keystatic/core/reader'
+
+const reader = createReader(process.cwd(), keystaticConfig)
+const topbar = await reader.singletons.topbar.read()
+---
+
+{
+    topbar?.heading && (
+        <div class="bg-yellow-300 text-black font-bold py-2 text-center">
+            <div class="container mx-auto">
+                {topbar.heading}
+            </div>
+        </div>
+    )
+}
