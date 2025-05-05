@@ -16,7 +16,7 @@ blocks:
       quoteFormTitle: Start Here!
   - discriminant: reviewsSlider
     value:
-      title: 100s of Happy Customers
+      title: Our Happy Customers
       logos:
         - image: /src/assets/images/home/blocks/1/value/logos/0/image.jpeg
         - image: /src/assets/images/home/blocks/1/value/logos/1/image.png
