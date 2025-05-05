@@ -39,7 +39,7 @@ export const server = {
         )
         const zohoResponse = await zohoRequest.json()
 
-        const successUrl = `https://app.miboxmovingandstorage.com/admin/dashboard?type=${input.serviceType}&email=${input.email}&new_zipcode=${input.finalDeliveryZip}&phone_number=${input.phone}&start_date=${input.deliveryDate}&zipcode=${input.initialDeliveryZip}&promocode=promo`
+        const successUrl = `https://app.miboxmovingandstorage.com/home?type=${input.serviceType}&email=${input.email}&new_zipcode=${input.finalDeliveryZip}&phone_number=${input.phone}&start_date=${input.deliveryDate}&zipcode=${input.initialDeliveryZip}&promocode=promo`
 
         // Return a plain object instead of a Response
         return {
