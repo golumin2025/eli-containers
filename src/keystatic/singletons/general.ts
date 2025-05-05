@@ -5,6 +5,7 @@ export const general = {
   path: "src/data/singletons/general",
   schema: {
     businessName: fields.text({ label: "Business Name" }),
+    currentPromoCode: fields.text({ label: "Current Promo Code" }),
     logo: fields.object(
       {
         logo: fields.image({

@@ -1,6 +1,10 @@
 export const prerender = false
 import { defineAction } from 'astro:actions'
 import { z } from 'astro:schema'
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../keystatic.config';
+const reader = createReader(process.cwd(), keystaticConfig);
+const general = await reader.singletons.general.read();
 
 export const server = {
   quoteForm: defineAction({
@@ -39,7 +43,7 @@ export const server = {
         )
         const zohoResponse = await zohoRequest.json()
 
-        const successUrl = `https://app.miboxmovingandstorage.com/home?type=${input.serviceType}&email=${input.email}&new_zipcode=${input.finalDeliveryZip}&phone_number=${input.phone}&start_date=${input.deliveryDate}&zipcode=${input.initialDeliveryZip}&promocode=promo`
+        const successUrl = `https://app.miboxmovingandstorage.com/?type=${input.serviceType}&email=${input.email}&new_zipcode=${input.finalDeliveryZip}&phone_number=${input.phone}&start_date=${input.deliveryDate}&zipcode=${input.initialDeliveryZip}&promocode=${general.currentPromoCode}`
 
         // Return a plain object instead of a Response
         return {

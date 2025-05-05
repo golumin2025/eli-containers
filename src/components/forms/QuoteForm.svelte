@@ -109,7 +109,7 @@
         <Input
           forId="initial-delivery-zip"
           label="Initial Delivery Zip Code"
-          placeholder="05495"
+          placeholder="34240"
           bind:value={form.initialDeliveryZip}
           errors={form.errors.initialDeliveryZip}
         />
@@ -119,7 +119,7 @@
           <Input
             forId="final-delivery-zip"
             label="Final Delivery Zip Code"
-            placeholder="05495"
+            placeholder="34240"
             bind:value={form.finalDeliveryZip}
             errors={form.errors.finalDeliveryZip}
           />
