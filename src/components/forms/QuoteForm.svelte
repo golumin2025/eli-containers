@@ -36,6 +36,7 @@
       )
     } else {
       if (result.data.success) {
+        console.log('Success:', result.data)
         isLoading = false
         window.location.href = result.data.successUrl
       }
