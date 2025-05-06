@@ -6,6 +6,6 @@ adminEmailRecipients:
   - name: Jordan Tag
     email: jordan@golumin.io
 clientEmailRecipientsBcc:
-  - name: Jordan Tag
-    email: jordan@golumin.io
+  - name: Lumin Marketing
+    email: marketing@golumin.io
 outOfTerritoryRecipients: []
