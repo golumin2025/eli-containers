@@ -10,12 +10,12 @@ const { image, title, description } = Astro.props;
     alt="Featured Image"
     width={1920}
     height={900}
-    className="max-h-[700px] object-cover w-full"
+    className="min-h-[700px] object-cover w-full"
   />
   <div class="absolute inset-0 bg-black/50"></div>
 
   <div class="absolute top-1/2 right-16 transform -translate-y-1/2 max-w-3xl">
     <h2 class="text-4xl text-white font-semibold mb-4 ml-8">{title}</h2>
-    <p class="text-xl ml-8 text-white">{description}</p>
+    <p class="text-xl ml-8 text-white whitespace-pre-wrap">{description}</p>
   </div>
 </section>
