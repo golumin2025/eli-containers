@@ -8,7 +8,7 @@
   let isLoading = $state(false)
 
   let form = $state({
-    serviceType: 'keep-it',
+    serviceType: 'Moving',
     firstName: '',
     lastName: '',
     initialDeliveryZip: '',
@@ -52,28 +52,28 @@
   <div class="flex justify-around items-center my-6 gap-4">
     <button
       type="button"
-      class={`py-3 px-4 rounded-md flex-1 shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer ${form.serviceType === 'keep-it' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
-      onclick={() => (form.serviceType = 'keep-it')}
+      class={`py-3 px-4 rounded-md flex-1 shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer ${form.serviceType === 'Moving' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
+      onclick={() => (form.serviceType = 'Moving')}
     >
-      Keep It
+      Moving
     </button>
     <button
       type="button"
-      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer flex-1 ${form.serviceType === 'move-it' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
-      onclick={() => (form.serviceType = 'move-it')}
+      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer flex-1 ${form.serviceType === 'Storage' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
+      onclick={() => (form.serviceType = 'Storage')}
     >
-      Move It
+      Storage
     </button>
     <button
       type="button"
-      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer flex-1 ${form.serviceType === 'store-it' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
-      onclick={() => (form.serviceType = 'store-it')}
+      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer flex-1 ${form.serviceType === 'Storage & Moving' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
+      onclick={() => (form.serviceType = 'Storage & Moving')}
     >
-      Store It
+      Store & Move
     </button>
   </div>
   <div class="space-y-2">
-    {#if form.serviceType === 'store-it'}
+    {#if form.serviceType === 'Storage'}
       <button
         type="button"
         class={`py-1 px-4 rounded-md transition-colors flex-1 mr-3 ${form.storeItType === 'My Location' ? 'bg-primary text-white shadow-md' : 'bg-yellow-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
