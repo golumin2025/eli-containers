@@ -105,6 +105,11 @@ blocks:
   - discriminant: howPodsWork
     value:
       heading: How It Works
+      featuredMedia:
+        discriminant: image
+        value:
+          asset: >-
+            /images/events/cold-storage-containers/blocks/5/value/featuredMedia/value/asset.webp
       tabs:
         - title: Moving
           steps:
