@@ -64,6 +64,10 @@ blocks:
   - discriminant: howPodsWork
     value:
       heading: How It Works
+      featuredMedia:
+        discriminant: image
+        value:
+          asset: /images/events/home/blocks/3/value/featuredMedia/value/asset.webp
       tabs:
         - title: Moving
           steps:

@@ -1,5 +1,7 @@
 ---
-const { heading, tabs, anchorLink } = Astro.props
+import ImageMod from "@components/ui/ImageMod.astro"
+const { featuredMedia, heading, tabs, anchorLink } = Astro.props
+console.log(featuredMedia)
 ---
 
 <div class="max-w-6xl px-6 mx-auto !py-16 lg:!py-24 relative">
@@ -58,14 +60,23 @@ const { heading, tabs, anchorLink } = Astro.props
             ))
           }
         </div>
-        <iframe
-          class="w-full h-full rounded-2xl aspect-video"
-          src="https://www.youtube.com/embed/v1JVp0xaFIk?autoplay=0&mute=1&loop=1&playlist=v1JVp0xaFIk"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        >
-        </iframe>
+        {featuredMedia.discriminant === 'image' ? (
+          <>
+            <img
+              src={featuredMedia.value.asset}
+              alt="Featured Image"
+              class="w-full h-full object-cover rounded-2xl"
+            />
+          </>
+        ) : (
+          <iframe
+            class="w-full h-full rounded-2xl aspect-video"
+            src=`https://www.youtube.com/embed/${featuredMedia.value.url}?autoplay=0&mute=1&loop=1&playlist=v1JVp0xaFIk`
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        )}
       </div>
     </div>
   </div>

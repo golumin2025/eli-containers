@@ -36,6 +36,37 @@ export const howPodsWork = {
         'Add an ID that can be used to navigate to this section (without #). Other blocks can link to this section using #your-id',
     }),
     heading: fields.text({ label: 'Heading' }),
+    featuredMedia: fields.conditional(
+      // First, define a `select` field with all the available "conditions"
+      fields.select({
+        label: 'Featured media',
+        description: 'Optional image/video options.',
+        options: [
+          { label: 'Image', value: 'image' },
+          { label: 'Video', value: 'video' },
+        ],
+        defaultValue: 'image',
+      }),
+      // Then, provide a schema for each condition
+      {
+        image: fields.object({
+          asset: fields.image({
+            label: 'Image',
+            directory: 'public/images/events',
+            publicPath: '/images/events/',
+            validation: { isRequired: true },
+          }),
+          alt: fields.text({ label: 'Alt', description: 'Image alt text.' }),
+        }),
+        // "video" condition
+        video: fields.object({
+          url: fields.text({
+            label: 'A YouTube Video ID.',
+            validation: { length: { min: 1 } },
+          }),
+        }),
+      }
+    ),
     tabs: fields.array(
       fields.object({
         title: fields.text({ label: 'Tab Title' }),
