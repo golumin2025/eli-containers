@@ -69,21 +69,22 @@
       class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer flex-1 ${form.serviceType === 'Storage & Moving' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
       onclick={() => (form.serviceType = 'Storage & Moving')}
     >
-      Store & Move
+      Both
     </button>
   </div>
   <div class="space-y-2">
-    {#if form.serviceType === 'Storage'}
+    {#if form.serviceType === 'Storage' || form.serviceType === 'Storage & Moving'}
+      <h3 class="italic text-dark">Where would you like to store your container?</h3>
       <button
         type="button"
-        class={`py-1 px-4 rounded-md transition-colors flex-1 mr-3 ${form.storeItType === 'My Location' ? 'bg-primary text-white shadow-md' : 'bg-yellow-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
+        class={`py-1 px-4 rounded-md transition-colors flex-1 mr-3 ${form.storeItType === 'My Location' ? 'bg-primary text-white shadow-md' : 'bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
         onclick={() => (form.storeItType = 'My Location')}
       >
         My Location
       </button>
       <button
         type="button"
-        class={`py-1 px-4 rounded-md transition-colors flex-1 ${form.storeItType === 'MI-BOX Location' ? 'bg-primary text-white shadow-md' : 'bg-yellow-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
+        class={`py-1 px-4 rounded-md transition-colors flex-1 ${form.storeItType === 'MI-BOX Location' ? 'bg-primary text-white shadow-md' : 'bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
         onclick={() => (form.storeItType = 'MI-BOX Location')}
       >
         MI-BOX Location
