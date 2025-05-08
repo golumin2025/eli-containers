@@ -1,17 +1,17 @@
 ---
 import keystaticConfig from 'keystatic.config'
 import { createReader } from '@keystatic/core/reader'
-
+import Tag from '@assets/tag.png'
 const reader = createReader(process.cwd(), keystaticConfig)
 const topbar = await reader.singletons.topbar.read()
 ---
 
 {
-    topbar?.heading && (
-        <div class="bg-yellow-300 text-black font-bold py-2 text-center">
-            <div class="container mx-auto">
-                {topbar.heading}
-            </div>
-        </div>
-    )
+  topbar?.heading && (
+    <div class="bg-yellow-300 py-3">
+      <div class="flex items-center custom-container text-black font-bold py-2">
+        <img src={Tag.src} class="mr-3 h-5" alt="Tag Icon" /> {topbar.heading}
+      </div>
+    </div>
+  )
 }
