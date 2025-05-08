@@ -6,6 +6,7 @@
   import { turnstile } from '@svelte-put/cloudflare-turnstile'
   let { quoteFormTitle } = $props()
   let isLoading = $state(false)
+  let isDisabled = $state(true)
 
   let form = $state({
     serviceType: 'Moving',
@@ -17,6 +18,7 @@
     email: '',
     phone: '',
     storeItType: '',
+    serviceAreaCheck: false,
     cfTurnstileResponse: '',
     errors: {},
   })
@@ -27,7 +29,6 @@
     form.errors = {}
     const result = await actions.quoteForm(form)
     if (isInputError(result.error)) {
-      console.log(result.error)
       form.errors = Object.fromEntries(
         Object.entries(result.error.fields).map(([key, value]) => [
           key,
@@ -36,7 +37,6 @@
       )
     } else {
       if (result.data.success) {
-        console.log('Success:', result.data)
         isLoading = false
         window.location.href = result.data.successUrl
       }
@@ -160,6 +160,10 @@
         errors={form.errors.phone}
       />
     </div>
+    <div class="flex items-center">
+      <input type="checkbox" id="service-area-check" class="mr-3 my-3" bind:checked={form.serviceAreaCheck} />
+      <label for="service-area-check">We are currently only serving areas in Florida</label>
+    </div>
     <div
       use:turnstile
       turnstile-sitekey={TURNSTILE_SITE_KEY}
@@ -176,7 +180,7 @@
     {/if}
     <button
       type="submit"
-      disabled={isLoading}
+      disabled={isDisabled || isLoading}
       class="submit-btn shadow-[0px_4px_8px_0px_#00000040] cursor-pointer"
     >
       {#if isLoading}
