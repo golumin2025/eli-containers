@@ -1,47 +1,48 @@
 <script>
-  const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY
-  import { actions, isInputError } from 'astro:actions'
-  import Input from './Input.svelte'
-  import { DateInput } from 'date-picker-svelte'
-  import { turnstile } from '@svelte-put/cloudflare-turnstile'
-  let { quoteFormTitle } = $props()
-  let isLoading = $state(false)
-  let isDisabled = $state(true)
+  const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+  import { actions, isInputError } from "astro:actions";
+  import Input from "./Input.svelte";
+  import { DateInput } from "date-picker-svelte";
+  import { turnstile } from "@svelte-put/cloudflare-turnstile";
+  let { quoteFormTitle, promoCode } = $props();
+  let isLoading = $state(false);
+  let isDisabled = $state(true);
 
   let form = $state({
-    serviceType: 'Moving',
-    firstName: '',
-    lastName: '',
-    initialDeliveryZip: '',
-    finalDeliveryZip: '',
+    serviceType: "Moving",
+    firstName: "",
+    lastName: "",
+    initialDeliveryZip: "",
+    finalDeliveryZip: "",
     deliveryDate: new Date(),
-    email: '',
-    phone: '',
-    storeItType: '',
+    email: "",
+    phone: "",
+    storeItType: "",
     serviceAreaCheck: false,
-    cfTurnstileResponse: '',
+    promoCode: promoCode ?? "",
+    cfTurnstileResponse: "",
     errors: {},
-  })
+  });
 
   async function handleSubmit(event) {
-    event.preventDefault()
-    isLoading = true
-    form.errors = {}
-    const result = await actions.quoteForm(form)
+    event.preventDefault();
+    isLoading = true;
+    form.errors = {};
+    const result = await actions.quoteForm(form);
     if (isInputError(result.error)) {
       form.errors = Object.fromEntries(
         Object.entries(result.error.fields).map(([key, value]) => [
           key,
           Array.isArray(value) ? value[0] : value,
         ])
-      )
+      );
     } else {
       if (result.data.success) {
-        isLoading = false
-        window.location.href = result.data.successUrl
+        isLoading = false;
+        window.location.href = result.data.successUrl;
       }
     }
-    isLoading = false
+    isLoading = false;
   }
 </script>
 
@@ -52,40 +53,42 @@
   <div class="flex justify-around items-center my-6 gap-4">
     <button
       type="button"
-      class={`py-3 px-4 rounded-md flex-1 shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer ${form.serviceType === 'Moving' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
-      onclick={() => (form.serviceType = 'Moving')}
+      class={`py-3 px-4 rounded-md flex-1 shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer ${form.serviceType === "Moving" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+      onclick={() => (form.serviceType = "Moving")}
     >
       Moving
     </button>
     <button
       type="button"
-      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer flex-1 ${form.serviceType === 'Storage' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
-      onclick={() => (form.serviceType = 'Storage')}
+      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer flex-1 ${form.serviceType === "Storage" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+      onclick={() => (form.serviceType = "Storage")}
     >
       Storage
     </button>
     <button
       type="button"
-      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer flex-1 ${form.serviceType === 'Storage & Moving' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
-      onclick={() => (form.serviceType = 'Storage & Moving')}
+      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer flex-1 ${form.serviceType === "Storage & Moving" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+      onclick={() => (form.serviceType = "Storage & Moving")}
     >
       Both
     </button>
   </div>
   <div class="space-y-2">
-    {#if form.serviceType === 'Storage' || form.serviceType === 'Storage & Moving'}
-      <h3 class="italic text-dark">Where would you like to store your container?</h3>
+    {#if form.serviceType === "Storage" || form.serviceType === "Storage & Moving"}
+      <h3 class="italic text-dark">
+        Where would you like to store your container?
+      </h3>
       <button
         type="button"
-        class={`py-1 px-4 rounded-md transition-colors flex-1 mr-3 ${form.storeItType === 'My Location' ? 'bg-primary text-white shadow-md' : 'bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
-        onclick={() => (form.storeItType = 'My Location')}
+        class={`py-1 px-4 rounded-md transition-colors flex-1 mr-3 ${form.storeItType === "My Location" ? "bg-primary text-white shadow-md" : "bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300"}`}
+        onclick={() => (form.storeItType = "My Location")}
       >
         My Location
       </button>
       <button
         type="button"
-        class={`py-1 px-4 rounded-md transition-colors flex-1 ${form.storeItType === 'MI-BOX Location' ? 'bg-primary text-white shadow-md' : 'bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
-        onclick={() => (form.storeItType = 'MI-BOX Location')}
+        class={`py-1 px-4 rounded-md transition-colors flex-1 ${form.storeItType === "MI-BOX Location" ? "bg-primary text-white shadow-md" : "bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300"}`}
+        onclick={() => (form.storeItType = "MI-BOX Location")}
       >
         MI-BOX Location
       </button>
@@ -116,7 +119,7 @@
           errors={form.errors.initialDeliveryZip}
         />
       </div>
-      {#if form.serviceType === 'move-it'}
+      {#if form.serviceType === "move-it"}
         <div class="w-full">
           <Input
             forId="final-delivery-zip"
@@ -129,14 +132,15 @@
       {/if}
     </div>
     <div>
-      <label for="delivery-date" class="block text-sm/6 font-medium text-gray-900"
-        >Delivery Date</label
+      <label
+        for="delivery-date"
+        class="block text-sm/6 font-medium text-gray-900">Delivery Date</label
       >
       <DateInput
         class="block w-full rounded-md bg-white p-0 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
         id="delivery-date"
         bind:value={form.deliveryDate}
-        max={new Date('2030-12-31')}
+        max={new Date("2030-12-31")}
         format="MM-dd-yyyy"
         closeOnSelection
       />
@@ -160,9 +164,29 @@
         errors={form.errors.phone}
       />
     </div>
+    <div>
+      <label for="promo-code" class="block text-sm/6 font-medium text-gray-900"
+        >Promo Code</label
+      >
+      <input
+        id="promo-code"
+        type="text"
+        class="block w-full rounded-md bg-gray-100 p-2 text-base text-gray-900"
+        value={form.promoCode}
+        readonly
+        tabindex="-1"
+      />
+    </div>
     <div class="flex items-center text-black">
-      <input type="checkbox" id="service-area-check" class="mr-3 my-3" bind:checked={form.serviceAreaCheck} />
-      <label for="service-area-check">We are currently only serving areas in Florida</label>
+      <input
+        type="checkbox"
+        id="service-area-check"
+        class="mr-3 my-3"
+        bind:checked={form.serviceAreaCheck}
+      />
+      <label for="service-area-check"
+        >We are currently only serving areas in Florida</label
+      >
     </div>
     <div
       use:turnstile

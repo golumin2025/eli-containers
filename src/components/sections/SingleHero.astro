@@ -4,6 +4,8 @@ const { title, anchorLink, description, bgImage, showQuoteForm, showColdFrom } =
 import ImageMod from "@components/ui/ImageMod.astro";
 import QuoteForm from "../forms/QuoteForm.svelte";
 import ColdStorageForm from "../forms/ColdStorageForm.svelte";
+import { getEntry } from "astro:content";
+const general = await getEntry("singletons", "general");
 ---
 
 <section
@@ -31,7 +33,12 @@ import ColdStorageForm from "../forms/ColdStorageForm.svelte";
       showQuoteForm && (
         <div class="md:w-1/2 w-full flex justify-end">
           <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
-            <QuoteForm client:only="svelte" />
+            <QuoteForm
+              client:only="svelte"
+              quoteFormTitle={quoteFormTitle}
+              phoneNumber={general.data.contactInformation.phoneDisplay}
+              promoCode={general.data.currentPromoCode}
+            />
           </div>
         </div>
       )

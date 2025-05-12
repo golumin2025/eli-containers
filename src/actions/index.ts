@@ -17,6 +17,7 @@ export const server = {
       email: z.string().email({ message: 'Please enter a valid email address' }),
       phone: z.string().min(1, { message: 'Phone number is required' }),
       cfTurnstileResponse: z.string().min(1, { message: 'Turnstile verification required' }),
+      promoCode: z.string().optional(),
     }),
     handler: async (input) => {
       try {
@@ -36,7 +37,7 @@ export const server = {
               email: input.email,
               phone: input.phone,
               rental: 209,
-              promocode: 'promo',
+              promocode: input.promoCode || '',
             }),
           }
         )
