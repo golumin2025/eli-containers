@@ -35,7 +35,6 @@ const general = await getEntry("singletons", "general");
           <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
             <QuoteForm
               client:only="svelte"
-              quoteFormTitle={quoteFormTitle}
               phoneNumber={general.data.contactInformation.phoneDisplay}
               promoCode={general.data.currentPromoCode}
             />
