@@ -1,10 +1,13 @@
 logo:
+  imageUrl: https://elicontainers.netlify.app/
   altTag: MI-BOX Moving Mobile & Storage
-fromEmail: hello@golumin.io
+fromEmail: info@miboxmovingandstorage.com
 fromEmailName: MI-BOX Moving Mobile & Storage
 adminEmailRecipients:
   - name: Jordan Tag
     email: jordan@golumin.io
+  - name: Ted Martin
+    email: ted@golumin.io
 clientEmailRecipientsBcc:
   - name: Lumin Marketing
     email: marketing@golumin.io

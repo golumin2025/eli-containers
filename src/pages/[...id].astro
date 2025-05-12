@@ -1,68 +1,57 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content'
 
-import Layout from "@layouts/Layout.astro";
-import MainHero from "@components/sections/MainHero.astro";
-import HowPodsWorks from "@components/sections/HowPodsWorks.astro";
-import Masonry from "@components/sections/Masonry.astro";
-import ReviewsSlider from "@components/sections/ReviewsSlider.astro";
-import SingleHero from "@components/sections/SingleHero.astro";
-import FeaturedImage from "@components/ui/FeaturedImage.astro";
-import Faqs from "@components/sections/Faq.astro";
-import StorageOptions from "@components/sections/StorageOptions.astro";
-import ProtectionConvenience from "@components/sections/ProtectionConvenience.astro";
-import TwoCol from "@components/sections/TwoCol.astro";
-import Cards from "@components/sections/Cards.astro";
-import RichText from "@components/sections/RichText.astro";
+import Layout from '@layouts/Layout.astro'
+import MainHero from '@components/sections/MainHero.astro'
+import HowPodsWorks from '@components/sections/HowPodsWorks.astro'
+import Masonry from '@components/sections/Masonry.astro'
+import ReviewsSlider from '@components/sections/ReviewsSlider.astro'
+import SingleHero from '@components/sections/SingleHero.astro'
+import FeaturedImage from '@components/ui/FeaturedImage.astro'
+import Faqs from '@components/sections/Faq.astro'
+import StorageOptions from '@components/sections/StorageOptions.astro'
+import ProtectionConvenience from '@components/sections/ProtectionConvenience.astro'
+import TwoCol from '@components/sections/TwoCol.astro'
+import Cards from '@components/sections/Cards.astro'
+import RichText from '@components/sections/RichText.astro'
 
 export async function getStaticPaths() {
-  const allpages = await getCollection("pages");
-  const filteredPages = allpages.filter(
-    ({ id }: { id: string }) => id !== "home"
-  );
+  const allpages = await getCollection('pages')
+  const filteredPages = allpages.filter(({ id }: { id: string }) => id !== 'home')
   return filteredPages.map(({ id, data }: { id: string; data: any }) => {
     return {
       params: { id },
       props: { data },
-    };
-  });
+    }
+  })
 }
-const { id }: any = Astro.params;
-const { data }: { data: any } = Astro.props;
+const { id }: any = Astro.params
+const { data }: { data: any } = Astro.props
 ---
 
 <Layout
   title={data?.seoData.seoTitle as string}
   description={data?.seoData.seoDesription as string}
+  pageUrl={id}
 >
   <div>
     {
       data?.blocks.map((item: any) => (
         <>
-          {item.discriminant === "mainHero" && <MainHero {...item.value} />}
-          {item.discriminant === "howPodsWork" && (
-            <HowPodsWorks {...item.value} />
-          )}
-          {item.discriminant === "featuredImage" && (
-            <FeaturedImage {...item.value} />
-          )}
-          {item.discriminant === "reviewsSlider" && (
-            <ReviewsSlider {...item.value} />
-          )}
-          {item.discriminant === "faqs" && <Faqs {...item.value} />}
-          {item.discriminant === "masonaryGallery" && (
-            <Masonry {...item.value} />
-          )}
-          {item.discriminant === "singleHero" && <SingleHero {...item.value} />}
-          {item.discriminant === "storageOptions" && (
-            <StorageOptions {...item.value} />
-          )}
-          {item.discriminant === "protectionConvenience" && (
+          {item.discriminant === 'mainHero' && <MainHero {...item.value} />}
+          {item.discriminant === 'howPodsWork' && <HowPodsWorks {...item.value} />}
+          {item.discriminant === 'featuredImage' && <FeaturedImage {...item.value} />}
+          {item.discriminant === 'reviewsSlider' && <ReviewsSlider {...item.value} />}
+          {item.discriminant === 'faqs' && <Faqs {...item.value} />}
+          {item.discriminant === 'masonaryGallery' && <Masonry {...item.value} />}
+          {item.discriminant === 'singleHero' && <SingleHero {...item.value} />}
+          {item.discriminant === 'storageOptions' && <StorageOptions {...item.value} />}
+          {item.discriminant === 'protectionConvenience' && (
             <ProtectionConvenience {...item.value} />
           )}
-          {item.discriminant === "twoCol" && <TwoCol {...item.value} />}
-          {item.discriminant === "cards" && <Cards {...item.value} />}
-          {item.discriminant === "richText" && <RichText {...item.value} />}
+          {item.discriminant === 'twoCol' && <TwoCol {...item.value} />}
+          {item.discriminant === 'cards' && <Cards {...item.value} />}
+          {item.discriminant === 'richText' && <RichText {...item.value} />}
         </>
       ))
     }

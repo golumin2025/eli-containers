@@ -11,9 +11,10 @@ const general = await reader.singletons.general.read()
 interface Props {
   title: string
   description: string
+  pageUrl: string
 }
 
-const { title, description } = Astro.props
+const { title, description, pageUrl } = Astro.props
 ---
 
 <!doctype html>
@@ -29,7 +30,7 @@ const { title, description } = Astro.props
   </head>
   <body class="overflow-x-hidden">
     <Header />
-    <Topbar/>
+    {pageUrl !== 'cold-storage-containers' && <Topbar />}
     <slot />
     <Footer />
     {

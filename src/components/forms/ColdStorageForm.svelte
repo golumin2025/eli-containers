@@ -1,30 +1,29 @@
 <script>
-  const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
-  import { actions, isInputError } from "astro:actions";
-  import Input from "./Input.svelte";
-  import { DateInput } from "date-picker-svelte";
-  import { turnstile } from "@svelte-put/cloudflare-turnstile";
+  const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY
+  import { actions, isInputError } from 'astro:actions'
+  import Input from './Input.svelte'
+  import { DateInput } from 'date-picker-svelte'
+  import { turnstile } from '@svelte-put/cloudflare-turnstile'
 
-  let isLoading = $state(false);
+  let isLoading = $state(false)
 
   let form = $state({
-    firstName: "",
-    lastName: "",
-    initialDeliveryZip: "",
+    firstName: '',
+    lastName: '',
+    initialDeliveryZip: '',
     deliveryDate: new Date(),
-    email: "",
-    phone: "",
-    serviceAreaCheck: false,
-    cfTurnstileResponse: "",
+    email: '',
+    phone: '',
+    cfTurnstileResponse: '',
     errors: {},
-  });
+  })
 
   async function handleSubmit(event) {
-    event.preventDefault();
-    isLoading = true;
-    form.errors = {};
+    event.preventDefault()
+    isLoading = true
+    form.errors = {}
 
-    const result = await actions.coldStoragequoteForm(form);
+    const result = await actions.coldStoragequoteForm(form)
 
     if (isInputError(result.error)) {
       form.errors = Object.fromEntries(
@@ -32,23 +31,21 @@
           key,
           Array.isArray(value) ? value[0] : value,
         ])
-      );
+      )
     } else {
       if (result.data.success) {
-        isLoading = false;
-        window.location.href = result.data.successUrl;
-        return;
+        isLoading = false
+        window.location.href = result.data.successUrl
+        return
       }
     }
 
-    isLoading = false;
+    isLoading = false
   }
 </script>
 
 <form id="quote-form" method="POST" onsubmit={handleSubmit}>
-  <h2 class="md:text-3xl text-xl text-black text-center font-bold block">
-    Cold Storage Quote Request
-  </h2>
+  <h2 class="md:text-3xl text-xl text-black text-center font-bold block">Get My Free Quote</h2>
 
   <div class="space-y-3 mt-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -77,17 +74,14 @@
     />
 
     <div>
-      <label
-        for="delivery-date"
-        class="block text-sm font-medium text-gray-900"
-      >
+      <label for="delivery-date" class="block text-sm font-medium text-gray-900">
         Delivery Date
       </label>
       <DateInput
         class="block w-full rounded-md bg-white p-0 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm"
         id="delivery-date"
         bind:value={form.deliveryDate}
-        max={new Date("2030-12-31")}
+        max={new Date('2030-12-31')}
         format="MM-dd-yyyy"
         closeOnSelection
       />
@@ -111,18 +105,6 @@
         bind:value={form.phone}
         errors={form.errors.phone}
       />
-    </div>
-
-    <div class="flex items-center text-black">
-      <input
-        type="checkbox"
-        id="service-area-check"
-        class="mr-3 my-3"
-        bind:checked={form.serviceAreaCheck}
-      />
-      <label for="service-area-check"
-        >We are currently only serving areas in Florida</label
-      >
     </div>
 
     <div
