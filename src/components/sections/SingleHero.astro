@@ -1,11 +1,19 @@
 ---
-const { title, anchorLink, description, bgImage, showQuoteForm } = Astro.props
-import ImageMod from '@components/ui/ImageMod.astro'
-import QuoteForm from '../forms/QuoteForm.svelte'
+const { title, anchorLink, description, bgImage, showQuoteForm, showColdFrom } =
+  Astro.props;
+import ImageMod from "@components/ui/ImageMod.astro";
+import QuoteForm from "../forms/QuoteForm.svelte";
+import ColdStorageForm from "../forms/ColdStorageForm.svelte";
 ---
 
-<section class="relative custom-container min-h-[450px] mt-6 rounded-xl overflow-hidden">
-  {anchorLink && <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />}
+<section
+  class="relative custom-container min-h-[450px] mt-6 rounded-xl overflow-hidden"
+>
+  {
+    anchorLink && (
+      <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />
+    )
+  }
   <ImageMod
     src={bgImage}
     alt="Hero background"
@@ -28,17 +36,34 @@ import QuoteForm from '../forms/QuoteForm.svelte'
         </div>
       )
     }
+    {
+      showColdFrom && (
+        <div class="md:w-1/2 w-full flex justify-end">
+          <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
+            <ColdStorageForm client:only="svelte" />
+          </div>
+        </div>
+      )
+    }
   </div>
 </section>
 
 <style>
   .gradient-overlay {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.1)
+    );
   }
 
   @media (min-width: 768px) {
     .gradient-overlay {
-      background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.1)
+      );
     }
   }
 </style>

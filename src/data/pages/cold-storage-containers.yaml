@@ -10,7 +10,8 @@ blocks:
       bgImage: /src/assets/images/cold-storage-containers/blocks/0/value/bgImage.jpg
       title: Keep Your Stuff Cool!
       description: With on-site climate-controlled storage.
-      showQuoteForm: true
+      showQuoteForm: false
+      showColdFrom: true
   - discriminant: twoCol
     value:
       heading: Ice Cold Storage Portable Refrigeration Units

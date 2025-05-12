@@ -257,6 +257,10 @@ export const singleHero = {
     title: fields.text({ label: 'Title' }),
     description: fields.text({ label: 'Description', multiline: true }),
     showQuoteForm: fields.checkbox({ label: 'Show Quote Form', defaultValue: true }),
+    showColdFrom: fields.checkbox({
+      label: 'Show Cold Form',
+      defaultValue: false,
+    })
   }),
 }
 

@@ -160,7 +160,7 @@
         errors={form.errors.phone}
       />
     </div>
-    <div class="flex items-center">
+    <div class="flex items-center text-black">
       <input type="checkbox" id="service-area-check" class="mr-3 my-3" bind:checked={form.serviceAreaCheck} />
       <label for="service-area-check">We are currently only serving areas in Florida</label>
     </div>
