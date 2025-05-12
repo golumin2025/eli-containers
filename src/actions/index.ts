@@ -1,10 +1,10 @@
 import { defineAction } from 'astro:actions'
 import { getEntry } from 'astro:content'
 import { z } from 'astro:schema'
-import * as postmark from "postmark";
-import mjml2html from "mjml";
-import { clientEmailTemplate } from './email-templates/clientEmailTemplate';
-import { adminEmailTemplate } from './email-templates/adminEmailTemplate';
+import * as postmark from 'postmark'
+import mjml2html from 'mjml'
+import { clientEmailTemplate } from './email-templates/clientEmailTemplate'
+import { adminEmailTemplate } from './email-templates/adminEmailTemplate'
 export const server = {
   quoteForm: defineAction({
     input: z.object({
@@ -62,67 +62,53 @@ export const server = {
   }),
   coldStoragequoteForm: defineAction({
     input: z.object({
-      firstName: z.string().min(1, { message: "Please enter your first name" }),
-      lastName: z.string().min(1, { message: "Please enter your last name" }),
+      firstName: z.string().min(1, { message: 'Please enter your first name' }),
+      lastName: z.string().min(1, { message: 'Please enter your last name' }),
       initialDeliveryZip: z.string().min(5, {
-        message: "Please enter a valid zip code",
+        message: 'Please enter a valid zip code',
       }),
       deliveryDate: z.string().min(1, { message: 'Please enter a date' }),
-      email: z.string().email({ message: "Please enter a valid email address" }),
-      phone: z.string().min(1, { message: "Phone number is required" }),
-      serviceAreaCheck: z.boolean().refine((val) => val === true, {
-        message: "You must confirm you're in Florida",
-      }),
-      cfTurnstileResponse: z.string().min(1, { message: "Turnstile verification required" }),
+      email: z.string().email({ message: 'Please enter a valid email address' }),
+      phone: z.string().min(1, { message: 'Phone number is required' }),
+      cfTurnstileResponse: z.string().min(1, { message: 'Turnstile verification required' }),
     }),
     handler: async (input) => {
       // Fetch email settings and general settings
-      const emailSettings = await getEntry("singletons", "email");
-      const general = await getEntry("singletons", "general");
+      const emailSettings = await getEntry('singletons', 'email')
+      const general = await getEntry('singletons', 'general')
 
       // Validate Turnstile response
-      const formData = new FormData();
-      formData.append("secret", import.meta.env.TURNSTILE_SECRET_TOKEN);
-      formData.append("response", input.cfTurnstileResponse);
+      const formData = new FormData()
+      formData.append('secret', import.meta.env.TURNSTILE_SECRET_TOKEN)
+      formData.append('response', input.cfTurnstileResponse)
 
-      const result = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-        method: "POST",
+      const result = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+        method: 'POST',
         body: formData,
-      });
+      })
 
-      const turnstileCheck = await result.json();
+      const turnstileCheck = await result.json()
 
       if (!turnstileCheck.success) {
         return {
           success: false,
           error: {
-            message: "Turnstile verification failed. Please try again.",
+            message: 'Turnstile verification failed. Please try again.',
           },
-        };
+        }
       }
-
-      // Check if service area checkbox is checked
-      if (!input.serviceAreaCheck) {
-        return {
-          success: false,
-          error: {
-            message: "You must confirm you're in Florida to proceed.",
-          },
-        };
-      }
-
 
       // Prepare email templates
       const { html: clientEmailBody } = mjml2html(
-        clientEmailTemplate.html(input, emailSettings.data, general.data),
-      );
+        clientEmailTemplate.html(input, emailSettings.data, general.data)
+      )
       const { html: adminEmailBody } = mjml2html(
-        adminEmailTemplate.html(input, emailSettings.data, general.data),
-      );
+        adminEmailTemplate.html(input, emailSettings.data, general.data)
+      )
 
       // Send emails
       try {
-        const client = new postmark.ServerClient(import.meta.env.POSTMARK_SERVER_TOKEN);
+        const client = new postmark.ServerClient(import.meta.env.POSTMARK_SERVER_TOKEN)
 
         // Send email to client
         await client.sendEmail({
@@ -130,37 +116,37 @@ export const server = {
           To: `${input.email}`,
           Cc: emailSettings.data.clientEmailRecipientsBcc
             .map((recipient: { email: string }) => recipient.email)
-            .join(", "),
-          Subject: "Thank You for Your Cold Storage Quote Request",
+            .join(', '),
+          Subject: 'Thank You for Your Cold Storage Quote Request',
           HtmlBody: clientEmailBody,
-          MessageStream: "outbound",
-        });
+          MessageStream: 'outbound',
+        })
 
         // Send email to admin
         await client.sendEmail({
           From: `${emailSettings.data.fromEmailName} <${emailSettings.data.fromEmail}>`,
           To: emailSettings.data.adminEmailRecipients
             .map((recipient: { email: string }) => recipient.email)
-            .join(", "),
-          Subject: "New Cold Storage Quote Request",
+            .join(', '),
+          Subject: 'New Cold Storage Quote Request',
           HtmlBody: adminEmailBody,
-          MessageStream: "outbound",
-        });
+          MessageStream: 'outbound',
+        })
       } catch (error) {
-        console.error("Error sending email:", error);
+        console.error('Error sending email:', error)
         return {
           success: false,
           error: {
-            message: "An error occurred while sending the email.",
+            message: 'An error occurred while sending the email.',
           },
-        };
+        }
       }
 
       // Return success response
       return {
         success: true,
-        successUrl: "/thank-you", // or whatever your success URL should be
-      };
+        successUrl: '/thank-you', // or whatever your success URL should be
+      }
     },
   }),
 }
