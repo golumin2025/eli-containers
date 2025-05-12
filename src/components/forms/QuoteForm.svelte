@@ -115,7 +115,7 @@
           errors={form.errors.initialDeliveryZip}
         />
       </div>
-      {#if form.serviceType === 'move-it'}
+      {#if form.serviceType === 'Moving' || form.serviceType === 'Storage & Moving'}
         <div class="w-full">
           <Input
             forId="final-delivery-zip"
