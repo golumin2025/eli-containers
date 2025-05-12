@@ -6,7 +6,6 @@
   import { turnstile } from '@svelte-put/cloudflare-turnstile'
   let { quoteFormTitle, promoCode } = $props()
   let isLoading = $state(false)
-  let isDisabled = $state(true)
 
   let form = $state({
     serviceType: 'Moving',
@@ -187,7 +186,7 @@
     {/if}
     <button
       type="submit"
-      disabled={isDisabled || isLoading}
+      disabled={isLoading}
       class="submit-btn shadow-[0px_4px_8px_0px_#00000040] cursor-pointer"
     >
       {#if isLoading}
