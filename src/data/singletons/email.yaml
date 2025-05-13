@@ -1,5 +1,6 @@
 logo:
-  imageUrl: https://elicontainers.netlify.app/
+  imageUrl: >-
+    https://elicontainers.netlify.app/.netlify/images?url=_astro%2Flogo.DF6bpxuS.png&w=1000&h=316
   altTag: MI-BOX Moving Mobile & Storage
 fromEmail: info@miboxmovingandstorage.com
 fromEmailName: MI-BOX Moving Mobile & Storage

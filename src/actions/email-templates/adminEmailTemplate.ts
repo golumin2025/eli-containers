@@ -38,7 +38,6 @@ export const adminEmailTemplate = {
             <strong>Delivery Date:</strong> ${formatDate(data.deliveryDate)}<br/>
             <strong>Email:</strong> ${data.email}<br/>
             <strong>Phone:</strong> ${data.phone}<br/>
-            <strong>Florida Service Area Confirmed:</strong> ${data.serviceAreaCheck ? "Yes" : "No"}<br/>
           </mj-text>
           
           <mj-button background-color="#ffd51d" color="#000000" href="mailto:${data.email}" font-family="Arial, sans-serif" padding="15px 30px">
@@ -52,8 +51,7 @@ export const adminEmailTemplate = {
         <mj-column>
           <mj-text align="center" color="#ffffff" font-size="12px" line-height="1.6">
             ${general.businessName}<br/>
-            ${general.address}<br/>
-            ${general.phone}
+            ${general.contactInformation.phoneDisplay}
           </mj-text>
         </mj-column>
       </mj-section>
