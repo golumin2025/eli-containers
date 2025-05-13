@@ -16,6 +16,7 @@ export const server = {
       deliveryDate: z.string().min(1, { message: 'Please enter a date' }),
       email: z.string().email({ message: 'Please enter a valid email address' }),
       phone: z.string().min(1, { message: 'Phone number is required' }),
+      storeItType: z.string().optional(),
       cfTurnstileResponse: z.string().min(1, { message: 'Turnstile verification required' }),
       promoCode: z.string().optional(),
     }),
