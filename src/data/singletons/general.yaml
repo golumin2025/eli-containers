@@ -3,6 +3,8 @@ currentPromoCode: SAVE25
 logo:
   logo: /src/assets/images/general/logo/logo.png
   footerLogo: /src/assets/images/general/logo/footerLogo.png
+  iceLogo: /src/assets/images/general/logo/iceLogo.png
+  iceFooterLogo: /src/assets/images/general/logo/iceFooterLogo.png
 contactInformation:
   phone: '19417777269'
   phoneDisplay: (941) 777-7269

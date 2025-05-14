@@ -8,8 +8,11 @@ blocks:
   - discriminant: singleHero
     value:
       bgImage: /src/assets/images/cold-storage-containers/blocks/0/value/bgImage.jpg
-      title: Keep Your Stuff Cool!
-      description: With on-site climate-controlled storage.
+      title: Keep Your Stuff Ice Cold!
+      description: |-
+        With on-site freezer and refrigeration storage.
+
+        Fast and Easy!
       showQuoteForm: false
       showColdFrom: true
   - discriminant: twoCol

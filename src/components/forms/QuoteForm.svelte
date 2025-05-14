@@ -76,15 +76,15 @@
       <h3 class="italic text-dark">Where would you like to store your container?</h3>
       <button
         type="button"
-        class={`py-1 px-4 rounded-md transition-colors flex-1 mr-3 ${form.storeItType === 'My Location' ? 'bg-primary text-white shadow-md' : 'bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
-        onclick={() => (form.storeItType = 'My Location')}
+        class={`py-1 px-4 rounded-md transition-colors flex-1 mr-3 ${form.storeItType === '1' ? 'bg-primary text-white shadow-md' : 'bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
+        onclick={() => (form.storeItType = '1')}
       >
         My Location
       </button>
       <button
         type="button"
-        class={`py-1 px-4 rounded-md transition-colors flex-1 ${form.storeItType === 'MI-BOX Location' ? 'bg-primary text-white shadow-md' : 'bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
-        onclick={() => (form.storeItType = 'MI-BOX Location')}
+        class={`py-1 px-4 rounded-md transition-colors flex-1 ${form.storeItType === '0' ? 'bg-primary text-white shadow-md' : 'bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
+        onclick={() => (form.storeItType = '0')}
       >
         MI-BOX Location
       </button>
@@ -166,7 +166,6 @@
         type="text"
         class="block w-full rounded-md bg-gray-100 p-2 text-base text-gray-900"
         value={form.promoCode}
-        readonly
         tabindex="-1"
       />
     </div>

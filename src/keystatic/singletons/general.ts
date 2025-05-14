@@ -23,6 +23,21 @@ export const general = {
           directory: "/src/assets/images/general",
           publicPath: "/src/assets/images/general/",
         }),
+        iceLogo: fields.image({
+          label: "Ice Cold Storage Logo",
+          directory: "/src/assets/images/general",
+          publicPath: "/src/assets/images/general/",
+        }),
+        iceFavicon: fields.image({
+          label: "Ice Cold Storage Favicon",
+          directory: "public/images/favicon",
+          publicPath: "/images/favicon/",
+        }),
+        iceFooterLogo: fields.image({
+          label: "Ice Cold Storage Footer Logo",
+          directory: "/src/assets/images/general",
+          publicPath: "/src/assets/images/general/",
+        }),
       },
       {
         label: "Site Images",

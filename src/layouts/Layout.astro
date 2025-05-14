@@ -15,7 +15,6 @@ interface Props {
 }
 
 const { title, description, pageUrl } = Astro.props;
-console.log(pageUrl);
 ---
 
 <!doctype html>
@@ -32,10 +31,10 @@ console.log(pageUrl);
     }
   </head>
   <body class="overflow-x-hidden">
-    <Header />
+    <Header pageUrl={pageUrl} />
     {!["cold-storage-containers", "thank-you"].includes(pageUrl) && <Topbar />}
     <slot />
-    <Footer />
+    <Footer pageUrl={pageUrl} />
     {
       general.analyticsScripts.map(
         (footScript) =>

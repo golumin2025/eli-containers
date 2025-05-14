@@ -4,12 +4,17 @@ import { getEntry } from 'astro:content'
 const footer = await getEntry('singletons', 'footer')
 const general = await getEntry('singletons', 'general')
 const footerData = footer.data
+let { pageUrl } = Astro.props
 ---
 
 <footer class="bg-[#f7f7f7] text-dark py-12 lg:py-16">
   <div class="custom-container mx-auto flex flex-wrap justify-between">
     <div class="w-full flex justify-center mb-6">
-      <ImageMod src={general.data.logo.footerLogo} alt="Logo" className="h-24 object-contain" />
+      {!["cold-storage-containers", "thank-you"].includes(pageUrl) ? (
+        <ImageMod src={general.data.logo.footerLogo} alt="Logo" className="h-24 object-contain" />
+      ) : (
+        <ImageMod src={general.data.logo.iceFooterLogo} alt="Logo" className="h-24 object-contain" />
+      )}
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full my-14 items-start gap-4">
