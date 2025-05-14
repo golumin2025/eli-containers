@@ -9,6 +9,8 @@ adminEmailRecipients:
     email: jordan@golumin.io
   - name: Ted Martin
     email: ted@golumin.io
+  - name: Elias
+    email: info@miboxmovingandstorage.com
 clientEmailRecipientsBcc:
   - name: Lumin Marketing
     email: marketing@golumin.io
