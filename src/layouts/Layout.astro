@@ -1,20 +1,21 @@
 ---
-import BaseHead from '@components/sections/BaseHead.astro'
-import Footer from '@components/sections/Footer.astro'
-import Header from '@components/sections/Header.astro'
-import keystaticConfig from '../../keystatic.config'
-import { createReader } from '@keystatic/core/reader'
-import Topbar from '@components/sections/Topbar.astro'
-const reader = createReader(process.cwd(), keystaticConfig)
-const general = await reader.singletons.general.read()
+import BaseHead from "@components/sections/BaseHead.astro";
+import Footer from "@components/sections/Footer.astro";
+import Header from "@components/sections/Header.astro";
+import keystaticConfig from "../../keystatic.config";
+import { createReader } from "@keystatic/core/reader";
+import Topbar from "@components/sections/Topbar.astro";
+const reader = createReader(process.cwd(), keystaticConfig);
+const general = await reader.singletons.general.read();
 
 interface Props {
-  title: string
-  description: string
-  pageUrl: string
+  title: string;
+  description: string;
+  pageUrl: string;
 }
 
-const { title, description, pageUrl } = Astro.props
+const { title, description, pageUrl } = Astro.props;
+console.log(pageUrl);
 ---
 
 <!doctype html>
@@ -24,19 +25,23 @@ const { title, description, pageUrl } = Astro.props
     {
       general.analyticsScripts.map(
         (headScript) =>
-          headScript.location === 'head' && <Fragment set:html={headScript.scriptContent} />
+          headScript.location === "head" && (
+            <Fragment set:html={headScript.scriptContent} />
+          ),
       )
     }
   </head>
   <body class="overflow-x-hidden">
     <Header />
-    {pageUrl !== 'cold-storage-containers' && <Topbar />}
+    {!["cold-storage-containers", "thank-you"].includes(pageUrl) && <Topbar />}
     <slot />
     <Footer />
     {
       general.analyticsScripts.map(
         (footScript) =>
-          footScript.location === 'body' && <Fragment set:html={footScript.scriptContent} />
+          footScript.location === "body" && (
+            <Fragment set:html={footScript.scriptContent} />
+          ),
       )
     }
   </body>
