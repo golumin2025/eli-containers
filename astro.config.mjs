@@ -1,20 +1,21 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
-import markdoc from "@astrojs/markdoc";
 import keystatic from "@keystatic/astro";
-import tailwindcss from "@tailwindcss/vite";
+import markdoc from "@astrojs/markdoc";
+import netlify from "@astrojs/netlify";
 import partytown from "@astrojs/partytown";
+import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
-import netlify from "@astrojs/netlify";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
+  site: 'https://miboxmovingandstorage.com',
   integrations: [
-    react(),
-    markdoc(),
     keystatic(),
+    markdoc(),
     partytown(),
+    react(),
     sitemap(),
     svelte(),
   ],
@@ -24,3 +25,4 @@ export default defineConfig({
   output: "static",
   adapter: netlify(),
 });
+

@@ -35,3 +35,31 @@ const { title, description, image } = Astro.props;
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
+
+<!-- Google tag (gtag.js) -->
+
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-1056418154"></script>
+
+<script is:inline>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1056418154');
+
+</script>
+
+
+<script is:inline>
+
+  gtag('config', 'AW-1056418154/_nnoCKCP7dwDEOrS3vcD', {
+
+    'phone_conversion_number': '(941) 777-7269'
+
+  });
+
+</script>
+
