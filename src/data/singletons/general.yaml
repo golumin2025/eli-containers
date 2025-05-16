@@ -6,6 +6,7 @@ logo:
   iceLogo: /src/assets/images/general/logo/iceLogo.png
   iceFooterLogo: /src/assets/images/general/logo/iceFooterLogo.png
 contactInformation:
+  email: 'eli@miboxmovingandstorage.com '
   phone: '19417777269'
   phoneDisplay: (941) 777-7269
 businessHours: 8am - 5pm Mon - Fri, 8am - 3pm Sat, Closed Sun
