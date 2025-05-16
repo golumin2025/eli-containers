@@ -32,7 +32,7 @@ const { title, description, pageUrl } = Astro.props;
   </head>
   <body class="overflow-x-hidden">
     <Header pageUrl={pageUrl} />
-    {!["cold-storage-containers", "thank-you"].includes(pageUrl) && <Topbar />}
+    {!["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) && <Topbar />}
     <slot />
     <Footer pageUrl={pageUrl} />
     {

@@ -10,7 +10,7 @@ let { pageUrl } = Astro.props
 <footer class="bg-[#f7f7f7] text-dark py-12 lg:py-16">
   <div class="custom-container mx-auto flex flex-wrap justify-between">
     <div class="w-full flex justify-center mb-6">
-      {!["cold-storage-containers", "thank-you"].includes(pageUrl) ? (
+      {!["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) ? (
         <ImageMod src={general.data.logo.footerLogo} alt="Logo" className="h-24 object-contain" />
       ) : (
         <ImageMod src={general.data.logo.iceFooterLogo} alt="Logo" className="h-24 object-contain" />

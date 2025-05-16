@@ -1,0 +1,15 @@
+title: Thank you
+seoData: {}
+blocks:
+  - discriminant: singleHero
+    value:
+      bgImage: /src/assets/images/thank-you-coolers/blocks/0/value/bgImage.webp
+      title: 'Thank you! '
+      description: |
+        A specialist will contact you in 15 minutes or less.
+        If you need immediate assistance, please call (802) 242-2022.
+      showQuoteForm: false
+      showColdFrom: false
+  - discriminant: reviewsSlider
+    value:
+      logos: []

@@ -147,7 +147,7 @@ export const server = {
       // Return success response
       return {
         success: true,
-        successUrl: '/thank-you', // or whatever your success URL should be
+        successUrl: '/thank-you-coolers', // or whatever your success URL should be
       }
     },
   }),

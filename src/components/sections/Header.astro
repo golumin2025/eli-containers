@@ -29,7 +29,7 @@ const general = await getEntry("singletons", "general");
                 <!-- Logo -->
                 <div class="flex flex-col">
                     <a href="/" class="text-xl font-bold text-gray-800">
-                        {!["cold-storage-containers", "thank-you"].includes(pageUrl) ? (
+                        {!["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) ? (
                             <ImageMod
                                 src={general.data.logo.logo}
                                 alt="Logo"
@@ -43,7 +43,7 @@ const general = await getEntry("singletons", "general");
                         />
                         )}
                         {
-                            !["cold-storage-containers", "thank-you"].includes(
+                            !["cold-storage-containers", "thank-you-coolers"].includes(
                                 pageUrl,
                             ) && (
                                 <span class="text-sm text-gray-600">
@@ -52,7 +52,7 @@ const general = await getEntry("singletons", "general");
                             )
                         }
                     </a>
-                    {!["cold-storage-containers", "thank-you"].includes(pageUrl) && (
+                    {!["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) && (
                         nav?.data.subHeader && (
                             <span class="text-sm text-gray-600 mt-1">
                                 {nav.data.subHeader}
