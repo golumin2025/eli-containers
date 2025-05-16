@@ -11,6 +11,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: 'https://miboxmovingandstorage.com',
+  trailingSlash: 'ignore',
   integrations: [
     keystatic(),
     markdoc(),
