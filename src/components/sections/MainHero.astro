@@ -1,5 +1,5 @@
 ---
-import QuoteForm from "@components/forms/QuoteForm.svelte";
+import QuoteForm from "@components/forms/QuoteForm";
 import Image from "astro/components/Image.astro";
 import { getEntry } from "astro:content";
 const { Sliderimages, quoteFormTitle, anchorLink } = Astro.props;
@@ -13,7 +13,12 @@ const general = await getEntry("singletons", "general");
     )
   }
   <div class="w-full bg-white rounded-lg md:hidden block p-4 md:p-8">
-    <QuoteForm client:only="svelte" quoteFormTitle={quoteFormTitle} />
+    <QuoteForm
+      client:only="react"
+      quoteFormTitle={quoteFormTitle}
+      phoneNumber={general.data.contactInformation.phoneDisplay}
+      promoCode={general.data.currentPromoCode}
+    />
   </div>
   <div class="swiper main-slider h-full">
     <div class="swiper-wrapper">
@@ -54,7 +59,7 @@ const general = await getEntry("singletons", "general");
   >
     <div class="w-full bg-white rounded-lg lg:max-w-[550px] p-4 md:p-8">
       <QuoteForm
-        client:only="svelte"
+        client:only="react"
         quoteFormTitle={quoteFormTitle}
         phoneNumber={general.data.contactInformation.phoneDisplay}
         promoCode={general.data.currentPromoCode}

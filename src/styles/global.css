@@ -17,3 +17,9 @@
 html {
   scroll-behavior: smooth;
 }
+.input {
+  @apply w-full p-2 rounded-md border border-gray-300 text-sm;
+}
+.submit-btn {
+  @apply bg-secondary text-white font-semibold py-3 px-5 rounded-md shadow-md;
+}
