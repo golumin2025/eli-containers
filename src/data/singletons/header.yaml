@@ -12,6 +12,9 @@ menuItems:
   - name: Service Areas
     link: /service-areas
     subMenu: []
+  - name: Blog
+    link: /blog
+    subMenu: []
 button:
   enable: true
   label: (941) 777-7269
