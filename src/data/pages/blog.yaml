@@ -5,7 +5,6 @@ seoData:
     Discover helpful tips, guides, and insights on stress-free moving and
     convenient mobile storage with MI-BOX. Learn how our portable storage units
     simplify your move and storage needs.
-  ogImage: /images/seo/blog/seoData/ogImage.jpg
 blocks:
   - discriminant: singleHero
     value:
