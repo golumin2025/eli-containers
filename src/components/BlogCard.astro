@@ -1,0 +1,33 @@
+---
+const { imageUrl, date, title, link } = Astro.props;
+---
+
+<div
+  class="relative isolate flex flex-col justify-end overflow-hidden  bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
+>
+  <img
+    src={imageUrl}
+    alt=""
+    class="absolute inset-0 -z-10 size-full object-cover"
+  />
+  <div
+    class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"
+  >
+  </div>
+  <div
+    class="absolute inset-0 -z-10  ring-1 ring-inset ring-gray-900/10"
+  >
+  </div>
+
+  <div
+    class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-gray-300"
+  >
+    <span class="mr-8">{date}</span>
+  </div>
+  <h3 class="mt-3 text-lg/6 font-semibold text-white">
+    <a href={link}>
+      <span class="absolute inset-0"></span>
+      {title}
+    </a>
+  </h3>
+</div>

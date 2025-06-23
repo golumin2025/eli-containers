@@ -1,0 +1,42 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import BlogCard from "@components/BlogCard.astro";
+import SingleHero from "@components/SingleHero.astro";
+import backgroundImage from "@assets/images/about-us/blocks/0/value/bgImage.jpg";
+const blogs = await getCollection("blogs");
+blogs
+    // .filter((blog) => blog.data.draft != true)
+    .sort((a, b) => {
+        const dateA = new Date(a.data.publicationDate);
+        const dateB = new Date(b.data.publicationDate);
+        return dateB.getTime() - dateA.getTime();
+    })
+    .filter((blog) => blog.data.draft != "true");
+---
+
+<Layout
+    title="Blog Posts"
+    description="Marketing page for blog posts"
+    pageUrl="/blog"
+>
+    <SingleHero title="Our Blogs" bgImage={backgroundImage.src} />
+    <div class="bg-white py-16">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div
+                class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none sm:grid-cols-2 lg:grid-cols-3"
+            >
+                {
+                    blogs.map((item) => (
+                        <BlogCard
+                            imageUrl={item.data.blogImage}
+                            date={item.data.publicationDate}
+                            title={item.data.title}
+                            link={`/blogs/${item.id}`}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</Layout>

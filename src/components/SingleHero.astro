@@ -1,0 +1,41 @@
+---
+import Button from "./ui/Button.astro";
+
+const { title, bgImage, button, description, mobileImage } = Astro.props;
+---
+
+<div class="relative py-40 flex justify-center items-center overflow-hidden">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/30 z-10"></div>
+
+  <!-- Responsive Image -->
+  <picture class="absolute inset-0 w-full h-full">
+    {mobileImage && <source media="(max-width: 767px)" srcset={mobileImage} />}
+    <img src={bgImage} alt={title} class="w-full h-full object-cover" />
+  </picture>
+
+  <!-- Content Container -->
+  <div
+    class="custom-container flex justify-center items-center flex-col gap-6 relative z-20"
+  >
+    <h1
+      class="text-white lg:text-start text-center lg:text-6xl sm:text-5xl text-4xl fade-up font-bold"
+    >
+      {title}
+    </h1>
+    {
+      description && (
+        <p class="text-white text-center lg:text-start lg:text-2xl sm:text-xl text-lg fade-up">
+          {description}
+        </p>
+      )
+    }
+    {
+      button && button.title && (
+        <div class="flex justify-center items-center">
+          <Button title={button.title} link={button.link} />
+        </div>
+      )
+    }
+  </div>
+</div>
