@@ -9,11 +9,11 @@ blocks:
     value:
       Sliderimages:
         - image: /images/home/home/blocks/0/value/Sliderimages/0/image.jpg
-          title: Save 25% on moving and storage
-          description: >-
-            MI-BOX Mobile Storage is the Gulf Coast's premier moving & portable
-            storage solutions. Call now or get a free quote. 
-      quoteFormTitle: Get My Free Quote
+          title: Save 15% on Moving and Storage
+          description: |-
+            Gulf Coast's premier LOCAL moving & portable storage solutions. 
+            Call now or get a free quote. 
+      quoteFormTitle: One Click Free Quote
   - discriminant: reviewsSlider
     value:
       title: Our Happy Customers
