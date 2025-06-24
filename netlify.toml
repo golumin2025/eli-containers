@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://miboxmovingandstorage.com/*"
+  to = "https://boxrentalnow.com/:splat"
+  status = 301
+  force = true
