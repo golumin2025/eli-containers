@@ -1,5 +1,7 @@
 [[redirects]]
   from = "https://miboxmovingandstorage.com/*"
-  to = "https://boxrentalnow.com/:splat"
+  to = "https://www.boxrentalnow.com/:splat"
+  from = "https://itsicecoldstorage.com/*"
+  to = "https://www.boxrentalnow.com/cold-storage-containers/"
   status = 301
   force = true
