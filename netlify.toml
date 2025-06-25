@@ -1,6 +1,9 @@
 [[redirects]]
   from = "https://miboxmovingandstorage.com/*"
   to = "https://www.boxrentalnow.com/:splat"
+  status = 301
+  force = true
+[[redirects]]
   from = "https://itsicecoldstorage.com/*"
   to = "https://www.boxrentalnow.com/cold-storage-containers/"
   status = 301
