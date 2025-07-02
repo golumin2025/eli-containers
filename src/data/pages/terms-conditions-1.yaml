@@ -1,0 +1,135 @@
+title: Terms Conditions
+seoData: {}
+blocks:
+  - discriminant: richText
+    value:
+      isCentered: false
+      content: >
+        <div class="flex item-center justify-center mt-10"> <h1
+        class="text-center text-[42px] border-b-[3px] border-[#ffdd00] w-fit
+        lg:w-[40vw] font-bold pb-2.5">Terms & Conditions</h1> </div>
+
+
+        <div class=" flex item-center justify-center mt-10"> <h1
+        class="text-center text-3xl border-b-[3px] border-[#ffdd00]  font-bold
+        w-fit pb-2.5">Introduction</h1> </div>
+
+
+        The following are terms of a legal agreement between you and MI-BOX. By
+        accessing, browsing, or using this website, you acknowledge that you
+        have read, understood, and agree to be bound by these terms and to
+        comply with all applicable laws and regulations, including export and
+        re-export control laws and regulations. If you do not agree to these
+        terms, please do not use this website.
+
+
+        ​MI-BOX may, without notice to you, at any time revise these Terms &
+        Conditions and any other information contained in this website by
+        updating this posting. MI-BOX may also make improvements or changes in
+        the products, services, or programs described in this site at any time
+        without notice.
+
+
+        <div class=" flex item-center justify-center mt-10"> <h1
+        class="text-center text-3xl border-b-[3px] border-[#ffdd00]  font-bold
+        w-fit pb-2.5">Copyrighted Material</h1> </div>
+
+
+        This site and all content in this site may not be copied, reproduced,
+        republished, uploaded, posted, transmitted, distributed, or used for the
+        creation of derivative works without MI-BOX’s prior written consent,
+        except that MI-BOX grants you non-exclusive, non-transferable, limited
+        permission to access and display the web pages within this site, solely
+        on your computer and for your personal, non-commercial use of this
+        website. This permission is conditioned on your not modifying the
+        content displayed on this site, your keeping intact all copyright,
+        trademark, and other proprietary notices, and your acceptance of any
+        terms, conditions, and notices accompanying the content or otherwise set
+        forth in this site. Notwithstanding the foregoing, any software and
+        other materials that are made available for downloading, access, or
+        other use from this site with their own license terms, conditions, and
+        notices will be governed by such terms, conditions, and notices.
+
+
+        ​Your failure to comply with the terms, conditions, and notices on this
+        site will result in automatic termination of any rights granted to you,
+        without prior notice, and you must immediately destroy all copies of
+        downloaded materials in your possession or control. Except for the
+        limited permission in the preceding paragraph, MI-BOX does not grant you
+        any express or implied rights or licenses under any patents, trademarks,
+        copyrights, or other proprietary or intellectual property rights. You
+        may not mirror any of the content from this site on another website or
+        in any other media.
+
+
+        <div class=" flex item-center justify-center mt-10"> <h1
+        class="text-center text-3xl border-b-[3px] border-[#ffdd00]  font-bold
+        w-fit pb-2.5">Disclaimer of Warranty</h1> </div>
+
+
+        This website is provided on an “as is” and “as available” basis. No
+        representations or warranties of any kind are made, express or implied,
+        as to the operation of this site or the information, content, materials,
+        or products included on this site. You expressly agree that your use of
+        this site is at your sole risk.\
+
+        To the full extent permissible by applicable law, MI-BOX disclaims all
+        warranties, express or implied, including, but not limited to, implied
+        warranties of merchantability and fitness for a particular purpose. This
+        site’s owner does not warrant that this site, its servers, or e-mail
+        sent from this site are free of viruses or other harmful components.
+        MI-BOX will not be liable for any damages of any kind arising from the
+        use of this site, including, but not limited to direct, indirect,
+        incidental, punitive, and consequential damages.
+
+
+        Certain state laws do not allow limitations on implied warranties or the
+        exclusion or limitation of certain damages. If these laws apply to you,
+        some or all of the above disclaimers, exclusions, or limitations may not
+        apply to you, and you might have additional rights.
+
+
+        <div class=" flex item-center justify-center mt-10"> <h1
+        class="text-center text-3xl border-b-[3px] border-[#ffdd00]  font-bold
+        w-fit pb-2.5">Business Relationships</h1> </div>
+
+
+        This website may provide links or references to non-MI-BOX websites and
+        resources. MI-BOX makes no representations, warranties, or other
+        commitments whatsoever about any third-party website and/or resources
+        that may be referenced, accessible from, or linked to any MI-BOX site. A
+        link to a third party website does not mean that MI-BOX endorses the
+        content or use of such website or its owner. In addition, MI-BOX is not
+        a party to or responsible for any transactions you may enter into with
+        third parties, even if you learn of such parties (or use a link to such
+        parties) from an MI-BOX site. Accordingly, you acknowledge and agree
+        that MI-BOX is not responsible for the availability of such external
+        sites or resources, and is not responsible or liable for any content,
+        services, products, or other materials on or available from those sites
+        or resources.
+
+
+        When you access a third party website please understand that it is
+        independent from MI-BOX, and that MI-BOX does not control the content on
+        that website. It is up to you to take precautions to protect yourself
+        from viruses, worms, trojan horses, and other potentially destructive
+        programs, and to protect your information as you deem appropriate.
+  - discriminant: CustomNav
+    value:
+      logo: /images/terms-conditions-1/blocks/1/value/logo.webp
+      anchorLink: /
+      items:
+        - title: About Us
+          link: about-us
+        - title: Blog
+          link: blog
+        - title: Privacy Policy
+          link: privacy-policy-1
+        - title: Terms & Conditions
+          link: terms-conditions-1
+        - title: Join Our Team
+          link: '#'
+        - title: Mobile Container Sales
+          link: '#'
+        - title: Sitemap
+          link: '#'

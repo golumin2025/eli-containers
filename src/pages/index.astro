@@ -14,6 +14,7 @@ import StorageOptions from "@components/sections/StorageOptions.astro";
 import TwoCol from "@components/sections/TwoCol.astro";
 import FindYouFit from "@components/sections/FindYouFit.astro";
 import RichText from "@components/sections/RichText.astro";
+import CustomNav from "@components/sections/CustomNav.astro";
 
 const homePage = await getEntry("pages", "home");
 ---
@@ -48,6 +49,7 @@ const homePage = await getEntry("pages", "home");
         {item.discriminant === "twoCol" && <TwoCol {...item.value} />}
         {item.discriminant === "cards" && <Cards {...item.value} />}
         {item.discriminant === "richText" && <RichText {...item.value} />}
+        {item.discriminant === "CustomNav" && <CustomNav {...item.value} />}
       </>
     ))
   }

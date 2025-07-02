@@ -13,6 +13,8 @@ import {
   protectionConvenience,
   twoCol,
   cards,
+  richText,
+  CustomNav
 } from "@keystatic/blocks";
 
 export const pages = {
@@ -51,7 +53,9 @@ export const pages = {
         storageOptions,
         protectionConvenience,
         twoCol,
-        cards
+        cards,
+        richText,
+        CustomNav
       },
       { label: "Blocks" },
     ),

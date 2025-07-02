@@ -1,0 +1,159 @@
+title: Privacy Policy
+seoData: {}
+blocks:
+  - discriminant: richText
+    value:
+      isCentered: false
+      content: >
+        <div class="flex item-center justify-center mt-10"> <h1
+        class="text-center text-[42px] border-b-[3px] border-[#ffdd00] w-fit
+        lg:w-[30vw] font-bold pb-2.5">Privacy Policy</h1> </div>
+
+
+        <div class=" flex item-center justify-center mt-10"> <h1
+        class="text-center text-3xl border-b-[3px] border-[#ffdd00]  font-bold
+        w-fit pb-2.5">Introduction</h1> </div>
+
+
+        ​This document sets out the policies of MI-BOX regarding the protection
+        of the rights of persons to privacy. Its purpose is to explain to
+        contacts and all others who deal with MI-BOX what types of personal
+        information MI-BOX collects and how that information is used.&nbsp;
+
+
+        This policy reflects no commitment by, nor is it binding upon any party
+        or parties other than MI-BOX.
+
+
+        At &nbsp;times, MI-BOX collects certain personal information about
+        &nbsp;people with whom it deals, either in their personal capacities or
+        as representatives of client institutions, suppliers or other
+        businesses. Such people are referred to in this policy as “MI-BOX’
+        contacts” or as simply as “contacts”.
+
+
+        MI-BOX collects identifiable personal data as well as non-identifiable
+        personal information. Items of identifiable &nbsp;personal information,
+        such as names and contact details, are collected &nbsp;and used as a
+        matter of course in MI-BOX’ daily work. Often a person’s identifiable
+        personal information includes the role or roles the person plays on
+        behalf of his or her employer in the employer’s business relationship
+        with MI-BOX.
+
+
+        <div class=" flex item-center justify-center mt-10"> <h1
+        class="text-center text-3xl border-b-[3px] border-[#ffdd00]  font-bold
+        w-fit pb-2.5">Confidentiality</h1> </div>
+
+
+        ​MI-BOX respects the privacy of the individual and undertakes to protect
+        the confidentiality of personal information about contacts that is
+        supplied in the course of business relationships with MI-BOX. MI-BOX
+        undertakes to use personal information solely for the purposes described
+        above, and will not otherwise, unless legally obliged to do so, provide
+        personal information to third parties.
+
+
+        The MI-BOX protects your personal information with industry standard
+        security measures. In addition to normal precautions such as physical
+        security and software/hardwarefirewalls, we have and adhere to strict
+        internal security policies.
+
+
+        ​&nbsp;…and will not otherwise, unless legally obliged to do so, provide
+        personal information to third parties.
+
+
+        <div class=" flex item-center justify-center mt-10"> <h1
+        class="text-center text-3xl border-b-[3px] border-[#ffdd00]  font-bold
+        w-fit pb-2.5">Reservation of Rights</h1> </div>
+
+
+        MI-BOX reserves the right to disclose personal information in its
+        possession where it is required to do so by law or to exercise its legal
+        rights or to defend itself against legal claims.
+
+
+        ​MI-BOX reserves the right to make changes to this privacy policy. Where
+        a major change is made, contacts will be informed by e-mail notification
+        or through a notice on our website. Contacts bear the responsibility to
+        read the changes.
+
+
+        <div class=" flex item-center justify-center mt-10"> <h1
+        class="text-center text-3xl border-b-[3px] border-[#ffdd00]  font-bold
+        w-fit pb-2.5">​Collection of Personal Data</h1> </div>
+
+
+        ​MI-BOX collects personal data about contacts. Contacts include those
+        employees of client institutions with whom MI-BOX will deal in the
+        normal course of business. This information is collected when
+        institutions first procure services from, or enter into a service
+        agreement with MI-BOX, when they instruct MI-BOX, as their provider or
+        Agent, to provide services or undertake service procurement or other
+        actions on their behalf. Contacts also include persons within supplier
+        and other organizations with which MI-BOX has a business relationship –
+        i.e. persons that suppliers, including self-employed consultants and
+        contractors, or other organizations such as government departments or
+        statutory bodies have appointed to deal with MI-BOX.
+
+
+        MI-BOX does not collect personal information about end users of client
+        institution’s networks.
+
+
+        <div class=" flex item-center justify-center mt-10"> <h1
+        class="text-center text-3xl border-b-[3px] border-[#ffdd00]  font-bold
+        w-fit pb-2.5">Use of Personal Data</h1> </div>
+
+
+        ​MI-BOX uses personal information to ensure effective business
+        communications with contact persons and/or client institutions,
+        suppliers and other organizations with which MI-BOX has dealings.
+
+
+        &nbsp;In its capacity as the agent of client institutions, MI-BOX
+        provides personal information about contact persons of client
+        institutions to suppliers, where the supplier needs to use this
+        information to communicate directly with the client institution.
+        Similarly, MI-BOX provides contact details of suppliers’ personnel to
+        client institutions where this is needed for the furtherance of the
+        business relationship.
+
+
+        The MI-BOX may collect other types of anonymous data from website users
+        through the use of “cookies,” which are text files that a website places
+        on the hard drive of your computer indicating what pages you visited.
+        When you return to the website, your browser sends that information back
+        to the site. MI-BOX may use the information provided by cookies to
+        analyze trends, administer the site, or for research and marketing
+        purposes
+
+
+        <div class=" flex item-center justify-center mt-10"> <h1
+        class="text-center text-3xl border-b-[3px] border-[#ffdd00]  font-bold
+        w-fit pb-2.5">Privacy Complaints</h1> </div>
+
+
+        ​If you believe that MI-BOX has not complied with the provisions of this
+        privacy policy, please <span class="text-blue-400 hover:text-black
+        hover:underline">[contact us](#).</span>
+  - discriminant: CustomNav
+    value:
+      logo: /images/privacy-policy-1/blocks/1/value/logo.webp
+      anchorLink: /
+      items:
+        - title: ' About Us'
+          link: about-us
+        - title: Blog
+          link: blog
+        - title: Privacy Policy
+          link: privacy-policy-1
+        - title: Terms & Conditions
+          link: terms-conditions-1
+        - title: Join Our Team
+          link: '#'
+        - title: Mobile Container Sales
+          link: '#'
+        - title: Sitemap
+          link: '#'

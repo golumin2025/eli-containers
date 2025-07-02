@@ -6,8 +6,8 @@ const renderContent = marked.parse(content);
 ---
 
 <div
-    data-aos="fade-up"
-    class={` prose prose-headings:text-primary fade-up  prose-td:!py-4 prose-td:pl-6 prose-th:!py-4 prose-th:pl-6 prose-thead:bg-black/5  prose-img:rounded-xl rose prose-td:border prose-th:border prose-td:px-2 prose-th:px-2 prose-headings:font-semibold prose-a:text-primary min-w-full pt-8 md:pb-12 pb-6 ${isCentered ? "!text-center" : ""}`}
+    class={`min-w-full pt-8 md:pb-12 pb-6 ${isCentered ? "!text-center" : ""} text-secondary `}
 >
-    <div set:html={renderContent} class="rich-text !max-w-5xl mx-auto px-4" />
+    <div set:html={renderContent} class=" mx-auto px-10 sm:px-14 space-y-5 text-[16px] " />
 </div>
+
