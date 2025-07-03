@@ -1,5 +1,5 @@
 ---
-title: '# **Gulf Coast Moving and Storage Solutions for Every Life Stage**'
+title: Gulf Coast Moving and Storage Solutions for Every Life Stage
 blogImage: >-
   /images/gulf-coast-moving-and-storage-solutions-for-every-life-stage/blogImage.jpg
 publicationDate: June 11, 2025
