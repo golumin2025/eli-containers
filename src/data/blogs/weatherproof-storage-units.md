@@ -1,5 +1,5 @@
 ---
-title: '# **Weatherproof Storage Units: a Reliable, Storm-Ready Solution**'
+title: 'Weatherproof Storage Units: a Reliable, Storm-Ready Solution'
 blogImage: /images/weatherproof-storage-units/blogImage.jpg
 publicationDate: June 26, 2025
 draft: false
