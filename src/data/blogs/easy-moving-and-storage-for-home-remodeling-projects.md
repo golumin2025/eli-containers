@@ -1,5 +1,5 @@
 ---
-title: '# **Easy Moving and Storage for Home Remodeling Projects**'
+title: Easy Moving and Storage for Home Remodeling Projects
 blogImage: /images/easy-moving-and-storage-for-home-remodeling-projects/blogImage.jpg
 publicationDate: June 18, 2025
 draft: false
