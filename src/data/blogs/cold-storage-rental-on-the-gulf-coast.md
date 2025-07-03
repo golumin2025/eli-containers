@@ -1,5 +1,5 @@
 ---
-title: '# **Cold Storage Rental on the Gulf Coast: Reliable Solutions**'
+title: 'Cold Storage Rental on the Gulf Coast: Reliable Solutions'
 blogImage: /images/cold-storage-rental-on-the-gulf-coast/blogImage.jpg
 publicationDate: June 05, 2025
 draft: false
