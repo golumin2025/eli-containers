@@ -1,5 +1,5 @@
 ---
-title: '# **Flexible Storage Solutions for Growing Small Businesses**'
+title: Flexible Storage Solutions for Growing Small Businesses
 blogImage: /images/flexible-storage-solutions-for-growing-small-businesses/blogImage.jpg
 publicationDate: June 08, 2025
 draft: false
