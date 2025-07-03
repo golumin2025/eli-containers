@@ -1,5 +1,5 @@
 ---
-title: '# **Benefits of Home-Delivered Storage vs. Traditional Units**'
+title: Benefits of Home-Delivered Storage vs. Traditional Units
 blogImage: /images/benefits-of-home-delivered-storage-vs-traditional-units/blogImage.jpg
 publicationDate: June 30, 2025
 draft: true
