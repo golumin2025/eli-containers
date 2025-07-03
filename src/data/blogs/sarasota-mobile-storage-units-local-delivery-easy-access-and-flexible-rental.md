@@ -1,7 +1,7 @@
 ---
 title: >-
-  # **Sarasota Mobile Storage Units: Local Delivery, Easy Access, and Flexible
-  Rental**
+  Sarasota Mobile Storage Units: Local Delivery, Easy Access, and Flexible
+  Rental
 blogImage: >-
   /images/sarasota-mobile-storage-units-local-delivery-easy-access-and-flexible-rental/blogImage.jpg
 publicationDate: June 23, 2025
