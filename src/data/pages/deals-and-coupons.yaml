@@ -1,3 +1,41 @@
 title: Deals and Coupons
 seoData: {}
-blocks: []
+blocks:
+  - discriminant: richText
+    value:
+      isCentered: true
+      content: >
+        Home Depot
+
+
+        [https://www.homedepot.com/c/coupons](https://www.homedepot.com/c/coupons)
+
+
+        Target
+
+
+        [https://www.coupons.com/coupon-codes/target](https://www.coupons.com/coupon-codes/target)
+
+
+        Ace Hardware
+
+
+        [https://www.acehardware.com/coupons](https://www.acehardware.com/coupons)
+
+
+        Lowes
+
+
+        [https://www.groupon.com/coupons/lowes](https://www.groupon.com/coupons/lowes)
+
+
+        Wayfair
+
+
+        [https://www.wayfair.com/coupon-codes-policy](https://www.wayfair.com/coupon-codes-policy)
+
+
+        Dish
+
+
+        [https://www.dish.com/offers](https://www.dish.com/offers)
