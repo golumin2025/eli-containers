@@ -9,8 +9,8 @@ export const server = {
   quoteForm: defineAction({
     input: z.object({
       serviceType: z.string(),
-      firstName: z.string().min(1, { message: 'Please enter your first name' }),
-      lastName: z.string().min(1, { message: 'Please enter your last name' }),
+      firstName: z.string().optional(),
+      lastName: z.string().optional(),
       initialDeliveryZip: z.string().min(5, { message: 'Please enter a valid zip code' }),
       finalDeliveryZip: z.string().optional(),
       deliveryDate: z.string().min(1, { message: 'Please enter a date' }),
