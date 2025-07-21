@@ -89,22 +89,7 @@
         MI-BOX Location
       </button>
     {/if}
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-      <Input
-        forId="first-name"
-        label="First Name"
-        placeholder="Bob"
-        bind:value={form.firstName}
-        errors={form.errors.firstName}
-      />
-      <Input
-        forId="last-name"
-        label="Last Name"
-        placeholder="Smith"
-        bind:value={form.lastName}
-        errors={form.errors.lastName}
-      />
-    </div>
+    
     <div class="flex gap-2">
       <div class="w-full">
         <Input
