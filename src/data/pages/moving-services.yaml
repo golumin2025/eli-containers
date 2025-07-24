@@ -11,6 +11,9 @@ blocks:
       bgImage: /src/assets/images/moving-services/blocks/0/value/bgImage.jpg
       title: Professional Moving Services
       showQuoteForm: true
+      showColdFrom: false
+      showStats: false
+      stats: []
   - discriminant: twoCol
     value:
       heading: Moving Made Easy in Manatee & Sarasota Counties.

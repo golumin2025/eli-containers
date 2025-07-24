@@ -2,7 +2,7 @@
 import QuoteForm from "@components/forms/QuoteForm.svelte";
 import Image from "astro/components/Image.astro";
 import { getEntry } from "astro:content";
-const { Sliderimages, quoteFormTitle, anchorLink } = Astro.props;
+const { Sliderimages, quoteFormTitle, anchorLink, showStats,stats, SectionTitle  } = Astro.props;
 const general = await getEntry("singletons", "general");
 ---
 
@@ -62,6 +62,25 @@ const general = await getEntry("singletons", "general");
     </div>
   </div>
 </div>
+{showStats && (
+  <div class="bg-[#E5EFFC] py-10 custom-container ">
+    <h2 class="text-sm font-semibold uppercase tracking-wider text-secondary mb-10 text-center ">
+        {SectionTitle}
+      </h2>
+    <div class=" mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 text-center gap-8">
+      {
+        stats.map((item) => (
+          <div class="flex flex-col lg:flex-row justify-center items-center gap-2">
+            <img src={item.icon} alt={item.label} class="w-8 h-8"  />
+            <p class="text-xl font-bold text-gray-800">{item.value}</p>
+            <p class="text-sm text-secondary">{item.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+)}
+
 
 <script>
   import Swiper from "swiper";

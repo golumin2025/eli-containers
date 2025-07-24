@@ -24,6 +24,27 @@ export const mainHero = {
       }
     ),
     quoteFormTitle: fields.text({ label: "Quote Form Title" }),
+
+    //  optional stats section
+    showStats: fields.checkbox({
+      label: "Show Stats Section Below Form",
+    }),
+    SectionTitle: fields.text({label: "Stats Section Title",}),
+    stats: fields.array(
+      fields.object({
+        icon: fields.image({
+          label: "Icon",
+          directory: "/public/images/icons",
+          publicPath: "/images/icons",
+        }),
+        value: fields.text({ label: "Value" }),
+        label: fields.text({ label: "Label" }),
+      }),
+      {
+        label: "Stats Items",
+        itemLabel: (props) => props.fields.label.value,
+      }
+    ),
   }),
 };
 
@@ -264,6 +285,26 @@ export const singleHero = {
       label: "Show Cold Form",
       defaultValue: false,
     }),
+    //  optional stats section
+    showStats: fields.checkbox({
+      label: "Show Stats Section Below Form",
+    }),
+     SectionTitle: fields.text({label: "Stats Section Title"}),
+     stats: fields.array(
+      fields.object({
+        icon: fields.image({
+          label: "Icon",
+          directory: "/public/images/icons",
+          publicPath: "/images/icons",
+        }),
+        value: fields.text({ label: "Value" }),
+        label: fields.text({ label: "Label" }),
+      }),
+      {
+        label: "Stats Items",
+        itemLabel: (props) => props.fields.label.value,
+      }
+    ),
   }),
 };
 
