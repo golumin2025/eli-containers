@@ -39,7 +39,7 @@ blocks:
         discriminant: image
         value:
           asset: >-
-            /images/events/moving-services/blocks/2/value/featuredMedia/value/asset.webp
+            /src/assets/images/moving-services/blocks/2/value/featuredMedia/value/asset.webp
       tabs:
         - title: Moving
           steps:

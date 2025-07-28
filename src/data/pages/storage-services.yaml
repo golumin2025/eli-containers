@@ -11,6 +11,9 @@ blocks:
       bgImage: /src/assets/images/storage-services/blocks/0/value/bgImage.jpg
       title: Secure & Affordable Storage Units
       showQuoteForm: true
+      showColdFrom: false
+      showStats: false
+      stats: []
   - discriminant: twoCol
     value:
       heading: Flexible & Secure Storage Solutions in Manatee & Sarasota Counties.
@@ -59,7 +62,7 @@ blocks:
         discriminant: image
         value:
           asset: >-
-            /images/events/storage-services/blocks/3/value/featuredMedia/value/asset.webp
+            /src/assets/images/storage-services/blocks/3/value/featuredMedia/value/asset.webp
       tabs:
         - title: Moving
           steps:

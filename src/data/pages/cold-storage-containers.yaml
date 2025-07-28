@@ -15,6 +15,8 @@ blocks:
         Fast and Easy!
       showQuoteForm: false
       showColdFrom: true
+      showStats: false
+      stats: []
   - discriminant: twoCol
     value:
       heading: Ice Cold Storage Portable Refrigeration Units
@@ -113,7 +115,7 @@ blocks:
         discriminant: image
         value:
           asset: >-
-            /images/events/cold-storage-containers/blocks/5/value/featuredMedia/value/asset.webp
+            /src/assets/images/cold-storage-containers/blocks/5/value/featuredMedia/value/asset.webp
       tabs:
         - title: Moving
           steps:

@@ -1,5 +1,6 @@
 ---
 const { logo, anchorLink, items = [] } = Astro.props;
+import ImageMod from "@components/ui/ImageMod.astro";
 ---
 
 <nav class="w-full px-10 py-10 bg-[#EFEFEF]  text-secondary">
@@ -7,7 +8,7 @@ const { logo, anchorLink, items = [] } = Astro.props;
     <!-- Logo -->
     {logo && (
       <a href={anchorLink || "#"}>
-        <img src={logo} alt="Logo" class="h-10 object-contain max-w-32" />
+        <ImageMod src={logo} alt="Logo" className="h-10 object-contain max-w-32" />
       </a>
     )}
 

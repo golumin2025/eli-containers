@@ -73,8 +73,8 @@ export const howPodsWork = {
         image: fields.object({
           asset: fields.image({
             label: "Image",
-            directory: "public/images/events",
-            publicPath: "/images/events/",
+            directory: "/src/assets/images/",
+          publicPath: "/src/assets/images/",
             validation: { isRequired: true },
           }),
           alt: fields.text({ label: "Alt", description: "Image alt text." }),

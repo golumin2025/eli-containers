@@ -34,12 +34,14 @@ const general = await getEntry("singletons", "general");
                                 src={general.data.logo.logo}
                                 alt="Logo"
                                 className="max-w-32"
+                                loading="eager"
                             />
                         ) : (
                             <ImageMod
                             src={general.data.logo.iceLogo}
                             alt="Logo"
                             className="max-w-18"
+                            loading="eager"
                         />
                         )}
                         {

@@ -1,4 +1,6 @@
 ---
+import ImageMod from "@components/ui/ImageMod.astro"
+
 const { featuredMedia, heading, tabs, anchorLink } = Astro.props
 ---
 
@@ -60,10 +62,10 @@ const { featuredMedia, heading, tabs, anchorLink } = Astro.props
         </div>
         {featuredMedia.discriminant === 'image' ? (
           <>
-            <img
-              src={featuredMedia.value.asset}
+            <ImageMod
+            src={featuredMedia.value.asset}
               alt="Featured Image"
-              class="w-full h-full object-cover rounded-2xl"
+              className="w-full h-full object-cover rounded-2xl"
             />
           </>
         ) : (

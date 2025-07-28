@@ -74,7 +74,7 @@
   </div>
   <div class="space-y-2">
     {#if form.serviceType === 'Storage' || form.serviceType === 'Storage & Moving'}
-      <h3 class="italic text-dark">Where would you like to store your container?</h3>
+      <h3 class="italic text-black">Where would you like to store your container?</h3>
       <button
         type="button"
         class={`py-1 px-4 rounded-md transition-colors flex-1 mr-3 ${form.storeItType === '1' ? 'bg-primary text-white shadow-md' : 'bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
