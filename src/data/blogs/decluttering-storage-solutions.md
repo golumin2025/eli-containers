@@ -1,6 +1,6 @@
 ---
 title: Decluttering Storage Solutions for Space and Efficiency
-blogImage: /images/decluttering-storage-solutions-/blogImage.jpg
+blogImage: /images/decluttering-storage-solutions/blogImage.jpg
 publicationDate: August 1, 2025
 draft: false
 seoData:
