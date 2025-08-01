@@ -7,7 +7,8 @@ blocks:
       title: 'Thank you! '
       description: |
         A specialist will contact you in 15 minutes or less.
-        If you need immediate assistance, please call 941-777-7269.
+        If you need immediate assistance, 
+        please call 941-777-7269.
       showQuoteForm: false
       showColdFrom: false
       showStats: false
