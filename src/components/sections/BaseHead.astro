@@ -5,11 +5,11 @@ import { createReader } from "@keystatic/core/reader";
 interface Props {
   title: string;
   description: string;
-  image?: any;
+  ogImage?: any;
 }
 const reader = createReader(process.cwd(), keystaticConfig);
 const general = await reader.singletons.general.read();
-const { title, description, image } = Astro.props;
+const { title, description, ogImage } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -28,7 +28,7 @@ const { title, description, image } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={ogImage} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
@@ -38,28 +38,25 @@ const { title, description, image } = Astro.props;
 
 <!-- Google tag (gtag.js) -->
 
-<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-1056418154"></script>
+<script
+  is:inline
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=AW-1056418154"></script>
 
 <script is:inline>
-
   window.dataLayer = window.dataLayer || [];
 
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() {
+    dataLayer.push(arguments);
+  }
 
-  gtag('js', new Date());
+  gtag("js", new Date());
 
-  gtag('config', 'AW-1056418154');
-
+  gtag("config", "AW-1056418154");
 </script>
-
 
 <script is:inline>
-
-  gtag('config', 'AW-1056418154/_nnoCKCP7dwDEOrS3vcD', {
-
-    'phone_conversion_number': '(941) 777-7269'
-
+  gtag("config", "AW-1056418154/_nnoCKCP7dwDEOrS3vcD", {
+    phone_conversion_number: "(941) 777-7269",
   });
-
 </script>
-

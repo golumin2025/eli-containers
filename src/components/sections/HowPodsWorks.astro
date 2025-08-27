@@ -1,87 +1,95 @@
 ---
-import ImageMod from "@components/ui/ImageMod.astro"
+import ImageMod from "@components/ui/ImageMod.astro";
+import { getAssetURL } from "@utils/getImage";
 
-const { featuredMedia, heading, tabs, anchorLink } = Astro.props
+const { item } = Astro.props;
+const { title, tabs, image, video_link, featured_media } = item;
 ---
 
 <div class="max-w-6xl px-6 mx-auto !py-16 lg:!py-24 relative">
-  {anchorLink && <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />}
-  <h2 class="text-4xl text-secondary lg:text-5xl text-center font-semibold mb-12">
-    {heading}
+  <h2
+    class="text-4xl text-secondary lg:text-5xl text-center font-semibold mb-12"
+  >
+    {title}
   </h2>
-  <div>
-    <!-- Tabs -->
-    <div class="flex justify-center items-center lg:flex-row flex-col gap-20">
-      <div class="h-auto relative lg:w-1/2 w-full">
+
+  <div class="flex justify-center items-center lg:flex-row flex-col gap-20">
+    <div class="h-auto relative lg:w-1/2 w-full">
+      {
+        tabs.map((tab, index) => (
+          <div
+            role="tabpanel"
+            id={`tabpanel-${tab.id}`}
+            aria-labelledby={`tab-${tab.id}`}
+            class={`tab-panel flex flex-col gap-10 overflow-hidden transition duration-300 ${
+              index === 0 ? "flex" : "hidden"
+            }`}
+          >
+            {tab.tabs_id.steps.map((step, stepIndex) => (
+              <div class="relative flex items-start">
+                <div class="relative pr-5 h-full">
+                  <div class="bg-primary number">{stepIndex + 1}</div>
+                  {stepIndex !== tab.tabs_id.steps.length - 1 && (
+                    <div class="number-line bg-primary" />
+                  )}
+                </div>
+
+                <div>
+                  <h3 class="text-2xl font-semibold mb-2 text-black">
+                    {step.title}
+                  </h3>
+                  <p class="text-xl font-light">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="lg:w-1/2 w-full">
+      <div
+        role="tablist"
+        aria-label="tabs"
+        class="relative flex border rounded-lg w-full mb-12 items-start overflow-hidden mt-8 transition"
+      >
         {
           tabs.map((tab, index) => (
-            <div
-              role="tabpanel"
-              id={`tabpanel-${tab.id}`}
-              aria-labelledby={`tab-${tab.id}`}
-              class={`tab-panel flex flex-col gap-10 overflow-hidden transition duration-300 ${
-                index === 0 ? 'flex ' : 'hidden '
+            <button
+              role="tab"
+              aria-selected={index === 0 ? "true" : "false"}
+              aria-controls={`tabpanel-${tab.id}`}
+              id={`tab-${tab.id}`}
+              class={`relative block flex-1 px-6 py-2 tab ${
+                index === 0 ? "active" : ""
               }`}
             >
-              {tab.steps.map((item, index) => (
-                <div class="relative flex items-start  ">
-                  <div class="relative pr-5 h-full ">
-                    <div class="bg-primary number">{index + 1}</div>
-                    {index !== tab.steps.length - 1 && <div class="number-line bg-primary" />}{' '}
-                  </div>
-
-                  <div class="">
-                    <h3 class="text-2xl font-semibold mb-2 text-black">{item.title}</h3>
-                    <p class="text-xl font-light">{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+              <span class="font-medium text-2xl whitespace-nowrap">
+                {tab.tabs_id.title}
+              </span>
+            </button>
           ))
         }
       </div>
-      <div class="lg:w-1/2 w-full">
-        <div
-          role="tablist"
-          aria-label="tabs"
-          class="relative flex border rounded-lg w-full mb-12 items-start overflow-hidden mt-8 transition"
-        >
-          {
-            tabs.map((tab, index) => (
-              <button
-                role="tab"
-                aria-selected={index === 0 ? 'true' : 'false'}
-                aria-controls={`tabpanel-${tab.id}`}
-                id={`tab-${tab.id}`}
-                class={`relative block flex-1  px-6 py-2 tab  ${index === 0 ? 'active' : ''}`}
-              >
-                <span class="font-medium text-2xl whitespace-nowrap">{tab.title}</span>
-              </button>
-            ))
-          }
-        </div>
-        {featuredMedia.discriminant === 'image' ? (
-          <>
-            <ImageMod
-            src={featuredMedia.value.asset}
-              alt="Featured Image"
-              className="w-full h-full object-cover rounded-2xl"
-            />
-          </>
+
+      {
+        featured_media === "image" ? (
+          <img
+            src={getAssetURL(image)}
+            alt="Featured Image"
+            class="w-full h-full object-cover rounded-2xl"
+          />
         ) : (
           <iframe
             class="w-full h-full rounded-2xl aspect-video"
-            src=`https://www.youtube.com/embed/${featuredMedia.value.url}?autoplay=0&mute=1&loop=1&playlist=v1JVp0xaFIk`
+            src={`https://www.youtube.com/embed/${video_link}?autoplay=0&mute=1&loop=1&playlist=${video_link}`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-          >
-          </iframe>
-        )}
-      </div>
+          />
+        )
+      }
     </div>
   </div>
-
-  <!-- Tab Panels -->
 </div>
 
 <style>
@@ -93,13 +101,13 @@ const { featuredMedia, heading, tabs, anchorLink } = Astro.props
 
   .tab.active {
     border-left: 1px solid #000;
-
-    background-color: rgb(0, 42, 92, 0.1);
+    background-color: rgba(0, 42, 92, 0.1);
   }
 
   .tab-panel {
     transition: opacity 0.3s ease-in-out;
   }
+
   .number {
     display: flex;
     justify-content: center;
@@ -112,40 +120,41 @@ const { featuredMedia, heading, tabs, anchorLink } = Astro.props
     font-size: 32px;
     position: relative;
   }
+
   .number-line {
     position: absolute;
     width: 4px;
-    height: 100%;
     left: 33.33%;
     top: 40px;
     transform: translateX(-50%);
     height: calc(100% + 4rem);
-    @media (min-width: 1024px) {
+  }
+
+  @media (min-width: 1024px) {
+    .number-line {
       height: calc(100% + 6rem);
     }
   }
 </style>
 
 <script>
-  const tabs = document.querySelectorAll('.tab')
-  const panels = document.querySelectorAll('.tab-panel')
+  const tabs = document.querySelectorAll(".tab");
+  const panels = document.querySelectorAll(".tab-panel");
 
   tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => {
-      // Set active tab
-      tabs.forEach((t) => t.classList.remove('active'))
-      tab.classList.add('active')
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => t.classList.remove("active"));
+      tab.classList.add("active");
 
-      // Show corresponding panel
       panels.forEach((panel, panelIndex) => {
         if (index === panelIndex) {
-          panel.classList.remove('hidden')
-          panel.classList.add('flex')
+          panel.classList.remove("hidden");
+          panel.classList.add("flex");
         } else {
-          panel.classList.add('hidden')
-          panel.classList.remove('flex')
+          panel.classList.add("hidden");
+          panel.classList.remove("flex");
         }
-      })
-    })
-  })
+      });
+    });
+  });
 </script>

@@ -1,0 +1,85 @@
+---
+import { getAssetURL } from "@utils/getImage";
+
+const { item } = Astro.props;
+const { cards, title } = item;
+---
+
+<section class="custom-container mx-auto px-4 relative py-10 lg:py-24">
+  <h2
+    class="text-4xl text-secondary lg:text-5xl text-center font-semibold mb-12"
+  >
+    {title}
+  </h2>
+  <div class="md:grid hidden md:grid-cols-3 divide-x gap-6">
+    {
+      cards.map((option) => (
+        <div class="text-center p-6 flex justify-center items-center flex-col">
+          <img
+            src={getAssetURL(option.why_us_card_id.image)}
+            alt={option.title}
+            class={` mb-4  ${option.why_us_card_id.full_image ? "w-full h-[200px] rounded-lg object-cover " : "w-24 h-auto rounded-full mx-auto"} `}
+          />
+          <h2 class="text-xl font-bold mb-4">{option.why_us_card_id.title}</h2>
+          <div class="mb-6 prose text-start text-sm ">
+            {option.why_us_card_id.description}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <div class="md:hidden block">
+    <div class="swiper storage-slider">
+      <div class="swiper-wrapper">
+        {
+          cards.map((option) => (
+            <div class=" swiper-slide text-center border p-6 rounded-lg shadow-md flex justify-between items-start flex-col">
+              <div>
+                <img
+                  src={getAssetURL(option.why_us_card_id.image)}
+                  alt={option.title}
+                  class={`mx-auto mb-4 rounded-full ${option.full_image ? "w-full h-[150px] object-cover " : "w-24 h-auto"} `}
+                />
+                <h2 class="text-xl font-bold mb-4">
+                  {option.why_us_card_id.title}
+                </h2>
+
+                <div class="mb-6 prose text-start text-sm ">
+                  {option.why_us_card_id.description}
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Autoplay } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/navigation";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    new Swiper(".storage-slider", {
+      modules: [Navigation, Autoplay],
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+        },
+      },
+    });
+  });
+</script>

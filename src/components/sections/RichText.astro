@@ -1,13 +1,10 @@
 ---
-const { content, isCentered = false } = Astro.props;
-import { marked } from "marked";
-
-const renderContent = marked.parse(content);
+const { item } = Astro.props;
 ---
 
-<div
-    class={`min-w-full pt-8 md:pb-12 pb-6 ${isCentered ? "!text-center" : ""} text-secondary `}
->
-    <div set:html={renderContent} class=" mx-auto px-10 sm:px-14 space-y-5 text-[16px] " />
+<div class={` custom-container pt-8 md:pb-12 pb-6 text-secondary `}>
+  <div
+    set:html={item.content}
+    class="mx-auto px-10 sm:px-14 space-y-5 text-[16px]"
+  />
 </div>
-
