@@ -2,15 +2,18 @@ title: Privacy Policy
 seoData:
   seoTitle: MI-BOX Moving & Storage Privacy Policy | Your Data Security
   seoDescription: >-
-    Read the official privacy policy of MI-BOX Moving & Storage. Learn how we
-    collect, use, and protect your personal information. We are committed to
-    your data security.
+    Read our Privacy Policy to understand how MI-BOX protects your personal
+    information. We are committed to ensuring your data is kept secure and
+    confidential.
 blocks:
   - discriminant: singleHero
     value:
       bgImage: /src/assets/images/privacy-policy/blocks/0/value/bgImage.jpg
       title: MI-BOX's Privacy Policy
       showQuoteForm: false
+      showColdFrom: false
+      showStats: false
+      stats: []
   - discriminant: twoCol
     value:
       heading: Privacy Policy
