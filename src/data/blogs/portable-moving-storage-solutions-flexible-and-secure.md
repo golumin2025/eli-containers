@@ -161,7 +161,7 @@ When unloading, take your time. Remove lighter and fragile items first, then hea
 
 ## **Cost Considerations for Portable Moving Storage**
 
-When you choose portable moving storage, several pricing factors influence the total cost. You also want to [compare these costs](http://www.boxrentalnow.com/#faq) to traditional moving options to see what fits your budget best.
+When you choose portable moving storage, several pricing factors influence the total cost. You also want to compare these costs to traditional moving options to see what fits your budget best.
 
 ### **Factors That Affect Pricing**
 
