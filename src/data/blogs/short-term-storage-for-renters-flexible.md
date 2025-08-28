@@ -6,9 +6,8 @@ draft: false
 seoData:
   seoTitle: Short-Term Storage for Renters | Box Rental Now
   seoDescription: >-
-    Need flexible storage? Box Rental Now delivers weatherproof mobile
-    containers to renters for moves, renovations, or extra space—no truck
-    required.
+    Need short-term storage for renters? Our flexible, local, and secure
+    containers are perfect for temporary moves, renovations, and decluttering.
 ---
 If you're a renter, finding short-term storage that’s both flexible and affordable can be a challenge. Especially when space is limited and plans change quickly.
 
