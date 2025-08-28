@@ -2,15 +2,18 @@ title: Website Accessibility
 seoData:
   seoTitle: MI-BOX Moving & Storage Accessibility Statement | Website Access
   seoDescription: >-
-    Read the MI-BOX Moving Mobile & Storage Accessibility Statement. Learn about
-    our commitment to website accessibility for all users, including those with
-    disabilities.
+    We are committed to providing a website that is accessible to all users.
+    Learn about our efforts to ensure a user-friendly and inclusive online
+    experience.
 blocks:
   - discriminant: singleHero
     value:
       bgImage: /src/assets/images/website-accessibility/blocks/0/value/bgImage.jpg
       title: MI-BOX Website Accessibility Statement
       showQuoteForm: false
+      showColdFrom: false
+      showStats: false
+      stats: []
   - discriminant: twoCol
     value:
       heading: Accessibility Statement for MI-BOX Moving Mobile & Storage
