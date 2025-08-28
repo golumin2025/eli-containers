@@ -5,6 +5,10 @@ publicationDate: June 26, 2025
 draft: false
 seoData:
   seoTitle: 'Weatherproof Storage Units: a Reliable, Storm-Ready Solution!'
+  seoDescription: >-
+    Protect your valuables from the elements with our weatherproof storage
+    units. Our storm-ready solutions offer reliable protection and peace of
+    mind.
 ---
 When you want to protect your belongings, weatherproof storage units make a big difference. **Their storm-ready design keeps out water, dust, and wind while staying secure and durable through harsh weather.** This keeps your things dry and safe no matter the conditions outside.
 
