@@ -2,15 +2,17 @@ title: Terms and Conditions
 seoData:
   seoTitle: MI-BOX Moving & Storage Terms of Use | Website Agreement
   seoDescription: >-
-    Read the official Terms of Use for the MI-BOX Moving Mobile & Storage
-    website. Understand the rules, regulations, and agreements for using our
-    online services.
+    Read the terms and conditions for using our website and services. By using
+    our site, you agree to these terms for MI-BOX Moving & Storage.
 blocks:
   - discriminant: singleHero
     value:
       bgImage: /src/assets/images/terms-conditions/blocks/0/value/bgImage.jpg
       title: MI-BOX's Terms & Conditions
       showQuoteForm: false
+      showColdFrom: false
+      showStats: false
+      stats: []
   - discriminant: twoCol
     value:
       heading: Terms Of Use
