@@ -1,8 +1,6 @@
 title: Contact Us
 seoData:
-  seoTitle: >-
-    Contact MI-BOX Moving Mobile & Storage | Get Your Free Moving & Storage
-    Quote
+  seoTitle: 'Contact MI-BOX: Get Your Free Moving & Storage Quote'
   seoDescription: >-
     Contact MI-BOX Moving Mobile & Storage in Manatee and Sarasota Counties for
     a free quote on your moving or storage needs. Reach our friendly team today!
@@ -12,6 +10,9 @@ blocks:
       bgImage: /src/assets/images/contact-us/blocks/0/value/bgImage.jpg
       title: Contact MI-BOX
       showQuoteForm: true
+      showColdFrom: false
+      showStats: false
+      stats: []
   - discriminant: twoCol
     value:
       heading: Find your nearest MI-BOX location
