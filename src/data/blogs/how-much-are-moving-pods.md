@@ -4,7 +4,7 @@ blogImage: /images/how-much-are-moving-pods/blogImage.jpg
 publicationDate: August 11, 2025
 draft: false
 seoData:
-  seoTitle: How Much Are Moving Pods? Costs & Rental Tips
+  seoTitle: How Much Are Moving Pods? Costs & Rental Tips!
   seoDescription: >-
     Learn moving pod prices, what affects costs, and how to save. Get flexible,
     weatherproof container rentals delivered near you.
