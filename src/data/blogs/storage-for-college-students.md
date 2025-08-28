@@ -6,8 +6,8 @@ draft: false
 seoData:
   seoTitle: Storage for College Students | Dorm & Summer Solutions
   seoDescription: >-
-    Get flexible, weatherproof storage for college students. Delivered to your
-    door for easy summer, semester, or dorm room storage.
+    Get essential storage for college students with our helpful tips. Learn how
+    to maximize dorm space and store belongings during breaks.
 ---
 Living in a dorm or apartment often means limited space for your stuff. **A portable, weatherproof container is an ideal storage for college students.** You can keep your belongings safe and avoid the hassle of constant moving.
 
