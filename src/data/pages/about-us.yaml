@@ -2,15 +2,17 @@ title: About Us
 seoData:
   seoTitle: About MI-BOX Moving Mobile & Storage | Your Local Moving & Storage Experts
   seoDescription: >-
-    Learn more about MI-BOX Moving Mobile & Storage, your trusted local moving
-    and storage company serving Manatee and Sarasota Counties with reliable and
-    friendly service.
+    MI-BOX is your safe, local, and affordable moving & storage solution. We
+    provide convenient, on-site storage containers for your home or business.
 blocks:
   - discriminant: singleHero
     value:
       bgImage: /src/assets/images/about-us/blocks/0/value/bgImage.jpg
       title: About MI-BOX Moving & Storage
       showQuoteForm: true
+      showColdFrom: false
+      showStats: false
+      stats: []
   - discriminant: cards
     value:
       title: Who We Are
