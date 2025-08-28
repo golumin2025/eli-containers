@@ -6,8 +6,9 @@ draft: false
 seoData:
   seoTitle: Affordable Moving & Storage in Florida | Box Rental Now
   seoDescription: >-
-    Weatherproof mobile storage delivered across Florida. Save time and money
-    with Box Rental Now’s flexible moving solutions.
+    Get the best value for your money with affordable moving and storage in
+    Florida. We offer convenient, portable containers delivered right to your
+    door.
 ---
 Moving across Florida—or even just across town—can feel overwhelming. Downsizing, remodeling, or transitioning between homes? You need storage that’s both flexible and reliable. That’s where Box Rental Now makes a difference.
 
