@@ -6,8 +6,8 @@ draft: false
 seoData:
   seoTitle: On-Site Storage for Contractors | Job Site Containers!
   seoDescription: >-
-    Secure, on-site storage for contractors. Save time and money with
-    weatherproof containers delivered directly to your Gulf Coast job site.
+    On-site storage for contractors helps you save time and money. Our secure
+    containers keep your tools and materials safe on the job site.
 ---
 Managing a job site is all about timing, tools, and staying organized. For many contractors, delays often stem from a single issue: your gear isn’t where you need it. That’s where on-site storage for contractors helps by keeping tools, supplies, and equipment where work happens.
 
