@@ -6,9 +6,8 @@ draft: false
 seoData:
   seoTitle: Event Storage Containers Delivered | Box Rental Now
   seoDescription: >-
-    Secure, weatherproof storage containers delivered to your event site.
-    Flexible rental options from Box Rental Now keep your gear safe and setup
-    stress-free.
+    Get secure and hassle-free event storage containers delivered directly to
+    your venue. Organize and protect your event supplies with ease.
 ---
 Planning an event is exciting—but keeping track of tables, decor, catering gear, and last-minute supplies? That’s where things get stressful. With *Box Rental Now*, you don’t have to cram gear into your garage or make endless trips with borrowed trucks.
 
