@@ -4,7 +4,7 @@ blogImage: /images/affordable-long-term-mobile-storage-for-life-transitions/blog
 publicationDate: August 14, 2025
 draft: false
 seoData:
-  seoTitle: Long-Term Mobile Storage for Life Transitions
+  seoTitle: Long-Term Mobile Storage for Life Transitions.
   seoDescription: >-
     Need secure storage during life changes? Explore long-term mobile storage
     options with flexible delivery and weatherproof protection.
