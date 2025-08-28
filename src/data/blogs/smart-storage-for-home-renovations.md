@@ -5,9 +5,9 @@ publicationDate: July 26, 2025
 draft: false
 seoData:
   seoTitle: Smart Storage for Home Renovations | Box Rental Now
-  seoDescription: >
-    Stay clutter-free during your home renovation with weatherproof mobile
-    storage containers delivered to your door. Local, flexible, and secure.
+  seoDescription: >-
+    Use smart storage for home renovations to stay organized and clutter-free.
+    Protect your belongings with a container delivered right to your doorstep.
 ---
 Renovating your home often leads to mess and misplaced belongings. This is especially true when rooms are torn apart or large furniture gets moved around.
 
