@@ -6,8 +6,9 @@ draft: false
 seoData:
   seoTitle: Garage Renovation Storage | Portable, Secure Containers
   seoDescription: >-
-    Keep your garage renovation clutter-free with weatherproof storage delivered
-    to your door. Rent flexible containers during your home upgrade.
+    Clear out your garage for a renovation with our convenient storage
+    containers. Get the space and organization you need to complete your
+    project.
 ---
 Renovating your garage can unlock more space and improve how you store your belongings. **A secure, accessible storage system makes your garage more organized and protects items from weather and damage.**
 
