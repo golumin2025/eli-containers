@@ -1,7 +1,7 @@
 ---
 title: Climate-Controlled Mobile Storage for Home and Business Needs
 blogImage: /images/climate-controlled-mobile-storage/blogImage.jpg
-publicationDate: 09/03/2025
+publicationDate: September 3. 2025
 draft: false
 seoData:
   seoTitle: Climate-Controlled Mobile Storage | Box Rental Now
