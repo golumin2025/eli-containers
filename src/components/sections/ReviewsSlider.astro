@@ -1,17 +1,16 @@
 ---
-import ImageMod from '@components/ui/ImageMod.astro'
-import { shuffleArray } from '@utils/Randomize'
-import { getCollection } from 'astro:content'
-const allReviews = await getCollection('reviews')
-const reviews = shuffleArray(allReviews)
-const { logos, title, anchorLink } = Astro.props
+import ImageMod from "@components/ui/ImageMod.astro";
+import { shuffleArray } from "@utils/Randomize";
+
+const { item } = Astro.props;
+const { title, cards } = item;
+const reviews = shuffleArray(cards);
 ---
 
 <div
   class="overflow-hidden custom-container lg:py-16 px-6 lg:px-0 py-12 relative"
   data-aos="fade-up"
 >
-  {anchorLink && <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />}
   <div class="fade-up relative">
     <div class="flex items-center gap-12 justify-between flex-col mb-12">
       {
@@ -21,44 +20,37 @@ const { logos, title, anchorLink } = Astro.props
           </h2>
         )
       }
-      <div class="flex items-center gap-3 md:gap-8 min-w-max md:min-w-0 md:grid md:grid-cols-5">
-        {
-          logos.map((logo) => (
-            <div class="w-[120px] h-[60px] md:w-full md:h-[80px] flex items-center justify-center">
-              <ImageMod
-                src={logo.image}
-                alt="logo"
-                width={800}
-                height={400}
-                className="object-contain w-full h-full px-2"
-              />
-            </div>
-          ))
-        }
-      </div>
     </div>
+
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         {
-          reviews.map((review) => (
+          reviews.map((review: any) => (
             <div class="swiper-slide bg-white p-6 rounded-xl shadow-md shadow-gray-900/5 border-2 border-gray-100">
               <div class="flex flex-col h-full min-h-[280px] ">
                 <div class="flex items-center gap-4 mb-4">
                   <div class="bg-primary w-10 h-10 flex justify-center items-center text-white text-xl uppercase font-bold rounded-full">
-                    {review.data.name[0]}
+                    {review.testimonial_card_id.name[0]}
                   </div>
                   <div>
-                    <p class="font-semibold text-sm">{review.data.name}</p>
+                    <p class="font-semibold text-sm">
+                      {review.testimonial_card_id.name}
+                    </p>
                     <div class="text-yellow-400 flex items-center">
-                      {[...Array(5)].map((_) => (
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                      ))}
+                      {[...Array(review.testimonial_card_id.rating)].map(
+                        (_, i) => (
+                          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                          </svg>
+                        )
+                      )}
                     </div>
                   </div>
                 </div>
-                <p class="text-gray-600 line-clamp-[7]">{review.data.content}</p>
+                <p
+                  class="text-gray-600 line-clamp-[7]"
+                  set:html={review.testimonial_card_id.content}
+                />
               </div>
             </div>
           ))
@@ -69,38 +61,30 @@ const { logos, title, anchorLink } = Astro.props
 </div>
 
 <script>
-  import Swiper from 'swiper'
-  import { Navigation, Autoplay } from 'swiper/modules'
-  import 'swiper/css'
-  import 'swiper/css/navigation'
+  import Swiper from "swiper";
+  import { Navigation, Autoplay } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/navigation";
 
-  document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('.mySwiper', {
+  document.addEventListener("DOMContentLoaded", function () {
+    new Swiper(".mySwiper", {
       modules: [Navigation, Autoplay],
       slidesPerView: 1,
       spaceBetween: 20,
       loop: true,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
       autoplay: {
         delay: 2500,
         disableOnInteraction: false,
       },
       breakpoints: {
-        640: {
-          slidesPerView: 2,
-        },
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-        1024: {
-          spaceBetween: 10,
-          slidesPerView: 4,
-        },
+        640: { slidesPerView: 2 },
+        768: { slidesPerView: 3, spaceBetween: 20 },
+        1024: { spaceBetween: 10, slidesPerView: 4 },
       },
-    })
-  })
+    });
+  });
 </script>

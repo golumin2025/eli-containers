@@ -1,49 +1,58 @@
 ---
-const { title, anchorLink, description, bgImage, showQuoteForm, showColdFrom, showStats,stats, SectionTitle } =
-  Astro.props;
 import ImageMod from "@components/ui/ImageMod.astro";
 import QuoteForm from "../forms/QuoteForm.svelte";
 import ColdStorageForm from "../forms/ColdStorageForm.svelte";
-import { getEntry } from "astro:content";
-const general = await getEntry("singletons", "general");
+import { getAssetURL } from "src/utils/getImage";
+import { getGlobal } from "src/lib/getPageData";
+
+const { item, general, SectionTitle, stats, showStats } = Astro.props;
+
+const global = await getGlobal();
+const title = item.title;
+const description = item.description ?? "";
+const bgImage = getAssetURL(item.bg_image);
+
+const formType = item.form_type;
 ---
 
 <section
   class="relative custom-container min-h-[450px] mt-6 rounded-xl overflow-hidden"
 >
-  {
-    anchorLink && (
-      <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />
-    )
-  }
-  <ImageMod
+  <img
     src={bgImage}
     alt="Hero background"
-    className="absolute inset-0 w-full h-full object-cover"
+    class="absolute inset-0 w-full h-full object-cover"
   />
   <div class="absolute inset-0 gradient-overlay"></div>
+
   <div
     class="relative py-16 flex flex-col md:flex-row gap-8 justify-between items-center text-white z-10"
   >
     <div class="md:w-1/2 w-full">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
-      <p class="text-2xl font-bold whitespace-pre-wrap">{description}</p>
+      {
+        description && (
+          <p class="text-2xl font-bold whitespace-pre-wrap">{description}</p>
+        )
+      }
     </div>
+
     {
-      showQuoteForm && (
+      formType === "quote_form" && (
         <div class="md:w-1/2 w-full flex justify-end">
           <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
             <QuoteForm
               client:only="svelte"
-              phoneNumber={general.data.contactInformation.phoneDisplay}
-              promoCode={general.data.currentPromoCode}
+              phoneNumber={global.phone_number}
+              promoCode={global.promo_code}
             />
           </div>
         </div>
       )
     }
+
     {
-      showColdFrom && (
+      formType === "cold_form" && (
         <div class="md:w-1/2 w-full flex justify-end">
           <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
             <ColdStorageForm client:only="svelte" />
@@ -53,24 +62,25 @@ const general = await getEntry("singletons", "general");
     }
   </div>
 </section>
-{showStats && (
-  <div class="bg-[#E5EFFC] py-10 custom-container ">
-    <h2 class="text-sm font-semibold uppercase tracking-wider text-secondary mb-10 text-center ">
+
+{
+  showStats && (
+    <div class="bg-[#E5EFFC] py-10 custom-container">
+      <h2 class="text-sm font-semibold uppercase tracking-wider text-secondary mb-10 text-center">
         {SectionTitle}
       </h2>
-    <div class=" mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 text-center gap-8">
-      {
-        stats.map((item) => (
+      <div class="mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 text-center gap-8">
+        {stats.map((stat) => (
           <div class="flex flex-col lg:flex-row justify-center items-center gap-2">
-            <img src={item.icon} alt={item.label} class="w-8 h-8"  />
-            <p class="text-xl font-bold text-gray-800">{item.value}</p>
-            <p class="text-sm text-secondary">{item.label}</p>
+            <img src={stat.icon} alt={stat.label} class="w-8 h-8" />
+            <p class="text-xl font-bold text-gray-800">{stat.value}</p>
+            <p class="text-sm text-secondary">{stat.label}</p>
           </div>
-        ))
-      }
+        ))}
+      </div>
     </div>
-  </div>
-)}
+  )
+}
 
 <style>
   .gradient-overlay {

@@ -1,32 +1,30 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
+import { getSinglePost } from "src/lib/getPageData";
 
-export async function getStaticPaths() {
-  const posts = await getCollection("blogs");
-  return posts.map((post: any) => ({
-    params: { slug: post.id },
-    props: post,
-  }));
+const { slug } = Astro.params;
+const post = await getSinglePost("blogs", slug);
+
+if (!post) {
+  throw new Error(`Blog not found for slug: ${slug}`);
 }
-type Props = CollectionEntry<"blogs">;
 
-const post = Astro.props;
+// grab SEO info
+const pageData = post.seo || {};
 ---
 
 <Layout
-  title={post.data.title}
-  description=""
-  pageUrl={`/blog/${post.id}`} 
+  title={pageData?.title || post.title}
+  description={pageData?.meta_description}
+  ogImage={pageData?.og_image}
+  pageUrl={`/blog/${slug}`}
 >
   <div class="custom-container py-16">
-    <h1 class="text-4xl text-center text-primary font-bold">
-      {post.data.title}
-    </h1>
     <div
       class="prose prose-headings:text-primary !max-w-5xl mx-auto prose-headings:font-semibold prose-a:text-primary pt-8 md:pb-12 pb-6"
     >
-      <div set:html={post.rendered.html} />
+      <!-- render blog HTML content from Directus -->
+      <div set:html={post.content} />
     </div>
   </div>
 </Layout>

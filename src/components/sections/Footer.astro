@@ -1,32 +1,48 @@
 ---
-import ImageMod from '@components/ui/ImageMod.astro'
-import { getEntry } from 'astro:content'
-const footer = await getEntry('singletons', 'footer')
-const general = await getEntry('singletons', 'general')
-const footerData = footer.data
-let { pageUrl } = Astro.props
+import { getAssetURL } from "@utils/getImage";
+import { getFooter, getGlobal } from "src/lib/getPageData";
+
+const footer = await getFooter();
+let { pageUrl } = Astro.props;
+const global = await getGlobal();
 ---
 
 <footer class="bg-[#f7f7f7] text-dark py-12 lg:py-16">
   <div class="custom-container mx-auto flex flex-wrap justify-between">
+    <!-- Logo -->
     <div class="w-full flex justify-center mb-6">
-      {!["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) ? (
-        <ImageMod src={general.data.logo.footerLogo} alt="Logo" className="h-24 object-contain" />
-      ) : (
-        <ImageMod src={general.data.logo.iceFooterLogo} alt="Logo" className="h-24 object-contain" />
-      )}
+      {
+        !["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) ? (
+          <img
+            src={getAssetURL(global.logo)}
+            alt="Logo"
+            class="h-24 object-contain"
+          />
+        ) : (
+          <img
+            src={getAssetURL(global.ice_logo || global.logo)}
+            alt="Logo"
+            class="h-24 object-contain"
+          />
+        )
+      }
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full my-14 items-start gap-4">
+    <!-- Footer Columns -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full my-14 items-start gap-8"
+    >
       {
-        footerData.navitems.map((section) => (
-          <div class="w-full  mb-6">
-            <h3 class="text-lg font-semibold">{section.title}</h3>
+        footer.footer_items.map((section) => (
+          <div class="w-full mb-6">
+            <h3 class="text-lg font-semibold">
+              {section.footer_item_id.title}
+            </h3>
             <ul class="mt-2 space-y-2">
-              {section.links.map((link) => (
+              {section.footer_item_id.links.map((link) => (
                 <li>
-                  <a href={link.url} class="text-dark hover:text-dark">
-                    {link.name}
+                  <a href={link.link} class="text-dark hover:text-primary">
+                    {link.label}
                   </a>
                 </li>
               ))}
@@ -34,36 +50,22 @@ let { pageUrl } = Astro.props
           </div>
         ))
       }
-      {
-        footerData.socialLinks.map((social) => (
-          <div class="">
-            <h3 class="text-lg font-semibold mb-2">Follow Us</h3>
-            <div class="flex space-x-4">
-              <a href={social.url} class="text-dark text-2xl">
-                <ImageMod src={social.icon} alt={social.name} className="h-8 w-fit" />
-              </a>
-            </div>
-          </div>
-        ))
-      }
     </div>
 
+    <!-- Legal Links -->
     <div class="flex justify-center md:flex-row flex-col w-full gap-4">
       {
-        footerData.legal.map((item) => (
-          <a href={item.link} class="text-dark text-xs">
+        footer.legal_links.map((item) => (
+          <a href={item.link} class="text-dark text-xs hover:text-primary">
             {item.title}
           </a>
         ))
       }
     </div>
+
+    <!-- Copyright -->
     <div class="w-full text-center text-sm mt-6 text-dark">
-      <p>© 2006 - {new Date().getFullYear()} MI-BOX Moving & Mobile Storage Enterprises LLC.</p>
-      <p>All rightsreserved.</p>
-      <p>
-        MI-BOX Moving & Mobile Storage® is a registered trademark of MI-BOX Moving & Mobile Storage
-        Enterprises LLC.
-      </p>
+      <p set:html={footer.copyright_description} />
     </div>
   </div>
 </footer>

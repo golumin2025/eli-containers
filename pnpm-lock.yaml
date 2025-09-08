@@ -26,6 +26,9 @@ importers:
       '@astrojs/svelte':
         specifier: ^7.0.5
         version: 7.1.0(@types/node@24.0.3)(astro@5.10.1(@netlify/blobs@8.2.0)(@types/node@24.0.3)(idb-keyval@6.2.2)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.0)(typescript@5.8.3))(jiti@2.4.2)(lightningcss@1.30.1)(svelte@5.34.7)(typescript@5.8.3)
+      '@directus/sdk':
+        specifier: ^20.0.2
+        version: 20.0.2
       '@keystatic/astro':
         specifier: ^5.0.6
         version: 5.0.6(@keystatic/core@0.5.47(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(astro@5.10.1(@netlify/blobs@8.2.0)(@types/node@24.0.3)(idb-keyval@6.2.2)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.0)(typescript@5.8.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -258,6 +261,10 @@ packages:
   '@dependents/detective-less@5.0.1':
     resolution: {integrity: sha512-Y6+WUMsTFWE5jb20IFP4YGa5IrGY/+a/FbOSjDF/wz9gepU2hwCYSXRHP/vPwBvwcY3SVMASt4yXxbXNXigmZQ==}
     engines: {node: '>=18'}
+
+  '@directus/sdk@20.0.2':
+    resolution: {integrity: sha512-eZu61BdWN1R4h6A/K3jIiZfK8WMg3z5JLDPrdGPA8ZWpXjXlR0qtPOBJ0dZFJn25C2Huu0ND6UMrFlhDgkIwyw==}
+    engines: {node: '>=22'}
 
   '@emnapi/runtime@1.4.3':
     resolution: {integrity: sha512-pBPWdu6MLKROBX05wSNKcNb++m5Er+KQ9QkB+WVM+pW2Kx9hoSrVTnu3BdkI5eBLZoKu/J6mW/B6i6bJB2ytXQ==}
@@ -4914,6 +4921,8 @@ snapshots:
     dependencies:
       gonzales-pe: 4.3.0
       node-source-walk: 7.0.1
+
+  '@directus/sdk@20.0.2': {}
 
   '@emnapi/runtime@1.4.3':
     dependencies:

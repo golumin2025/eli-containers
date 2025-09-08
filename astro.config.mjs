@@ -10,8 +10,8 @@ import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: 'https://miboxmovingandstorage.com',
-  trailingSlash: 'ignore',
+  site: "https://miboxmovingandstorage.com",
+  trailingSlash: "ignore",
   redirects: {
     "/thankyou/": "/thank-you",
   },
@@ -26,7 +26,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  output: "static",
+  output: "server",
   adapter: netlify(),
 });
-
