@@ -22,14 +22,6 @@ const { title, description, pageUrl, ogImage } = Astro.props;
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} ogImage={ogImage} />
-    {
-      general.analyticsScripts.map(
-        (headScript) =>
-          headScript.location === "head" && (
-            <Fragment set:html={headScript.scriptContent} />
-          )
-      )
-    }
   </head>
   <body class="overflow-x-hidden">
     <Header pageUrl={pageUrl} />
@@ -40,13 +32,5 @@ const { title, description, pageUrl, ogImage } = Astro.props;
     }
     <slot />
     <Footer pageUrl={pageUrl} />
-    {
-      general.analyticsScripts.map(
-        (footScript) =>
-          footScript.location === "body" && (
-            <Fragment set:html={footScript.scriptContent} />
-          )
-      )
-    }
   </body>
 </html>
