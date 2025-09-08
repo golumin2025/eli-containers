@@ -26,20 +26,33 @@ const global = await getGlobal();
 
       <!-- Logo + tagline -->
       <div class="flex flex-col">
-        <a
-          href="/"
-          class="text-xl font-bold text-gray-800 flex items-center gap-2"
-        >
-          <img
-            src={getAssetURL(global.logo)}
-            alt="Logo"
-            class="max-w-32"
-            loading="eager"
-          />
-        </a>
         {
-          nav?.logo_tagline && (
-            <span class="text-sm text-gray-600">{nav.logo_tagline}</span>
+          !["cold-storage-containers", "thank-you-coolers"].includes(
+            pageUrl
+          ) ? (
+            <div>
+              <a
+                href="/"
+                class="text-xl font-bold text-gray-800 flex items-center gap-2"
+              >
+                <img
+                  src={getAssetURL(global.logo)}
+                  alt="Logo"
+                  class="max-w-32"
+                  loading="eager"
+                />
+              </a>
+
+              {nav?.logo_tagline && (
+                <span class="text-sm text-gray-600">{nav.logo_tagline}</span>
+              )}
+            </div>
+          ) : (
+            <img
+              src={getAssetURL(global.ice_logo || global.logo)}
+              alt="Logo"
+              class="h-16 object-contain"
+            />
           )
         }
       </div>
