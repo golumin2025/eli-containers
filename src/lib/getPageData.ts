@@ -9,7 +9,7 @@ const defaultFields = [
       {
         item: [
           "*",
-          { image_id: ["*"] },
+          { images: ["*", { image_id: ["*"] }] },
           { category: ["*"] },
           { logos: ["*"] },
           { button: ["*"] },

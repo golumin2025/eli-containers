@@ -17,8 +17,8 @@ const logos = [...item.images, ...item.images, ...item.images];
         {
           logos.map((logo, index) => (
             <img
-              class="img"
-              src={getAssetURL(logo.image_id)}
+              class="img object-contain"
+              src={getAssetURL(logo.image_id.image)}
               alt="logo"
               width={200}
               height={200}
@@ -41,7 +41,7 @@ const logos = [...item.images, ...item.images, ...item.images];
   .logo_items {
     display: flex;
     gap: 50px;
-    animation: slides 100s linear infinite;
+    animation: slides 50s linear infinite;
   }
   .logos::before {
     content: "";
