@@ -1,7 +1,7 @@
 ---
 import { getAssetURL } from "@utils/getImage";
 
-const { blog_image, date, title, link } = Astro.props;
+const { blog_image, publication_date, title, link } = Astro.props;
 function formatDate(dateStr) {
   const dateObj = new Date(dateStr);
   return dateObj
@@ -31,7 +31,7 @@ function formatDate(dateStr) {
   <div
     class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-gray-300"
   >
-    <span class="mr-8">{formatDate(date)}</span>
+    <span class="mr-8">{formatDate(publication_date)}</span>
   </div>
   <h3 class="mt-3 text-lg/6 font-semibold text-white">
     <a href={`/blog/${link}`}>
