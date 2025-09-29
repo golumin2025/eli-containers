@@ -14,16 +14,20 @@ import { getSinglePage } from "src/lib/getPageData";
 import WhyUS from "@components/sections/WhyUS.astro";
 import LogoSlider from "@components/sections/LogoSlider.astro";
 
-const homePage = await getSinglePage("pages", "/");
+const { slug } = Astro.params;
+
+const safeSlug = typeof slug === "string" ? slug : "";
+const pageData = await getSinglePage("pages", safeSlug);
 ---
 
 <Layout
-  title={homePage.seo.title}
-  description={homePage.seo.meta_description}
-  ogImage={homePage.seo.og_image}
+  title={pageData?.seo.title}
+  description={pageData?.seo.meta_description}
+  ogImage={pageData?.seo.og_image}
+  pageUrl={slug}
 >
   {
-    homePage?.blocks.map((item: any) => (
+    pageData?.blocks.map((item: any) => (
       <>
         {item.collection === "hero" && <MainHero item={item.item} />}
         {item.collection === "how_it_works" && (

@@ -1,20 +1,31 @@
 ---
-import ImageMod from '@components/ui/ImageMod.astro'
+import ImageMod from "@components/ui/ImageMod.astro";
+import { getAssetURL } from "@utils/getImage";
 
-const { cards, title, anchorLink } = Astro.props
+const { item } = Astro.props;
+const { title, cards } = item;
 ---
 
 <section class="custom-container mx-auto px-4 py-10 lg:py-24 relative">
-  {anchorLink && <a id={anchorLink} class="absolute -top-20" style="visibility: hidden;" />}
-  <h2 class="text-4xl text-secondary lg:text-5xl text-center font-semibold mb-12">{title}</h2>
+  <h2
+    class="text-4xl text-secondary lg:text-5xl text-center font-semibold mb-12"
+  >
+    {title}
+  </h2>
   <div class="md:grid hidden md:grid-cols-3 gap-6">
     {
       cards.map((option) => (
         <div class="text-center border p-6 rounded-lg shadow-md flex justify-between items-start flex-col">
           <div>
-            <ImageMod src={option.image} alt={option.size} className="mx-auto mb-4 w-24 h-auto" />
+            <img
+              src={getAssetURL(option.image)}
+              alt={option.size}
+              class="mx-auto mb-4 w-24 h-auto"
+            />
             <h3 class="text-xl font-semibold">{option.size}</h3>
-            <p class="text-primary text-lg font-semibold mb-2">{option.dimension}</p>
+            <p class="text-primary text-lg font-semibold mb-2">
+              {option.dimension}
+            </p>
             <ul class="text-left text-sm mb-4">
               {option.description.map((item) => (
                 <li class="mb-1">• {item}</li>
@@ -22,7 +33,10 @@ const { cards, title, anchorLink } = Astro.props
             </ul>
           </div>
           <div class="flex justify-center items-center">
-            <a href={option.link} class="text-red-600 text-center  font-semibold">
+            <a
+              href={option.link}
+              class="text-red-600 text-center  font-semibold"
+            >
               Get more information
             </a>
           </div>
@@ -37,13 +51,15 @@ const { cards, title, anchorLink } = Astro.props
           cards.map((option) => (
             <div class=" swiper-slide text-center border p-6 rounded-lg shadow-md flex justify-between items-start flex-col">
               <div>
-                <ImageMod
+                <img
                   src={option.image}
                   alt={option.size}
-                  className="mx-auto mb-4 w-24 h-auto"
+                  class="mx-auto mb-4 w-24 h-auto"
                 />
                 <h3 class="text-xl font-semibold">{option.size}</h3>
-                <p class="text-primary text-lg font-semibold mb-2">{option.dimension}</p>
+                <p class="text-primary text-lg font-semibold mb-2">
+                  {option.dimension}
+                </p>
                 <ul class="text-left text-sm mb-4">
                   {option.description.map((item) => (
                     <li class="mb-1">• {item}</li>
@@ -51,7 +67,10 @@ const { cards, title, anchorLink } = Astro.props
                 </ul>
               </div>
               <div class="flex justify-center items-center">
-                <a href={option.link} class="text-red-600 text-center  font-semibold">
+                <a
+                  href={option.link}
+                  class="text-red-600 text-center  font-semibold"
+                >
                   Get more information
                 </a>
               </div>
@@ -63,20 +82,20 @@ const { cards, title, anchorLink } = Astro.props
   </div>
 </section>
 <script>
-  import Swiper from 'swiper'
-  import { Navigation, Autoplay } from 'swiper/modules'
-  import 'swiper/css'
-  import 'swiper/css/navigation'
+  import Swiper from "swiper";
+  import { Navigation, Autoplay } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/navigation";
 
-  document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('.storage-slider', {
+  document.addEventListener("DOMContentLoaded", function () {
+    new Swiper(".storage-slider", {
       modules: [Navigation, Autoplay],
       slidesPerView: 1,
       spaceBetween: 20,
       loop: true,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
       autoplay: {
         delay: 2500,
@@ -87,6 +106,6 @@ const { cards, title, anchorLink } = Astro.props
           slidesPerView: 1,
         },
       },
-    })
-  })
+    });
+  });
 </script>

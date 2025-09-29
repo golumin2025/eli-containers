@@ -1,0 +1,89 @@
+---
+import { getAssetURL } from "@utils/getImage";
+
+const { item } = Astro.props;
+const logos = [...item.images, ...item.images, ...item.images];
+---
+
+<div class="bg-white py-16">
+  <div class="custom-container">
+    <div
+      class="logos overlay relative"
+      data-aos="fade-fade-up"
+      data-aos-duration="800"
+      data-aos-easing="ease-in-out"
+    >
+      <div class="logo_items flex justify-center items-center gap-4">
+        {
+          logos.map((logo, index) => (
+            <img
+              class="img object-contain"
+              src={getAssetURL(logo.image_id.image)}
+              alt="logo"
+              width={200}
+              height={200}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .logos {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .logo_items {
+    display: flex;
+    gap: 50px;
+    animation: slides 50s linear infinite;
+  }
+  .logos::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10%;
+    z-index: 2;
+    left: 0;
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgb(255, 255, 255)
+    );
+  }
+
+  .logos::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10%;
+    z-index: 2;
+
+    right: 0;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgb(255, 255, 255)
+    );
+  }
+
+  @keyframes slides {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .logos:hover .logo_items {
+    animation-play-state: paused;
+  }
+</style>

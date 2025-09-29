@@ -1,91 +1,44 @@
 ---
 import ImageMod from "@components/ui/ImageMod.astro";
-import { marked } from "marked";
+import { getAssetURL } from "src/utils/getImage";
 
-const {
-    heading,
-    description,
-    media,
-    imagePlacement,
-    colors,
-    button,
-    anchorLink,
-} = Astro.props;
+const { item } = Astro.props;
 
-let renderDescription = marked.parse(description);
-
-function getEmbedUrl(videoLink) {
-    let embedUrl = "";
-    if (videoLink) {
-        const videoId =
-            videoLink.split("v=")[1]?.split("&")[0] ||
-            videoLink.split("/").pop();
-        embedUrl = `https://www.youtube.com/embed/${videoId}`;
-    }
-    return embedUrl;
-}
+const imagePlacement = item.image_on_left ? "left" : "right";
+const button = item.button || {};
 ---
 
 <div class="custom-container py-10 relative">
-    {
-        anchorLink && (
-            <a
-                id={anchorLink}
-                class="absolute -top-20"
-                style="visibility: hidden;"
-            />
-        )
-    }
-    <h2 class="text-4xl text-secondary mb-12 text-center font-semibold">
-        {heading}
-    </h2>
+  <div
+    class={`flex flex-col ${imagePlacement === "left" ? "lg:flex-row" : "lg:flex-row-reverse"} items-stretch`}
+  >
     <div
-        class={`flex flex-col ${imagePlacement === "left" ? "lg:flex-row" : "lg:flex-row-reverse"} items-stretch `}
+      class="w-full lg:w-1/2 p-8 flex justify-center items-start flex-col min-w-full bg-background/10 prose prose-p:text-black/80 prose-a:text-primary"
     >
-        <div
-            class={`w-full lg:w-1/2 p-8 flex justify-center items-start flex-col ${
-                colors === "#0069e5"
-                    ? "bg-background prose-headings:text-white prose-p:text-white prose-li:text-white prose-a:text-white"
-                    : "bg-background/10 prose-p:text-black/80 prose-a:text-primary"
-            }`}
-        >
-            <div
-                class="mb-6 prose prose-td:border prose-th:border prose-td:px-2 prose-th:px-2"
-                set:html={renderDescription}
-            />
-            {
-                button.label && (
-                    <div class="flex items-start justify-start">
-                        <a
-                            href={button.link}
-                            class="rounded-md bg-white px-4.5 py-2.5 text-sm font-semibold !text-black shadow-sm focus-visible:outline"
-                        >
-                            {button.label}
-                        </a>
-                    </div>
-                )
-            }
-        </div>
-        <div class="w-full lg:w-1/2">
-            {
-                media?.value.videoUrl ? (
-                    <iframe
-                        width="100%"
-                        height="315"
-                        src={getEmbedUrl(media.value.videoUrl)}
-                        title={media.value.videoTitle || "Video"}
-                        class="rounded aspect-video shadow-md w-full h-full "
-                        allow="autoplay; encrypted-media"
-                        allowfullscreen
-                    />
-                ) : (
-                    <ImageMod
-                        src={media?.value.image}
-                        alt="Featured Image"
-                        className="object-cover w-full h-full min-h-[200px]"
-                    />
-                )
-            }
-        </div>
+      <div
+        class="mb-6 prose prose-td:border prose-th:border prose-td:px-2 prose-th:px-2"
+        set:html={item.content}
+      />
+      {
+        button.label && (
+          <div class="flex items-start justify-start">
+            <a
+              href={button.link}
+              class="rounded-md bg-white px-4.5 py-2.5 text-sm font-semibold !text-black shadow-sm focus-visible:outline"
+            >
+              {button.label}
+            </a>
+          </div>
+        )
+      }
     </div>
+
+    <div class="w-full lg:w-1/2">
+      <img
+        src={getAssetURL(item.image)}
+        alt="Featured Image"
+        class="object-cover w-full h-full min-h-[200px]"
+      />
+    </div>
+  </div>
 </div>

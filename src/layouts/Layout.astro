@@ -11,37 +11,26 @@ const general = await reader.singletons.general.read();
 interface Props {
   title: string;
   description: string;
-  pageUrl: string;
+  pageUrl?: string;
+  ogImage: string;
 }
 
-const { title, description, pageUrl } = Astro.props;
+const { title, description, pageUrl, ogImage } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
-    {
-      general.analyticsScripts.map(
-        (headScript) =>
-          headScript.location === "head" && (
-            <Fragment set:html={headScript.scriptContent} />
-          ),
-      )
-    }
+    <BaseHead title={title} description={description} ogImage={ogImage} />
   </head>
   <body class="overflow-x-hidden">
     <Header pageUrl={pageUrl} />
-    {!["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) && <Topbar />}
-    <slot />
-    <Footer pageUrl={pageUrl} />
     {
-      general.analyticsScripts.map(
-        (footScript) =>
-          footScript.location === "body" && (
-            <Fragment set:html={footScript.scriptContent} />
-          ),
+      !["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) && (
+        <Topbar />
       )
     }
+    <slot />
+    <Footer pageUrl={pageUrl} />
   </body>
 </html>
