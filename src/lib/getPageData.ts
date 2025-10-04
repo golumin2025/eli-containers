@@ -172,3 +172,18 @@ export const getFooter = async () => {
     return null;
   }
 };
+
+export const getTopBar = async () => {
+  try {
+    const data: any = await directus.request(
+      readSingleton("top_bar", {
+        fields: ["*"],
+      })
+    );
+
+    return data || null;
+  } catch (error) {
+    console.error("Error fetching topbar:", error);
+    return null;
+  }
+};
