@@ -149,7 +149,7 @@
         id="promo-code"
         type="text"
         class="block w-full rounded-md bg-gray-100 p-2 text-base text-gray-900"
-        bind:value={promoCode} 
+        bind:value={form.promoCode} 
         tabindex="-1"
       />
     </div>
