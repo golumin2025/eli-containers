@@ -4,10 +4,9 @@ import QuoteForm from "../forms/QuoteForm.svelte";
 import ColdStorageForm from "../forms/ColdStorageForm.svelte";
 import { getAssetURL } from "src/utils/getImage";
 import { getGlobal } from "src/lib/getPageData";
-
+const global = await getGlobal();
 const { item, general, SectionTitle, stats, showStats } = Astro.props;
 
-const global = await getGlobal();
 const title = item.title;
 const description = item.description ?? "";
 const bgImage = getAssetURL(item.bg_image);

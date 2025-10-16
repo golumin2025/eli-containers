@@ -24,7 +24,6 @@
     form.errors = {};
 
     const result = await actions.coldStoragequoteForm(form);
-    console.log("result", result);
     if (isInputError(result.error)) {
       form.errors = Object.fromEntries(
         Object.entries(result.error.fields).map(([key, value]) => [

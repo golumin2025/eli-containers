@@ -2,10 +2,10 @@
 import QuoteForm from "@components/forms/QuoteForm.svelte";
 import { getAssetURL } from "@utils/getImage";
 import { getEntry } from "astro:content";
-
+import { getGlobal } from "src/lib/getPageData";
+const global = await getGlobal();
 const { item } = Astro.props;
 const general = await getEntry("singletons", "general");
-
 const bgImage = getAssetURL(item.image);
 const quoteFormTitle = item.quote_title;
 const showStats = item.showStats ?? false;
@@ -19,7 +19,7 @@ const SectionTitle = item.sectionTitle ?? "";
       client:visible
       quoteFormTitle={quoteFormTitle}
       phoneNumber={general.data.contactInformation.phoneDisplay}
-      promoCode={general.data.currentPromoCode}
+      promoCode={global?.promo_code}
     />
   </div>
 
@@ -60,7 +60,7 @@ const SectionTitle = item.sectionTitle ?? "";
         client:visible
         quoteFormTitle={quoteFormTitle}
         phoneNumber={general.data.contactInformation.phoneDisplay}
-        promoCode={general.data.currentPromoCode}
+        promoCode={global?.promo_code}
       />
     </div>
   </div>

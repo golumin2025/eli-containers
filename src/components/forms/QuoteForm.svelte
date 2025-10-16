@@ -6,7 +6,6 @@
   import { turnstile } from '@svelte-put/cloudflare-turnstile'
   let { quoteFormTitle, promoCode } = $props()
   let isLoading = $state(false)
-
   let form = $state({
     serviceType: 'Moving',
     firstName: '',
@@ -26,7 +25,6 @@
     event.preventDefault()
     isLoading = true
     form.errors = {}
-    console.log("🔍 Submitted form data:", JSON.stringify(form, null, 2))
     const result = await actions.quoteForm(form)
     if (isInputError(result.error)) {
       form.errors = Object.fromEntries(
@@ -151,7 +149,7 @@
         id="promo-code"
         type="text"
         class="block w-full rounded-md bg-gray-100 p-2 text-base text-gray-900"
-        bind:value={form.promoCode} 
+        bind:value={promoCode} 
         tabindex="-1"
       />
     </div>
