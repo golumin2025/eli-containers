@@ -5,17 +5,17 @@ const { item } = Astro.props;
 const { bg_image, content } = item;
 ---
 
-<section class="relative my-12">
+<section class="relative py-8 md:my-12">
   <img
     src={getAssetURL(bg_image)}
     alt="Background"
     width={1920}
     height={900}
-    class="max-h-[800px] object-cover w-full"
+    class="w-full h-auto min-h-[400px] md:min-h-[600px] md:max-h-[800px] object-cover"
   />
   <div class="absolute inset-0 bg-black/50"></div>
-
-  <div class="absolute top-1/2 right-16 transform -translate-y-1/2 max-w-3xl">
+  <div class="absolute top-1/2 left-4 right-4 md:left-auto md:right-16 transform -translate-y-1/2 max-w-3xl">
     <div class="prose prose-invert max-w-none" set:html={content} />
   </div>
 </section>
+
