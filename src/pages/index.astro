@@ -14,13 +14,13 @@ import { getSinglePage } from "src/lib/getPageData";
 import WhyUS from "@components/sections/WhyUS.astro";
 import LogoSlider from "@components/sections/LogoSlider.astro";
 
-const homePage = await getSinglePage("pages", "/");
+const homePage = await getSinglePage("pages", "/home");
 ---
 
 <Layout
-  title={homePage.seo.title}
-  description={homePage.seo.meta_description}
-  ogImage={homePage.seo.og_image}
+  title={homePage?.seo.title}
+  description={homePage?.seo.meta_description}
+  ogImage={homePage?.seo.og_image}
 >
   {
     homePage?.blocks.map((item: any) => (

@@ -54,12 +54,16 @@ export const getPages = async () => {
 };
 export const getPost = async () => {
   try {
+    const queryObj = {
+      sort: ["-publication_date"],
+    };
+
     //@ts-ignore
-    const data: any = await directus.request(readItems("blogs"));
+    const data: any = await directus.request(readItems("blogs", queryObj));
 
     return Array.isArray(data) ? data : [];
   } catch (error) {
-    console.error("Error fetching pages:", error);
+    console.error("Error fetching posts:", error);
     return [];
   }
 };
