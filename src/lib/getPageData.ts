@@ -107,13 +107,24 @@ export const getSinglePage = async (
   collection: string,
   slugOrPermalink: string
 ) => {
+  const cleanSlug = slugOrPermalink.replace(/^\//, "");
+
   try {
     const queryObj = {
       fields: defaultFields,
       filter: {
-        slug: {
-          _eq: `/${slugOrPermalink.replace(/^\//, "")}`,
-        },
+        _or: [
+          {
+            slug: {
+              _eq: `/${cleanSlug}`,
+            },
+          },
+          {
+            slug: {
+              _eq: cleanSlug,
+            },
+          },
+        ],
       },
       limit: 1,
     };

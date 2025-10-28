@@ -15,7 +15,6 @@ import WhyUS from "@components/sections/WhyUS.astro";
 import LogoSlider from "@components/sections/LogoSlider.astro";
 
 const { slug } = Astro.params;
-
 const safeSlug = typeof slug === "string" ? slug : "";
 const pageData = await getSinglePage("pages", safeSlug);
 ---
