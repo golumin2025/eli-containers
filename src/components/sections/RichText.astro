@@ -2,7 +2,7 @@
 const { item } = Astro.props;
 ---
 
-<div class={` custom-container pt-8 md:pb-12 pb-6 text-secondary `}>
+<div class={` custom-container pt-8 md:pb-12 pb-6 text-secondary prose`}>
   <div
     set:html={item.content}
     class="mx-auto px-10 sm:px-14 space-y-5 text-[16px]"
