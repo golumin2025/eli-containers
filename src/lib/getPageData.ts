@@ -56,6 +56,11 @@ export const getPost = async () => {
   try {
     const queryObj = {
       sort: ["-publication_date"],
+      filter: {
+        status: {
+          _eq: "published",
+        },
+      },
     };
 
     //@ts-ignore
@@ -72,12 +77,23 @@ export const getSinglePost = async (
   collection: string,
   slugOrPermalink: string
 ) => {
+  const cleanSlug = slugOrPermalink.replace(/^\//, "");
+
   try {
     const queryObj = {
       filter: {
-        link: {
-          _eq: `/${slugOrPermalink.replace(/^\//, "")}`,
-        },
+        _or: [
+          {
+            link: {
+              _eq: `/${cleanSlug}`,
+            },
+          },
+          {
+            link: {
+              _eq: cleanSlug,
+            },
+          },
+        ],
         status: {
           _eq: "published",
         },
