@@ -37,22 +37,13 @@ const { title, description, ogImage } = Astro.props;
 <meta property="twitter:description" content={description} />
 
 <!-- Google tag (gtag.js) -->
-
-<script
-  is:inline
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=AW-1056418154"></script>
-
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-1056418154"></script>
 <script is:inline>
   window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-
-  gtag("js", new Date());
-
-  gtag("config", "AW-1056418154");
+  gtag('config', 'AW-1056418154');
 </script>
 
 <script is:inline>
