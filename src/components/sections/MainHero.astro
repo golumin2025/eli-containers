@@ -45,9 +45,10 @@ const SectionTitle = item.sectionTitle ?? "";
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 fade-up">
           {item.title}
         </h1>
-        <p class="text-lg md:text-xl font-medium fade-up">
-          {item.description}
-        </p>
+        <div
+          class="text-lg md:text-xl text-white font-medium fade-up prose"
+          set:html={item.description}
+        />
       </div>
     </div>
   </div>
