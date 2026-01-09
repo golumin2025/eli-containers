@@ -10,6 +10,7 @@ const { item, general, SectionTitle, stats, showStats } = Astro.props;
 const title = item.title;
 const description = item.description ?? "";
 const bgImage = getAssetURL(item.bg_image);
+const quoteButtonTitle = item.quote_button_title;
 
 const formType = item.form_type;
 ---
@@ -42,6 +43,7 @@ const formType = item.form_type;
           <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
             <QuoteForm
               client:only="svelte"
+              quoteButtonTitle={quoteButtonTitle}
               phoneNumber={global.phone_number}
               promoCode={global.promo_code}
             />

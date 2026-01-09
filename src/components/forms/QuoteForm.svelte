@@ -4,7 +4,7 @@
   import Input from './Input.svelte'
   import { DateInput } from 'date-picker-svelte'
   import { turnstile } from '@svelte-put/cloudflare-turnstile'
-  let { quoteFormTitle, promoCode } = $props()
+  let { quoteFormTitle, quoteButtonTitle = 'Get your Quote', promoCode } = $props()
   let isLoading = $state(false)
   let form = $state({
     serviceType: 'Moving',
@@ -195,7 +195,7 @@
           />
         </svg>
       {:else}
-        Get your Quote
+        {quoteButtonTitle}
       {/if}
     </button>
   </div>
