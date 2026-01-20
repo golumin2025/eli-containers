@@ -75,7 +75,7 @@ export const getPost = async () => {
 
 export const getSinglePost = async (
   collection: string,
-  slugOrPermalink: string
+  slugOrPermalink: string,
 ) => {
   const cleanSlug = slugOrPermalink.replace(/^\//, "");
 
@@ -125,7 +125,7 @@ export const getGlobal = async () => {
 
 export const getSinglePage = async (
   collection: string,
-  slugOrPermalink: string
+  slugOrPermalink: string,
 ) => {
   const cleanSlug = slugOrPermalink.replace(/^\//, "");
 
@@ -174,7 +174,7 @@ export const getNavbar = async () => {
             ],
           },
         ],
-      })
+      }),
     );
 
     return data || null;
@@ -194,7 +194,7 @@ export const getFooter = async () => {
             footer_items: ["*", { footer_item_id: ["*"] }],
           },
         ],
-      })
+      }),
     );
 
     return data || null;
@@ -209,12 +209,26 @@ export const getTopBar = async () => {
     const data: any = await directus.request(
       readSingleton("top_bar", {
         fields: ["*"],
-      })
+      }),
     );
 
     return data || null;
   } catch (error) {
     console.error("Error fetching topbar:", error);
     return null;
+  }
+};
+export const getRedirects = async () => {
+  try {
+    const data: any = await directus.request(
+      readItems("seo_redirection", {
+        fields: ["*"],
+      }),
+    );
+
+    return Array.isArray(data) ? data : [];
+  } catch (error) {
+    console.error("Error fetching redirects:", error);
+    return [];
   }
 };
