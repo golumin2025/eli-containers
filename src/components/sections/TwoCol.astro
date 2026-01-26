@@ -35,8 +35,8 @@ const button = item.button || {};
 
     <div class="w-full lg:w-1/2">
       <img
-        src={getAssetURL(item.image)}
-        alt="Featured Image"
+        src={getAssetURL(item.image.id)}
+        alt={item.image.description || item.image.title || "Featured Image"}
         class="object-cover w-full h-full min-h-[200px]"
       />
     </div>

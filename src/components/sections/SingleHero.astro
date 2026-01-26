@@ -9,7 +9,7 @@ const { item, general, SectionTitle, stats, showStats } = Astro.props;
 
 const title = item.title;
 const description = item.description ?? "";
-const bgImage = getAssetURL(item.bg_image);
+const bgImage = getAssetURL(item.bg_image.id);
 const quoteButtonTitle = item.quote_button_title;
 
 const formType = item.form_type;
@@ -20,7 +20,7 @@ const formType = item.form_type;
 >
   <img
     src={bgImage}
-    alt="Hero background"
+    alt={item.bg_image.description || item.bg_image.title || "Hero Background"}
     class="absolute inset-0 w-full h-full object-cover"
   />
   <div class="absolute inset-0 gradient-overlay"></div>

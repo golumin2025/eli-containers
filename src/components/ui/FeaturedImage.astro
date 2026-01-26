@@ -7,9 +7,13 @@ const { bg_image, content } = item;
 
 <section class="py-8 md:py-12">
   <div
-    class="relative bg-cover bg-center flex justify-start items-start bg-black/70 bg-blend-overlay p-6 md:p-12 text-white"
-    style={`background-image: url(${getAssetURL(bg_image)})`}
+    class="relative flex justify-start items-start p-6 md:p-12 text-white overflow-hidden"
   >
+    <img
+      src={getAssetURL(bg_image.id)}
+      alt={bg_image.description || bg_image.title || "Background Image"}
+      class="absolute inset-0 w-full h-full object-cover -z-10 brightness-[0.3]"
+    />
     <div class="h-1 lg:w-2/5 hidden lg:block"></div>
     <div class="lg:w-3/5 w-full">
       <div class="prose prose-invert max-w-none" set:html={content} />

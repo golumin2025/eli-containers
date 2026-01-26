@@ -75,8 +75,8 @@ const { title, tabs, image, video_link, featured_media } = item;
       {
         featured_media === "image" ? (
           <img
-            src={getAssetURL(image)}
-            alt="Featured Image"
+            src={getAssetURL(image.id)}
+            alt={image.description || image.title || "How It Works Image"}
             class="w-full h-full object-cover rounded-2xl"
           />
         ) : (

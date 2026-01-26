@@ -5,7 +5,6 @@ let redirects = [];
 export async function onRequest(context, next) {
   if (redirects.length === 0) {
     const data = await getRedirects();
-    console.log("Loaded redirects:", data);
 
     redirects = data.map((r) => ({
       from: r.old_url.startsWith("/") ? r.old_url : `/${r.old_url}`,

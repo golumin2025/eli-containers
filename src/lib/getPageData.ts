@@ -1,5 +1,7 @@
 import { readItems, readSingleton } from "@directus/sdk";
 import directus from "./directus";
+import { fields } from "@keystatic/core";
+
 const defaultFields = [
   "*",
   {
@@ -9,7 +11,9 @@ const defaultFields = [
       {
         item: [
           "*",
-          { images: ["*", { image_id: ["*"] }] },
+          { image: ["*"] },
+          { bg_image: ["*"] },
+          { images: ["*", { image_id: ["*", { image: ["*"] }] }] },
           { category: ["*"] },
           { logos: ["*"] },
           { button: ["*"] },
@@ -26,8 +30,8 @@ const defaultFields = [
               "*",
               {
                 testimonial_card_id: ["*"],
-                why_us_card_id: ["*"],
-                container_card_id: ["*"],
+                why_us_card_id: ["*", { image: ["*"] }],
+                container_card_id: ["*", { image: ["*"] }],
               },
             ],
           },
@@ -56,6 +60,7 @@ export const getPost = async () => {
   try {
     const queryObj = {
       sort: ["-publication_date"],
+      fields: ["*", { blog_image: ["*"], category: ["*"], author: ["*"] }],
       filter: {
         status: {
           _eq: "published",
@@ -81,6 +86,7 @@ export const getSinglePost = async (
 
   try {
     const queryObj = {
+      fields: ["*", { blog_image: ["*"] }],
       filter: {
         _or: [
           {
@@ -114,7 +120,11 @@ export const getSinglePost = async (
 export const getGlobal = async () => {
   try {
     //@ts-ignore
-    const data: any = await directus.request(readItems("global"));
+    const data: any = await directus.request(
+      readItems("global", {
+        fields: ["*", { logo: ["*"] }, { ice_logo: ["*"] }],
+      }),
+    );
 
     return data;
   } catch (error) {

@@ -1,8 +1,9 @@
 ---
-import Tag from '@assets/tag.png'
-import { getTopBar } from 'src/lib/getPageData';
+import Tag from "@assets/tag.png";
+import { getTopBar } from "src/lib/getPageData";
 const topbar = await getTopBar();
 ---
+
 {
   topbar.title && (
     <div class="bg-yellow-300 py-3">
@@ -12,5 +13,3 @@ const topbar = await getTopBar();
     </div>
   )
 }
-
-    

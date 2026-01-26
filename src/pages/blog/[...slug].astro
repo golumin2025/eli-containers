@@ -12,7 +12,7 @@ if (!post) {
   throw new Error(`Blog not found for slug: ${slug}`);
 }
 
-const heroImage = getAssetURL(post?.blog_image) || "";
+const heroImage = getAssetURL(post?.blog_image.id) || "";
 
 // grab SEO info
 const pageData = post.seo || {};
@@ -24,11 +24,14 @@ const pageData = post.seo || {};
   ogImage={pageData?.og_image}
   pageUrl={`/blog/${slug}`}
 >
-  <div
-    class="relative flex items-end bg-cover bg-center text-white"
-    style={`background-image: linear-gradient(rgba(8,8,8,0.45), rgba(8,8,8,0.45)), url('${heroImage}')`}
-    role="banner"
-  >
+  <div class="relative flex items-end text-white overflow-hidden" role="banner">
+    <img
+      src={heroImage}
+      alt={post.blog_image.description ||
+        post.blog_image.title ||
+        "Blog Hero Image"}
+      class="absolute inset-0 w-full h-full object-cover -z-10 brightness-[0.55]"
+    />
     <div class="custom-container w-full py-24">
       <div class="max-w-3xl">
         <p class="text-sm text-primary/90 uppercase tracking-wide mb-2">Blog</p>

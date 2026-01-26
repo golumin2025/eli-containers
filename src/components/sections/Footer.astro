@@ -14,14 +14,20 @@ const global = await getGlobal();
       {
         !["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) ? (
           <img
-            src={getAssetURL(global.logo)}
-            alt="Logo"
+            src={getAssetURL(global.logo.id)}
+            alt={global.logo.description || global.logo.title || "Mi Box Logo"}
             class="h-24 object-contain"
           />
         ) : (
           <img
-            src={getAssetURL(global.ice_logo || global.logo)}
-            alt="Logo"
+            src={getAssetURL(global.ice_logo?.id || global.logo.id)}
+            alt={
+              global.ice_logo?.description ||
+              global.ice_logo?.title ||
+              global.logo.description ||
+              global.logo.title ||
+              " Logo"
+            }
             class="h-24 object-contain"
           />
         )
