@@ -4,8 +4,8 @@ import { getAssetURL } from "src/utils/getImage";
 
 const { item } = Astro.props;
 
-const imagePlacement = item.image_on_left ? "left" : "right";
-const button = item.button || {};
+const imagePlacement = item?.image_on_left ? "left" : "right";
+const button = item?.button || {};
 ---
 
 <div class="custom-container py-10 relative">
@@ -17,16 +17,16 @@ const button = item.button || {};
     >
       <div
         class="mb-6 prose prose-td:border prose-th:border prose-td:px-2 prose-th:px-2"
-        set:html={item.content}
+        set:html={item?.content}
       />
       {
-        button.label && (
+        button?.label && (
           <div class="flex items-start justify-start">
             <a
-              href={button.link}
+              href={button?.link}
               class="rounded-md bg-white px-4.5 py-2.5 text-sm font-semibold !text-black shadow-sm focus-visible:outline"
             >
-              {button.label}
+              {button?.label}
             </a>
           </div>
         )
@@ -35,8 +35,8 @@ const button = item.button || {};
 
     <div class="w-full lg:w-1/2">
       <img
-        src={getAssetURL(item.image.id)}
-        alt={item.image.description || item.image.title || "Featured Image"}
+        src={getAssetURL(item?.image?.id)}
+        alt={item?.image?.description || item?.image?.title || "Featured Image"}
         class="object-cover w-full h-full min-h-[200px]"
       />
     </div>

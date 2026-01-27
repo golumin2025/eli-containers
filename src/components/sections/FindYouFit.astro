@@ -2,7 +2,7 @@
 import { getAssetURL } from "@utils/getImage";
 
 const { item } = Astro.props;
-const { title, cards } = item;
+const { title, cards } = item ?? {};
 ---
 
 <section class="relative">
@@ -14,28 +14,28 @@ const { title, cards } = item;
     </h2>
     <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
       {
-        cards.map((item) => (
+        cards?.map((item) => (
           <div class="border border-black/70 rounded-2xl  p-4">
             <img
-              src={getAssetURL(item.container_card_id.image.id)}
+              src={getAssetURL(item?.container_card_id?.image?.id)}
               alt={
-                item.container_card_id.image.description ||
-                item.container_card_id.storageSize ||
+                item?.container_card_id?.image?.description ||
+                item?.container_card_id?.storageSize ||
                 "Container image"
               }
               class="w-full h-[200px] object-contain  rounded-xl mb-6"
             />
-            {item.container_card_id.length && (
+            {item?.container_card_id?.length && (
               <h2 class="text-4xl font-bold mb-2 text-secondary">
-                {item.container_card_id.length}
+                {item?.container_card_id?.length}
               </h2>
             )}
-            {item.size && (
-              <h3 class="text-xl mb-4">{item.container_card_id.size}</h3>
+            {item?.size && (
+              <h3 class="text-xl mb-4">{item?.container_card_id?.size}</h3>
             )}
 
-            <p>{item.container_card_id.description}</p>
-            {item.container_card_id.dimensions && (
+            <p>{item?.container_card_id?.description}</p>
+            {item?.container_card_id?.dimensions && (
               <div class="flex justify-start items-center mt-4 gap-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@ const { title, cards } = item;
                 >
                   <path d="M237.66,133.66l-32,32a8,8,0,0,1-11.32-11.32L212.69,136H43.31l18.35,18.34a8,8,0,0,1-11.32,11.32l-32-32a8,8,0,0,1,0-11.32l32-32a8,8,0,0,1,11.32,11.32L43.31,120H212.69l-18.35-18.34a8,8,0,0,1,11.32-11.32l32,32A8,8,0,0,1,237.66,133.66Z" />
                 </svg>
-                {item.container_card_id.dimensions}
+                {item?.container_card_id?.dimensions}
               </div>
             )}
           </div>

@@ -7,12 +7,12 @@ import { getGlobal } from "src/lib/getPageData";
 const global = await getGlobal();
 const { item, general, SectionTitle, stats, showStats } = Astro.props;
 
-const title = item.title;
-const description = item.description ?? "";
-const bgImage = getAssetURL(item.bg_image.id);
-const quoteButtonTitle = item.quote_button_title;
+const title = item?.title;
+const description = item?.description ?? "";
+const bgImage = item?.bg_image?.id ? getAssetURL(item.bg_image.id) : "";
+const quoteButtonTitle = item?.quote_button_title;
 
-const formType = item.form_type;
+const formType = item?.form_type;
 ---
 
 <section
@@ -20,7 +20,9 @@ const formType = item.form_type;
 >
   <img
     src={bgImage}
-    alt={item.bg_image.description || item.bg_image.title || "Hero Background"}
+    alt={item?.bg_image?.description ||
+      item?.bg_image?.title ||
+      "Hero Background"}
     class="absolute inset-0 w-full h-full object-cover"
   />
   <div class="absolute inset-0 gradient-overlay"></div>

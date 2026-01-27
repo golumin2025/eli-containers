@@ -54,12 +54,12 @@ const global = await getGlobal();
     <!-- Desktop Navigation -->
     <nav class="hidden lg:flex space-x-8" id="navItems">
       {
-        nav?.menu.map((item) => (
+        nav?.menu?.map((item) => (
           <a
-            href={item.link}
+            href={item?.link}
             class="text-black underline-text font-medium hover:text-primary"
           >
-            {item.title}
+            {item?.title}
           </a>
         ))
       }
@@ -146,9 +146,9 @@ const global = await getGlobal();
     >
     <nav class="mt-12 border-b border-black/20 divide-y divide-black/20">
       {
-        nav?.menu.map((item) => (
-          <a href={item.link} class="block py-2 text-black hover:bg-gray-100">
-            {item.title}
+        nav?.menu?.map((item) => (
+          <a href={item?.link} class="block py-2 text-black hover:bg-gray-100">
+            {item?.title}
           </a>
         ))
       }

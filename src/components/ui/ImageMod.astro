@@ -23,7 +23,7 @@ const {
 } = Astro.props;
 
 const images = await import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/**/**/*.{jpeg,jpg,png,gif,webp,svg,avif}"
+  "/src/assets/**/**/*.{jpeg,jpg,png,gif,webp,svg,avif}",
 );
 if (!images[src]) {
   console.warn(`Image ${src} not found`);

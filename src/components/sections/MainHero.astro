@@ -5,11 +5,11 @@ import { getGlobal } from "src/lib/getPageData";
 
 const { item } = Astro.props;
 const global = await getGlobal();
-const quoteFormTitle = item.quote_title;
-const quoteButtonTitle = item.quote_button_title;
-const showStats = item.showStats ?? false;
-const stats = item.stats ?? [];
-const SectionTitle = item.sectionTitle ?? "";
+const quoteFormTitle = item?.quote_title;
+const quoteButtonTitle = item?.quote_button_title;
+const showStats = item?.showStats ?? false;
+const stats = item?.stats ?? [];
+const SectionTitle = item?.sectionTitle ?? "";
 ---
 
 <div class="md:h-[800px] h-full relative">
@@ -18,15 +18,15 @@ const SectionTitle = item.sectionTitle ?? "";
       client:visible
       quoteFormTitle={quoteFormTitle}
       quoteButtonTitle={quoteButtonTitle}
-      phoneNumber={global.phone_number}
+      phoneNumber={global?.phone_number}
       promoCode={global?.promo_code}
     />
   </div>
 
   <div class="relative h-full">
     <img
-      src={getAssetURL(item.image.id)}
-      alt={item.title || item.description || "Hero Background"}
+      src={getAssetURL(item?.image?.id)}
+      alt={item?.title || item?.description || "Hero Background"}
       width={1920}
       height={1080}
       class="absolute inset-0 w-full h-full object-cover"
@@ -43,11 +43,11 @@ const SectionTitle = item.sectionTitle ?? "";
     >
       <div class="text-white md:w-1/2 py-12">
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 fade-up">
-          {item.title}
+          {item?.title}
         </h1>
         <div
           class="text-lg md:text-xl text-white font-medium fade-up prose"
-          set:html={item.description}
+          set:html={item?.description}
         />
       </div>
     </div>
@@ -61,7 +61,7 @@ const SectionTitle = item.sectionTitle ?? "";
         client:visible
         quoteFormTitle={quoteFormTitle}
         quoteButtonTitle={quoteButtonTitle}
-        phoneNumber={global.phone_number}
+        phoneNumber={global?.phone_number}
         promoCode={global?.promo_code}
       />
     </div>

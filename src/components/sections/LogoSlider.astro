@@ -2,7 +2,11 @@
 import { getAssetURL } from "@utils/getImage";
 
 const { item } = Astro.props;
-const logos = [...item.images, ...item.images, ...item.images];
+const logos = [
+  ...(item?.images ?? []),
+  ...(item?.images ?? []),
+  ...(item?.images ?? []),
+];
 ---
 
 <div class="bg-white py-16">
@@ -10,7 +14,7 @@ const logos = [...item.images, ...item.images, ...item.images];
     <h1
       class="text-4xl text-secondary lg:text-5xl text-center font-semibold mb-12"
     >
-      {item.title}
+      {item?.title}
     </h1>
     <div
       class="logos overlay relative"

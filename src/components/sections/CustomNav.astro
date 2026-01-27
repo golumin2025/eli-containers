@@ -23,10 +23,10 @@ import ImageMod from "@components/ui/ImageMod.astro";
       class="flex flex-col md:flex-row items-center gap-5 text-sm font-medium"
     >
       {
-        items.map((item) => (
+        items?.map((item) => (
           <li>
-            <a href={item.link} class="hover:underline font-bold">
-              {item.title}
+            <a href={item?.link} class="hover:underline font-bold">
+              {item?.title}
             </a>
           </li>
         ))
