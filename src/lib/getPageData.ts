@@ -175,6 +175,7 @@ export const getNavbar = async () => {
       readSingleton("header", {
         fields: [
           "*",
+          {menu_items:["*",{nav_item_id:["*"]}]},
           {
             menu: [
               "*",

@@ -54,14 +54,46 @@ const global = await getGlobal();
     <!-- Desktop Navigation -->
     <nav class="hidden lg:flex space-x-8" id="navItems">
       {
-        nav?.menu?.map((item) => (
-          <a
-            href={item?.link}
-            class="text-black underline-text font-medium hover:text-primary"
-          >
-            {item?.title}
-          </a>
-        ))
+        nav?.menu_items?.map((item) => {
+          const navItem = item?.nav_item_id;
+          const hasDropdown = navItem?.sub_menu && navItem.sub_menu.length > 0;
+          return hasDropdown ? (
+            <div class="relative group">
+              <button class="text-black underline-text font-medium hover:text-primary flex items-center gap-1 cursor-pointer">
+                {navItem?.title}
+                <svg
+                  class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                {navItem.sub_menu.map((sub: any) => (
+                  <a
+                    href={sub?.link}
+                    class="block px-4 py-2 text-sm text-black hover:bg-gray-50 hover:text-primary first:rounded-t-md last:rounded-b-md"
+                  >
+                    {sub?.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a
+              href={navItem?.link}
+              class="text-black underline-text font-medium hover:text-primary"
+            >
+              {navItem?.title}
+            </a>
+          );
+        })
       }
     </nav>
 
@@ -97,7 +129,7 @@ const global = await getGlobal();
         )
       }
       {
-        nav?.menu?.length > 0 && (
+        nav?.menu_items?.length > 0 && (
           <button class="lg:hidden text-black text-3xl" id="menuBtn">
             <svg
               width="64px"
@@ -146,11 +178,52 @@ const global = await getGlobal();
     >
     <nav class="mt-12 border-b border-black/20 divide-y divide-black/20">
       {
-        nav?.menu?.map((item) => (
-          <a href={item?.link} class="block py-2 text-black hover:bg-gray-100">
-            {item?.title}
-          </a>
-        ))
+        nav?.menu_items?.map((item, index) => {
+          const navItem = item?.nav_item_id;
+          const hasDropdown = navItem?.sub_menu && navItem.sub_menu.length > 0;
+          return hasDropdown ? (
+            <div>
+              <button
+                class="w-full flex justify-between items-center py-2 text-black hover:bg-gray-100 mobile-accordion-btn"
+                data-index={index}
+              >
+                <span>{navItem?.title}</span>
+                <svg
+                  class="w-4 h-4 transition-transform duration-200"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                class="hidden pl-4 pb-1 mobile-accordion-panel"
+                data-index={index}
+              >
+                {navItem.sub_menu.map((sub: any) => (
+                  <a
+                    href={sub?.link}
+                    class="block py-1.5 text-sm text-black hover:bg-gray-100"
+                  >
+                    {sub?.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a
+              href={navItem?.link}
+              class="block py-2 text-black hover:bg-gray-100"
+            >
+              {navItem?.title}
+            </a>
+          );
+        })
       }
     </nav>
   </div>
@@ -158,7 +231,6 @@ const global = await getGlobal();
 
 <style>
   .underline-text {
-    display: inline-block;
     padding-bottom: 2px;
     background-image: linear-gradient(
       var(--color-primary),
@@ -191,6 +263,19 @@ const global = await getGlobal();
     closeMenu?.addEventListener("click", () => {
       mobileMenu?.classList.add("hidden");
       document.body.style.overflow = "";
+    });
+
+    // Mobile accordion
+    document.querySelectorAll(".mobile-accordion-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const index = btn.getAttribute("data-index");
+        const panel = document.querySelector(
+          `.mobile-accordion-panel[data-index="${index}"]`,
+        );
+        const arrow = btn.querySelector("svg");
+        panel?.classList.toggle("hidden");
+        arrow?.classList.toggle("rotate-180");
+      });
     });
   }
 
