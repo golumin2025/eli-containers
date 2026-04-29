@@ -33,11 +33,11 @@ const global = await getGlobal();
         )
       }
     </div>
-
-    <!-- Footer Columns -->
+    {
+      ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) ? "": (
     <div
       class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full my-14 items-start gap-8"
-    >
+     >
       {
         footer?.footer_items?.map((section) => (
           <div class="w-full mb-6">
@@ -58,7 +58,6 @@ const global = await getGlobal();
       }
     </div>
 
-    <!-- Legal Links -->
     <div class="flex justify-center md:flex-row flex-col w-full gap-4">
       {
         footer?.legal_links?.map((item) => (
@@ -68,6 +67,7 @@ const global = await getGlobal();
         ))
       }
     </div>
+    )}
 
     <!-- Cold Storage Contact Info -->
     {
