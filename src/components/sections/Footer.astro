@@ -69,9 +69,32 @@ const global = await getGlobal();
       }
     </div>
 
+    <!-- Cold Storage Contact Info -->
+    {
+      ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) && (
+        <div class="w-full text-center text-sm mt-4 text-dark space-y-1">
+          <p>6510 3rd Ave W, Bradenton, FL 34209</p>
+          <p>
+            <a href="tel:19417777269" class="hover:text-primary">
+              941-777-7269
+            </a>
+          </p>
+        </div>
+      )
+    }
+
     <!-- Copyright -->
     <div class="w-full text-center text-sm mt-6 text-dark">
-      <p set:html={footer?.copyright_description} />
+      {
+        ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) ? (
+          <p>
+            2026 Box Rental Now, LLC / It's Ice Cold Storage. All Rights
+            Reserved
+          </p>
+        ) : (
+          <p set:html={footer?.copyright_description} />
+        )
+      }
     </div>
   </div>
 </footer>
