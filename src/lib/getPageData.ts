@@ -122,7 +122,7 @@ export const getGlobal = async () => {
     //@ts-ignore
     const data: any = await directus.request(
       readItems("global", {
-        fields: ["*", { logo: ["*"] }, { ice_logo: ["*"] }],
+        fields: ["*", { logo: ["*"] }, { ice_logo: ["*"] }, { favicon: ["*"] }],
       }),
     );
 

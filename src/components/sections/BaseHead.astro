@@ -1,21 +1,26 @@
 ---
+import { getGlobal } from "src/lib/getPageData";
+import { getAssetURL } from "@utils/getImage";
+import { movingCompanySchema, organizationSchema, websiteSchema } from "src/lib/schema";
 import "../../styles/global.css";
-import keystaticConfig from "../../../keystatic.config";
-import { createReader } from "@keystatic/core/reader";
+
 interface Props {
   title: string;
   description: string;
   ogImage?: any;
+  schema?: object[];
 }
-const reader = createReader(process.cwd(), keystaticConfig);
-const general = await reader.singletons.general.read();
-const { title, description, ogImage } = Astro.props;
+const global = await getGlobal();
+const { title, description, ogImage, schema = [] } = Astro.props;
+const faviconId =
+  typeof global?.favicon === "string" ? global.favicon : global?.favicon?.id;
+const faviconUrl = getAssetURL(faviconId) || "/favicon.png";
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/png+xml" href="/favicon.png" />
+<link rel="icon" type="image/png+xml" href={faviconUrl} />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Primary Meta Tags -->
@@ -72,119 +77,12 @@ const { title, description, ogImage } = Astro.props;
   });
 </script>
 
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://www.boxrentalnow.com/#localbusiness",
-    "name": "MI-BOX Moving & Mobile Storage (of the Gulf Coast)",
-    "url": "https://www.boxrentalnow.com/",
-    "telephone": "+1-941-777-7269",
-    "hasMap": "https://maps.app.goo.gl/anjs7XxDJtWy6ChM6",
-    "logo": "https://cms.boxrentalnow.com/assets/a56bb137-6391-4cb4-8533-8182c84fe58a",
-    "image": "https://cms.boxrentalnow.com/assets/6c672371-3634-49a4-8f58-8f35fd1d0406",
-    "description": "MI-BOX provides portable moving and storage containers delivered to your door across Florida’s Gulf Coast, including Manatee and Sarasota Counties.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "6510 3rd Ave W Suite 204",
-      "addressLocality": "Bradenton",
-      "addressRegion": "FL",
-      "postalCode": "34209",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 27.4985114,
-      "longitude": -82.6276828
-    },
-    "sameAs": [
-      "https://www.facebook.com/miboxgulfcoast/",
-      "https://www.linkedin.com/company/mi-box-moving-and-mobile-storage-gulf-coast"
-    ],
-    "areaServed": [
-      "Bradenton, FL",
-      "Sarasota, FL",
-      "Manatee County, FL",
-      "Sarasota County, FL",
-      "Florida Gulf Coast"
-    ],
-    "mainEntityOfPage": "https://en.wikipedia.org/wiki/Moving_company",
-    "currenciesAccepted": "USD",
-    "priceRange": "$$",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "MI-BOX Moving & Storage Services (Gulf Coast)",
-      "@id": "https://www.boxrentalnow.com/#offercatalog",
-      "url": "https://www.boxrentalnow.com/",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": [
-            {
-              "@type": "Service",
-              "name": "Moving Services",
-              "@id": "https://www.boxrentalnow.com/moving-services#service",
-              "url": "https://www.boxrentalnow.com/moving-services",
-              "description": "Portable moving container delivery for local and long-distance moves across Manatee and Sarasota Counties."
-            },
-            {
-              "@type": "Service",
-              "name": "Storage Services",
-              "@id": "https://www.boxrentalnow.com/storage-services#service",
-              "url": "https://www.boxrentalnow.com/storage-services",
-              "description": "Secure portable storage containers with delivery for on-site or facility storage in Manatee and Sarasota Counties."
-            },
-            {
-              "@type": "Service",
-              "name": "Cold Storage Containers",
-              "@id": "https://www.boxrentalnow.com/cold-storage-containers#service",
-              "url": "https://www.boxrentalnow.com/cold-storage-containers",
-              "description": "On-site portable refrigeration and freezer storage options for temperature-sensitive items."
-            }
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "publisher": {
-            "@id": "https://www.boxrentalnow.com/#localbusiness"
-          },
-          "name": "MI-BOX Moving & Mobile Storage (Gulf Coast) — Portable Storage & Moving Containers",
-          "@id": "https://www.boxrentalnow.com/#website",
-          "url": "https://www.boxrentalnow.com/",
-          "keywords": "PODS rentals, PODS box rentals, Storage and Moving Sarasota",
-          "about": [
-            {
-              "@type": "Thing",
-              "name": "Portable Storage Containers",
-              "sameAs": [
-                "https://en.wikipedia.org/wiki/Self_storage",
-                "https://www.google.com/search?q=portable+storage+containers"
-              ]
-            },
-            {
-              "@type": "Thing",
-              "name": "Moving Services",
-              "sameAs": [
-                "https://en.wikipedia.org/wiki/Moving_company",
-                "https://www.google.com/search?q=moving+services+Bradenton+FL"
-              ]
-            },
-            {
-              "@type": "Thing",
-              "name": "Mobile Storage",
-              "sameAs": [
-                "https://www.google.com/search?q=mobile+storage+containers+Sarasota"
-              ]
-            }
-          ],
-          "hasPart": [
-            { "@id": "https://www.boxrentalnow.com/contact-us" },
-            { "@id": "https://www.boxrentalnow.com/about-us" },
-            { "@id": "https://www.boxrentalnow.com/service-areas" },
-            { "@id": "https://www.boxrentalnow.com/blog/" }
-          ]
-        }
-      ]
-    }
-  }
-</script>
+<!-- Sitewide schema (MovingCompany, Organization, WebSite) -->
+{[movingCompanySchema, organizationSchema, websiteSchema].map((s) => (
+  <script type="application/ld+json" set:html={JSON.stringify(s)} />
+))}
+
+<!-- Page-specific schema injected per page -->
+{schema.map((s) => (
+  <script type="application/ld+json" set:html={JSON.stringify(s)} />
+))}

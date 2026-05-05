@@ -11,16 +11,27 @@ import TwoCol from "@components/sections/TwoCol.astro";
 import FindYouFit from "@components/sections/FindYouFit.astro";
 import RichText from "@components/sections/RichText.astro";
 import { getSinglePage } from "src/lib/getPageData";
+import { containerProductSchemas, buildFaqSchema } from "src/lib/schema";
 import WhyUS from "@components/sections/WhyUS.astro";
 import LogoSlider from "@components/sections/LogoSlider.astro";
 
 const homePage = await getSinglePage("pages", "/home");
+
+const faqBlock = homePage?.blocks.find((b: any) => b.collection === "faqs");
+const faqList = faqBlock?.item?.list ?? [];
+const faqSchema = buildFaqSchema(faqList);
+
+const homepageSchema = [
+  ...containerProductSchemas,
+  ...(faqSchema ? [faqSchema] : []),
+];
 ---
 
 <Layout
   title={homePage?.seo.title}
   description={homePage?.seo.meta_description}
   ogImage={homePage?.seo.og_image}
+  schema={homepageSchema}
 >
   {
     homePage?.blocks.map((item: any) => (

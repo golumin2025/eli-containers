@@ -11,12 +11,21 @@ import TwoCol from "@components/sections/TwoCol.astro";
 import FindYouFit from "@components/sections/FindYouFit.astro";
 import RichText from "@components/sections/RichText.astro";
 import { getSinglePage } from "src/lib/getPageData";
+import { serviceSchemaMap, buildBreadcrumbSchema } from "src/lib/schema";
 import WhyUS from "@components/sections/WhyUS.astro";
 import LogoSlider from "@components/sections/LogoSlider.astro";
 
 const { slug } = Astro.params;
 const safeSlug = typeof slug === "string" ? slug : "";
 const pageData = await getSinglePage("pages", safeSlug);
+
+const serviceSchema = serviceSchemaMap[safeSlug];
+const breadcrumbSchema = buildBreadcrumbSchema(safeSlug);
+
+const pageSchema = [
+  ...(serviceSchema ? [serviceSchema] : []),
+  ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+];
 ---
 
 <Layout
@@ -24,6 +33,7 @@ const pageData = await getSinglePage("pages", safeSlug);
   description={pageData?.seo.meta_description}
   ogImage={pageData?.seo.og_image}
   pageUrl={slug}
+  schema={pageSchema}
 >
   {
     pageData?.blocks.map((item: any) => (

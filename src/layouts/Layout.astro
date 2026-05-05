@@ -13,15 +13,16 @@ interface Props {
   description: string;
   pageUrl?: string;
   ogImage: string;
+  schema?: object[];
 }
 
-const { title, description, pageUrl, ogImage } = Astro.props;
+const { title, description, pageUrl, ogImage, schema } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} ogImage={ogImage} />
+    <BaseHead title={title} description={description} ogImage={ogImage} schema={schema} />
   </head>
   <body class="overflow-x-hidden">
     <Header pageUrl={pageUrl} />
