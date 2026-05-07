@@ -42,8 +42,23 @@ export const movingCompanySchema = {
     { "@type": "AdministrativeArea", name: "Manatee County, Florida" },
     { "@type": "AdministrativeArea", name: "Sarasota County, Florida" },
   ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "17:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "08:00",
+      closes: "15:00",
+    },
+  ],
   sameAs: [
     "https://www.facebook.com/miboxgulfcoast/",
+    "https://www.instagram.com/boxrentalnow/",
     "https://www.linkedin.com/company/mi-box-moving-and-mobile-storage-gulf-coast",
   ],
   hasOfferCatalog: {
@@ -76,6 +91,7 @@ export const organizationSchema = {
   },
   sameAs: [
     "https://www.facebook.com/miboxgulfcoast/",
+    "https://www.instagram.com/boxrentalnow/",
     "https://www.linkedin.com/company/mi-box-moving-and-mobile-storage-gulf-coast",
   ],
 };
