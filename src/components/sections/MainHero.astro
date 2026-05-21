@@ -15,7 +15,7 @@ const SectionTitle = item?.sectionTitle ?? "";
 <div class="md:h-[800px] h-full relative">
   <div class="w-full bg-white rounded-lg md:hidden block p-4 md:p-8">
     <QuoteForm
-      client:visible
+      client:only="svelte"
       quoteFormTitle={quoteFormTitle}
       quoteButtonTitle={quoteButtonTitle}
       phoneNumber={global?.phone_number}
@@ -58,7 +58,7 @@ const SectionTitle = item?.sectionTitle ?? "";
   >
     <div class="w-full bg-white rounded-lg lg:max-w-[550px] p-4 md:p-8">
       <QuoteForm
-        client:visible
+        client:only="svelte"
         quoteFormTitle={quoteFormTitle}
         quoteButtonTitle={quoteButtonTitle}
         phoneNumber={global?.phone_number}
