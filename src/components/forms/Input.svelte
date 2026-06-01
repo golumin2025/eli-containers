@@ -1,5 +1,5 @@
 <script>
-  let { forId, label, type = 'text', placeholder, value = $bindable(), errors } = $props()
+  let { forId, label, type = 'text', placeholder, value = $bindable(), errors, onblur } = $props()
 </script>
 
 <div>
@@ -10,8 +10,9 @@
     class="block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
     bind:value
     {placeholder}
+    {onblur}
   />
   {#if errors}
-    <p class="text-red-800">{errors}</p>
+    <p class="text-red-800 text-sm mt-1">{errors}</p>
   {/if}
 </div>

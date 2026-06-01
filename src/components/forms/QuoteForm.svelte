@@ -1,15 +1,13 @@
 <script>
-  const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
-  import { actions, isInputError } from "astro:actions";
-  import Input from "./Input.svelte";
-  import { DateInput } from "date-picker-svelte";
-  import { turnstile } from "@svelte-put/cloudflare-turnstile";
-  let {
-    quoteFormTitle,
-    quoteButtonTitle = "Get your Quote",
-    promoCode,
-  } = $props();
-  let isLoading = $state(false);
+  const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY
+  const ZIP_NOT_SERVICED_MSG = 'Sorry, we do not service this zipcode'
+  import { actions, isInputError } from 'astro:actions'
+  import Input from './Input.svelte'
+  import { DateInput } from 'date-picker-svelte'
+  import { turnstile } from '@svelte-put/cloudflare-turnstile'
+  let { quoteFormTitle, quoteButtonTitle = 'Get your Quote', promoCode } = $props()
+  let isLoading = $state(false)
+  let zipErrors = $state({ initial: '', final: '' })
   let form = $state({
     serviceType: "Moving",
     firstName: "",
@@ -24,6 +22,29 @@
     cfTurnstileResponse: "",
     errors: {},
   });
+
+  async function checkZipcode(zipcode, field) {
+    if (!zipcode) {
+      zipErrors[field] = ''
+      return
+    }
+    try {
+      const res = await fetch(
+        `/api/check-zipcode?zipcode=${encodeURIComponent(zipcode)}`,
+      )
+      const data = await res.json().catch(() => ({}))
+      zipErrors[field] = res.ok && data.success ? '' : ZIP_NOT_SERVICED_MSG
+    } catch {
+      zipErrors[field] = ZIP_NOT_SERVICED_MSG
+    }
+  }
+
+  let isFinalZipRequired = $derived(
+    form.serviceType === 'Moving' || form.serviceType === 'Storage & Moving',
+  )
+  let hasZipError = $derived(
+    !!zipErrors.initial || (isFinalZipRequired && !!zipErrors.final),
+  )
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -102,17 +123,19 @@
           label="Initial Delivery Zip Code"
           placeholder="34240"
           bind:value={form.initialDeliveryZip}
-          errors={form.errors.initialDeliveryZip}
+          errors={zipErrors.initial || form.errors.initialDeliveryZip}
+          onblur={() => checkZipcode(form.initialDeliveryZip, 'initial')}
         />
       </div>
-      {#if form.serviceType === "Moving" || form.serviceType === "Storage & Moving"}
+      {#if isFinalZipRequired}
         <div class="w-full">
           <Input
             forId="final-delivery-zip"
             label="Final Delivery Zip Code"
             placeholder="34240"
             bind:value={form.finalDeliveryZip}
-            errors={form.errors.finalDeliveryZip}
+            errors={zipErrors.final || form.errors.finalDeliveryZip}
+            onblur={() => checkZipcode(form.finalDeliveryZip, 'final')}
           />
         </div>
       {/if}
@@ -178,8 +201,8 @@
     {/if}
     <button
       type="submit"
-      disabled={isLoading}
-      class="submit-btn shadow-[0px_4px_8px_0px_#00000040] cursor-pointer"
+      disabled={isLoading || hasZipError}
+      class="submit-btn shadow-[0px_4px_8px_0px_#00000040] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {#if isLoading}
         Submitting...

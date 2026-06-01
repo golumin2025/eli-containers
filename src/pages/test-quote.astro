@@ -1,0 +1,25 @@
+---
+import QuoteForm from "@components/forms/QuoteForm.svelte";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Test Quote Form</title>
+  </head>
+  <body>
+    <div class="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+      <div class="w-full max-w-[550px] bg-white rounded-lg p-8 shadow-lg">
+        <QuoteForm
+          client:visible
+          quoteFormTitle="Get Free Quote"
+          quoteButtonTitle="Get Free Quote"
+          promoCode="MEM50"
+        />
+      </div>
+    </div>
+  </body>
+</html>
