@@ -1,7 +1,11 @@
 ---
 import { getGlobal } from "src/lib/getPageData";
 import { getAssetURL } from "@utils/getImage";
-import { movingCompanySchema, organizationSchema, websiteSchema } from "src/lib/schema";
+import {
+  movingCompanySchema,
+  organizationSchema,
+  websiteSchema,
+} from "src/lib/schema";
 import "../../styles/global.css";
 
 interface Props {
@@ -78,11 +82,15 @@ const faviconUrl = getAssetURL(faviconId) || "/favicon.png";
 </script>
 
 <!-- Sitewide schema (MovingCompany, Organization, WebSite) -->
-{[movingCompanySchema, organizationSchema, websiteSchema].map((s) => (
-  <script type="application/ld+json" set:html={JSON.stringify(s)} />
-))}
+{
+  [movingCompanySchema, organizationSchema, websiteSchema].map((s) => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))
+}
 
 <!-- Page-specific schema injected per page -->
-{schema.map((s) => (
-  <script type="application/ld+json" set:html={JSON.stringify(s)} />
-))}
+{
+  schema.map((s) => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))
+}

@@ -1,45 +1,49 @@
 <script>
-  const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY
-  import { actions, isInputError } from 'astro:actions'
-  import Input from './Input.svelte'
-  import { DateInput } from 'date-picker-svelte'
-  import { turnstile } from '@svelte-put/cloudflare-turnstile'
-  let { quoteFormTitle, quoteButtonTitle = 'Get your Quote', promoCode } = $props()
-  let isLoading = $state(false)
+  const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+  import { actions, isInputError } from "astro:actions";
+  import Input from "./Input.svelte";
+  import { DateInput } from "date-picker-svelte";
+  import { turnstile } from "@svelte-put/cloudflare-turnstile";
+  let {
+    quoteFormTitle,
+    quoteButtonTitle = "Get your Quote",
+    promoCode,
+  } = $props();
+  let isLoading = $state(false);
   let form = $state({
-    serviceType: 'Moving',
-    firstName: '',
-    lastName: '',
-    initialDeliveryZip: '',
-    finalDeliveryZip: '',
+    serviceType: "Moving",
+    firstName: "",
+    lastName: "",
+    initialDeliveryZip: "",
+    finalDeliveryZip: "",
     deliveryDate: new Date(),
-    email: '',
-    phone: '',
-    storeItType: '',
-    promoCode: promoCode ?? '',
-    cfTurnstileResponse: '',
+    email: "",
+    phone: "",
+    storeItType: "",
+    promoCode: promoCode ?? "",
+    cfTurnstileResponse: "",
     errors: {},
-  })
+  });
 
   async function handleSubmit(event) {
-    event.preventDefault()
-    isLoading = true
-    form.errors = {}
-    const result = await actions.quoteForm(form)
+    event.preventDefault();
+    isLoading = true;
+    form.errors = {};
+    const result = await actions.quoteForm(form);
     if (isInputError(result.error)) {
       form.errors = Object.fromEntries(
         Object.entries(result.error.fields).map(([key, value]) => [
           key,
           Array.isArray(value) ? value[0] : value,
-        ])
-      )
+        ]),
+      );
     } else {
       if (result.data.success) {
-        isLoading = false
-        window.location.href = result.data.successUrl
+        isLoading = false;
+        window.location.href = result.data.successUrl;
       }
     }
-    isLoading = false
+    isLoading = false;
   }
 </script>
 
@@ -50,45 +54,47 @@
   <div class="flex justify-around items-center my-6 gap-4">
     <button
       type="button"
-      class={`py-3 px-4 rounded-md flex-1 shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer ${form.serviceType === 'Moving' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
-      onclick={() => (form.serviceType = 'Moving')}
+      class={`py-3 px-4 rounded-md flex-1 shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer ${form.serviceType === "Moving" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+      onclick={() => (form.serviceType = "Moving")}
     >
       Moving
     </button>
     <button
       type="button"
-      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer flex-1 ${form.serviceType === 'Storage' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
-      onclick={() => (form.serviceType = 'Storage')}
+      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer flex-1 ${form.serviceType === "Storage" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+      onclick={() => (form.serviceType = "Storage")}
     >
       Storage
     </button>
     <button
       type="button"
-      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer flex-1 ${form.serviceType === 'Storage & Moving' ? 'bg-primary text-white shadow-md' : 'bg-gray-200 text-black hover:bg-gray-300'}`}
-      onclick={() => (form.serviceType = 'Storage & Moving')}
+      class={`py-3 px-4 rounded-md shadow-[0px_4px_8px_0px_#00000040] transition-colors cursor-pointer flex-1 ${form.serviceType === "Storage & Moving" ? "bg-primary text-white shadow-md" : "bg-gray-200 text-black hover:bg-gray-300"}`}
+      onclick={() => (form.serviceType = "Storage & Moving")}
     >
       Both
     </button>
   </div>
   <div class="space-y-2">
-    {#if form.serviceType === 'Storage' || form.serviceType === 'Storage & Moving'}
-      <h3 class="italic text-black">Where would you like to store your container?</h3>
+    {#if form.serviceType === "Storage" || form.serviceType === "Storage & Moving"}
+      <h3 class="italic text-black">
+        Where would you like to store your container?
+      </h3>
       <button
         type="button"
-        class={`py-1 px-4 rounded-md transition-colors flex-1 mr-3 ${form.storeItType === '1' ? 'bg-primary text-white shadow-md' : 'bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
-        onclick={() => (form.storeItType = '1')}
+        class={`py-1 px-4 rounded-md transition-colors flex-1 mr-3 ${form.storeItType === "1" ? "bg-primary text-white shadow-md" : "bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300"}`}
+        onclick={() => (form.storeItType = "1")}
       >
         My Location
       </button>
       <button
         type="button"
-        class={`py-1 px-4 rounded-md transition-colors flex-1 ${form.storeItType === '0' ? 'bg-primary text-white shadow-md' : 'bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300'}`}
-        onclick={() => (form.storeItType = '0')}
+        class={`py-1 px-4 rounded-md transition-colors flex-1 ${form.storeItType === "0" ? "bg-primary text-white shadow-md" : "bg-gray-300 shadow text-black cursor-pointer hover:bg-gray-300"}`}
+        onclick={() => (form.storeItType = "0")}
       >
-        MI-BOX Location
+        Box Rental Now Location
       </button>
     {/if}
-    
+
     <div class="flex gap-2">
       <div class="w-full">
         <Input
@@ -99,7 +105,7 @@
           errors={form.errors.initialDeliveryZip}
         />
       </div>
-      {#if form.serviceType === 'Moving' || form.serviceType === 'Storage & Moving'}
+      {#if form.serviceType === "Moving" || form.serviceType === "Storage & Moving"}
         <div class="w-full">
           <Input
             forId="final-delivery-zip"
@@ -112,14 +118,15 @@
       {/if}
     </div>
     <div>
-      <label for="delivery-date" class="block text-sm/6 font-medium text-gray-900"
-        >Delivery Date</label
+      <label
+        for="delivery-date"
+        class="block text-sm/6 font-medium text-gray-900">Delivery Date</label
       >
       <DateInput
         class="block w-full rounded-md bg-white p-0 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
         id="delivery-date"
         bind:value={form.deliveryDate}
-        max={new Date('2030-12-31')}
+        max={new Date("2030-12-31")}
         format="MM-dd-yyyy"
         closeOnSelection
       />
@@ -144,12 +151,14 @@
       />
     </div>
     <div>
-      <label for="promo-code" class="block text-sm/6 font-medium text-gray-900">Promo Code</label>
+      <label for="promo-code" class="block text-sm/6 font-medium text-gray-900"
+        >Promo Code</label
+      >
       <input
         id="promo-code"
         type="text"
         class="block w-full rounded-md bg-gray-100 p-2 text-base text-gray-900"
-        bind:value={form.promoCode} 
+        bind:value={form.promoCode}
         tabindex="-1"
       />
     </div>
