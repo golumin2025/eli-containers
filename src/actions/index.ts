@@ -63,41 +63,41 @@ export const server = {
         );
         const zohoResponse = await zohoRequest.json();
 
-        // Prepare email templates
-        const { html: clientEmailBody } = mjml2html(
-          formSubmissionClientEmail.html(input, globalData),
-        );
-        const { html: adminEmailBody } = mjml2html(
-          formSubmissionAdminEmail.html(input, globalData),
-        );
+        // // Prepare email templates
+        // const { html: clientEmailBody } = mjml2html(
+        //   formSubmissionClientEmail.html(input, globalData),
+        // );
+        // const { html: adminEmailBody } = mjml2html(
+        //   formSubmissionAdminEmail.html(input, globalData),
+        // );
 
         // Send emails
         const client = new postmark.ServerClient(
           import.meta.env.POSTMARK_SERVER_TOKEN,
         );
 
-        // Send email to client
-        await client.sendEmail({
-          From: globalData.fromEmail,
-          To: input.email,
-          Cc: globalData.clientEmailRecipientsBcc
-            .map((recipient: { email: string }) => recipient.email)
-            .join(", "),
-          Subject: "Thank You for Your Submission - We'll Be In Touch Soon",
-          HtmlBody: clientEmailBody,
-          MessageStream: "outbound",
-        });
+        // // Send email to client
+        // await client.sendEmail({
+        //   From: globalData.fromEmail,
+        //   To: input.email,
+        //   Cc: globalData.clientEmailRecipientsBcc
+        //     .map((recipient: { email: string }) => recipient.email)
+        //     .join(", "),
+        //   Subject: "Thank You for Your Submission - We'll Be In Touch Soon",
+        //   HtmlBody: clientEmailBody,
+        //   MessageStream: "outbound",
+        // });
 
-        // Send email to admin
-        await client.sendEmail({
-          From: globalData.fromEmail,
-          To: globalData.adminEmailRecipients
-            .map((recipient: { email: string }) => recipient.email)
-            .join(", "),
-          Subject: "New Form Submission - Follow Up Required",
-          HtmlBody: adminEmailBody,
-          MessageStream: "outbound",
-        });
+        // // Send email to admin
+        // await client.sendEmail({
+        //   From: globalData.fromEmail,
+        //   To: globalData.adminEmailRecipients
+        //     .map((recipient: { email: string }) => recipient.email)
+        //     .join(", "),
+        //   Subject: "New Form Submission - Follow Up Required",
+        //   HtmlBody: adminEmailBody,
+        //   MessageStream: "outbound",
+        // });
 
         const successUrl = `https://app.miboxmovingandstorage.com/?container_types=${input.serviceType}&email=${input.email}&new_zipcode=${input.finalDeliveryZip}&phone_number=${input.phone}&start_date=${input.deliveryDate}&zipcode=${input.initialDeliveryZip}&promocode=${input.promoCode}&type=${input.storeItType}`;
 
