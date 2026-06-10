@@ -1,0 +1,62 @@
+---
+import type { Block } from "@lib/types";
+import MainHero from "@components/sections/MainHero.astro";
+import HowPodsWorks from "@components/sections/HowPodsWorks.astro";
+import TwoCol from "@components/sections/TwoCol.astro";
+import ReviewsSlider from "@components/sections/ReviewsSlider.astro";
+import FindYouFit from "@components/sections/FindYouFit.astro";
+import StorageOptions from "@components/sections/StorageOptions.astro";
+import ProtectionConvenience from "@components/sections/ProtectionConvenience.astro";
+import FeaturedImage from "@components/ui/FeaturedImage.astro";
+import Faq from "@components/sections/Faq.astro";
+import Masonry from "@components/sections/Masonry.astro";
+import WhyUS from "@components/sections/WhyUS.astro";
+import SingleHero from "@components/sections/SingleHero.astro";
+import LogoSlider from "@components/sections/LogoSlider.astro";
+import RichText from "@components/sections/RichText.astro";
+
+interface Props { blocks: Block[] }
+const { blocks } = Astro.props;
+
+const components: Record<string, any> = {
+  // hero variants
+  hero: MainHero,
+  main_hero: MainHero,
+  main_hero_demo: MainHero,
+  single_hero: SingleHero,
+  // content blocks
+  how_it_works: HowPodsWorks,
+  two_col: TwoCol,
+  rich_text: RichText,
+  featured_image: FeaturedImage,
+  content_with_bg_image: FeaturedImage,
+  image_block: FeaturedImage,
+  // product / storage
+  find_your_fit: FindYouFit,
+  storage_containers: FindYouFit,
+  storage_options: StorageOptions,
+  // social proof
+  testimonials: ReviewsSlider,
+  reviews_slider: ReviewsSlider,
+  // misc sections
+  faqs: Faq,
+  gallery: Masonry,
+  why_us: WhyUS,
+  logos_slider: LogoSlider,
+  protection_convenience: ProtectionConvenience,
+};
+---
+
+{blocks.map((block) => {
+  const Component = components[block.type];
+  if (Component) {
+    return <Component item={block.data} />;
+  }
+  return (
+    <div data-block-type={block.type} class="py-8 px-4 border border-dashed border-gray-300 my-4">
+      <p class="text-center text-gray-400 text-sm">
+        Block type <code class="bg-gray-100 px-2 py-1 rounded">{block.type}</code> not yet wired up
+      </p>
+    </div>
+  );
+})}

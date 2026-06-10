@@ -34,7 +34,7 @@ const { title, list } = item;
                   id={`faq-button-${index}`}
                 >
                   <span class="font-medium text-secondary transition-colors duration-200">
-                    {faq.accordion_id.question}
+                    {faq.accordion_id?.question ?? faq.question}
                   </span>
                   <span class="ml-6 h-7 flex items-center">
                     <svg
@@ -60,7 +60,7 @@ const { title, list } = item;
               >
                 <div
                   class="pt-3 prose text-text/80"
-                  set:html={faq.accordion_id.answer}
+                  set:html={faq.accordion_id?.answer ?? faq.answer}
                 />
               </dd>
             </div>

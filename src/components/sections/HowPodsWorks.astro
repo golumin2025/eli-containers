@@ -16,20 +16,23 @@ const { title, tabs, image, video_link, featured_media } = item;
   <div class="flex justify-center items-center lg:flex-row flex-col gap-20">
     <div class="h-auto relative lg:w-1/2 w-full">
       {
-        tabs.map((tab, index) => (
+        tabs.map((tab, index) => {
+          const t = tab.tabs_id ?? tab;
+          const steps: any[] = t.steps ?? [];
+          return (
           <div
             role="tabpanel"
-            id={`tabpanel-${tab.id}`}
-            aria-labelledby={`tab-${tab.id}`}
+            id={`tabpanel-${tab.id ?? index}`}
+            aria-labelledby={`tab-${tab.id ?? index}`}
             class={`tab-panel flex flex-col gap-10 overflow-hidden transition duration-300 ${
               index === 0 ? "flex" : "hidden"
             }`}
           >
-            {tab.tabs_id.steps.map((step, stepIndex) => (
+            {steps.map((step, stepIndex) => (
               <div class="relative flex items-start">
                 <div class="relative pr-5 h-full">
                   <div class="bg-primary number">{stepIndex + 1}</div>
-                  {stepIndex !== tab.tabs_id.steps.length - 1 && (
+                  {stepIndex !== steps.length - 1 && (
                     <div class="number-line bg-primary" />
                   )}
                 </div>
@@ -43,7 +46,8 @@ const { title, tabs, image, video_link, featured_media } = item;
               </div>
             ))}
           </div>
-        ))
+          );
+        })
       }
     </div>
 
@@ -58,14 +62,14 @@ const { title, tabs, image, video_link, featured_media } = item;
             <button
               role="tab"
               aria-selected={index === 0 ? "true" : "false"}
-              aria-controls={`tabpanel-${tab.id}`}
-              id={`tab-${tab.id}`}
+              aria-controls={`tabpanel-${tab.id ?? index}`}
+              id={`tab-${tab.id ?? index}`}
               class={`relative block flex-1 px-6 py-2 tab ${
                 index === 0 ? "active" : ""
               }`}
             >
               <span class="font-medium text-2xl whitespace-nowrap">
-                {tab.tabs_id.title}
+                {(tab.tabs_id ?? tab).title}
               </span>
             </button>
           ))
@@ -75,8 +79,8 @@ const { title, tabs, image, video_link, featured_media } = item;
       {
         featured_media === "image" ? (
           <img
-            src={getAssetURL(image.id)}
-            alt={image.description || image.title || "How It Works Image"}
+            src={getAssetURL(image?.id ?? image)}
+            alt={(typeof image === "object" ? image?.description ?? image?.title : null) ?? "How It Works Image"}
             class="w-full h-full object-cover rounded-2xl"
           />
         ) : (

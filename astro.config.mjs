@@ -1,7 +1,5 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import keystatic from "@keystatic/astro";
-import markdoc from "@astrojs/markdoc";
 import netlify from "@astrojs/netlify";
 import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
@@ -16,8 +14,6 @@ export default defineConfig({
     "/thankyou/": "/thank-you",
   },
   integrations: [
-    keystatic(),
-    markdoc(),
     partytown(),
     react(),
     sitemap(),

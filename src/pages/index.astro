@@ -1,24 +1,21 @@
 ---
-import HowPodsWorks from "@components/sections/HowPodsWorks.astro";
-import MainHero from "@components/sections/MainHero.astro";
-import ReviewsSlider from "@components/sections/ReviewsSlider.astro";
-import FeaturedImage from "@components/ui/FeaturedImage.astro";
-import Faqs from "@components/sections/Faq.astro";
 import Layout from "@layouts/Layout.astro";
-import Masonry from "@components/sections/Masonry.astro";
-import SingleHero from "@components/sections/SingleHero.astro";
-import TwoCol from "@components/sections/TwoCol.astro";
-import FindYouFit from "@components/sections/FindYouFit.astro";
-import RichText from "@components/sections/RichText.astro";
-import { getSinglePage } from "src/lib/getPageData";
-import { containerProductSchemas, buildFaqSchema } from "src/lib/schema";
-import WhyUS from "@components/sections/WhyUS.astro";
-import LogoSlider from "@components/sections/LogoSlider.astro";
+import BlockRenderer from "../blocks/BlockRenderer.astro";
+import { getPage, preloadAssetsFromBlocks } from "@lib/cms";
+import { buildSeoProps } from "@lib/seo";
+import { containerProductSchemas, buildFaqSchema } from "@lib/schema";
 
-const homePage = await getSinglePage("pages", "/home");
+const pageData = await getPage("home");
 
-const faqBlock = homePage?.blocks.find((b: any) => b.collection === "faqs");
-const faqList = faqBlock?.item?.list ?? [];
+if (pageData == null) {
+  return Astro.redirect("/404");
+}
+
+await preloadAssetsFromBlocks(pageData.blocks);
+const seo = await buildSeoProps(pageData);
+
+const faqBlock = pageData.blocks.find((b) => b.type === "faqs");
+const faqList = faqBlock?.data?.list ?? [];
 const faqSchema = buildFaqSchema(faqList);
 
 const homepageSchema = [
@@ -28,36 +25,10 @@ const homepageSchema = [
 ---
 
 <Layout
-  title={homePage?.seo.title}
-  description={homePage?.seo.meta_description}
-  ogImage={homePage?.seo.og_image}
+  title={seo.title}
+  description={seo.description}
+  ogImage={seo.ogImage ?? ""}
   schema={homepageSchema}
 >
-  {
-    homePage?.blocks.map((item: any) => (
-      <>
-        {item.collection === "hero" && <MainHero item={item.item} />}
-        {item.collection === "how_it_works" && (
-          <HowPodsWorks item={item.item} />
-        )}
-        {item.collection === "content_with_bg_image" && (
-          <FeaturedImage item={item.item} />
-        )}
-        {item.collection === "testimonials" && (
-          <ReviewsSlider item={item.item} />
-        )}
-        {item.collection === "faqs" && <Faqs item={item.item} />}
-        {item.collection === "gallery" && <Masonry item={item.item} />}
-        {item.collection === "storage_containers" && (
-          <FindYouFit item={item.item} />
-        )}
-        {item.collection === "why_us" && <WhyUS item={item.item} />}
-
-        {item.collection === "single_hero" && <SingleHero item={item.item} />}
-        {item.collection === "logos_slider" && <LogoSlider item={item.item} />}
-        {item.collection === "two_col" && <TwoCol item={item.item} />}
-        {item.collection === "rich_text" && <RichText item={item.item} />}
-      </>
-    ))
-  }
+  <BlockRenderer blocks={pageData.blocks ?? []} />
 </Layout>

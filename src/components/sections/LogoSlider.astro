@@ -24,19 +24,20 @@ const logos = [
     >
       <div class="logo_items flex justify-center items-center gap-4">
         {
-          logos.map((logo, index) => (
+          logos.map((logo, index) => {
+            const img = logo.image_id?.image ?? logo.image ?? logo;
+            const src = getAssetURL(typeof img === "object" ? (img?.id ?? img) : img);
+            const alt = (typeof img === "object" ? img?.description ?? img?.title : null) ?? `Logo ${index + 1}`;
+            return (
             <img
               class="img object-contain"
-              src={getAssetURL(logo.image_id.image.id)}
-              alt={
-                logo.image_id.image.description ||
-                logo.image_id.image.title ||
-                `Logo ${index + 1}`
-              }
+              src={src}
+              alt={alt}
               width={200}
               height={200}
             />
-          ))
+            );
+          })
         }
       </div>
     </div>

@@ -25,19 +25,24 @@ const reviews = shuffleArray(cards);
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         {
-          reviews.map((review: any) => (
+          reviews.map((review: any) => {
+            const r = review.testimonial_card_id ?? review;
+            const name = r.name ?? "?";
+            const rating = Number(r.rating ?? 5);
+            const content = r.content ?? r.review ?? "";
+            return (
             <div class="swiper-slide bg-white p-6 rounded-xl shadow-md shadow-gray-900/5 border-2 border-gray-100">
               <div class="flex flex-col h-full min-h-[280px] ">
                 <div class="flex items-center gap-4 mb-4">
                   <div class="bg-primary w-10 h-10 flex justify-center items-center text-white text-xl uppercase font-bold rounded-full">
-                    {review.testimonial_card_id.name[0]}
+                    {name[0]}
                   </div>
                   <div>
                     <p class="font-semibold text-sm">
-                      {review.testimonial_card_id.name}
+                      {name}
                     </p>
                     <div class="text-yellow-400 flex items-center">
-                      {[...Array(review.testimonial_card_id.rating)].map(
+                      {[...Array(rating)].map(
                         (_, i) => (
                           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
@@ -49,11 +54,12 @@ const reviews = shuffleArray(cards);
                 </div>
                 <p
                   class="text-gray-600 line-clamp-[7]"
-                  set:html={review.testimonial_card_id.content}
+                  set:html={content}
                 />
               </div>
             </div>
-          ))
+            );
+          })
         }
       </div>
     </div>
