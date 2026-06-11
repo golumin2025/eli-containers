@@ -1,121 +1,61 @@
 import { formatDate } from "@utils/dateformatter";
 
 export const formSubmissionAdminEmail = {
-  html: (data, emailGlobal) => `
-  <mjml>
-    <mj-head>
-      <mj-preview>New Form Submission - Action Required</mj-preview>
-      <mj-style inline="inline">
-        a { color: #ffd51d; text-decoration: none; font-weight: 600; }
-        .detail-label { font-weight: bold; color: #333333; }
-        .detail-value { color: #555555; }
-      </mj-style>
-    </mj-head>
-    <mj-body background-color="#f4f4f4" font-family="Arial, sans-serif">
-      <!-- Logo Section -->
-      <mj-section background-color="#ffffff" padding="20px" text-align="center">
-        <mj-column>
-          <mj-image
-            width="150px"
-            src="${emailGlobal.image_url_for_email}"
-            alt="Logo"
-          />
-        </mj-column>
-      </mj-section>
-
-      <!-- Header Section -->
-      <mj-section background-color="#ffffff" padding="20px 30px" border-radius="8px 8px 0 0" text-align="center">
-        <mj-column>
-          <mj-text font-size="24px" font-weight="bold" color="#d32f2f" align="center">
-             New Form Submission
-          </mj-text>
-          <mj-divider border-color="#d32f2f" border-width="2px" width="60%" />
-        </mj-column>
-      </mj-section>
-
-      <!-- Customer Details Section -->
-      <mj-section background-color="#ffffff" padding="20px 30px">
-        <mj-column>
-          <mj-text font-size="16px" font-weight="bold" color="#333333" padding-bottom="15px">
-            Customer Information:
-          </mj-text>
-
-          <mj-text font-size="14px" color="#555555" line-height="2.2">
-            ${data.firstName ? `<span class="detail-label">First Name:</span> <span class="detail-value">${data.firstName}</span><br/>` : ""}
-            ${data.lastName ? `<span class="detail-label">Last Name:</span> <span class="detail-value">${data.lastName}</span><br/>` : ""}
-            ${data.email ? `<span class="detail-label">Email:</span> <span class="detail-value"><a href="mailto:${data.email}">${data.email}</a></span><br/>` : ""}
-            ${data.phone ? `<span class="detail-label">Phone:</span> <span class="detail-value"><a href="tel:${data.phone}">${data.phone}</a></span><br/>` : ""}
-          </mj-text>
-        </mj-column>
-      </mj-section>
-
-      <!-- Service Details Section -->
-      <mj-section background-color="#f9f9f9" padding="20px 30px">
-        <mj-column>
-          <mj-text font-size="16px" font-weight="bold" color="#333333" padding-bottom="15px">
-            Service Details:
-          </mj-text>
-
-          <mj-text font-size="14px" color="#555555" line-height="2.2">
-            ${data.serviceType ? `<span class="detail-label">Service Type:</span> <span class="detail-value">${data.serviceType}</span><br/>` : ""}
-            ${data.initialDeliveryZip ? `<span class="detail-label">Delivery Zip Code:</span> <span class="detail-value">${data.initialDeliveryZip}</span><br/>` : ""}
-            ${data.finalDeliveryZip ? `<span class="detail-label">Final Delivery Zip:</span> <span class="detail-value">${data.finalDeliveryZip}</span><br/>` : ""}
-            ${data.deliveryDate ? `<span class="detail-label">Delivery Date:</span> <span class="detail-value">${formatDate(data.deliveryDate)}</span><br/>` : ""}
-            ${data.storeItType ? `<span class="detail-label">Storage Type:</span> <span class="detail-value">${data.storeItType}</span><br/>` : ""}
-          </mj-text>
-        </mj-column>
-      </mj-section>
-
-      <!-- Promo Code Section -->
-      ${data.promoCode ? `
-      <mj-section background-color="#fff3cd" padding="20px 30px">
-        <mj-column>
-          <mj-text font-size="16px" font-weight="bold" color="#333333" padding-bottom="10px">
-            🎉 Promo Code Used:
-          </mj-text>
-
-          <mj-text font-size="18px" font-weight="bold" color="#d32f2f">
-            ${data.promoCode}
-          </mj-text>
-        </mj-column>
-      </mj-section>
-      ` : ""}
-
-      <!-- Action Section -->
-      <mj-section background-color="#ffffff" padding="20px 30px" border-radius="0 0 8px 8px">
-        <mj-column>
-          <mj-text font-size="14px" color="#666666" line-height="1.8" padding-top="10px">
-            <em>Please follow up with this customer as soon as possible to provide a quote and discuss their needs.</em>
-          </mj-text>
-
-          <mj-button
-            background-color="#d32f2f"
-            color="#ffffff"
-            href="mailto:${data.email}"
-            font-family="Arial, sans-serif"
-            padding="15px 30px"
-            font-weight="bold"
-          >
-            Reply to Customer
-          </mj-button>
-        </mj-column>
-      </mj-section>
-
-      <!-- Footer Section -->
-      <mj-section background-color="#333333" padding="20px" text-align="center">
-        <mj-column>
-          <mj-text
-            align="center"
-            color="#ffffff"
-            font-size="12px"
-            line-height="1.6"
-          >
-            Box Rental Now<br/>
-            ${emailGlobal.phone_number}
-          </mj-text>
-        </mj-column>
-      </mj-section>
-    </mj-body>
-  </mjml>
-  `,
+  html: (data: any, emailGlobal: any) => `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>New Form Submission</title></head>
+<body style="margin:0;padding:0;background:#f4f4f4;font-family:Arial,sans-serif">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f4;padding:20px 0">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:8px;overflow:hidden;max-width:600px;width:100%">
+        <!-- Logo -->
+        <tr><td align="center" style="padding:20px;background:#fff">
+          ${emailGlobal.image_url_for_email ? `<img src="${emailGlobal.image_url_for_email}" alt="Logo" width="150" style="display:block">` : ""}
+        </td></tr>
+        <!-- Header -->
+        <tr><td align="center" style="padding:20px 30px;background:#fff">
+          <h1 style="font-size:24px;font-weight:bold;color:#d32f2f;margin:0 0 10px">New Form Submission</h1>
+          <hr style="border:none;border-top:2px solid #d32f2f;width:60%;margin:0 auto">
+        </td></tr>
+        <!-- Customer Info -->
+        <tr><td style="padding:20px 30px;background:#fff">
+          <p style="font-size:16px;font-weight:bold;color:#333;margin:0 0 15px">Customer Information:</p>
+          <p style="font-size:14px;color:#555;line-height:2.2;margin:0">
+            ${data.firstName ? `<strong>First Name:</strong> ${data.firstName}<br>` : ""}
+            ${data.lastName ? `<strong>Last Name:</strong> ${data.lastName}<br>` : ""}
+            ${data.email ? `<strong>Email:</strong> <a href="mailto:${data.email}" style="color:#d32f2f">${data.email}</a><br>` : ""}
+            ${data.phone ? `<strong>Phone:</strong> <a href="tel:${data.phone}" style="color:#d32f2f">${data.phone}</a><br>` : ""}
+          </p>
+        </td></tr>
+        <!-- Service Details -->
+        <tr><td style="padding:20px 30px;background:#f9f9f9">
+          <p style="font-size:16px;font-weight:bold;color:#333;margin:0 0 15px">Service Details:</p>
+          <p style="font-size:14px;color:#555;line-height:2.2;margin:0">
+            ${data.serviceType ? `<strong>Service Type:</strong> ${data.serviceType}<br>` : ""}
+            ${data.initialDeliveryZip ? `<strong>Delivery Zip Code:</strong> ${data.initialDeliveryZip}<br>` : ""}
+            ${data.finalDeliveryZip ? `<strong>Final Delivery Zip:</strong> ${data.finalDeliveryZip}<br>` : ""}
+            ${data.deliveryDate ? `<strong>Delivery Date:</strong> ${formatDate(data.deliveryDate)}<br>` : ""}
+            ${data.storeItType ? `<strong>Storage Type:</strong> ${data.storeItType}<br>` : ""}
+          </p>
+        </td></tr>
+        ${data.promoCode ? `
+        <!-- Promo Code -->
+        <tr><td style="padding:20px 30px;background:#fff3cd">
+          <p style="font-size:16px;font-weight:bold;color:#333;margin:0 0 10px">Promo Code Used:</p>
+          <p style="font-size:18px;font-weight:bold;color:#d32f2f;margin:0">${data.promoCode}</p>
+        </td></tr>` : ""}
+        <!-- Action -->
+        <tr><td align="center" style="padding:20px 30px;background:#fff">
+          <p style="font-size:14px;color:#666;line-height:1.8;margin:0 0 15px"><em>Please follow up with this customer as soon as possible.</em></p>
+          <a href="mailto:${data.email}" style="display:inline-block;background:#d32f2f;color:#fff;font-weight:bold;font-family:Arial,sans-serif;padding:15px 30px;text-decoration:none;border-radius:4px">Reply to Customer</a>
+        </td></tr>
+        <!-- Footer -->
+        <tr><td align="center" style="padding:20px;background:#333">
+          <p style="color:#fff;font-size:12px;line-height:1.6;margin:0">Box Rental Now<br>${emailGlobal.phone_number}</p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`,
 };

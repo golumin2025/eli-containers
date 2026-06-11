@@ -1,7 +1,6 @@
 import { defineAction } from "astro:actions";
 import { z } from "astro:schema";
 import * as postmark from "postmark";
-import mjml2html from "mjml";
 import { formSubmissionClientEmail } from "./email-templates/formSubmissionClientEmail";
 import { formSubmissionAdminEmail } from "./email-templates/formSubmissionAdminEmail";
 import { getGlobal } from "../lib/cms";
@@ -180,12 +179,8 @@ export const server = {
         }
 
         // Prepare email templates
-        const { html: clientEmailBody } = mjml2html(
-          formSubmissionClientEmail.html(input, globalData),
-        );
-        const { html: adminEmailBody } = mjml2html(
-          formSubmissionAdminEmail.html(input, globalData),
-        );
+        const clientEmailBody = formSubmissionClientEmail.html(input, globalData);
+        const adminEmailBody = formSubmissionAdminEmail.html(input, globalData);
 
         // Send emails
         const client = new postmark.ServerClient(
