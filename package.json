@@ -5,10 +5,13 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "npm run build && wrangler dev",
+    "astro": "astro",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12",
     "@astrojs/markdoc": "^0.12.10",
     "@astrojs/netlify": "^6.2.2",
     "@astrojs/partytown": "^2.1.4",
@@ -42,5 +45,8 @@
       "esbuild",
       "sharp"
     ]
+  },
+  "devDependencies": {
+    "wrangler": "^4.100.0"
   }
 }
