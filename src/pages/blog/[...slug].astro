@@ -2,47 +2,51 @@
 import Layout from "@layouts/Layout.astro";
 import { formatDate } from "@utils/dateformatter";
 import { getAssetURL } from "@utils/getImage";
-import { getSinglePost } from "src/lib/getPageData";
+import { getEntry, listEntries } from "@lib/cms";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const entries = await listEntries("blogs");
+  return entries.map((e) => ({ params: { slug: e.slug } }));
+}
 
 const { slug } = Astro.params;
 const safeSlug = typeof slug === "string" ? slug : "";
-const post = await getSinglePost("blogs", safeSlug);
+const post = await getEntry("blogs", safeSlug);
 
 if (!post) {
-  throw new Error(`Blog not found for slug: ${slug}`);
+  return Astro.redirect("/404");
 }
 
-const heroImage = getAssetURL(post?.blog_image.id) || "";
-
-// grab SEO info
-const pageData = post.seo || {};
+const fm = post.frontmatter ?? {};
+const heroImage = getAssetURL(fm.blog_image?.id ?? fm.blog_image) ?? "";
+const heroAlt = (typeof fm.blog_image === "object"
+  ? fm.blog_image?.description ?? fm.blog_image?.title
+  : null) ?? "Blog Hero Image";
 ---
 
 <Layout
-  title={pageData?.title || post.title}
-  description={pageData?.meta_description}
-  ogImage={pageData?.og_image}
+  title={fm.seo_title || post.title}
+  description={fm.seo_description || fm.excerpt || ""}
+  ogImage={getAssetURL(fm.og_image?.id ?? fm.og_image) ?? ""}
   pageUrl={`/blog/${slug}`}
 >
   <div class="relative flex items-end text-white overflow-hidden" role="banner">
     <img
       src={heroImage}
-      alt={post.blog_image.description ||
-        post.blog_image.title ||
-        "Blog Hero Image"}
+      alt={heroAlt}
       class="absolute inset-0 w-full h-full object-cover -z-10 brightness-[0.55]"
     />
     <div class="custom-container w-full py-24">
       <div class="max-w-3xl">
         <p class="text-sm text-primary/90 uppercase tracking-wide mb-2">Blog</p>
-        <h1
-          class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight"
-        >
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
           {post.title}
         </h1>
         <div class="mt-4 flex items-center gap-4 text-gray-200">
-          <time datetime={post.publication_date} class="text-sm">
-            {formatDate(post.publication_date)}
+          <time datetime={fm.publication_date} class="text-sm">
+            {fm.publication_date ? formatDate(fm.publication_date) : ""}
           </time>
         </div>
       </div>
@@ -52,7 +56,7 @@ const pageData = post.seo || {};
     <div
       class="prose prose-headings:text-primary !max-w-5xl mx-auto prose-headings:font-semibold prose-a:text-primary pt-8 md:pb-12 pb-6"
     >
-      <div set:html={post.content} />
+      <div set:html={post.body} />
     </div>
   </div>
 </Layout>

@@ -4,7 +4,7 @@ import * as postmark from "postmark";
 import mjml2html from "mjml";
 import { formSubmissionClientEmail } from "./email-templates/formSubmissionClientEmail";
 import { formSubmissionAdminEmail } from "./email-templates/formSubmissionAdminEmail";
-import { getGlobal } from "../lib/getPageData";
+import { getGlobal } from "../lib/cms";
 
 export const server = {
   quoteForm: defineAction({
@@ -30,9 +30,14 @@ export const server = {
     handler: async (input) => {
       try {
         // Fetch global email settings from CMS
-        const globalData = await getGlobal();
+        const _g = await getGlobal("site");
+        const globalData = _g?.data ? {
+          fromEmail: _g.data.from_email,
+          clientEmailRecipientsBcc: (_g.data.client_email_bcc ?? []).map((e: string) => ({ email: e })),
+          adminEmailRecipients: (_g.data.admin_email_recipients ?? []).map((e: string) => ({ email: e })),
+        } : null;
 
-        if (!globalData || !globalData.fromEmail) {
+        if (!globalData?.fromEmail) {
           return {
             success: false,
             message: "Email configuration not available",
@@ -134,9 +139,14 @@ export const server = {
     handler: async (input) => {
       try {
         // Fetch global email settings from CMS
-        const globalData = await getGlobal();
+        const _g = await getGlobal("site");
+        const globalData = _g?.data ? {
+          fromEmail: _g.data.from_email,
+          clientEmailRecipientsBcc: (_g.data.client_email_bcc ?? []).map((e: string) => ({ email: e })),
+          adminEmailRecipients: (_g.data.admin_email_recipients ?? []).map((e: string) => ({ email: e })),
+        } : null;
 
-        if (!globalData || !globalData.fromEmail) {
+        if (!globalData?.fromEmail) {
           return {
             success: false,
             error: {

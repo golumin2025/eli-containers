@@ -1,12 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { getCollection } from "astro:content";
 import BlogCard from "@components/BlogCard.astro";
 import SingleHero from "@components/SingleHero.astro";
 import backgroundImage from "@assets/images/about-us/blocks/0/value/bgImage.jpg";
-import { getPost } from "src/lib/getPageData";
+import { listEntries } from "@lib/cms";
 
-const blogs = await getPost();
+const blogs = await listEntries("blogs");
 ---
 
 <Layout
@@ -21,7 +20,14 @@ const blogs = await getPost();
       <div
         class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none sm:grid-cols-2 lg:grid-cols-3"
       >
-        {blogs.map((item) => <BlogCard {...item} />)}
+        {blogs.map((item) => (
+          <BlogCard
+            title={item.title}
+            link={item.slug}
+            blog_image={item.frontmatter?.blog_image}
+            publication_date={item.frontmatter?.publication_date}
+          />
+        ))}
       </div>
     </div>
   </div>

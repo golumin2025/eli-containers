@@ -18,8 +18,8 @@ function formatDate(dateStr) {
   class="relative isolate flex flex-col justify-end overflow-hidden bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
 >
   <img
-    src={getAssetURL(blog_image.id)}
-    alt={blog_image.description || blog_image.title || "Blog Image"}
+    src={getAssetURL(blog_image?.id ?? blog_image)}
+    alt={(typeof blog_image === "object" ? blog_image?.description ?? blog_image?.title : null) ?? "Blog Image"}
     class="absolute inset-0 -z-10 size-full object-cover"
   />
   <div
