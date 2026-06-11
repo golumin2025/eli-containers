@@ -12,6 +12,7 @@
     "collections:create": "node --env-file=.env scripts/create-collections.mjs"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.13",
     "@astrojs/markdoc": "^0.12.10",
     "@astrojs/netlify": "^6.2.2",
     "@astrojs/partytown": "^2.1.4",
@@ -37,7 +38,8 @@
     "svelte": "^5.22.5",
     "swiper": "^11.2.5",
     "tailwindcss": "^4.0.11",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "wrangler": "^4.99.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

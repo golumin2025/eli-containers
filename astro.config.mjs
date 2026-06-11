@@ -7,8 +7,9 @@ import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
 
+import cloudflare from "@astrojs/cloudflare";
+
 export default defineConfig({
-  site: "https://miboxmovingandstorage.com",
   trailingSlash: "ignore",
   redirects: {
     "/thankyou/": "/thank-you",
@@ -23,5 +24,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   output: "server",
-  adapter: netlify(),
+  adapter: cloudflare(),
 });
