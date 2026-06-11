@@ -3,8 +3,9 @@ import ImageMod from "@components/ui/ImageMod.astro";
 import QuoteForm from "../forms/QuoteForm.svelte";
 import ColdStorageForm from "../forms/ColdStorageForm.svelte";
 import { getAssetURL } from "src/utils/getImage";
-import { getGlobal } from "src/lib/getPageData";
-const global = await getGlobal();
+import { getGlobal } from "@lib/cms";
+const siteGlobal = await getGlobal("site");
+const globalSite = siteGlobal?.data ?? {};
 const { item, general, SectionTitle, stats, showStats } = Astro.props;
 
 const title = item?.heading ?? item?.title;
@@ -44,8 +45,8 @@ const formType = item?.form_type;
             <QuoteForm
               client:only="svelte"
               quoteButtonTitle={quoteButtonTitle}
-              phoneNumber={global.phone_number}
-              promoCode={global.promo_code}
+              phoneNumber={globalSite.phone_number}
+              promoCode={globalSite.promo_code}
             />
           </div>
         </div>

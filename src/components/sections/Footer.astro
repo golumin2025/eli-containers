@@ -1,10 +1,15 @@
 ---
 import { getAssetURL } from "@utils/getImage";
-import { getFooter, getGlobal } from "src/lib/getPageData";
+import { getGlobal } from "@lib/cms";
 
-const footer = await getFooter();
+const [siteGlobal, footerGlobal] = await Promise.all([
+  getGlobal("site"),
+  getGlobal("footer"),
+]);
+const site = siteGlobal?.data ?? {};
+const footer = footerGlobal?.data ?? {};
 let { pageUrl } = Astro.props;
-const global = await getGlobal();
+const isCold = ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl);
 ---
 
 <footer class="bg-[#f7f7f7] text-dark py-12 lg:py-16">
@@ -12,66 +17,58 @@ const global = await getGlobal();
     <!-- Logo -->
     <div class="w-full flex justify-center mb-6">
       {
-        !["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) ? (
+        !isCold ? (
           <img
-            src={getAssetURL(global.logo.id)}
-            alt={global.logo.description || global.logo.title || "Mi Box Logo"}
+            src={getAssetURL(site.logo?.id ?? site.logo)}
+            alt="Mi Box Logo"
             class="h-24 object-contain"
           />
         ) : (
           <img
-            src={getAssetURL(global.ice_logo?.id || global.logo.id)}
-            alt={
-              global.ice_logo?.description ||
-              global.ice_logo?.title ||
-              global.logo.description ||
-              global.logo.title ||
-              " Logo"
-            }
+            src={getAssetURL(site.ice_logo?.id ?? site.ice_logo ?? site.logo?.id ?? site.logo)}
+            alt="Logo"
             class="h-24 object-contain"
           />
         )
       }
     </div>
-    {
-      ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) ? "": (
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full my-14 items-start gap-8"
-     >
-      {
-        footer?.footer_items?.map((section) => (
-          <div class="w-full mb-6">
-            <h3 class="text-lg font-semibold">
-              {section?.footer_item_id?.title}
-            </h3>
-            <ul class="mt-2 space-y-2">
-              {section?.footer_item_id?.links?.map((link) => (
-                <li>
-                  <a href={link?.link} class="text-dark hover:text-primary">
-                    {link?.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </div>
 
-    <div class="flex justify-center md:flex-row flex-col w-full gap-4">
-      {
-        footer?.legal_links?.map((item) => (
-          <a href={item?.link} class="text-dark text-xs hover:text-primary">
-            {item?.title}
-          </a>
-        ))
-      }
-    </div>
-    )}
+    {
+      !isCold && (
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full my-14 items-start gap-8">
+          {
+            (footer.footer_sections ?? []).map((section: any) => (
+              <div class="w-full mb-6">
+                <h3 class="text-lg font-semibold">{section?.title}</h3>
+                <ul class="mt-2 space-y-2">
+                  {(section?.links ?? []).map((link: any) => (
+                    <li>
+                      <a href={link?.link} class="text-dark hover:text-primary">
+                        {link?.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="flex justify-center md:flex-row flex-col w-full gap-4">
+          {
+            (footer.legal_links ?? []).map((item: any) => (
+              <a href={item?.link} class="text-dark text-xs hover:text-primary">
+                {item?.title}
+              </a>
+            ))
+          }
+        </div>
+      )
+    }
 
     <!-- Cold Storage Contact Info -->
     {
-      ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) && (
+      isCold && (
         <div class="w-full text-center text-sm mt-4 text-dark space-y-1">
           <p>6510 3rd Ave W, Bradenton, FL 34209</p>
           <p>
@@ -86,11 +83,8 @@ const global = await getGlobal();
     <!-- Copyright -->
     <div class="w-full text-center text-sm mt-6 text-dark">
       {
-        ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) ? (
-          <p>
-            2026 Box Rental Now, LLC / It's Ice Cold Storage. All Rights
-            Reserved
-          </p>
+        isCold ? (
+          <p>2026 Box Rental Now, LLC / It's Ice Cold Storage. All Rights Reserved</p>
         ) : (
           <p set:html={footer?.copyright_description} />
         )

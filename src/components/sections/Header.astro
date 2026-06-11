@@ -1,11 +1,15 @@
 ---
-import ImageMod from "@components/ui/ImageMod.astro";
 import { getAssetURL } from "@utils/getImage";
-import { getNavbar, getGlobal } from "src/lib/getPageData";
+import { getGlobal } from "@lib/cms";
 
 const { pageUrl } = Astro.props;
-const nav = await getNavbar();
-const global = await getGlobal();
+const [siteGlobal, navGlobal] = await Promise.all([
+  getGlobal("site"),
+  getGlobal("navigation"),
+]);
+const site = siteGlobal?.data ?? {};
+const nav = navGlobal?.data ?? {};
+const menuItems: any[] = nav.menu_items ?? [];
 ---
 
 <header
@@ -22,10 +26,8 @@ const global = await getGlobal();
               class="text-xl font-bold text-gray-800 flex items-center gap-2"
             >
               <img
-                src={getAssetURL(global.logo.id)}
-                alt={
-                  global.logo.description || global.logo.title || "Mi Box Logo"
-                }
+                src={getAssetURL(site.logo?.id ?? site.logo)}
+                alt="Mi Box Logo"
                 class="max-w-32"
                 loading="eager"
               />
@@ -37,14 +39,8 @@ const global = await getGlobal();
           </div>
         ) : (
           <img
-            src={getAssetURL(global.ice_logo.id || global.logo.id)}
-            alt={
-              global.ice_logo?.description ||
-              global.ice_logo?.title ||
-              global.logo.description ||
-              global.logo.title ||
-              " Logo"
-            }
+            src={getAssetURL(site.ice_logo?.id ?? site.ice_logo ?? site.logo?.id ?? site.logo)}
+            alt="Logo"
             class="h-16 object-contain"
           />
         )
@@ -54,13 +50,17 @@ const global = await getGlobal();
     <!-- Desktop Navigation -->
     <nav class="hidden lg:flex space-x-8" id="navItems">
       {
-        nav?.menu_items?.map((item) => {
-          const navItem = item?.nav_item_id;
-          const hasDropdown = navItem?.sub_menu && navItem.sub_menu.length > 0;
+        menuItems.map((item) => {
+          const subMenu = item.sub_menu
+            ? (typeof item.sub_menu === "string"
+                ? JSON.parse(item.sub_menu)
+                : item.sub_menu)
+            : null;
+          const hasDropdown = subMenu && subMenu.length > 0;
           return hasDropdown ? (
             <div class="relative group">
               <button class="text-black underline-text font-medium hover:text-primary flex items-center gap-1 cursor-pointer">
-                {navItem?.title}
+                {item.title}
                 <svg
                   class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
                   xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@ const global = await getGlobal();
                 </svg>
               </button>
               <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                {navItem.sub_menu.map((sub: any) => (
+                {subMenu.map((sub: any) => (
                   <a
                     href={sub?.link}
                     class="block px-4 py-2 text-sm text-black hover:bg-gray-50 hover:text-primary first:rounded-t-md last:rounded-b-md"
@@ -87,10 +87,10 @@ const global = await getGlobal();
             </div>
           ) : (
             <a
-              href={navItem?.link}
+              href={item.link}
               class="text-black underline-text font-medium hover:text-primary"
             >
-              {navItem?.title}
+              {item.title}
             </a>
           );
         })
@@ -100,10 +100,10 @@ const global = await getGlobal();
     <!-- Phone CTA -->
     <div class="flex items-center gap-4">
       {
-        global?.phone_number && (
+        site?.phone_number && (
           <div class="flex ">
             <a
-              href={`tel:${global.phone_number}`}
+              href={`tel:${site.phone_number}`}
               class="text-black font-medium hover:text-primary flex items-center gap-2 duration-150"
             >
               <svg
@@ -113,8 +113,6 @@ const global = await getGlobal();
                 viewBox="0 0 24 24"
                 fill="none"
                 class=" flex "
-                data-src="https://cdn.hugeicons.com/icons/call-solid-rounded.svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
                 role="img"
                 color="#000000"
               >
@@ -123,40 +121,16 @@ const global = await getGlobal();
                   fill="#000000"
                 />
               </svg>
-              <span class="md:block hidden">{nav.phone_number}</span>
+              <span class="md:block hidden">{nav.phone_number ?? site.phone_number}</span>
             </a>
           </div>
         )
       }
       {
-        nav?.menu_items?.length > 0 && (
+        menuItems.length > 0 && (
           <button class="lg:hidden text-black text-3xl" id="menuBtn">
-            <svg
-              width="64px"
-              height="64px"
-              class="w-8 h-8"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <>
-                <g id="SVGRepo_bgCarrier" stroke-width="0" />
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <path
-                    d="M4 6H20M4 12H20M4 18H20"
-                    stroke="#000000"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />{" "}
-                </g>
-              </>
+            <svg width="64px" height="64px" class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6H20M4 12H20M4 18H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
         )
@@ -170,57 +144,39 @@ const global = await getGlobal();
   class="lg:hidden fixed top-0 right-0 w-full h-full bg-gray-900/70 z-[990000] hidden transition-all duration-300"
   id="mobileMenu"
 >
-  <div
-    class="bg-white ml-auto w-72 h-full p-4 shadow-lg overflow-y-auto duration-300"
-  >
-    <button class="absolute top-4 right-4 text-black text-2xl" id="closeMenu"
-      >✕</button
-    >
+  <div class="bg-white ml-auto w-72 h-full p-4 shadow-lg overflow-y-auto duration-300">
+    <button class="absolute top-4 right-4 text-black text-2xl" id="closeMenu">✕</button>
     <nav class="mt-12 border-b border-black/20 divide-y divide-black/20">
       {
-        nav?.menu_items?.map((item, index) => {
-          const navItem = item?.nav_item_id;
-          const hasDropdown = navItem?.sub_menu && navItem.sub_menu.length > 0;
+        menuItems.map((item, index) => {
+          const subMenu = item.sub_menu
+            ? (typeof item.sub_menu === "string"
+                ? JSON.parse(item.sub_menu)
+                : item.sub_menu)
+            : null;
+          const hasDropdown = subMenu && subMenu.length > 0;
           return hasDropdown ? (
             <div>
               <button
                 class="w-full flex justify-between items-center py-2 text-black hover:bg-gray-100 mobile-accordion-btn"
                 data-index={index}
               >
-                <span>{navItem?.title}</span>
-                <svg
-                  class="w-4 h-4 transition-transform duration-200"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                    clip-rule="evenodd"
-                  />
+                <span>{item.title}</span>
+                <svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                 </svg>
               </button>
-              <div
-                class="hidden pl-4 pb-1 mobile-accordion-panel"
-                data-index={index}
-              >
-                {navItem.sub_menu.map((sub: any) => (
-                  <a
-                    href={sub?.link}
-                    class="block py-1.5 text-sm text-black hover:bg-gray-100"
-                  >
+              <div class="hidden pl-4 pb-1 mobile-accordion-panel" data-index={index}>
+                {subMenu.map((sub: any) => (
+                  <a href={sub?.link} class="block py-1.5 text-sm text-black hover:bg-gray-100">
                     {sub?.label}
                   </a>
                 ))}
               </div>
             </div>
           ) : (
-            <a
-              href={navItem?.link}
-              class="block py-2 text-black hover:bg-gray-100"
-            >
-              {navItem?.title}
+            <a href={item.link} class="block py-2 text-black hover:bg-gray-100">
+              {item.title}
             </a>
           );
         })
@@ -232,16 +188,11 @@ const global = await getGlobal();
 <style>
   .underline-text {
     padding-bottom: 2px;
-    background-image: linear-gradient(
-      var(--color-primary),
-      var(--color-primary)
-    );
+    background-image: linear-gradient(var(--color-primary), var(--color-primary));
     background-position: 0 100%;
     background-size: 0% 2px;
     background-repeat: no-repeat;
-    transition:
-      background-size 0.3s,
-      background-position 0s 0.3s;
+    transition: background-size 0.3s, background-position 0s 0.3s;
   }
   .underline-text:hover {
     background-position: 100% 100%;
@@ -265,13 +216,10 @@ const global = await getGlobal();
       document.body.style.overflow = "";
     });
 
-    // Mobile accordion
     document.querySelectorAll(".mobile-accordion-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const index = btn.getAttribute("data-index");
-        const panel = document.querySelector(
-          `.mobile-accordion-panel[data-index="${index}"]`,
-        );
+        const panel = document.querySelector(`.mobile-accordion-panel[data-index="${index}"]`);
         const arrow = btn.querySelector("svg");
         panel?.classList.toggle("hidden");
         arrow?.classList.toggle("rotate-180");

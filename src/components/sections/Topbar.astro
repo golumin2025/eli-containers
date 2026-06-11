@@ -1,14 +1,15 @@
 ---
 import Tag from "@assets/tag.png";
-import { getTopBar } from "src/lib/getPageData";
-const topbar = await getTopBar();
+import { getGlobal } from "@lib/cms";
+const topbarGlobal = await getGlobal("topbar");
+const title = topbarGlobal?.data?.title;
 ---
 
 {
-  topbar.title && (
+  title && (
     <div class="bg-yellow-300 py-3">
       <div class="flex items-center custom-container text-black font-bold py-2">
-        <img src={Tag.src} class="mr-3 h-5" alt="Tag Icon" /> {topbar.title}
+        <img src={Tag.src} class="mr-3 h-5" alt="Tag Icon" /> {title}
       </div>
     </div>
   )
