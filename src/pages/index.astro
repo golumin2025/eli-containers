@@ -12,6 +12,7 @@ if (pageData == null) {
 }
 
 await preloadAssetsFromBlocks(pageData.blocks);
+
 const seo = await buildSeoProps(pageData);
 
 const faqBlock = pageData.blocks.find((b) => b.type === "faqs");
@@ -26,7 +27,7 @@ const homepageSchema = [
 
 <Layout
   title={seo.title}
-  description={seo.description}
+  description={seo.description ?? ""}
   ogImage={seo.ogImage ?? ""}
   schema={homepageSchema}
 >
