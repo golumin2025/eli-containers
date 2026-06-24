@@ -24,7 +24,10 @@ const { bg_image, content } = item;
       <!-- Content column -->
       <div class="order-2 flex flex-col justify-center lg:order-none">
         <span class="accent-bar mt-0 mb-6"></span>
-        <div class="prose-mibox max-w-none" set:html={content} />
+        <div
+          class="prose-mibox max-w-none prose-p:text-dark prose-li:text-dark prose-strong:text-dark"
+          set:html={content}
+        />
       </div>
     </div>
   </div>
