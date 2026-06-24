@@ -1,0 +1,155 @@
+---
+import Layout from "@layouts/Layout.astro";
+import QuoteForm from "@components/forms/QuoteForm.svelte";
+import { getCollection, getEntry, render } from "astro:content";
+import { getGlobal } from "src/lib/getPageData";
+import heroFallback from "@assets/images/service-areas/blocks/0/value/bgImage.jpg";
+
+const { slug } = Astro.params;
+const safeSlug = typeof slug === "string" ? slug : "";
+
+const entry = await getEntry("locations", safeSlug);
+if (!entry) {
+  return new Response("Location not found", { status: 404 });
+}
+
+const { Content } = await render(entry);
+const data = entry.data;
+
+// Other locations for cross-linking
+const all = await getCollection("locations");
+const others = all
+  .filter((l) => l.id !== entry.id)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const global = await getGlobal();
+const placeLabel = `${data.city}, ${data.state}`;
+---
+
+<Layout
+  title={data.title}
+  description={data.metaDescription}
+  ogImage=""
+  pageUrl={`/locations/${safeSlug}`}
+>
+  <!-- Hero -->
+  <section class="relative bg-ink">
+    <img
+      src={heroFallback.src}
+      alt={`MI-BOX moving and storage in ${placeLabel}`}
+      class="absolute inset-0 h-full w-full object-cover opacity-60"
+      loading="eager"
+    />
+    <div class="overlay-grad"></div>
+    <div class="custom-container relative">
+      <div class="max-w-2xl py-20 lg:py-28">
+        <span class="eyebrow eyebrow-light mb-5">{data.region} • {placeLabel}</span>
+        <h1 class="display text-white">{data.heroHeading}</h1>
+        <div class="accent-bar"></div>
+        {
+          data.heroSubheading && (
+            <p class="lead mt-6 text-white/90">{data.heroSubheading}</p>
+          )
+        }
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#quote" class="btn-primary btn-lg">Get a Free Quote</a>
+          {
+            global?.phone_number && (
+              <a
+                href={`tel:${global.phone_number}`}
+                class="btn-ghost-light btn-lg"
+              >
+                Call {global.phone_number}
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  {
+    data.highlights.length > 0 && (
+      <section class="surface section-tight">
+        <div class="custom-container">
+          <div class="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
+            {data.highlights.map((h) => (
+              <div>
+                <p class="stat-num">{h.value}</p>
+                <p class="stat-label">{h.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Body + sticky quote form -->
+  <section class="section">
+    <div class="custom-container grid gap-12 lg:grid-cols-[1fr_minmax(360px,420px)] lg:gap-16">
+      <div>
+        <span class="eyebrow">Serving {data.city}</span>
+        <p class="lead mt-5 text-secondary">{data.intro}</p>
+        <div class="accent-bar"></div>
+        <div class="prose-mibox mt-8 max-w-none">
+          <Content />
+        </div>
+
+        {
+          data.neighborhoods.length > 0 && (
+            <div class="mt-10">
+              <h2 class="heading-md">Areas we serve near {data.city}</h2>
+              <div class="mt-5 flex flex-wrap gap-2.5">
+                {data.neighborhoods.map((n) => (
+                  <span class="chip">{n}</span>
+                ))}
+              </div>
+            </div>
+          )
+        }
+      </div>
+
+      <!-- Quote form -->
+      <aside class="lg:sticky lg:top-28 lg:self-start" id="quote">
+        <div class="form-card">
+          <QuoteForm
+            client:only="svelte"
+            quoteFormTitle={`Get a Quote in ${data.city}`}
+            quoteButtonTitle="Get My Free Quote"
+            phoneNumber={global?.phone_number}
+            promoCode={global?.promo_code}
+          />
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Other locations -->
+  {
+    others.length > 0 && (
+      <section class="section-dark section">
+        <div class="custom-container">
+          <div class="section-head !text-left">
+            <span class="eyebrow eyebrow-light">More Gulf Coast locations</span>
+            <h2 class="heading-lg mt-5 text-white">We deliver across the Gulf Coast</h2>
+          </div>
+          <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {others.map((l) => (
+              <a
+                href={`/locations/${l.id}`}
+                class="group flex items-center justify-between border border-white/15 bg-white/5 px-5 py-4 transition-colors hover:border-primary hover:bg-white/10"
+              >
+                <span class="font-bold text-white">{l.data.city}</span>
+                <span class="text-primary transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+</Layout>
