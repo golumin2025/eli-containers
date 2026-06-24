@@ -1,22 +1,23 @@
 ---
 interface ButtonProps {
-  label: string;
+  label?: string;
+  title?: string;
   link?: string;
+  variant?: "primary" | "secondary" | "outline" | "white";
 }
-const { label, link }: ButtonProps = Astro.props as ButtonProps;
+const { label, title, link, variant = "primary" } = Astro.props as ButtonProps;
+const cls = `btn-${variant}`;
+const text = title ?? label;
 ---
 
 {
   link ? (
-    <a
-      href={link}
-      class="rounded-md bg-primary px-4.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-    >
-      <slot />
+    <a href={link} class={cls}>
+      <slot>{text}</slot>
     </a>
   ) : (
-    <button class="rounded-md bg-primary px-4.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-      <slot />
+    <button class={cls}>
+      <slot>{text}</slot>
     </button>
   )
 }

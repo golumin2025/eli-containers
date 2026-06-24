@@ -4,35 +4,37 @@ import Button from "./ui/Button.astro";
 const { title, bgImage, button, description, mobileImage } = Astro.props;
 ---
 
-<div class="relative py-40 flex justify-center items-center overflow-hidden">
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/30 z-10"></div>
-
+<div class="relative py-32 lg:py-40 flex justify-center items-center overflow-hidden bg-ink">
   <!-- Responsive Image -->
   <picture class="absolute inset-0 w-full h-full">
     {mobileImage && <source media="(max-width: 767px)" srcset={mobileImage} />}
     <img src={bgImage} alt={title} class="w-full h-full object-cover" />
   </picture>
 
+  <!-- Overlay -->
+  <div class="overlay-grad-b z-10"></div>
+
   <!-- Content Container -->
   <div
-    class="custom-container flex justify-center items-center flex-col gap-6 relative z-20"
+    class="custom-container flex justify-center items-center text-center flex-col gap-6 relative z-20"
   >
+    <span class="eyebrow eyebrow-light fade-up">Moving &amp; Storage</span>
     <h1
-      class="text-white lg:text-start text-center lg:text-6xl sm:text-5xl text-4xl fade-up font-bold"
+      class="display text-white fade-up"
     >
       {title}
     </h1>
+    <span class="accent-bar fade-up"></span>
     {
       description && (
-        <p class="text-white text-center lg:text-start lg:text-2xl sm:text-xl text-lg fade-up">
+        <p class="lead text-white/90 max-w-2xl fade-up">
           {description}
         </p>
       )
     }
     {
       button && button.title && (
-        <div class="flex justify-center items-center">
+        <div class="flex justify-center items-center mt-2">
           <Button title={button.title} link={button.link} />
         </div>
       )

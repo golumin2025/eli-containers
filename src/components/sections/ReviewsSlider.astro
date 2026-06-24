@@ -7,36 +7,38 @@ const { title, cards } = item;
 const reviews = shuffleArray(cards);
 ---
 
-<div
-  class="overflow-hidden custom-container lg:py-16 px-6 lg:px-0 py-12 relative"
-  data-aos="fade-up"
->
-  <div class="fade-up relative">
-    <div class="flex items-center gap-12 justify-between flex-col mb-12">
-      {
-        title && (
-          <h2 class="text-4xl text-secondary lg:text-5xl text-center font-semibold mb-12">
-            {title}
-          </h2>
-        )
-      }
-    </div>
-
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
+<section class="surface">
+  <div
+    class="overflow-hidden custom-container section relative"
+    data-aos="fade-up"
+  >
+    <div class="fade-up relative">
+      <div class="section-head mb-12">
+        <span class="eyebrow">Customer Reviews</span>
         {
-          reviews.map((review: any) => (
-            <div class="swiper-slide bg-white p-6 rounded-xl shadow-md shadow-gray-900/5 border-2 border-gray-100">
-              <div class="flex flex-col h-full min-h-[280px] ">
+          title && (
+            <h2 class="heading-lg mt-5">
+              {title}
+            </h2>
+          )
+        }
+        <div class="accent-bar mx-auto"></div>
+      </div>
+
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          {
+            reviews.map((review: any) => (
+              <div class="swiper-slide card flex h-auto flex-col min-h-[280px]">
                 <div class="flex items-center gap-4 mb-4">
-                  <div class="bg-primary w-10 h-10 flex justify-center items-center text-white text-xl uppercase font-bold rounded-full">
+                  <div class="icon-chip-dark h-10 w-10 shrink-0 text-xl uppercase font-extrabold">
                     {review.testimonial_card_id.name[0]}
                   </div>
                   <div>
-                    <p class="font-semibold text-sm">
+                    <p class="font-bold text-sm text-dark">
                       {review.testimonial_card_id.name}
                     </p>
-                    <div class="text-yellow-400 flex items-center">
+                    <div class="stars">
                       {[...Array(review.testimonial_card_id.rating)].map(
                         (_, i) => (
                           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -48,17 +50,27 @@ const reviews = shuffleArray(cards);
                   </div>
                 </div>
                 <p
-                  class="text-gray-600 line-clamp-[7]"
+                  class="text-secondary leading-relaxed line-clamp-[7]"
                   set:html={review.testimonial_card_id.content}
                 />
               </div>
-            </div>
-          ))
-        }
+            ))
+          }
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<style is:global>
+  /* Equal-height testimonial cards: stretch every slide to the tallest */
+  .mySwiper .swiper-wrapper {
+    align-items: stretch;
+  }
+  .mySwiper .swiper-slide {
+    height: auto;
+  }
+</style>
 
 <script>
   import Swiper from "swiper";

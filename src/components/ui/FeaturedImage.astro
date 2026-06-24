@@ -5,18 +5,30 @@ const { item } = Astro.props;
 const { bg_image, content } = item;
 ---
 
-<section class="py-8 md:py-12">
-  <div
-    class="relative flex justify-start items-start p-6 md:p-12 text-white overflow-hidden"
-  >
-    <img
-      src={getAssetURL(bg_image.id)}
-      alt={bg_image.description || bg_image.title || "Background Image"}
-      class="absolute inset-0 w-full h-full object-cover -z-10 brightness-[0.3]"
-    />
-    <div class="h-1 lg:w-2/5 hidden lg:block"></div>
-    <div class="lg:w-3/5 w-full">
-      <div class="prose prose-invert max-w-none" set:html={content} />
+<section class="section">
+  <div class="custom-container">
+    <div class="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14">
+      <!-- Image column -->
+      <div
+        class="card-flush card-hover overflow-hidden order-1 lg:order-none"
+      >
+        <img
+          src={getAssetURL(bg_image.id)}
+          alt={bg_image.description || bg_image.title || "Featured Image"}
+          class="h-full w-full min-h-[280px] object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+
+      <!-- Content column -->
+      <div class="order-2 flex flex-col justify-center lg:order-none">
+        <span class="accent-bar mt-0 mb-6"></span>
+        <div
+          class="prose-mibox max-w-none prose-p:text-dark prose-li:text-dark prose-strong:text-dark"
+          set:html={content}
+        />
+      </div>
     </div>
   </div>
 </section>

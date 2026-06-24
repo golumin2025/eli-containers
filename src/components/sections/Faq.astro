@@ -3,77 +3,83 @@ const { item } = Astro.props;
 const { title, list } = item;
 ---
 
-<div class="faq-accordion py-16 w-full relative">
-  <div
-    class="flex justify-between relative custom-container mx-auto !max-w-[900px] lg:flex-row flex-col items-start gap-8"
-  >
-    <div class="w-full">
+<section class="faq-accordion section bg-cream w-full relative">
+  <div class="container-narrow">
+    <div class="text-center">
+      <span class="eyebrow">FAQ</span>
       <h2
-        class="mb-12 text-secondary text-center sm:text-4xl text-3xl font-bold"
+        class="heading-lg mt-4"
         data-aos="fade-up"
         data-aos-duration="800"
       >
         {title}
       </h2>
-
-      <dl class="space-y-5">
-        {
-          list.map((faq, index) => (
-            <div
-              class="p-4 bg-[#FAFAFA] border border-[#E8E8E8] rounded-lg transition-all duration-300"
-              data-aos="fade-up"
-              data-aos-delay={100 + index * 50}
-              data-aos-duration="600"
-              data-aos-easing="ease-out"
-            >
-              <dt class="text-lg">
-                <button
-                  class="text-left w-full flex justify-between items-start focus:outline-none group"
-                  aria-controls={`faq-${index}`}
-                  aria-expanded="false"
-                  id={`faq-button-${index}`}
-                >
-                  <span class="font-medium text-secondary transition-colors duration-200">
-                    {faq.accordion_id.question}
-                  </span>
-                  <span class="ml-6 h-7 flex items-center">
-                    <svg
-                      width="24"
-                      height="24"
-                      class="h-6 w-6 transform transition-transform text-primary duration-300 ease-in-out"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M14.2893 5.70708C13.8988 5.31655 13.2657 5.31655 12.8751 5.70708L7.98768 10.5993C7.20729 11.3805 7.2076 12.6463 7.98837 13.427L12.8787 18.3174C13.2693 18.7079 13.9024 18.7079 14.293 18.3174C14.6835 17.9269 14.6835 17.2937 14.293 16.9032L10.1073 12.7175C9.71678 12.327 9.71678 11.6939 10.1073 11.3033L14.2893 7.12129C14.6799 6.73077 14.6799 6.0976 14.2893 5.70708Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </dt>
-
-              <dd
-                class="overflow-hidden transition-all duration-300 ease-in-out max-h-0"
-                id={`faq-${index}`}
-                aria-labelledby={`faq-button-${index}`}
-              >
-                <div
-                  class="pt-3 prose text-text/80"
-                  set:html={faq.accordion_id.answer}
-                />
-              </dd>
-            </div>
-          ))
-        }
-      </dl>
+      <div class="accent-bar mx-auto"></div>
     </div>
+
+    <dl class="mt-12 space-y-4">
+      {
+        list.map((faq, index) => (
+          <div
+            class="p-4 border border-line bg-white px-5 py-2 shadow-[0_4px_24px_-12px_rgba(16,20,30,0.15)] transition-all duration-300 hover:border-primary/60"
+            data-aos="fade-up"
+            data-aos-delay={100 + index * 50}
+            data-aos-duration="600"
+            data-aos-easing="ease-out"
+          >
+            <dt>
+              <button
+                class="group/btn flex w-full items-center justify-between gap-4 py-4 text-left focus:outline-none"
+                aria-controls={`faq-${index}`}
+                aria-expanded="false"
+                id={`faq-button-${index}`}
+              >
+                <span class="text-base font-semibold text-dark transition-colors duration-200 md:text-lg">
+                  {faq.accordion_id.question}
+                </span>
+                <span class="faq-icon flex h-9 w-9 shrink-0 items-center justify-center bg-primary/15 text-dark transition-colors duration-200 group-hover/btn:bg-primary">
+                  <svg
+                    width="24"
+                    height="24"
+                    class="h-5 w-5 transform transition-transform duration-300 ease-in-out"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M12 5v14M5 12h14"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </dt>
+
+            <dd
+              class="overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+              id={`faq-${index}`}
+              aria-labelledby={`faq-button-${index}`}
+            >
+              <div
+                class="prose-mibox max-w-none pb-5 pt-1 text-secondary"
+                set:html={faq.accordion_id.answer}
+              />
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
   </div>
-</div>
+</section>
 
 <style>
+  /* Plus icon rotates to an x (45deg) when its panel is expanded */
   .faq-accordion button[aria-expanded="true"] svg {
-    @apply rotate-180;
+    transform: rotate(45deg);
+  }
+  .faq-accordion button[aria-expanded="true"] .faq-icon {
+    background-color: var(--color-primary);
   }
 </style>
 

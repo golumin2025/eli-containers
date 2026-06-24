@@ -6,102 +6,113 @@ const { item } = Astro.props;
 const { title, tabs, image, video_link, featured_media } = item;
 ---
 
-<div class="max-w-6xl px-6 mx-auto !py-16 lg:!py-24 relative">
-  <h2
-    class="text-4xl text-secondary lg:text-5xl text-center font-semibold mb-12"
-  >
-    {title}
-  </h2>
-
-  <div class="flex justify-center items-center lg:flex-row flex-col gap-20">
-    <div class="h-auto relative lg:w-1/2 w-full">
-      {
-        tabs.map((tab, index) => (
-          <div
-            role="tabpanel"
-            id={`tabpanel-${tab.id}`}
-            aria-labelledby={`tab-${tab.id}`}
-            class={`tab-panel flex flex-col gap-10 overflow-hidden transition duration-300 ${
-              index === 0 ? "flex" : "hidden"
-            }`}
-          >
-            {tab.tabs_id.steps.map((step, stepIndex) => (
-              <div class="relative flex items-start">
-                <div class="relative pr-5 h-full">
-                  <div class="bg-primary number">{stepIndex + 1}</div>
-                  {stepIndex !== tab.tabs_id.steps.length - 1 && (
-                    <div class="number-line bg-primary" />
-                  )}
-                </div>
-
-                <div>
-                  <h3 class="text-2xl font-semibold mb-2 text-black">
-                    {step.title}
-                  </h3>
-                  <p class="text-xl font-light">{step.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        ))
-      }
+<section class="section bg-cream relative">
+  <div class="custom-container">
+    <div class="section-head">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="heading-lg mt-4">{title}</h2>
+      <div class="accent-bar mx-auto"></div>
     </div>
 
-    <div class="lg:w-1/2 w-full">
-      <div
-        role="tablist"
-        aria-label="tabs"
-        class="relative flex border rounded-lg w-full mb-12 items-start overflow-hidden mt-8 transition"
-      >
+    <div class="mt-14 grid grid-cols-1 items-start gap-12 lg:mt-16 lg:grid-cols-2 lg:gap-16">
+      <div class="relative order-2 w-full lg:order-1">
         {
           tabs.map((tab, index) => (
-            <button
-              role="tab"
-              aria-selected={index === 0 ? "true" : "false"}
-              aria-controls={`tabpanel-${tab.id}`}
-              id={`tab-${tab.id}`}
-              class={`relative block flex-1 px-6 py-2 tab ${
-                index === 0 ? "active" : ""
+            <div
+              role="tabpanel"
+              id={`tabpanel-${tab.id}`}
+              aria-labelledby={`tab-${tab.id}`}
+              class={`tab-panel flex-col gap-6 transition duration-300 ${
+                index === 0 ? "flex" : "hidden"
               }`}
             >
-              <span class="font-medium text-2xl whitespace-nowrap">
-                {tab.tabs_id.title}
-              </span>
-            </button>
+              {tab.tabs_id.steps.map((step, stepIndex) => (
+                <div class="group relative flex items-start gap-5">
+                  <div class="relative shrink-0">
+                    <div class="bg-primary text-dark number">{stepIndex + 1}</div>
+                    {stepIndex !== tab.tabs_id.steps.length - 1 && (
+                      <div class="number-line bg-gradient-to-b from-primary to-primary/20" />
+                    )}
+                  </div>
+
+                  <div class="card card-hover flex-1 !p-5">
+                    <h3 class="mb-1.5 text-lg font-bold text-dark md:text-xl">
+                      {step.title}
+                    </h3>
+                    <p class="text-base leading-relaxed text-secondary">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           ))
         }
       </div>
 
-      {
-        featured_media === "image" ? (
-          <img
-            src={getAssetURL(image.id)}
-            alt={image.description || image.title || "How It Works Image"}
-            class="w-full h-full object-cover rounded-2xl"
-          />
-        ) : (
-          <iframe
-            class="w-full h-full rounded-2xl aspect-video"
-            src={`https://www.youtube.com/embed/${video_link}?autoplay=0&mute=1&loop=1&playlist=${video_link}`}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          />
-        )
-      }
+      <div class="order-1 w-full lg:sticky lg:top-28 lg:order-2">
+        <div
+          role="tablist"
+          aria-label="tabs"
+          class="mb-6 flex gap-1.5 bg-white p-1.5 shadow-[0_4px_24px_-10px_rgba(16,20,30,0.14)] ring-1 ring-black/5"
+        >
+          {
+            tabs.map((tab, index) => (
+              <button
+                role="tab"
+                aria-selected={index === 0 ? "true" : "false"}
+                aria-controls={`tabpanel-${tab.id}`}
+                id={`tab-${tab.id}`}
+                class={`tab relative flex-1 px-5 py-3 text-center text-sm font-bold text-secondary sm:text-base ${
+                  index === 0 ? "active" : ""
+                }`}
+              >
+                <span class="whitespace-nowrap">{tab.tabs_id.title}</span>
+              </button>
+            ))
+          }
+        </div>
+
+        {
+          featured_media === "image" ? (
+            <div class="relative overflow-hidden shadow-xl ring-1 ring-black/10">
+              <img
+                src={getAssetURL(image.id)}
+                alt={image.description || image.title || "How It Works Image"}
+                class="w-full h-full object-cover"
+              />
+            </div>
+          ) : (
+            <iframe
+              class="w-full h-full aspect-video ring-1 ring-black/10"
+              src={`https://www.youtube.com/embed/${video_link}?autoplay=0&mute=1&loop=1&playlist=${video_link}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          )
+        }
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <style>
   .tab {
     transition:
       background-color 0.3s,
-      color 0.3s;
+      color 0.3s,
+      box-shadow 0.3s;
   }
 
   .tab.active {
-    border-left: 1px solid #000;
-    background-color: rgba(0, 42, 92, 0.1);
+    background-color: #ffc20e;
+    color: #1c1c1c;
+    box-shadow: 0 8px 20px -10px rgba(255, 194, 14, 0.7);
+  }
+
+  .tab:not(.active):hover {
+    color: #1c1c1c;
+    background-color: #faf8f2;
   }
 
   .tab-panel {
@@ -113,27 +124,22 @@ const { title, tabs, image, video_link, featured_media } = item;
     justify-content: center;
     align-items: center;
     margin: 0;
-    border-radius: 8px;
     width: 48px;
     height: 48px;
-    color: #fff;
-    font-size: 32px;
+    color: #1c1c1c;
+    font-size: 22px;
+    font-weight: 800;
     position: relative;
+    z-index: 1;
   }
 
   .number-line {
     position: absolute;
-    width: 4px;
-    left: 33.33%;
-    top: 40px;
+    width: 3px;
+    left: 24px;
+    top: 48px;
     transform: translateX(-50%);
-    height: calc(100% + 4rem);
-  }
-
-  @media (min-width: 1024px) {
-    .number-line {
-      height: calc(100% + 6rem);
-    }
+    height: calc(100% + 1.5rem);
   }
 </style>
 

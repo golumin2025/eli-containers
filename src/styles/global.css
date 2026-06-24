@@ -1,19 +1,155 @@
 @import "tailwindcss";
 
 @plugin "@tailwindcss/typography";
+
+/* =====================================================================
+   MI-BOX Moving & Storage — design system
+   Brand: MI-BOX yellow (#FFC20E) + charcoal/ink. Neutrals via Tailwind
+   gray-*. Yellow = bold accents/CTAs (always on dark text). Charcoal/ink
+   = headings, dark banners, secondary actions. Industrial, square,
+   balanced — zero border radius everywhere.
+   ===================================================================== */
 @theme {
-  --color-primary: #009ad6;
-  --color-secondary: #4d4d4d;
-  --color-background: #0069e5;
-}
-.custom-container {
-  @apply lg:max-w-[1100px] xl:max-w-[1380px] mx-auto  max-w-full px-8;
-}
-.date-time-field #delivery-date {
-  width: 100% !important;
-  padding: 0.75rem !important;
+  --color-primary: #ffc20e;        /* MI-BOX yellow */
+  --color-primary-dark: #e8a900;   /* hover / pressed */
+  --color-primary-light: #ffd75e;
+  --color-primary-soft: #fff7df;   /* yellow tint surface */
+  --color-dark: #1c1c1c;           /* charcoal — headings */
+  --color-ink: #121417;            /* near-black — banners/footer */
+  --color-charcoal: #2a2a2a;
+  --color-secondary: #4b5563;      /* body copy (gray-600) */
+  --color-muted: #6b7280;
+  --color-cream: #faf8f2;
+  --color-surface: #f6f7f9;        /* soft gray section bg */
+  --color-line: #e7e9ee;
+  --color-success: #16a34a;
+  --color-background: #f6f7f9;      /* legacy alias */
+
+  /* Sharp, industrial look — zero radius everywhere */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
 }
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  body { @apply text-secondary antialiased; }
+  h1, h2, h3, h4, h5 {
+    @apply font-extrabold tracking-tight text-dark;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  a { @apply transition-colors duration-200; }
+  ::selection { @apply bg-primary text-dark; }
+  :target { scroll-margin-top: 7rem; }
 }
+
+@layer components {
+  /* ---- Layout ---- */
+  .custom-container { @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8; }
+  .container-narrow { @apply mx-auto w-full max-w-3xl px-5 sm:px-8; }
+  .section { @apply py-16 lg:py-24; }
+  .section-tight { @apply py-12 lg:py-16; }
+  .surface { @apply bg-surface; }
+  .surface-cream { @apply bg-cream; }
+  .section-dark { @apply bg-ink text-gray-300; }
+
+  /* ---- Eyebrow / kicker ---- */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 bg-primary/15 px-3.5 py-1.5
+           text-xs font-bold uppercase tracking-[0.14em] text-dark;
+  }
+  .eyebrow::before { content: ""; @apply h-1.5 w-1.5 bg-primary; }
+  .eyebrow-light { @apply bg-white/10 text-white; }
+  .eyebrow-light::before { @apply bg-primary; }
+
+  /* ---- Headings ---- */
+  .display    { @apply text-[2.6rem] font-extrabold leading-[1.02] tracking-tight text-dark sm:text-5xl lg:text-[4rem]; }
+  .heading-xl { @apply text-4xl font-extrabold leading-[1.05] tracking-tight text-dark md:text-5xl lg:text-[3.25rem]; }
+  .heading-lg { @apply text-3xl font-extrabold leading-[1.1] tracking-tight text-dark md:text-4xl lg:text-[2.6rem]; }
+  .heading-md { @apply text-2xl font-bold tracking-tight text-dark md:text-3xl; }
+  .lead       { @apply text-lg leading-relaxed text-secondary md:text-xl; }
+  .accent-bar { @apply mt-5 h-1.5 w-16 bg-primary; }
+
+  /* Centered section intro helper */
+  .section-head { @apply mx-auto max-w-2xl text-center; }
+
+  /* ---- Buttons ---- */
+  .btn, .btn-primary, .btn-secondary, .btn-outline, .btn-ghost-light, .btn-white {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 px-6 py-3.5
+           text-base font-bold leading-none transition-all duration-200
+           focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/40;
+  }
+  .btn-primary   { @apply bg-primary text-dark shadow-lg shadow-primary/30 hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0; }
+  .btn-secondary { @apply bg-dark text-white shadow-lg shadow-black/20 hover:bg-charcoal hover:-translate-y-0.5 active:translate-y-0; }
+  .btn-outline   { @apply border-2 border-dark/15 bg-white text-dark hover:border-dark hover:-translate-y-0.5; }
+  .btn-white     { @apply bg-white text-dark shadow-lg hover:bg-gray-100 hover:-translate-y-0.5; }
+  .btn-ghost-light { @apply border-2 border-white/25 bg-white/5 text-white backdrop-blur hover:border-primary hover:text-primary; }
+  .btn-lg { @apply px-8 py-4 text-lg; }
+  .btn-sm { @apply px-4 py-2.5 text-sm; }
+  .btn-block { @apply w-full; }
+
+  /* ---- Badges / chips ---- */
+  .badge { @apply inline-flex items-center gap-1.5 bg-primary px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-dark; }
+  .badge-soft { @apply inline-flex items-center gap-1.5 bg-primary-soft px-3 py-1 text-xs font-bold text-dark ring-1 ring-primary/30; }
+  .chip { @apply inline-flex items-center gap-1.5 bg-gray-100 px-3 py-1 text-sm font-semibold text-dark; }
+
+  /* Square icon chip holding an svg/img */
+  .icon-chip { @apply inline-flex h-12 w-12 items-center justify-center bg-primary/15 text-dark; }
+  .icon-chip-dark { @apply inline-flex h-12 w-12 items-center justify-center bg-primary text-dark; }
+
+  /* ---- Cards ---- */
+  .card { @apply bg-white p-6 shadow-[0_4px_24px_-10px_rgba(16,20,30,0.14)] ring-1 ring-black/5 transition-all duration-300; }
+  .card-hover { @apply hover:-translate-y-1.5 hover:shadow-[0_22px_48px_-18px_rgba(16,20,30,0.3)]; }
+  .card-flush { @apply overflow-hidden bg-white shadow-[0_4px_24px_-10px_rgba(16,20,30,0.14)] ring-1 ring-black/5 transition-all duration-300; }
+
+  /* ---- Stats ---- */
+  .stat-num { @apply text-4xl font-extrabold tracking-tight text-dark md:text-5xl; }
+  .stat-label { @apply mt-1 text-sm font-medium text-muted; }
+
+  /* ---- Forms ---- */
+  .form-card { @apply bg-white p-6 shadow-2xl ring-1 ring-black/5 sm:p-7; }
+  .field { @apply flex flex-col gap-1.5; }
+  .label { @apply text-sm font-semibold text-dark; }
+  .input, .form-input, .select {
+    @apply w-full border border-line bg-white px-4 py-3 text-[15px] text-dark
+           placeholder:text-muted transition-shadow
+           focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/25;
+  }
+  .form-help { @apply text-xs text-muted; }
+  .form-error { @apply text-xs font-medium text-red-600; }
+
+  /* ---- Trust row ---- */
+  .stars { @apply inline-flex items-center text-primary; }
+  .trust-row { @apply flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-medium; }
+
+  /* ---- Nav ---- */
+  .nav-link { @apply relative text-[15px] font-semibold text-dark transition-colors hover:text-primary-dark; }
+  .nav-link::after {
+    content: ""; @apply absolute -bottom-1.5 left-0 h-0.5 w-0 bg-primary transition-all duration-300;
+  }
+  .nav-link:hover::after { @apply w-full; }
+  .util-link { @apply inline-flex items-center gap-1.5 text-sm font-medium text-gray-300 transition-colors hover:text-white; }
+  .mega-link { @apply flex items-start gap-3 p-3 transition-colors hover:bg-cream; }
+
+  /* ---- Misc ---- */
+  .divider { @apply h-px w-full bg-line; }
+  .overlay-grad { @apply absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/65 to-ink/20; }
+  .overlay-grad-b { @apply absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent; }
+
+  /* ---- Prose for CMS markdown ---- */
+  .prose-mibox {
+    @apply prose max-w-none prose-headings:text-dark prose-headings:font-bold
+           prose-p:text-secondary prose-li:text-secondary
+           prose-a:font-semibold prose-a:text-dark prose-strong:text-dark
+           prose-blockquote:border-l-4 prose-blockquote:border-l-primary
+           prose-blockquote:bg-cream prose-blockquote:py-1 prose-blockquote:text-dark prose-blockquote:not-italic;
+  }
+}
+
+.date-time-field #delivery-date { width: 100% !important; padding: 0.75rem !important; }
+html { scroll-behavior: smooth; }

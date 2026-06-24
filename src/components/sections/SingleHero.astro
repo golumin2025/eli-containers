@@ -16,7 +16,7 @@ const formType = item?.form_type;
 ---
 
 <section
-  class="relative custom-container min-h-[450px] mt-6 rounded-xl overflow-hidden"
+  class="relative custom-container min-h-[450px] mt-6 overflow-hidden shadow-xl ring-1 ring-black/5"
 >
   <img
     src={bgImage}
@@ -25,16 +25,18 @@ const formType = item?.form_type;
       "Hero Background"}
     class="absolute inset-0 w-full h-full object-cover"
   />
-  <div class="absolute inset-0 gradient-overlay"></div>
+  <div class="absolute inset-0 overlay-grad"></div>
 
   <div
-    class="relative py-16 flex flex-col md:flex-row gap-8 justify-between items-center text-white z-10"
+    class="relative px-6 md:px-10 py-16 lg:py-20 flex flex-col md:flex-row gap-10 justify-between items-center text-white z-10"
   >
     <div class="md:w-1/2 w-full">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
+      <span class="eyebrow eyebrow-light mb-5">Moving &amp; Storage</span>
+      <h1 class="display text-white mt-5 mb-4">{title}</h1>
+      <span class="accent-bar"></span>
       {
         description && (
-          <p class="text-2xl font-bold whitespace-pre-wrap">{description}</p>
+          <p class="lead mt-5 max-w-xl text-white/90 whitespace-pre-wrap">{description}</p>
         )
       }
     </div>
@@ -42,7 +44,7 @@ const formType = item?.form_type;
     {
       formType === "quote_form" && (
         <div class="md:w-1/2 w-full flex justify-end">
-          <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
+          <div class="w-full md:max-w-[450px] form-card">
             <QuoteForm
               client:only="svelte"
               quoteButtonTitle={quoteButtonTitle}
@@ -57,7 +59,7 @@ const formType = item?.form_type;
     {
       formType === "cold_form" && (
         <div class="md:w-1/2 w-full flex justify-end">
-          <div class="w-full bg-white rounded-lg md:max-w-[450px] p-4 md:p-8">
+          <div class="w-full md:max-w-[450px] form-card">
             <ColdStorageForm client:only="svelte" />
           </div>
         </div>
@@ -68,39 +70,21 @@ const formType = item?.form_type;
 
 {
   showStats && (
-    <div class="bg-[#E5EFFC] py-10 custom-container">
-      <h2 class="text-sm font-semibold uppercase tracking-wider text-secondary mb-10 text-center">
-        {SectionTitle}
-      </h2>
-      <div class="mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 text-center gap-8">
-        {stats.map((stat) => (
-          <div class="flex flex-col lg:flex-row justify-center items-center gap-2">
-            <img src={stat.icon} alt={stat.label} class="w-8 h-8" />
-            <p class="text-xl font-bold text-gray-800">{stat.value}</p>
-            <p class="text-sm text-secondary">{stat.label}</p>
-          </div>
-        ))}
+    <div class="surface section-tight">
+      <div class="custom-container">
+        <h2 class="eyebrow mb-10 mx-auto w-fit">
+          {SectionTitle}
+        </h2>
+        <div class="mx-auto grid grid-cols-1 sm:grid-cols-3 text-center gap-8">
+          {stats.map((stat) => (
+            <div class="flex flex-col justify-center items-center gap-2">
+              <img src={stat.icon} alt={stat.label} class="w-8 h-8" />
+              <p class="stat-num">{stat.value}</p>
+              <p class="stat-label">{stat.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
 }
-
-<style>
-  .gradient-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.1)
-    );
-  }
-
-  @media (min-width: 768px) {
-    .gradient-overlay {
-      background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.1)
-      );
-    }
-  }
-</style>

@@ -5,50 +5,70 @@ const { item } = Astro.props;
 const { title, cards } = item ?? {};
 ---
 
-<section class="relative">
-  <div class="custom-container lg:py-24 py-26">
-    <h2
-      class="text-4xl text-secondary lg:text-5xl text-center font-semibold mb-12"
-    >
-      {title}
-    </h2>
-    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+<section class="section bg-white relative">
+  <div class="custom-container">
+    <div class="section-head">
+      <span class="eyebrow">Container Sizes</span>
+      <h2 class="heading-lg mt-5">{title}</h2>
+      <div class="accent-bar mx-auto"></div>
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 gap-7 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
       {
         cards?.map((item) => (
-          <div class="border border-black/70 rounded-2xl  p-4">
-            <img
-              src={getAssetURL(item?.container_card_id?.image?.id)}
-              alt={
-                item?.container_card_id?.image?.description ||
-                item?.container_card_id?.storageSize ||
-                "Container image"
-              }
-              class="w-full h-[200px] object-contain  rounded-xl mb-6"
-            />
-            {item?.container_card_id?.length && (
-              <h2 class="text-4xl font-bold mb-2 text-secondary">
-                {item?.container_card_id?.length}
-              </h2>
-            )}
-            {item?.size && (
-              <h3 class="text-xl mb-4">{item?.container_card_id?.size}</h3>
-            )}
+          <div class="card-flush card-hover group flex flex-col">
+            <div class="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-cream">
+              <img
+                src={getAssetURL(item?.container_card_id?.image?.id)}
+                alt={
+                  item?.container_card_id?.image?.description ||
+                  item?.container_card_id?.storageSize ||
+                  "Container image"
+                }
+                class="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
 
-            <p>{item?.container_card_id?.description}</p>
-            {item?.container_card_id?.dimensions && (
-              <div class="flex justify-start items-center mt-4 gap-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  fill="currentColor"
-                  viewBox="0 0 256 256"
-                >
-                  <path d="M237.66,133.66l-32,32a8,8,0,0,1-11.32-11.32L212.69,136H43.31l18.35,18.34a8,8,0,0,1-11.32,11.32l-32-32a8,8,0,0,1,0-11.32l32-32a8,8,0,0,1,11.32,11.32L43.31,120H212.69l-18.35-18.34a8,8,0,0,1,11.32-11.32l32,32A8,8,0,0,1,237.66,133.66Z" />
-                </svg>
-                {item?.container_card_id?.dimensions}
-              </div>
-            )}
+            <div class="flex flex-1 flex-col p-6">
+              {item?.container_card_id?.length && (
+                <h3 class="heading-md mb-1 text-3xl">
+                  {item?.container_card_id?.length}
+                </h3>
+              )}
+              {item?.size && (
+                <h4 class="mb-3 text-base font-semibold text-secondary">
+                  {item?.container_card_id?.size}
+                </h4>
+              )}
+
+              <p class="text-sm leading-relaxed text-secondary">
+                {item?.container_card_id?.description}
+              </p>
+
+              {item?.container_card_id?.dimensions && (
+                <div class="mt-6 flex items-center gap-3 border-t border-line pt-5">
+                  <span class="icon-chip h-9 w-9 shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      fill="currentColor"
+                      viewBox="0 0 256 256"
+                    >
+                      <path d="M237.66,133.66l-32,32a8,8,0,0,1-11.32-11.32L212.69,136H43.31l18.35,18.34a8,8,0,0,1-11.32,11.32l-32-32a8,8,0,0,1,0-11.32l32-32a8,8,0,0,1,11.32,11.32L43.31,120H212.69l-18.35-18.34a8,8,0,0,1,11.32-11.32l32,32A8,8,0,0,1,237.66,133.66Z" />
+                    </svg>
+                  </span>
+                  <span class="flex flex-col">
+                    <span class="text-[0.68rem] font-bold uppercase tracking-wider text-muted">
+                      Dimensions
+                    </span>
+                    <span class="text-sm font-semibold text-dark">
+                      {item?.container_card_id?.dimensions}
+                    </span>
+                  </span>
+                </div>
+              )}
+            </div>
           </div>
         ))
       }
