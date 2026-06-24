@@ -8,37 +8,58 @@ const imagePlacement = item?.image_on_left ? "left" : "right";
 const button = item?.button || {};
 ---
 
-<div class="custom-container py-10 relative">
-  <div
-    class={`flex flex-col ${imagePlacement === "left" ? "lg:flex-row" : "lg:flex-row-reverse"} items-stretch`}
-  >
+<section class="section surface-cream">
+  <div class="custom-container relative">
     <div
-      class="w-full lg:w-1/2 p-8 flex justify-center items-start flex-col bg-background/10 prose-p:text-black/80 prose-a:text-primary"
+      class={`grid grid-cols-1 items-stretch gap-10 lg:grid-cols-2 lg:gap-16 ${imagePlacement === "left" ? "" : ""}`}
     >
+      <!-- Text column -->
       <div
-        class="mb-6 prose prose-td:border prose-th:border prose-td:px-2 prose-th:px-2"
-        set:html={item?.content}
-      />
-      {
-        button?.label && (
-          <div class="flex items-start justify-start">
-            <a
-              href={button?.link}
-              class="rounded-md bg-white px-4.5 py-2.5 text-sm font-semibold !text-black shadow-sm focus-visible:outline"
-            >
-              {button?.label}
-            </a>
-          </div>
-        )
-      }
-    </div>
+        class={`flex flex-col items-start justify-center ${imagePlacement === "left" ? "lg:order-2" : "lg:order-1"}`}
+      >
+        <span class="eyebrow">Portable Moving &amp; Storage</span>
+        <div class="accent-bar"></div>
+        <div
+          class="prose-mibox mt-6 prose-td:border prose-th:border prose-td:px-2 prose-th:px-2"
+          set:html={item?.content}
+        />
+        {
+          button?.label && (
+            <div class="mt-8">
+              <a href={button?.link} class="btn-primary btn-lg">
+                {button?.label}
+                <svg
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 10h12m0 0l-5-5m5 5l-5 5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          )
+        }
+      </div>
 
-    <div class="w-full lg:w-1/2">
-      <img
-        src={getAssetURL(item?.image?.id)}
-        alt={item?.image?.description || item?.image?.title || "Featured Image"}
-        class="object-cover w-full h-full min-h-[200px]"
-      />
+      <!-- Image column -->
+      <div
+        class={`relative ${imagePlacement === "left" ? "lg:order-1" : "lg:order-2"}`}
+      >
+        <div class="card-flush h-full">
+          <img
+            src={getAssetURL(item?.image?.id)}
+            alt={item?.image?.description || item?.image?.title || "Featured Image"}
+            class="h-full min-h-[280px] w-full object-cover"
+          />
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>

@@ -43,8 +43,8 @@
   }
 </script>
 
-<form id="quote-form" method="POST" onsubmit={handleSubmit}>
-  <h2 class="md:text-3xl text-xl text-black text-center font-bold block">
+<form id="quote-form" method="POST" onsubmit={handleSubmit} class="form-card">
+  <h2 class="heading-md text-center">
     Get My Free Quote
   </h2>
 
@@ -74,15 +74,15 @@
       errors={form.errors.initialDeliveryZip}
     />
 
-    <div>
+    <div class="date-time-field field">
       <label
         for="delivery-date"
-        class="block text-sm font-medium text-gray-900"
+        class="label"
       >
         Delivery Date
       </label>
       <DateInput
-        class="block w-full rounded-md bg-white p-0 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm"
+        class="block w-full border border-line bg-white p-0 text-base text-dark"
         id="delivery-date"
         bind:value={form.deliveryDate}
         max={new Date("2030-12-31")}
@@ -90,7 +90,7 @@
         closeOnSelection
       />
       {#if form.errors?.deliveryDate}
-        <p class="text-red-800">{form.errors.deliveryDate}</p>
+        <p class="form-error">{form.errors.deliveryDate}</p>
       {/if}
     </div>
 
@@ -112,6 +112,7 @@
     </div>
 
     <div
+      class="w-full [&_iframe]:!w-full"
       use:turnstile
       turnstile-sitekey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY}
       turnstile-theme="light"
@@ -123,13 +124,13 @@
       onturnstile={(e) => (form.cfTurnstileResponse = e.detail.token)}
     ></div>
     {#if form.errors?.cfTurnstileResponse}
-      <p class="text-red-800">{form.errors.cfTurnstileResponse}</p>
+      <p class="form-error">{form.errors.cfTurnstileResponse}</p>
     {/if}
 
     <button
       type="submit"
       disabled={isLoading}
-      class="submit-btn shadow-[0px_4px_8px_0px_#00000040] cursor-pointer"
+      class="submit-btn cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {#if isLoading}
         Submitting...
@@ -162,28 +163,25 @@
 
 <style>
   .submit-btn {
-    background: var(--color-secondary);
+    width: 100%;
+    background: var(--color-primary);
     display: flex;
     gap: 0.5rem;
     justify-content: center;
     align-items: center;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 500;
-    color: #ffffff;
+    border-radius: 0;
+    font-size: 1.05rem;
+    line-height: 1.5rem;
+    font-weight: 800;
+    color: var(--color-dark);
     white-space: nowrap;
-    padding: 0.5rem 1rem;
+    padding: 0.95rem 1.25rem;
+    box-shadow: 0 10px 20px -8px rgba(255, 194, 14, 0.6);
+    transition: all 0.2s ease;
   }
-  @media (min-width: 1024px) {
-    .submit-btn {
-      padding-top: 0.75rem;
-      padding-bottom: 0.75rem;
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
-      font-size: 1.125rem;
-      line-height: 1.75rem;
-      font-weight: 600;
-    }
+  .submit-btn:hover:not(:disabled) {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 26px -8px rgba(255, 194, 14, 0.7);
   }
 </style>

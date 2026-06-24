@@ -9,7 +9,7 @@ const global = await getGlobal();
 ---
 
 <header
-  class="relative z-[990000] shadow-md transition-all duration-300"
+  class="relative z-[990000] border-b border-line bg-white shadow-[0_1px_0_0_rgba(16,20,30,0.04)] transition-all duration-300"
   id="navbar"
 >
   <div class="flex custom-container justify-between items-center py-4">
@@ -19,7 +19,7 @@ const global = await getGlobal();
           <div>
             <a
               href="/"
-              class="text-xl font-bold text-gray-800 flex items-center gap-2"
+              class="text-xl font-bold text-dark flex items-center gap-2"
             >
               <img
                 src={getAssetURL(global.logo.id)}
@@ -32,7 +32,7 @@ const global = await getGlobal();
             </a>
 
             {nav?.logo_tagline && (
-              <span class="text-sm text-gray-600">{nav.logo_tagline}</span>
+              <span class="text-sm text-muted">{nav.logo_tagline}</span>
             )}
           </div>
         ) : (
@@ -52,14 +52,14 @@ const global = await getGlobal();
     </div>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden lg:flex space-x-8" id="navItems">
+    <nav class="hidden lg:flex items-center gap-8" id="navItems">
       {
         nav?.menu_items?.map((item) => {
           const navItem = item?.nav_item_id;
           const hasDropdown = navItem?.sub_menu && navItem.sub_menu.length > 0;
           return hasDropdown ? (
             <div class="relative group">
-              <button class="text-black underline-text font-medium hover:text-primary flex items-center gap-1 cursor-pointer">
+              <button class="nav-link flex items-center gap-1 cursor-pointer">
                 {navItem?.title}
                 <svg
                   class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
@@ -74,11 +74,11 @@ const global = await getGlobal();
                   />
                 </svg>
               </button>
-              <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="absolute top-full left-0 mt-3 w-52 bg-white shadow-[0_18px_40px_-18px_rgba(16,20,30,0.35)] border border-line opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 {navItem.sub_menu.map((sub: any) => (
                   <a
                     href={sub?.link}
-                    class="block px-4 py-2 text-sm text-black hover:bg-gray-50 hover:text-primary first:rounded-t-md last:rounded-b-md"
+                    class="block border-l-2 border-transparent px-4 py-2.5 text-sm font-medium text-dark transition-colors hover:border-primary hover:bg-cream hover:text-primary-dark"
                   >
                     {sub?.label}
                   </a>
@@ -86,10 +86,7 @@ const global = await getGlobal();
               </div>
             </div>
           ) : (
-            <a
-              href={navItem?.link}
-              class="text-black underline-text font-medium hover:text-primary"
-            >
+            <a href={navItem?.link} class="nav-link">
               {navItem?.title}
             </a>
           );
@@ -104,19 +101,19 @@ const global = await getGlobal();
           <div class="flex ">
             <a
               href={`tel:${global.phone_number}`}
-              class="text-black font-medium hover:text-primary flex items-center gap-2 duration-150"
+              class="btn-primary btn-sm hidden md:inline-flex"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 class=" flex "
                 data-src="https://cdn.hugeicons.com/icons/call-solid-rounded.svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 role="img"
-                color="#000000"
+                color="#1c1c1c"
               >
                 <path
                   d="M5.31726 1.28657C5.88395 1.40369 6.33524 1.78443 6.61564 2.28746L7.50885 3.88991C7.83786 4.48011 8.11473 4.9768 8.29554 5.40857C8.48735 5.86658 8.60126 6.31824 8.54919 6.8176C8.49711 7.31696 8.29246 7.7354 8.01029 8.14399C7.74428 8.52917 7.37088 8.95804 6.92718 9.46767L5.61417 10.9759C5.37889 11.2461 5.26124 11.3812 5.25049 11.5501C5.23974 11.719 5.33616 11.8633 5.529 12.1518C7.17259 14.6109 9.38773 16.8268 11.8488 18.4718C12.1374 18.6647 12.2816 18.7611 12.4505 18.7503C12.6194 18.7396 12.7546 18.6219 13.0248 18.3866L14.5331 17.0736C15.0427 16.6299 15.4716 16.2565 15.8568 15.9905C16.2653 15.7083 16.6838 15.5036 17.1831 15.4516C17.6825 15.3995 18.1342 15.5134 18.5922 15.7052C19.0239 15.886 19.5206 16.1629 20.1107 16.4918L21.7133 17.3851C22.2163 17.6655 22.5971 18.1168 22.7142 18.6835C22.8325 19.2561 22.658 19.8316 22.2724 20.3047C20.8735 22.021 18.6322 23.1139 16.281 22.6396C14.8358 22.348 13.4098 21.8623 11.6851 20.8732C8.2197 18.8858 5.11263 15.777 3.12755 12.3157C2.13843 10.591 1.65272 9.165 1.36118 7.71974C0.88688 5.36852 1.97971 3.12724 3.69608 1.72833C4.16911 1.34279 4.74466 1.16822 5.31726 1.28657Z"

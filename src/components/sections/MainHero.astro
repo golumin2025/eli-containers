@@ -12,8 +12,8 @@ const stats = item?.stats ?? [];
 const SectionTitle = item?.sectionTitle ?? "";
 ---
 
-<div class="md:h-[800px] h-full relative">
-  <div class="w-full bg-white rounded-lg md:hidden block p-4 md:p-8">
+<div class="md:h-[800px] h-full relative bg-ink">
+  <div class="form-card md:hidden block">
     <QuoteForm
       client:only="svelte"
       quoteFormTitle={quoteFormTitle}
@@ -42,11 +42,15 @@ const SectionTitle = item?.sectionTitle ?? "";
       class="custom-container mx-auto h-full flex items-end px-4 md:px-8 relative"
     >
       <div class="text-white md:w-1/2 py-12">
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 fade-up">
+        <span class="eyebrow eyebrow-light mb-5 fade-up">
+          Moving &amp; Storage
+        </span>
+        <h1 class="display text-white mt-5 mb-4 fade-up">
           {item?.title}
         </h1>
+        <span class="accent-bar fade-up"></span>
         <div
-          class="text-lg md:text-xl text-white font-medium fade-up prose"
+          class="lead mt-5 max-w-xl text-white/90 fade-up prose-mibox prose-invert"
           set:html={item?.description}
         />
       </div>
@@ -54,9 +58,9 @@ const SectionTitle = item?.sectionTitle ?? "";
   </div>
 
   <div
-    class="md:absolute md:flex hidden top-0 right-0 h-full w-full md:w-1/2 items-center justify-center z-10"
+    class="md:absolute md:flex hidden top-0 right-0 h-full w-full md:w-1/2 items-center justify-center z-10 px-6"
   >
-    <div class="w-full bg-white rounded-lg lg:max-w-[550px] p-4 md:p-8">
+    <div class="w-full lg:max-w-[550px] form-card">
       <QuoteForm
         client:only="svelte"
         quoteFormTitle={quoteFormTitle}
@@ -70,25 +74,27 @@ const SectionTitle = item?.sectionTitle ?? "";
 
 {
   showStats && (
-    <div class="bg-[#E5EFFC] py-10 custom-container ">
-      <h2 class="text-sm font-semibold uppercase tracking-wider text-secondary mb-10 text-center ">
-        {SectionTitle}
-      </h2>
-      <div class="mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 text-center gap-8">
-        {stats.map((stat: any) => (
-          <div class="flex flex-col lg:flex-row justify-center items-center gap-2">
-            <img
-              src={stat.icon}
-              alt={stat.label}
-              width={32}
-              height={32}
-              loading="eager"
-              decoding="async"
-            />
-            <p class="text-xl font-bold text-gray-800">{stat.value}</p>
-            <p class="text-sm text-secondary">{stat.label}</p>
-          </div>
-        ))}
+    <div class="surface section-tight">
+      <div class="custom-container">
+        <h2 class="eyebrow mb-10 mx-auto w-fit">
+          {SectionTitle}
+        </h2>
+        <div class="mx-auto grid grid-cols-1 sm:grid-cols-3 text-center gap-8">
+          {stats.map((stat: any) => (
+            <div class="flex flex-col justify-center items-center gap-2">
+              <img
+                src={stat.icon}
+                alt={stat.label}
+                width={32}
+                height={32}
+                loading="eager"
+                decoding="async"
+              />
+              <p class="stat-num">{stat.value}</p>
+              <p class="stat-label">{stat.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -98,8 +104,8 @@ const SectionTitle = item?.sectionTitle ?? "";
   :root {
     --gradient-direction: linear-gradient(
       to bottom,
-      rgba(0, 154, 214, 0.7),
-      rgba(41, 147, 188, 0)
+      rgba(18, 20, 23, 0.78),
+      rgba(18, 20, 23, 0.2)
     );
   }
 
@@ -107,9 +113,9 @@ const SectionTitle = item?.sectionTitle ?? "";
     :root {
       --gradient-direction: linear-gradient(
         to top,
-        rgba(0, 154, 214, 0.7),
-        rgba(41, 147, 188, 0),
-        rgba(41, 147, 188, 0)
+        rgba(18, 20, 23, 0.85),
+        rgba(18, 20, 23, 0.45),
+        rgba(18, 20, 23, 0.15)
       );
     }
   }

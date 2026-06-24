@@ -5,56 +5,62 @@ const { item } = Astro.props;
 const { cards, title } = item;
 ---
 
-<section class="custom-container mx-auto px-4 relative py-10 lg:py-24">
-  <h2
-    class="text-4xl text-secondary lg:text-5xl text-center font-semibold mb-12"
-  >
-    {title}
-  </h2>
-  <div class="md:grid hidden md:grid-cols-3 divide-x gap-6">
-    {
-      cards.map((option) => (
-        <div class="text-center p-6 flex justify-center items-center flex-col">
-          <img
-            src={getAssetURL(option.why_us_card_id.image.id)}
-            alt={
-              option.why_us_card_id.image.description ||
-              option.why_us_card_id.image.title ||
-              "Why Us Image"
-            }
-            class={` mb-4  ${option.why_us_card_id.full_image ? "w-full h-[200px] rounded-lg object-cover " : "w-24 h-auto rounded-full mx-auto"} `}
-          />
-          <h2 class="text-xl font-bold mb-4">{option.why_us_card_id.title}</h2>
-          <div class="mb-6 prose text-start text-sm ">
-            {option.why_us_card_id.description}
-          </div>
-        </div>
-      ))
-    }
-  </div>
-  <div class="md:hidden block">
-    <div class="swiper storage-slider">
-      <div class="swiper-wrapper">
-        {
-          cards.map((option) => (
-            <div class=" swiper-slide text-center border p-6 rounded-lg shadow-md flex justify-between items-start flex-col">
-              <div>
-                <img
-                  src={getAssetURL(option.why_us_card_id.image)}
-                  alt={option.title}
-                  class={`mx-auto mb-4 rounded-full ${option.full_image ? "w-full h-[150px] object-cover " : "w-24 h-auto"} `}
-                />
-                <h2 class="text-xl font-bold mb-4">
-                  {option.why_us_card_id.title}
-                </h2>
+<section class="section surface">
+  <div class="custom-container relative">
+    <div class="section-head">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2 class="heading-lg mt-5">{title}</h2>
+      <div class="accent-bar mx-auto"></div>
+    </div>
 
-                <div class="mb-6 prose text-start text-sm ">
-                  {option.why_us_card_id.description}
+    <div class="mt-14 hidden gap-6 md:grid md:grid-cols-3 lg:mt-16">
+      {
+        cards.map((option) => (
+          <div class="card card-hover flex flex-col items-center text-center">
+            <img
+              src={getAssetURL(option.why_us_card_id.image.id)}
+              alt={
+                option.why_us_card_id.image.description ||
+                option.why_us_card_id.image.title ||
+                "Why Us Image"
+              }
+              class={`mb-5 ${option.why_us_card_id.full_image ? "h-[200px] w-full object-cover" : "mx-auto h-24 w-auto object-contain"} `}
+            />
+            <h3 class="mb-3 text-xl font-bold tracking-tight text-dark">
+              {option.why_us_card_id.title}
+            </h3>
+            <div class="text-start text-sm leading-relaxed text-secondary">
+              {option.why_us_card_id.description}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-14 block md:hidden lg:mt-16">
+      <div class="swiper storage-slider">
+        <div class="swiper-wrapper">
+          {
+            cards.map((option) => (
+              <div class="swiper-slide card flex flex-col items-stretch justify-between text-center">
+                <div>
+                  <img
+                    src={getAssetURL(option.why_us_card_id.image)}
+                    alt={option.title}
+                    class={`mx-auto mb-5 ${option.full_image ? "h-[150px] w-full object-cover" : "h-24 w-auto object-contain"} `}
+                  />
+                  <h3 class="mb-3 text-xl font-bold tracking-tight text-dark">
+                    {option.why_us_card_id.title}
+                  </h3>
+
+                  <div class="text-start text-sm leading-relaxed text-secondary">
+                    {option.why_us_card_id.description}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))
-        }
+            ))
+          }
+        </div>
       </div>
     </div>
   </div>

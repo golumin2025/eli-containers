@@ -5,18 +5,19 @@ import { getFooter, getGlobal } from "src/lib/getPageData";
 const footer = await getFooter();
 let { pageUrl } = Astro.props;
 const global = await getGlobal();
+const isCold = ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl);
 ---
 
-<footer class="bg-[#f7f7f7] text-dark py-12 lg:py-16">
-  <div class="custom-container mx-auto flex flex-wrap justify-between">
+<footer class="bg-ink text-gray-400">
+  <div class="custom-container py-14 lg:py-16">
     <!-- Logo -->
-    <div class="w-full flex justify-center mb-6">
+    <div class="flex w-full justify-center pb-10">
       {
-        !["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) ? (
+        !isCold ? (
           <img
             src={getAssetURL(global.logo.id)}
-            alt={global.logo.description || global.logo.title || "Mi Box Logo"}
-            class="h-24 object-contain"
+            alt={global.logo.description || global.logo.title || "MI-BOX Logo"}
+            class="h-20 object-contain"
           />
         ) : (
           <img
@@ -28,54 +29,58 @@ const global = await getGlobal();
               global.logo.title ||
               " Logo"
             }
-            class="h-24 object-contain"
+            class="h-20 object-contain"
           />
         )
       }
     </div>
-    {
-      ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) ? "": (
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full my-14 items-start gap-8"
-     >
-      {
-        footer?.footer_items?.map((section) => (
-          <div class="w-full mb-6">
-            <h3 class="text-lg font-semibold">
-              {section?.footer_item_id?.title}
-            </h3>
-            <ul class="mt-2 space-y-2">
-              {section?.footer_item_id?.links?.map((link) => (
-                <li>
-                  <a href={link?.link} class="text-dark hover:text-primary">
-                    {link?.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </div>
 
-    <div class="flex justify-center md:flex-row flex-col w-full gap-4">
-      {
-        footer?.legal_links?.map((item) => (
-          <a href={item?.link} class="text-dark text-xs hover:text-primary">
-            {item?.title}
-          </a>
-        ))
-      }
-    </div>
-    )}
+    {
+      isCold ? null : (
+        <>
+          <div class="grid w-full grid-cols-1 gap-8 border-t border-white/10 pt-12 md:grid-cols-3 lg:grid-cols-4">
+            {footer?.footer_items?.map((section) => (
+              <div class="w-full">
+                <h3 class="text-sm font-bold uppercase tracking-[0.12em] text-white">
+                  {section?.footer_item_id?.title}
+                </h3>
+                <ul class="mt-4 space-y-2.5">
+                  {section?.footer_item_id?.links?.map((link) => (
+                    <li>
+                      <a
+                        href={link?.link}
+                        class="text-[15px] text-gray-400 transition-colors hover:text-primary"
+                      >
+                        {link?.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-12 flex w-full flex-col justify-center gap-3 border-t border-white/10 pt-8 md:flex-row md:gap-6">
+            {footer?.legal_links?.map((item) => (
+              <a
+                href={item?.link}
+                class="text-center text-xs font-medium text-gray-500 transition-colors hover:text-primary"
+              >
+                {item?.title}
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
 
     <!-- Cold Storage Contact Info -->
     {
-      ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) && (
-        <div class="w-full text-center text-sm mt-4 text-dark space-y-1">
+      isCold && (
+        <div class="w-full space-y-1 border-t border-white/10 pt-8 text-center text-sm text-gray-400">
           <p>6510 3rd Ave W, Bradenton, FL 34209</p>
           <p>
-            <a href="tel:19417777269" class="hover:text-primary">
+            <a href="tel:19417777269" class="transition-colors hover:text-primary">
               941-777-7269
             </a>
           </p>
@@ -84,9 +89,9 @@ const global = await getGlobal();
     }
 
     <!-- Copyright -->
-    <div class="w-full text-center text-sm mt-6 text-dark">
+    <div class="mt-8 w-full text-center text-xs text-gray-500">
       {
-        ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl) ? (
+        isCold ? (
           <p>
             2026 Box Rental Now, LLC / It's Ice Cold Storage. All Rights
             Reserved

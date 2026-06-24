@@ -9,13 +9,14 @@ const logos = [
 ];
 ---
 
-<div class="bg-white py-16">
+<section class="surface section-tight">
   <div class="custom-container">
-    <h1
-      class="text-4xl text-secondary lg:text-5xl text-center font-semibold mb-12"
-    >
-      {item?.title}
-    </h1>
+    <div class="section-head mb-12">
+      <h2 class="heading-lg">
+        {item?.title}
+      </h2>
+      <div class="accent-bar mx-auto"></div>
+    </div>
     <div
       class="logos overlay relative"
       data-aos="fade-fade-up"
@@ -26,7 +27,7 @@ const logos = [
         {
           logos.map((logo, index) => (
             <img
-              class="img object-contain"
+              class="img object-contain grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100"
               src={getAssetURL(logo.image_id.image.id)}
               alt={
                 logo.image_id.image.description ||
@@ -41,7 +42,7 @@ const logos = [
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <style>
   .logos {
@@ -66,8 +67,8 @@ const logos = [
     left: 0;
     background: linear-gradient(
       to left,
-      rgba(255, 255, 255, 0),
-      rgb(255, 255, 255)
+      rgba(246, 247, 249, 0),
+      rgb(246, 247, 249)
     );
   }
 
@@ -82,8 +83,8 @@ const logos = [
     right: 0;
     background: linear-gradient(
       to right,
-      rgba(255, 255, 255, 0),
-      rgb(255, 255, 255)
+      rgba(246, 247, 249, 0),
+      rgb(246, 247, 249)
     );
   }
 
