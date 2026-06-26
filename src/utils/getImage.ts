@@ -2,12 +2,13 @@ export function getAssetURL(idOrUrl: string | { id: string } | null | undefined)
   if (!idOrUrl) return null;
   if (typeof idOrUrl === "string") {
     if (idOrUrl.startsWith("http://") || idOrUrl.startsWith("https://")) return idOrUrl;
-    const base = import.meta.env.PUBLIC_DIRECTUS_URL;
-    return `${base}/assets/${idOrUrl}`;
+    return null;
   }
   if (typeof idOrUrl === "object" && idOrUrl.id) {
-    const base = import.meta.env.PUBLIC_DIRECTUS_URL;
-    return `${base}/assets/${idOrUrl.id}`;
+    if (typeof idOrUrl.id === "string" && (idOrUrl.id.startsWith("http://") || idOrUrl.id.startsWith("https://"))) {
+      return idOrUrl.id;
+    }
+    return null;
   }
   return null;
 }

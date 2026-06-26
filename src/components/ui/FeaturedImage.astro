@@ -3,6 +3,10 @@ import { getAssetURL } from "@utils/getImage";
 
 const { item } = Astro.props;
 const { bg_image, content } = item;
+const bgUrl = typeof bg_image === "string"
+  ? getAssetURL(bg_image)
+  : getAssetURL(bg_image?.id ?? bg_image);
+const bgAlt = (typeof bg_image === "object" ? bg_image?.description ?? bg_image?.title : null) ?? "Background Image";
 ---
 
 <section class="py-8 md:py-12">
@@ -10,8 +14,8 @@ const { bg_image, content } = item;
     class="relative flex justify-start items-start p-6 md:p-12 text-white overflow-hidden"
   >
     <img
-      src={getAssetURL(bg_image.id)}
-      alt={bg_image.description || bg_image.title || "Background Image"}
+      src={bgUrl}
+      alt={bgAlt}
       class="absolute inset-0 w-full h-full object-cover -z-10 brightness-[0.3]"
     />
     <div class="h-1 lg:w-2/5 hidden lg:block"></div>

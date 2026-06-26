@@ -6,6 +6,7 @@ const { title } = item;
 const images: any[] = item?.items ?? item?.images ?? [];
 
 function imgSrc(image: any): string | null {
+  if (typeof image.image === "string" && image.image.startsWith("http")) return image.image;
   const img = image.image_id?.image ?? image.image_id ?? image;
   return getAssetURL(typeof img === "object" ? (img?.id ?? img) : img) ?? getAssetURL(image.asset_id);
 }
