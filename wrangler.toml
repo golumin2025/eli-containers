@@ -1,6 +1,7 @@
 name = "eli-containers"
 account_id = "f12c21930f2db3497ae6ffbe5f7638aa"
 main = "dist/_worker.js/index.js"
+no_bundle = true
 
 compatibility_date = "2026-04-14"
 compatibility_flags = ["nodejs_compat"]
