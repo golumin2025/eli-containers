@@ -29,7 +29,7 @@
         Object.entries(result.error.fields).map(([key, value]) => [
           key,
           Array.isArray(value) ? value[0] : value,
-        ])
+        ]),
       );
     } else {
       if (result.data.success) {
@@ -113,7 +113,7 @@
 
     <div
       use:turnstile
-      turnstile-sitekey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY}
+      turnstile-sitekey={TURNSTILE_SITE_KEY}
       turnstile-theme="light"
       turnstile-size="normal"
       turnstile-language="en"
