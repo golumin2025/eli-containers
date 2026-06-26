@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/bundle-worker.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "migrate": "node --env-file=.env scripts/migrate.mjs",
@@ -37,6 +37,7 @@
     "sharp": "^0.33.5",
     "svelte": "^5.22.5",
     "swiper": "^11.2.5",
+    "esbuild": "^0.25.0",
     "tailwindcss": "^4.0.11",
     "typescript": "^5.8.2",
     "wrangler": "^4.99.0"
