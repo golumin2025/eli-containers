@@ -30,6 +30,7 @@
     "astro": "^5.4.2",
     "date-picker-svelte": "^2.15.1",
     "marked": "^15.0.7",
+    "mjml": "^5.3.0",
     "postmark": "^4.0.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

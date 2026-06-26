@@ -4,7 +4,7 @@ import * as postmark from "postmark";
 import { formSubmissionClientEmail } from "./email-templates/formSubmissionClientEmail";
 import { formSubmissionAdminEmail } from "./email-templates/formSubmissionAdminEmail";
 import { getGlobal } from "../lib/cms";
-
+import mjml2html from "mjml";
 export const server = {
   quoteForm: defineAction({
     input: z.object({
@@ -43,37 +43,37 @@ export const server = {
           };
         }
 
-        const zohoRequest = await fetch(
-          "https://www.zohoapis.com/crm/v2/functions/contact_form/actions/execute?auth_type=apikey&zapikey=1003.9fcdd71d133ac0feb8915e5c2331b4a0.0fca3775643dc9dd8eaf4816e8d82b21",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              type: input.serviceType,
-              current_zipcode: input.initialDeliveryZip,
-              new_zipcode: input.finalDeliveryZip,
-              start_date: new Date(input.deliveryDate)
-                .toISOString()
-                .slice(0, 10),
-              storage_location: input.storeItType,
-              email: input.email,
-              phone: input.phone,
-              rental: 209,
-              promocode: input.promoCode || "",
-            }),
-          },
-        );
-        const zohoResponse = await zohoRequest.json();
+        // const zohoRequest = await fetch(
+        //   "https://www.zohoapis.com/crm/v2/functions/contact_form/actions/execute?auth_type=apikey&zapikey=1003.9fcdd71d133ac0feb8915e5c2331b4a0.0fca3775643dc9dd8eaf4816e8d82b21",
+        //   {
+        //     method: "POST",
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //       type: input.serviceType,
+        //       current_zipcode: input.initialDeliveryZip,
+        //       new_zipcode: input.finalDeliveryZip,
+        //       start_date: new Date(input.deliveryDate)
+        //         .toISOString()
+        //         .slice(0, 10),
+        //       storage_location: input.storeItType,
+        //       email: input.email,
+        //       phone: input.phone,
+        //       rental: 209,
+        //       promocode: input.promoCode || "",
+        //     }),
+        //   },
+        // );
+        // // const zohoResponse = await zohoRequest.json();
 
-        // // Prepare email templates
-        // const { html: clientEmailBody } = mjml2html(
-        //   formSubmissionClientEmail.html(input, globalData),
-        // );
-        // const { html: adminEmailBody } = mjml2html(
-        //   formSubmissionAdminEmail.html(input, globalData),
-        // );
+        // Prepare email templates
+        const { html: clientEmailBody } = mjml2html(
+          formSubmissionClientEmail.html(input, globalData),
+        );
+        const { html: adminEmailBody } = mjml2html(
+          formSubmissionAdminEmail.html(input, globalData),
+        );
 
         // Send emails
         const client = new postmark.ServerClient(
@@ -81,27 +81,22 @@ export const server = {
         );
 
         // // Send email to client
-        // await client.sendEmail({
-        //   From: globalData.fromEmail,
-        //   To: input.email,
-        //   Cc: globalData.clientEmailRecipientsBcc
-        //     .map((recipient: { email: string }) => recipient.email)
-        //     .join(", "),
-        //   Subject: "Thank You for Your Submission - We'll Be In Touch Soon",
-        //   HtmlBody: clientEmailBody,
-        //   MessageStream: "outbound",
-        // });
+        await client.sendEmail({
+          From: globalData.fromEmail,
+          To: input.email,
+          Subject: "Thank You for Your Submission - We'll Be In Touch Soon",
+          HtmlBody: clientEmailBody,
+          MessageStream: "outbound",
+        });
 
-        // // Send email to admin
-        // await client.sendEmail({
-        //   From: globalData.fromEmail,
-        //   To: globalData.adminEmailRecipients
-        //     .map((recipient: { email: string }) => recipient.email)
-        //     .join(", "),
-        //   Subject: "New Form Submission - Follow Up Required",
-        //   HtmlBody: adminEmailBody,
-        //   MessageStream: "outbound",
-        // });
+        // Send email to admin
+        await client.sendEmail({
+          From: globalData.fromEmail,
+          To: "marketing@golumin.io",
+          Subject: "New Form Submission - Follow Up Required",
+          HtmlBody: adminEmailBody,
+          MessageStream: "outbound",
+        });
 
         const successUrl = `https://app.miboxmovingandstorage.com/?container_types=${input.serviceType}&email=${input.email}&new_zipcode=${input.finalDeliveryZip}&phone_number=${input.phone}&start_date=${input.deliveryDate}&zipcode=${input.initialDeliveryZip}&promocode=${input.promoCode}&type=${input.storeItType}`;
 
@@ -202,9 +197,7 @@ export const server = {
         // Send email to admin
         await client.sendEmail({
           From: globalData.fromEmail,
-          To: globalData.adminEmailRecipients
-            .map((recipient: { email: string }) => recipient.email)
-            .join(", "),
+          To: "marketing@golumin.io",
           Subject: "New Cold Storage Quote Request",
           HtmlBody: adminEmailBody,
           MessageStream: "outbound",
