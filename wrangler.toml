@@ -1,13 +1,10 @@
 name = "eli-containers"
 account_id = "f12c21930f2db3497ae6ffbe5f7638aa"
-main = "dist/_worker.js/index-bundled.js"
-no_bundle = true
+main = "dist/_worker.js"
 
 compatibility_date = "2026-04-14"
 compatibility_flags = ["nodejs_compat"]
 
-[build]
-command = "node scripts/bundle-worker.mjs"
 
 [assets]
 directory = "./dist"
