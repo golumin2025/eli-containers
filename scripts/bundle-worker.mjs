@@ -71,7 +71,7 @@ async function bundle() {
     format: "esm",
     platform: "browser",
     target: "es2022",
-    external: ["__STATIC_CONTENT_MANIFEST", "cloudflare:*", "node:*"],
+    external: ["__STATIC_CONTENT_MANIFEST", "cloudflare:*", "node:*", "sharp"],
     conditions: ["worker", "browser"],
     mainFields: ["browser", "module", "main"],
     logLevel: "warning",
