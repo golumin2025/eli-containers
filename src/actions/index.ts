@@ -1,10 +1,12 @@
 import { defineAction } from "astro:actions";
 import { z } from "astro:schema";
-import * as postmark from "postmark";
-import { formSubmissionClientEmail } from "./email-templates/formSubmissionClientEmail";
-import { formSubmissionAdminEmail } from "./email-templates/formSubmissionAdminEmail";
-import { getGlobal } from "../lib/cms";
-import mjml2html from "mjml";
+import { verifyTurnstile } from "virtual:turnstile";
+import { sendEmail } from "virtual:getoutsend";
+import { adminEmailTemplate } from "./email-templates/adminEmailTemplate";
+import { clientEmailTemplate } from "./email-templates/clientEmailTemplate";
+
+const ADMIN_EMAILS = ["box@boxrentalnow.com", "marketing@golumin.io"];
+
 export const server = {
   quoteForm: defineAction({
     input: z.object({
@@ -28,74 +30,49 @@ export const server = {
     }),
     handler: async (input) => {
       try {
-        // Fetch global email settings from CMS
-        const _g = await getGlobal("site");
-        const globalData = _g?.data ? {
-          fromEmail: _g.data.from_email,
-          clientEmailRecipientsBcc: (_g.data.client_email_bcc ?? []).map((e: string) => ({ email: e })),
-          adminEmailRecipients: (_g.data.admin_email_recipients ?? []).map((e: string) => ({ email: e })),
-        } : null;
+        const turnstileCheck = await verifyTurnstile(input.cfTurnstileResponse);
 
-        if (!globalData?.fromEmail) {
+        if (!turnstileCheck.success) {
           return {
             success: false,
-            message: "Email configuration not available",
+            error: {
+              message: "Turnstile verification failed. Please try again.",
+            },
           };
         }
-
-        // const zohoRequest = await fetch(
-        //   "https://www.zohoapis.com/crm/v2/functions/contact_form/actions/execute?auth_type=apikey&zapikey=1003.9fcdd71d133ac0feb8915e5c2331b4a0.0fca3775643dc9dd8eaf4816e8d82b21",
-        //   {
-        //     method: "POST",
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //       type: input.serviceType,
-        //       current_zipcode: input.initialDeliveryZip,
-        //       new_zipcode: input.finalDeliveryZip,
-        //       start_date: new Date(input.deliveryDate)
-        //         .toISOString()
-        //         .slice(0, 10),
-        //       storage_location: input.storeItType,
-        //       email: input.email,
-        //       phone: input.phone,
-        //       rental: 209,
-        //       promocode: input.promoCode || "",
-        //     }),
-        //   },
-        // );
-        // // const zohoResponse = await zohoRequest.json();
-
-        // Prepare email templates
-        const { html: clientEmailBody } = mjml2html(
-          formSubmissionClientEmail.html(input, globalData),
+        const zohoRequest = await fetch(
+          "https://www.zohoapis.com/crm/v2/functions/contact_form/actions/execute?auth_type=apikey&zapikey=1003.9fcdd71d133ac0feb8915e5c2331b4a0.0fca3775643dc9dd8eaf4816e8d82b21",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              type: input.serviceType,
+              current_zipcode: input.initialDeliveryZip,
+              new_zipcode: input.finalDeliveryZip,
+              start_date: new Date(input.deliveryDate)
+                .toISOString()
+                .slice(0, 10),
+              storage_location: input.storeItType,
+              email: input.email,
+              phone: input.phone,
+              rental: 209,
+              promocode: input.promoCode || "",
+            }),
+          },
         );
-        const { html: adminEmailBody } = mjml2html(
-          formSubmissionAdminEmail.html(input, globalData),
-        );
+        const zohoResponse = await zohoRequest.json();
 
-        // Send emails
-        const client = new postmark.ServerClient(
-          import.meta.env.POSTMARK_SERVER_TOKEN,
-        );
-
-        // // Send email to client
-        await client.sendEmail({
-          From: globalData.fromEmail,
-          To: input.email,
-          Subject: "Thank You for Your Submission - We'll Be In Touch Soon",
-          HtmlBody: clientEmailBody,
-          MessageStream: "outbound",
+        await sendEmail({
+          to: input.email,
+          subject: "Free Quote from MIBOX ELI",
+          html: clientEmailTemplate(input),
         });
-
-        // Send email to admin
-        await client.sendEmail({
-          From: globalData.fromEmail,
-          To: "marketing@golumin.io",
-          Subject: "New Form Submission - Follow Up Required",
-          HtmlBody: adminEmailBody,
-          MessageStream: "outbound",
+        await sendEmail({
+          to: ADMIN_EMAILS,
+          subject: "New Quote Request",
+          html: adminEmailTemplate(input),
         });
 
         const successUrl = `https://app.miboxmovingandstorage.com/?container_types=${input.serviceType}&email=${input.email}&new_zipcode=${input.finalDeliveryZip}&phone_number=${input.phone}&start_date=${input.deliveryDate}&zipcode=${input.initialDeliveryZip}&promocode=${input.promoCode}&type=${input.storeItType}`;
@@ -132,37 +109,7 @@ export const server = {
     }),
     handler: async (input) => {
       try {
-        // Fetch global email settings from CMS
-        const _g = await getGlobal("site");
-        const globalData = _g?.data ? {
-          fromEmail: _g.data.from_email,
-          clientEmailRecipientsBcc: (_g.data.client_email_bcc ?? []).map((e: string) => ({ email: e })),
-          adminEmailRecipients: (_g.data.admin_email_recipients ?? []).map((e: string) => ({ email: e })),
-        } : null;
-
-        if (!globalData?.fromEmail) {
-          return {
-            success: false,
-            error: {
-              message: "Email configuration not available",
-            },
-          };
-        }
-
-        // Validate Turnstile response
-        const formData = new FormData();
-        formData.append("secret", import.meta.env.TURNSTILE_SECRET_TOKEN);
-        formData.append("response", input.cfTurnstileResponse);
-
-        const result = await fetch(
-          "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-          {
-            method: "POST",
-            body: formData,
-          },
-        );
-
-        const turnstileCheck = await result.json();
+        const turnstileCheck = await verifyTurnstile(input.cfTurnstileResponse);
 
         if (!turnstileCheck.success) {
           return {
@@ -172,35 +119,18 @@ export const server = {
             },
           };
         }
-
-        // Prepare email templates
-        const clientEmailBody = formSubmissionClientEmail.html(input, globalData);
-        const adminEmailBody = formSubmissionAdminEmail.html(input, globalData);
-
-        // Send emails
-        const client = new postmark.ServerClient(
-          import.meta.env.POSTMARK_SERVER_TOKEN,
-        );
-
-        // Send email to client
-        await client.sendEmail({
-          From: globalData.fromEmail,
-          To: input.email,
-          Cc: globalData.clientEmailRecipientsBcc
-            .map((recipient: { email: string }) => recipient.email)
-            .join(", "),
-          Subject: "Thank You for Your Cold Storage Quote Request",
-          HtmlBody: clientEmailBody,
-          MessageStream: "outbound",
+        await sendEmail({
+          to: input.email,
+          subject: "Thank You for Your Cold Storage Quote Request",
+          html: clientEmailTemplate(input),
+          replyTo: input.email,
         });
 
-        // Send email to admin
-        await client.sendEmail({
-          From: globalData.fromEmail,
-          To: "marketing@golumin.io",
-          Subject: "New Cold Storage Quote Request",
-          HtmlBody: adminEmailBody,
-          MessageStream: "outbound",
+        await sendEmail({
+          to: ["marketing@golumin.io", "box@boxrentalnow.com"],
+          subject: "New Cold Storage Quote Request",
+          html: adminEmailTemplate(input),
+          replyTo: input.email,
         });
 
         return {

@@ -66,7 +66,7 @@
     } else {
       if (result.data.success) {
         isLoading = false;
-        window.location.href = result.data.successUrl;
+        // window.location.href = result.data.successUrl;
       }
     }
     isLoading = false;
@@ -129,7 +129,6 @@
           placeholder="34240"
           bind:value={form.initialDeliveryZip}
           errors={zipErrors.initial || form.errors.initialDeliveryZip}
-          onblur={() => checkZipcode(form.initialDeliveryZip, "initial")}
         />
       </div>
       {#if isFinalZipRequired}
@@ -140,7 +139,6 @@
             placeholder="34240"
             bind:value={form.finalDeliveryZip}
             errors={zipErrors.final || form.errors.finalDeliveryZip}
-            onblur={() => checkZipcode(form.finalDeliveryZip, "final")}
           />
         </div>
       {/if}

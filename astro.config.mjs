@@ -5,8 +5,9 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
-
 import cloudflare from "@astrojs/cloudflare";
+import getoutsend from "./src/integrations/getoutsend/index.ts";
+import turnstile from "./src/integrations/turnstile/index.ts";
 
 export default defineConfig({
   trailingSlash: "ignore",
@@ -18,6 +19,11 @@ export default defineConfig({
     react(),
     sitemap(),
     svelte(),
+    getoutsend({
+      fromName: "Box Rental Now",
+      fromEmail: "marketing@boxrentalnow.com",
+    }),
+    turnstile(),
   ],
   vite: {
     plugins: [tailwindcss()],
