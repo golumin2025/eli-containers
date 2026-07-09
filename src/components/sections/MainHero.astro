@@ -12,7 +12,8 @@ const stats = item?.stats ?? [];
 const SectionTitle = item?.sectionTitle ?? "";
 ---
 
-<div class="md:h-[800px] h-full relative">
+<div class="md:h-[850px] h-full relative">
+  <!-- Mobile Quote Form -->
   <div class="w-full bg-white rounded-lg md:hidden block p-4 md:p-8">
     <QuoteForm
       client:only="svelte"
@@ -21,6 +22,18 @@ const SectionTitle = item?.sectionTitle ?? "";
       phoneNumber={global?.phone_number}
       promoCode={global?.promo_code}
     />
+
+    <div class="bg-[#F7F3EC] rounded-md py-3 px-4 mt-4">
+      <img
+        src="/Badge.webp"
+        alt="As seen on NBC, ABC affiliate sites and over 200 news sites"
+        width="715"
+        height="387"
+        class="w-full max-w-[220px] mx-auto"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
   </div>
 
   <div class="relative h-full">
@@ -33,11 +46,13 @@ const SectionTitle = item?.sectionTitle ?? "";
       loading="eager"
       decoding="async"
     />
+
     <div
       class="absolute inset-0"
       style={`background: var(--gradient-direction)`}
     >
     </div>
+
     <div
       class="custom-container mx-auto h-full flex items-end px-4 md:px-8 relative"
     >
@@ -45,6 +60,7 @@ const SectionTitle = item?.sectionTitle ?? "";
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 fade-up">
           {item?.title}
         </h1>
+
         <div
           class="text-lg md:text-xl text-white font-medium fade-up prose"
           set:html={item?.description}
@@ -53,10 +69,11 @@ const SectionTitle = item?.sectionTitle ?? "";
     </div>
   </div>
 
+  <!-- Desktop Quote Form -->
   <div
     class="md:absolute md:flex hidden top-0 right-0 h-full w-full md:w-1/2 items-center justify-center z-10"
   >
-    <div class="w-full bg-white rounded-lg lg:max-w-[550px] p-4 md:p-8">
+    <div class="w-full bg-white rounded-lg lg:max-w-[550px] p-4 md:p-8 shadow-xl">
       <QuoteForm
         client:only="svelte"
         quoteFormTitle={quoteFormTitle}
@@ -64,16 +81,28 @@ const SectionTitle = item?.sectionTitle ?? "";
         phoneNumber={global?.phone_number}
         promoCode={global?.promo_code}
       />
+      <div class="bg-[#F7F3EC] rounded-md py-3 px-4 mt-4">
+        <img
+          src="/Badge.webp"
+          alt="As seen on NBC, ABC affiliate sites and over 200 news sites"
+          width="715"
+          height="387"
+          class="w-full max-w-[220px] mx-auto"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
     </div>
   </div>
 </div>
 
 {
   showStats && (
-    <div class="bg-[#E5EFFC] py-10 custom-container ">
-      <h2 class="text-sm font-semibold uppercase tracking-wider text-secondary mb-10 text-center ">
+    <div class="bg-[#E5EFFC] py-10 custom-container">
+      <h2 class="text-sm font-semibold uppercase tracking-wider text-secondary mb-10 text-center">
         {SectionTitle}
       </h2>
+
       <div class="mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 text-center gap-8">
         {stats.map((stat: any) => (
           <div class="flex flex-col lg:flex-row justify-center items-center gap-2">
@@ -85,7 +114,9 @@ const SectionTitle = item?.sectionTitle ?? "";
               loading="eager"
               decoding="async"
             />
+
             <p class="text-xl font-bold text-gray-800">{stat.value}</p>
+
             <p class="text-sm text-secondary">{stat.label}</p>
           </div>
         ))}
@@ -129,6 +160,7 @@ const SectionTitle = item?.sectionTitle ?? "";
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
