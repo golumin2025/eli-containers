@@ -1,7 +1,7 @@
-import type { Page, Entry } from "./types";
 import { resolveAssetUrl } from "./cms";
+import type { Entry, Page } from "./types";
 
-const SITE_URL = import.meta.env.SITE_URL || "";
+const SITE_URL = import.meta.env.SITE_URL || "https://www.boxrentalnow.com";
 
 export interface SeoProps {
   title: string;

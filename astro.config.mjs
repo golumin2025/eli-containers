@@ -10,6 +10,7 @@ import getoutsend from "./src/integrations/getoutsend/index.ts";
 import turnstile from "./src/integrations/turnstile/index.ts";
 
 export default defineConfig({
+  site: "https://www.boxrentalnow.com",
   trailingSlash: "ignore",
   redirects: {
     "/thankyou/": "/thank-you",

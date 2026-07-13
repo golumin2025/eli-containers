@@ -1,7 +1,7 @@
 import { defineAction } from "astro:actions";
 import { z } from "astro:schema";
-import { verifyTurnstile } from "virtual:turnstile";
 import { sendEmail } from "virtual:getoutsend";
+import { verifyTurnstile } from "virtual:turnstile";
 import { adminEmailTemplate } from "./email-templates/adminEmailTemplate";
 import { clientEmailTemplate } from "./email-templates/clientEmailTemplate";
 
