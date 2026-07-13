@@ -1,5 +1,5 @@
 ---
-import { getGlobal } from "src/lib/getPageData";
+import { getGlobal } from "@lib/cms";
 import { getAssetURL } from "@utils/getImage";
 import {
   movingCompanySchema,
@@ -14,11 +14,12 @@ interface Props {
   ogImage?: any;
   schema?: object[];
 }
-const global = await getGlobal();
+
+const siteGlobal = await getGlobal("site");
+const site = siteGlobal?.data ?? {};
+const faviconUrl = getAssetURL(site.favicon?.id ?? site.favicon) ?? "/favicon.png";
+
 const { title, description, ogImage, schema = [] } = Astro.props;
-const faviconId =
-  typeof global?.favicon === "string" ? global.favicon : global?.favicon?.id;
-const faviconUrl = getAssetURL(faviconId) || "/favicon.png";
 ---
 
 <!-- Global Metadata -->
@@ -58,20 +59,13 @@ const faviconUrl = getAssetURL(faviconId) || "/favicon.png";
     f.parentNode.insertBefore(j, f);
   })(window, document, "script", "dataLayer", "GTM-P59R98JX");
 </script>
-<!-- End Google Tag Manager -->
 
 <!-- Google tag (gtag.js) -->
-<script
-  is:inline
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=AW-1056418154"></script>
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-1056418154"></script>
 <script is:inline>
   window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
+  function gtag() { dataLayer.push(arguments); }
   gtag("js", new Date());
-
   gtag("config", "AW-1056418154");
 </script>
 
@@ -81,14 +75,14 @@ const faviconUrl = getAssetURL(faviconId) || "/favicon.png";
   });
 </script>
 
-<!-- Sitewide schema (MovingCompany, Organization, WebSite) -->
+<!-- Sitewide schema -->
 {
   [movingCompanySchema, organizationSchema, websiteSchema].map((s) => (
     <script type="application/ld+json" set:html={JSON.stringify(s)} />
   ))
 }
 
-<!-- Page-specific schema injected per page -->
+<!-- Page-specific schema -->
 {
   schema.map((s) => (
     <script type="application/ld+json" set:html={JSON.stringify(s)} />

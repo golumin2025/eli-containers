@@ -1,27 +1,32 @@
 ---
-import HowPodsWorks from "@components/sections/HowPodsWorks.astro";
-import MainHero from "@components/sections/MainHero.astro";
-import ReviewsSlider from "@components/sections/ReviewsSlider.astro";
-import FeaturedImage from "@components/ui/FeaturedImage.astro";
-import Faqs from "@components/sections/Faq.astro";
 import Layout from "@layouts/Layout.astro";
-import Masonry from "@components/sections/Masonry.astro";
-import SingleHero from "@components/sections/SingleHero.astro";
-import TwoCol from "@components/sections/TwoCol.astro";
-import FindYouFit from "@components/sections/FindYouFit.astro";
-import RichText from "@components/sections/RichText.astro";
-import { getSinglePage } from "src/lib/getPageData";
-import { serviceSchemaMap, buildBreadcrumbSchema } from "src/lib/schema";
-import WhyUS from "@components/sections/WhyUS.astro";
-import LogoSlider from "@components/sections/LogoSlider.astro";
+import BlockRenderer from "../blocks/BlockRenderer.astro";
+import { getPage, listPageSlugs, preloadAssetsFromBlocks } from "@lib/cms";
+import { buildSeoProps } from "@lib/seo";
+import { serviceSchemaMap, buildBreadcrumbSchema } from "@lib/schema";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const pages = await listPageSlugs();
+  return pages
+    .filter((p) => p.slug !== "home" && p.slug !== "index")
+    .map((p) => ({ params: { slug: p.slug.replace(/^\//, "") } }));
+}
 
 const { slug } = Astro.params;
 const safeSlug = typeof slug === "string" ? slug : "";
-const pageData = await getSinglePage("pages", safeSlug);
+const pageData = await getPage(safeSlug);
+
+if (pageData == null) {
+  return Astro.redirect("/404");
+}
+
+await preloadAssetsFromBlocks(pageData.blocks);
+const seo = await buildSeoProps(pageData, { title: pageData.title });
 
 const serviceSchema = serviceSchemaMap[safeSlug];
 const breadcrumbSchema = buildBreadcrumbSchema(safeSlug);
-
 const pageSchema = [
   ...(serviceSchema ? [serviceSchema] : []),
   ...(breadcrumbSchema ? [breadcrumbSchema] : []),
@@ -29,37 +34,11 @@ const pageSchema = [
 ---
 
 <Layout
-  title={pageData?.seo.title}
-  description={pageData?.seo.meta_description}
-  ogImage={pageData?.seo.og_image}
+  title={seo.title}
+  description={seo.description}
+  ogImage={seo.ogImage ?? ""}
   pageUrl={slug}
   schema={pageSchema}
 >
-  {
-    pageData?.blocks.map((item: any) => (
-      <>
-        {item.collection === "hero" && <MainHero item={item.item} />}
-        {item.collection === "how_it_works" && (
-          <HowPodsWorks item={item.item} />
-        )}
-        {item.collection === "content_with_bg_image" && (
-          <FeaturedImage item={item.item} />
-        )}
-        {item.collection === "testimonials" && (
-          <ReviewsSlider item={item.item} />
-        )}
-        {item.collection === "faqs" && <Faqs item={item.item} />}
-        {item.collection === "gallery" && <Masonry item={item.item} />}
-        {item.collection === "storage_containers" && (
-          <FindYouFit item={item.item} />
-        )}
-        {item.collection === "why_us" && <WhyUS item={item.item} />}
-
-        {item.collection === "single_hero" && <SingleHero item={item.item} />}
-        {item.collection === "logos_slider" && <LogoSlider item={item.item} />}
-        {item.collection === "two_col" && <TwoCol item={item.item} />}
-        {item.collection === "rich_text" && <RichText item={item.item} />}
-      </>
-    ))
-  }
+  <BlockRenderer blocks={pageData.blocks ?? []} />
 </Layout>

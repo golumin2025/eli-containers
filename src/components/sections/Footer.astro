@@ -1,8 +1,13 @@
 ---
 import { getAssetURL } from "@utils/getImage";
-import { getFooter, getGlobal } from "src/lib/getPageData";
+import { getGlobal } from "@lib/cms";
 
-const footer = await getFooter();
+const [siteGlobal, footerGlobal] = await Promise.all([
+  getGlobal("site"),
+  getGlobal("footer"),
+]);
+const site = siteGlobal?.data ?? {};
+const footer = footerGlobal?.data ?? {};
 let { pageUrl } = Astro.props;
 const global = await getGlobal();
 const isCold = ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl);

@@ -2,7 +2,18 @@
 import { getAssetURL } from "@utils/getImage";
 
 const { item } = Astro.props;
-const { title, images } = item;
+const { title } = item;
+const images: any[] = item?.items ?? item?.images ?? [];
+
+function imgSrc(image: any): string | null {
+  if (typeof image.image === "string" && image.image.startsWith("http")) return image.image;
+  const img = image.image_id?.image ?? image.image_id ?? image;
+  return getAssetURL(typeof img === "object" ? (img?.id ?? img) : img) ?? getAssetURL(image.asset_id);
+}
+function imgAlt(image: any): string {
+  const img = image.image_id?.image ?? image;
+  return (typeof img === "object" ? img?.description ?? img?.title : null) ?? "";
+}
 ---
 
 <section class="section bg-cream relative">

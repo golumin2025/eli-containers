@@ -3,6 +3,18 @@ import { getAssetURL } from "@utils/getImage";
 
 const { item } = Astro.props;
 const { cards, title } = item;
+
+function resolveCard(option: any) {
+  const c = option.why_us_card_id ?? option;
+  const img = c.image;
+  return {
+    src: getAssetURL(img?.id ?? img),
+    alt: (typeof img === "object" ? img?.description ?? img?.title : null) ?? "Why Us Image",
+    fullImage: c.full_image,
+    title: c.title,
+    description: c.description,
+  };
+}
 ---
 
 <section class="section surface">

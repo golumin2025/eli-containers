@@ -1,7 +1,8 @@
 ---
 import Tag from "@assets/tag.png";
-import { getTopBar } from "src/lib/getPageData";
-const topbar = await getTopBar();
+import { getGlobal } from "@lib/cms";
+const topbarGlobal = await getGlobal("topbar");
+const title = topbarGlobal?.data?.title;
 ---
 
 {

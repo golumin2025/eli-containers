@@ -3,6 +3,10 @@ import { getAssetURL } from "@utils/getImage";
 
 const { item } = Astro.props;
 const { bg_image, content } = item;
+const bgUrl = typeof bg_image === "string"
+  ? getAssetURL(bg_image)
+  : getAssetURL(bg_image?.id ?? bg_image);
+const bgAlt = (typeof bg_image === "object" ? bg_image?.description ?? bg_image?.title : null) ?? "Background Image";
 ---
 
 <section class="section">

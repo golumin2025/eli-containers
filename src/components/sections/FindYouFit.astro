@@ -2,7 +2,8 @@
 import { getAssetURL } from "@utils/getImage";
 
 const { item } = Astro.props;
-const { title, cards } = item ?? {};
+const { title } = item ?? {};
+const cards: any[] = item?.items ?? item?.cards ?? [];
 ---
 
 <section class="section bg-white relative">
@@ -70,7 +71,8 @@ const { title, cards } = item ?? {};
               )}
             </div>
           </div>
-        ))
+          );
+        })
       }
     </div>
   </div>

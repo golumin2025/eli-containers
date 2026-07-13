@@ -362,13 +362,10 @@ const phoneSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
       document.body.style.overflow = "";
     });
 
-    // Mobile accordion
     document.querySelectorAll(".mobile-accordion-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const index = btn.getAttribute("data-index");
-        const panel = document.querySelector(
-          `.mobile-accordion-panel[data-index="${index}"]`,
-        );
+        const panel = document.querySelector(`.mobile-accordion-panel[data-index="${index}"]`);
         const arrow = btn.querySelector("svg");
         panel?.classList.toggle("hidden");
         arrow?.classList.toggle("rotate-180");

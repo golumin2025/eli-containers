@@ -3,13 +3,14 @@ import ImageMod from "@components/ui/ImageMod.astro";
 import QuoteForm from "../forms/QuoteForm.svelte";
 import ColdStorageForm from "../forms/ColdStorageForm.svelte";
 import { getAssetURL } from "src/utils/getImage";
-import { getGlobal } from "src/lib/getPageData";
-const global = await getGlobal();
+import { getGlobal } from "@lib/cms";
+const siteGlobal = await getGlobal("site");
+const globalSite = siteGlobal?.data ?? {};
 const { item, general, SectionTitle, stats, showStats } = Astro.props;
 
-const title = item?.title;
+const title = item?.heading ?? item?.title;
 const description = item?.description ?? "";
-const bgImage = item?.bg_image?.id ? getAssetURL(item.bg_image.id) : "";
+const bgImage = getAssetURL(item?.bg_image?.id ?? item?.bg_image) ?? "";
 const quoteButtonTitle = item?.quote_button_title;
 
 const formType = item?.form_type;
@@ -20,9 +21,7 @@ const formType = item?.form_type;
 >
   <img
     src={bgImage}
-    alt={item?.bg_image?.description ||
-      item?.bg_image?.title ||
-      "Hero Background"}
+    alt={(typeof item?.bg_image === "object" ? item?.bg_image?.description ?? item?.bg_image?.title : null) ?? "Hero Background"}
     class="absolute inset-0 w-full h-full object-cover"
   />
   <div class="absolute inset-0 overlay-grad"></div>
@@ -48,8 +47,8 @@ const formType = item?.form_type;
             <QuoteForm
               client:only="svelte"
               quoteButtonTitle={quoteButtonTitle}
-              phoneNumber={global.phone_number}
-              promoCode={global.promo_code}
+              phoneNumber={globalSite.phone_number}
+              promoCode={globalSite.promo_code}
             />
           </div>
         </div>
