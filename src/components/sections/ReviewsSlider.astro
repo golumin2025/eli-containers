@@ -32,14 +32,14 @@ const reviews = shuffleArray(cards);
               <div class="swiper-slide card flex h-auto flex-col min-h-[280px]">
                 <div class="flex items-center gap-4 mb-4">
                   <div class="icon-chip-dark h-10 w-10 shrink-0 text-xl uppercase font-extrabold">
-                    {review.testimonial_card_id.name[0]}
+                    {review.name[0]}
                   </div>
                   <div>
                     <p class="font-bold text-sm text-dark">
-                      {review.testimonial_card_id.name}
+                      {review.name}
                     </p>
                     <div class="stars">
-                      {[...Array(review.testimonial_card_id.rating)].map(
+                      {[...Array(review.rating)].map(
                         (_, i) => (
                           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
@@ -51,7 +51,7 @@ const reviews = shuffleArray(cards);
                 </div>
                 <p
                   class="text-secondary leading-relaxed line-clamp-[7]"
-                  set:html={review.testimonial_card_id.content}
+                  set:html={review.content}
                 />
               </div>
             ))

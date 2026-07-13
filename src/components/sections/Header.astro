@@ -1,11 +1,14 @@
 ---
-import { getAssetURL } from "@utils/getImage";
-import { getNavbar, getGlobal } from "src/lib/getPageData";
+import { getGlobal } from "@lib/cms";
 import { getCollection } from "astro:content";
 
 const { pageUrl } = Astro.props;
-const nav = await getNavbar();
-const global = await getGlobal();
+const [siteGlobal, navGlobal] = await Promise.all([
+  getGlobal("site"),
+  getGlobal("navigation"),
+]);
+const site = siteGlobal?.data ?? {};
+const nav = navGlobal?.data ?? {};
 
 const locations = (await getCollection("locations")).sort(
   (a, b) => a.data.order - b.data.order,
@@ -15,8 +18,8 @@ const isCold = ["cold-storage-containers", "thank-you-coolers"].includes(
   pageUrl,
 );
 
-const phoneTel = global?.phone_number || nav?.phone_number;
-const phoneDisplay = nav?.phone_number || global?.phone_number;
+const phoneTel = site?.phone_number || nav?.phone_number;
+const phoneDisplay = nav?.phone_number || site?.phone_number;
 
 // Curated mega-nav structure (the CMS nav is flat; this drives the 3-col
 // Services mega and is easy to maintain in one place).
@@ -67,22 +70,16 @@ const phoneSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
         !isCold ? (
           <a href="/" class="flex items-center gap-2 text-dark">
             <img
-              src={getAssetURL(global.logo.id)}
-              alt={global.logo.description || global.logo.title || "MI-BOX Logo"}
+              src={site.logo}
+              alt="MI-BOX Logo"
               class="max-w-32"
               loading="eager"
             />
           </a>
         ) : (
           <img
-            src={getAssetURL(global.ice_logo?.id || global.logo.id)}
-            alt={
-              global.ice_logo?.description ||
-              global.ice_logo?.title ||
-              global.logo.description ||
-              global.logo.title ||
-              " Logo"
-            }
+            src={site.ice_logo || site.logo}
+            alt="Logo"
             class="h-16 object-contain"
           />
         )
@@ -362,10 +359,13 @@ const phoneSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
       document.body.style.overflow = "";
     });
 
+    // Mobile accordion
     document.querySelectorAll(".mobile-accordion-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const index = btn.getAttribute("data-index");
-        const panel = document.querySelector(`.mobile-accordion-panel[data-index="${index}"]`);
+        const panel = document.querySelector(
+          `.mobile-accordion-panel[data-index="${index}"]`,
+        );
         const arrow = btn.querySelector("svg");
         panel?.classList.toggle("hidden");
         arrow?.classList.toggle("rotate-180");

@@ -1,6 +1,4 @@
 ---
-import { getAssetURL } from "@utils/getImage";
-
 const { item } = Astro.props;
 const { title } = item ?? {};
 const cards: any[] = item?.items ?? item?.cards ?? [];
@@ -20,33 +18,29 @@ const cards: any[] = item?.items ?? item?.cards ?? [];
           <div class="card-flush card-hover group flex flex-col">
             <div class="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-cream">
               <img
-                src={getAssetURL(item?.container_card_id?.image?.id)}
-                alt={
-                  item?.container_card_id?.image?.description ||
-                  item?.container_card_id?.storageSize ||
-                  "Container image"
-                }
+                src={item?.image}
+                alt={item?.size ? `${item.size} container` : "Container image"}
                 class="h-full w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
               />
             </div>
 
             <div class="flex flex-1 flex-col p-6">
-              {item?.container_card_id?.length && (
+              {item?.length && (
                 <h3 class="heading-md mb-1 text-3xl">
-                  {item?.container_card_id?.length}
+                  {item?.length}
                 </h3>
               )}
               {item?.size && (
                 <h4 class="mb-3 text-base font-semibold text-secondary">
-                  {item?.container_card_id?.size}
+                  {item?.size}
                 </h4>
               )}
 
               <p class="text-sm leading-relaxed text-secondary">
-                {item?.container_card_id?.description}
+                {item?.description}
               </p>
 
-              {item?.container_card_id?.dimensions && (
+              {item?.dimensions && (
                 <div class="mt-6 flex items-center gap-3 border-t border-line pt-5">
                   <span class="icon-chip h-9 w-9 shrink-0">
                     <svg
@@ -64,15 +58,15 @@ const cards: any[] = item?.items ?? item?.cards ?? [];
                       Dimensions
                     </span>
                     <span class="text-sm font-semibold text-dark">
-                      {item?.container_card_id?.dimensions}
+                      {item?.dimensions}
                     </span>
                   </span>
                 </div>
               )}
             </div>
           </div>
-          );
-        })
+          )
+        )
       }
     </div>
   </div>

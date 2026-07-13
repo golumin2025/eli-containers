@@ -32,12 +32,8 @@ const logos = [
             return (
             <img
               class="img object-contain grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100"
-              src={getAssetURL(logo.image_id.image.id)}
-              alt={
-                logo.image_id.image.description ||
-                logo.image_id.image.title ||
-                `Logo ${index + 1}`
-              }
+              src={src}
+              alt={alt}
               width={200}
               height={200}
             />

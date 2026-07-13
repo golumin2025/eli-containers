@@ -26,11 +26,11 @@ const { title, tabs, image, video_link, featured_media } = item;
                 index === 0 ? "flex" : "hidden"
               }`}
             >
-              {tab.tabs_id.steps.map((step, stepIndex) => (
+              {tab.steps.map((step, stepIndex) => (
                 <div class="group relative flex items-start gap-5">
                   <div class="relative shrink-0">
                     <div class="bg-primary text-dark number">{stepIndex + 1}</div>
-                    {stepIndex !== tab.tabs_id.steps.length - 1 && (
+                    {stepIndex !== tab.steps.length - 1 && (
                       <div class="number-line bg-gradient-to-b from-primary to-primary/20" />
                     )}
                   </div>
@@ -67,7 +67,7 @@ const { title, tabs, image, video_link, featured_media } = item;
                   index === 0 ? "active" : ""
                 }`}
               >
-                <span class="whitespace-nowrap">{tab.tabs_id.title}</span>
+                <span class="whitespace-nowrap">{tab.title}</span>
               </button>
             ))
           }
@@ -77,8 +77,8 @@ const { title, tabs, image, video_link, featured_media } = item;
           featured_media === "image" ? (
             <div class="relative overflow-hidden shadow-xl ring-1 ring-black/10">
               <img
-                src={getAssetURL(image.id)}
-                alt={image.description || image.title || "How It Works Image"}
+                src={getAssetURL(image?.id ?? image)}
+                alt="How It Works"
                 class="w-full h-full object-cover"
               />
             </div>

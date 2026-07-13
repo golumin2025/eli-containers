@@ -54,8 +54,8 @@ const button = item?.button || {};
       >
         <div class="card-flush h-full">
           <img
-            src={getAssetURL(item?.image?.id)}
-            alt={item?.image?.description || item?.image?.title || "Featured Image"}
+            src={getAssetURL(item?.image?.id ?? item?.image)}
+            alt="Featured Image"
             class="h-full min-h-[280px] w-full object-cover"
           />
         </div>

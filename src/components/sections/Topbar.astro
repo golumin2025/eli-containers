@@ -6,11 +6,11 @@ const title = topbarGlobal?.data?.title;
 ---
 
 {
-  topbar.title && (
+  title && (
     <div class="bg-primary">
       <div class="custom-container flex items-center justify-center gap-3 py-2.5 text-center text-sm font-bold uppercase tracking-wide text-dark sm:text-[15px]">
-        <img src={Tag.src} class="h-5 w-5 shrink-0" alt="Tag Icon" />
-        <span>{topbar.title}</span>
+        <!-- <img src={Tag.src} class="h-5 w-5 shrink-0" alt="Tag Icon" /> -->
+        <span>{title}</span>
       </div>
     </div>
   )

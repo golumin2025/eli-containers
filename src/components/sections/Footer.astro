@@ -1,5 +1,4 @@
 ---
-import { getAssetURL } from "@utils/getImage";
 import { getGlobal } from "@lib/cms";
 
 const [siteGlobal, footerGlobal] = await Promise.all([
@@ -9,7 +8,6 @@ const [siteGlobal, footerGlobal] = await Promise.all([
 const site = siteGlobal?.data ?? {};
 const footer = footerGlobal?.data ?? {};
 let { pageUrl } = Astro.props;
-const global = await getGlobal();
 const isCold = ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl);
 ---
 
@@ -20,20 +18,14 @@ const isCold = ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl
       {
         !isCold ? (
           <img
-            src={getAssetURL(global.logo.id)}
-            alt={global.logo.description || global.logo.title || "MI-BOX Logo"}
+            src={site.logo}
+            alt="MI-BOX Logo"
             class="h-20 object-contain"
           />
         ) : (
           <img
-            src={getAssetURL(global.ice_logo?.id || global.logo.id)}
-            alt={
-              global.ice_logo?.description ||
-              global.ice_logo?.title ||
-              global.logo.description ||
-              global.logo.title ||
-              " Logo"
-            }
+            src={site.ice_logo || site.logo}
+            alt="Logo"
             class="h-20 object-contain"
           />
         )
@@ -44,13 +36,13 @@ const isCold = ["cold-storage-containers", "thank-you-coolers"].includes(pageUrl
       isCold ? null : (
         <>
           <div class="grid w-full grid-cols-1 gap-8 border-t border-white/10 pt-12 md:grid-cols-3 lg:grid-cols-4">
-            {footer?.footer_items?.map((section) => (
+            {footer?.footer_sections?.map((section) => (
               <div class="w-full">
                 <h3 class="text-sm font-bold uppercase tracking-[0.12em] text-white">
-                  {section?.footer_item_id?.title}
+                  {section?.title}
                 </h3>
                 <ul class="mt-4 space-y-2.5">
-                  {section?.footer_item_id?.links?.map((link) => (
+                  {section?.links?.map((link) => (
                     <li>
                       <a
                         href={link?.link}

@@ -27,25 +27,24 @@ function resolveCard(option: any) {
 
     <div class="mt-14 hidden gap-6 md:grid md:grid-cols-3 lg:mt-16">
       {
-        cards.map((option) => (
+        cards.map((option) => {
+          const card = resolveCard(option);
+          return (
           <div class="card card-hover flex flex-col items-center text-center">
             <img
-              src={getAssetURL(option.why_us_card_id.image.id)}
-              alt={
-                option.why_us_card_id.image.description ||
-                option.why_us_card_id.image.title ||
-                "Why Us Image"
-              }
-              class={`mb-5 ${option.why_us_card_id.full_image ? "h-[200px] w-full object-cover" : "mx-auto h-24 w-auto object-contain"} `}
+              src={card.src}
+              alt={card.alt}
+              class={`mb-5 ${card.fullImage ? "h-[200px] w-full object-cover" : "mx-auto h-24 w-auto object-contain"} `}
             />
             <h3 class="mb-3 text-xl font-bold tracking-tight text-dark">
-              {option.why_us_card_id.title}
+              {card.title}
             </h3>
             <div class="text-start text-sm leading-relaxed text-secondary">
-              {option.why_us_card_id.description}
+              {card.description}
             </div>
           </div>
-        ))
+          );
+        })
       }
     </div>
 
@@ -53,24 +52,27 @@ function resolveCard(option: any) {
       <div class="swiper storage-slider">
         <div class="swiper-wrapper">
           {
-            cards.map((option) => (
+            cards.map((option) => {
+              const card = resolveCard(option);
+              return (
               <div class="swiper-slide card flex flex-col items-stretch justify-between text-center">
                 <div>
                   <img
-                    src={getAssetURL(option.why_us_card_id.image)}
-                    alt={option.title}
-                    class={`mx-auto mb-5 ${option.full_image ? "h-[150px] w-full object-cover" : "h-24 w-auto object-contain"} `}
+                    src={card.src}
+                    alt={card.alt}
+                    class={`mx-auto mb-5 ${card.fullImage ? "h-[150px] w-full object-cover" : "h-24 w-auto object-contain"} `}
                   />
                   <h3 class="mb-3 text-xl font-bold tracking-tight text-dark">
-                    {option.why_us_card_id.title}
+                    {card.title}
                   </h3>
 
                   <div class="text-start text-sm leading-relaxed text-secondary">
-                    {option.why_us_card_id.description}
+                    {card.description}
                   </div>
                 </div>
               </div>
-            ))
+              );
+            })
           }
         </div>
       </div>

@@ -17,8 +17,8 @@ const bgAlt = (typeof bg_image === "object" ? bg_image?.description ?? bg_image?
         class="card-flush card-hover overflow-hidden order-1 lg:order-none"
       >
         <img
-          src={getAssetURL(bg_image.id)}
-          alt={bg_image.description || bg_image.title || "Featured Image"}
+          src={bgUrl}
+          alt={bgAlt}
           class="h-full w-full min-h-[280px] object-cover"
           loading="lazy"
           decoding="async"

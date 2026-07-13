@@ -17,8 +17,8 @@ function formatDate(dateStr) {
 <article class="card-flush card-hover group relative isolate flex flex-col">
   <div class="relative aspect-[16/10] overflow-hidden">
     <img
-      src={getAssetURL(blog_image.id)}
-      alt={blog_image.description || blog_image.title || "Blog Image"}
+      src={getAssetURL(blog_image?.id ?? blog_image)}
+      alt={title || "Blog Image"}
       class="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
     />
     <span class="badge absolute left-4 top-4 z-10">Blog</span>

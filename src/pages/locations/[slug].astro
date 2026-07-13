@@ -2,7 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import QuoteForm from "@components/forms/QuoteForm.svelte";
 import { getCollection, getEntry, render } from "astro:content";
-import { getGlobal } from "src/lib/getPageData";
+import { getGlobal } from "@lib/cms";
 import heroFallback from "@assets/images/service-areas/blocks/0/value/bgImage.jpg";
 
 const { slug } = Astro.params;
@@ -22,7 +22,8 @@ const others = all
   .filter((l) => l.id !== entry.id)
   .sort((a, b) => a.data.order - b.data.order);
 
-const global = await getGlobal();
+const siteGlobal = await getGlobal("site");
+const global = siteGlobal?.data ?? {};
 const placeLabel = `${data.city}, ${data.state}`;
 ---
 
