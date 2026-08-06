@@ -5,7 +5,7 @@
   import Input from './Input.svelte'
   import { DateInput } from 'date-picker-svelte'
   import { turnstile } from '@svelte-put/cloudflare-turnstile'
-  let { quoteFormTitle, quoteButtonTitle = 'Get your Quote', promoCode } = $props()
+  let { quoteFormTitle="Get Free Quote", quoteButtonTitle = 'Get your Quote', promoCode } = $props()
   let isLoading = $state(false)
   let zipErrors = $state({ initial: '', final: '' })
   let form = $state({
@@ -69,7 +69,7 @@
 </script>
 
 <form id="quote-form" method="POST" onsubmit={handleSubmit}>
-  <h2 class="md:text-3xl text-xl text-center font-bold block">
+  <h2 class="md:text-3xl text-xl text-center font-bold block text-black">
     {quoteFormTitle}
   </h2>
   <div class="flex justify-around items-center my-6 gap-4">
