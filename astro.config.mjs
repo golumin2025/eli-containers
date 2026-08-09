@@ -8,6 +8,8 @@ import react from "@astrojs/react";
 import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
 
+import cloudflare from "@astrojs/cloudflare";
+
 export default defineConfig({
   site: "https://www.boxrentalnow.com",
   trailingSlash: "ignore",
@@ -25,5 +27,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   output: "server",
-  adapter: netlify(),
+  adapter: cloudflare(),
 });
