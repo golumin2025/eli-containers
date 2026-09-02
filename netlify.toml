@@ -3,8 +3,3 @@
   to = "https://www.boxrentalnow.com/:splat"
   status = 301
   force = true
-[[redirects]]
-  from = "https://www.boxrentalnow.com/cold-storage-containers/"
-  to = "https://itsicecoldstorage.com/*"
-  status = 301
-  force = true
