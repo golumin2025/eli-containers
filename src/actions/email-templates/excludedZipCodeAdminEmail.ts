@@ -1,67 +1,63 @@
 import { capitalizeFirstLetter } from "@utils/Capitilized";
 import { formatDate } from "@utils/dateformatter";
-import { formateName } from "@utils/formateName";
+import {
+  detailList,
+  divider,
+  escapeHtml,
+  heading,
+  image,
+  layout,
+  section,
+  text,
+} from "./layout";
 
 export const excludedZipCodeAdminEmailTemplate = {
-  html: (data, emailSettings, general) => `
-  <mjml>
-    <mj-head>
-      <mj-preview>Out of Service Area Submission</mj-preview>
-      <mj-style inline="inline">
-        a { color: #ffd51d; text-decoration: none; font-weight: 600; }
-      </mj-style>
-    </mj-head>
-    <mj-body background-color="#f4f4f4" font-family="Arial, sans-serif">
-      <!-- Logo Section -->
-      <mj-section background-color="#ffffff" padding="20px" text-align="center">
-        <mj-column>
-          <mj-image width="150px" src="${emailSettings.logo.imageUrl}" alt="${emailSettings.logo.altTag}" />
-        </mj-column>
-      </mj-section>
+  html: (data, emailSettings, general) =>
+    layout({
+      preview: "Out of Service Area Submission",
+      sections: [
+        section(
+          image(emailSettings.logo.imageUrl, emailSettings.logo.altTag),
+          { padding: "20px" },
+        ),
 
-      <!-- Header -->
-      <mj-section background-color="#ffffff" padding="20px 30px" border-radius="8px 8px 0 0" text-align="center">
-        <mj-column>
-          <mj-text font-size="20px" font-weight="bold" color="#333333" align="center">
-           Out of Service Area Submission
-          </mj-text>
-          <mj-divider border-color="#ffd51d" border-width="2px" width="60%" align="center" />
-        </mj-column>
-      </mj-section>
+        section(
+          heading("Out of Service Area Submission", { fontSize: "20px" }) +
+            divider(),
+          { borderRadius: "8px 8px 0 0" },
+        ),
 
-      <!-- Submission Details -->
-      <mj-section background-color="#ffffff" padding="20px 30px" border-radius="0 0 8px 8px">
-        <mj-column>
-          <mj-text font-size="16px" color="#555555" line-height="1.8">
-            ${data.serviceType
-      ? `<strong>Service Type:</strong> ${capitalizeFirstLetter(data.serviceType)}<br/>`
-      : ""
-    }
-            <strong>First Name:</strong> ${data.firstName || "N/A"}<br/>
-            <strong>Last Name:</strong> ${data.lastName || "N/A"}<br/>
-            <strong>Initial Delivery Zip Code:</strong> ${data.initialDeliveryZip || "N/A"}<br/>
-            ${data.finalDeliveryZip
-      ? `<strong>Final Delivery Zip Code:</strong> ${data.finalDeliveryZip}<br/>`
-      : ""
-    }
-            <strong>Delivery Date:</strong> ${formatDate(data.deliveryDate)}<br/>
-            <strong>Email:</strong> ${data.email}<br/>
-            <strong>Phone:</strong> ${data.phone}<br/>
-          
+        section(
+          detailList([
+            [
+              "Service Type",
+              data.serviceType
+                ? escapeHtml(capitalizeFirstLetter(data.serviceType))
+                : "",
+            ],
+            ["First Name", escapeHtml(data.firstName) || "N/A"],
+            ["Last Name", escapeHtml(data.lastName) || "N/A"],
+            [
+              "Initial Delivery Zip Code",
+              escapeHtml(data.initialDeliveryZip) || "N/A",
+            ],
+            ["Final Delivery Zip Code", escapeHtml(data.finalDeliveryZip)],
+            ["Delivery Date", escapeHtml(formatDate(data.deliveryDate))],
+            ["Email", escapeHtml(data.email)],
+            ["Phone", escapeHtml(data.phone)],
+          ]),
+          { borderRadius: "0 0 8px 8px" },
+        ),
 
-          </mj-text>
-        </mj-column>
-      </mj-section>
-
-      <!-- Footer -->
-      <mj-section background-color="#ffd51d" padding="20px" text-align="center">
-        <mj-column>
-          <mj-text align="center" color="#ffffff" font-size="12px" line-height="1.6">
-            ${general.businessName}<br/>
-          </mj-text>
-        </mj-column>
-      </mj-section>
-    </mj-body>
-  </mjml>
-  `,
+        section(
+          text(escapeHtml(general.businessName), {
+            fontSize: "12px",
+            color: "#ffffff",
+            lineHeight: "1.6",
+            align: "center",
+          }),
+          { backgroundColor: "#ffd51d", padding: "20px" },
+        ),
+      ].join(""),
+    }),
 };

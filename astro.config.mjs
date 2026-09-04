@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import keystatic from "@keystatic/astro";
 import markdoc from "@astrojs/markdoc";
 import netlify from "@astrojs/netlify";
+import getoutsend from "./src/integrations/getoutsend";
 import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 import svelte from "@astrojs/svelte";
@@ -20,6 +21,10 @@ export default defineConfig({
     partytown(),
     react(),
     svelte(),
+    getoutsend({
+      fromName: "Box Rental Now",
+      fromEmail: "info@boxrentalnow.com",
+    }),
   ],
   vite: {
     plugins: [tailwindcss()],

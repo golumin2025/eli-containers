@@ -1,78 +1,72 @@
-import { capitalizeFirstLetter } from "@utils/Capitilized";
 import { formatDate } from "@utils/dateformatter";
+import {
+  button,
+  detailList,
+  divider,
+  escapeHtml,
+  heading,
+  image,
+  layout,
+  section,
+  text,
+} from "./layout";
 
 export const clientEmailTemplate = {
-  html: (data, emailSettings, general) => `
-  <mjml>
-    <mj-body background-color="#f4f4f4" font-family="Arial, sans-serif">
-      <!-- Logo Section -->
-      <mj-section background-color="#ffffff" padding="20px" text-align="center">
-        <mj-column>
-          <mj-image 
-            width="150px" 
-            src="${emailSettings.logo.imageUrl}" 
-            alt="${emailSettings.logo.altTag}" 
-          />
-        </mj-column>
-      </mj-section>
+  html: (data, emailSettings, general) =>
+    layout({
+      preview: "Thank You for Your Cold Storage Quote Request",
+      sections: [
+        section(
+          image(emailSettings.logo.imageUrl, emailSettings.logo.altTag),
+          { padding: "20px" },
+        ),
 
-      <!-- Header Section -->
-      <mj-section background-color="#ffffff" padding="20px 30px" border-radius="8px 8px 0 0" text-align="center">
-        <mj-column>
-          <mj-text font-size="20px" font-weight="bold" color="#333333" align="center">
-            Thank You for Your Cold Storage Quote Request
-          </mj-text>
-          <mj-divider border-color="#ffd51d" border-width="2px" width="60%" />
-        </mj-column>
-      </mj-section>
+        section(
+          heading("Thank You for Your Cold Storage Quote Request", {
+            fontSize: "20px",
+          }) + divider(),
+          { borderRadius: "8px 8px 0 0" },
+        ),
 
-      <!-- Submission Details Section -->
-      <mj-section background-color="#ffffff" padding="20px 30px" border-radius="0 0 8px 8px">
-        <mj-column>
-          <mj-text font-size="16px" color="#555555" line-height="1.8">
-            <strong>First Name:</strong> ${data.firstName || "N/A"}<br/>
-            <strong>Last Name:</strong> ${data.lastName || "N/A"}<br/>
-            <strong>Delivery Zip Code:</strong> ${data.initialDeliveryZip || "N/A"}<br/>
-            <strong>Delivery Date:</strong> ${formatDate(data.deliveryDate)}<br/>
-            <strong>Email:</strong> ${data.email}<br/>
-            <strong>Phone:</strong> ${data.phone}<br/>
-          </mj-text>
-          
-          <mj-text font-size="16px" color="#555555" line-height="1.8" padding-top="20px">
-            We've received your request for cold storage services and a team member will contact you shortly to discuss your needs and provide a quote.
-          </mj-text>
-          
-          <mj-text 
-            font-size="18px" 
-            font-weight="bold" 
-            color="#ffd51d" 
-            line-height="1.8" 
-            align="center" 
-            padding-top="15px"
-          >
-            Thank You for Choosing ${general.businessName}!
-          </mj-text>
-          
-          <mj-button background-color="#ffd51d" color="#000000" href="tel:${general.phone}" font-family="Arial, sans-serif" padding="15px 30px">
-            Call Us Now
-          </mj-button>
-        </mj-column>
-      </mj-section>
+        section(
+          detailList([
+            ["First Name", escapeHtml(data.firstName) || "N/A"],
+            ["Last Name", escapeHtml(data.lastName) || "N/A"],
+            [
+              "Delivery Zip Code",
+              escapeHtml(data.initialDeliveryZip) || "N/A",
+            ],
+            ["Delivery Date", escapeHtml(formatDate(data.deliveryDate))],
+            ["Email", escapeHtml(data.email)],
+            ["Phone", escapeHtml(data.phone)],
+          ]) +
+            text(
+              "We've received your request for cold storage services and a team member will contact you shortly to discuss your needs and provide a quote.",
+              { paddingTop: "20px" },
+            ) +
+            text(
+              `Thank You for Choosing ${escapeHtml(general.businessName)}!`,
+              {
+                fontSize: "18px",
+                fontWeight: "bold",
+                color: "#ffd51d",
+                align: "center",
+                paddingTop: "15px",
+              },
+            ) +
+            button("Call Us Now", `tel:${general.phone}`),
+          { borderRadius: "0 0 8px 8px" },
+        ),
 
-      <!-- Footer Section -->
-      <mj-section background-color="#ffd51d" padding="20px" text-align="center">
-        <mj-column>
-          <mj-text 
-            align="center" 
-            color="#ffffff" 
-            font-size="12px" 
-            line-height="1.6"
-          >
-            ${general.businessName}<br/>
-          </mj-text>
-        </mj-column>
-      </mj-section>
-    </mj-body>
-  </mjml>
-  `,
+        section(
+          text(escapeHtml(general.businessName), {
+            fontSize: "12px",
+            color: "#ffffff",
+            lineHeight: "1.6",
+            align: "center",
+          }),
+          { backgroundColor: "#ffd51d", padding: "20px" },
+        ),
+      ].join(""),
+    }),
 };

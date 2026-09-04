@@ -1,121 +1,115 @@
 import { formatDate } from "@utils/dateformatter";
+import {
+  button,
+  detailList,
+  divider,
+  escapeHtml,
+  heading,
+  image,
+  layout,
+  link,
+  section,
+  text,
+} from "./layout";
+
+const ADMIN_RED = "#d32f2f";
 
 export const formSubmissionAdminEmail = {
-  html: (data, emailGlobal) => `
-  <mjml>
-    <mj-head>
-      <mj-preview>New Form Submission - Action Required</mj-preview>
-      <mj-style inline="inline">
-        a { color: #ffd51d; text-decoration: none; font-weight: 600; }
-        .detail-label { font-weight: bold; color: #333333; }
-        .detail-value { color: #555555; }
-      </mj-style>
-    </mj-head>
-    <mj-body background-color="#f4f4f4" font-family="Arial, sans-serif">
-      <!-- Logo Section -->
-      <mj-section background-color="#ffffff" padding="20px" text-align="center">
-        <mj-column>
-          <mj-image
-            width="150px"
-            src="${emailGlobal.image_url_for_email}"
-            alt="Logo"
-          />
-        </mj-column>
-      </mj-section>
+  html: (data, emailGlobal) =>
+    layout({
+      preview: "New Form Submission - Action Required",
+      sections: [
+        section(image(emailGlobal.image_url_for_email, "Logo"), {
+          padding: "20px",
+        }),
 
-      <!-- Header Section -->
-      <mj-section background-color="#ffffff" padding="20px 30px" border-radius="8px 8px 0 0" text-align="center">
-        <mj-column>
-          <mj-text font-size="24px" font-weight="bold" color="#d32f2f" align="center">
-             New Form Submission
-          </mj-text>
-          <mj-divider border-color="#d32f2f" border-width="2px" width="60%" />
-        </mj-column>
-      </mj-section>
+        section(
+          heading("New Form Submission", { color: ADMIN_RED }) +
+            divider(ADMIN_RED),
+          { borderRadius: "8px 8px 0 0" },
+        ),
 
-      <!-- Customer Details Section -->
-      <mj-section background-color="#ffffff" padding="20px 30px">
-        <mj-column>
-          <mj-text font-size="16px" font-weight="bold" color="#333333" padding-bottom="15px">
-            Customer Information:
-          </mj-text>
+        section(
+          text("Customer Information:", {
+            fontWeight: "bold",
+            color: "#333333",
+            paddingBottom: "15px",
+          }) +
+            detailList([
+              ["First Name", escapeHtml(data.firstName)],
+              ["Last Name", escapeHtml(data.lastName)],
+              [
+                "Email",
+                data.email
+                  ? link(escapeHtml(data.email), `mailto:${data.email}`)
+                  : "",
+              ],
+              [
+                "Phone",
+                data.phone ? link(escapeHtml(data.phone), `tel:${data.phone}`) : "",
+              ],
+            ]),
+        ),
 
-          <mj-text font-size="14px" color="#555555" line-height="2.2">
-            ${data.firstName ? `<span class="detail-label">First Name:</span> <span class="detail-value">${data.firstName}</span><br/>` : ""}
-            ${data.lastName ? `<span class="detail-label">Last Name:</span> <span class="detail-value">${data.lastName}</span><br/>` : ""}
-            ${data.email ? `<span class="detail-label">Email:</span> <span class="detail-value"><a href="mailto:${data.email}">${data.email}</a></span><br/>` : ""}
-            ${data.phone ? `<span class="detail-label">Phone:</span> <span class="detail-value"><a href="tel:${data.phone}">${data.phone}</a></span><br/>` : ""}
-          </mj-text>
-        </mj-column>
-      </mj-section>
+        section(
+          text("Service Details:", {
+            fontWeight: "bold",
+            color: "#333333",
+            paddingBottom: "15px",
+          }) +
+            detailList([
+              ["Service Type", escapeHtml(data.serviceType)],
+              ["Delivery Zip Code", escapeHtml(data.initialDeliveryZip)],
+              ["Final Delivery Zip", escapeHtml(data.finalDeliveryZip)],
+              [
+                "Delivery Date",
+                data.deliveryDate ? escapeHtml(formatDate(data.deliveryDate)) : "",
+              ],
+              ["Storage Type", escapeHtml(data.storeItType)],
+            ]),
+          { backgroundColor: "#f9f9f9" },
+        ),
 
-      <!-- Service Details Section -->
-      <mj-section background-color="#f9f9f9" padding="20px 30px">
-        <mj-column>
-          <mj-text font-size="16px" font-weight="bold" color="#333333" padding-bottom="15px">
-            Service Details:
-          </mj-text>
+        data.promoCode
+          ? section(
+              text("🎉 Promo Code Used:", {
+                fontWeight: "bold",
+                color: "#333333",
+                paddingBottom: "10px",
+              }) +
+                text(escapeHtml(data.promoCode), {
+                  fontSize: "18px",
+                  fontWeight: "bold",
+                  color: ADMIN_RED,
+                }),
+              { backgroundColor: "#fff3cd" },
+            )
+          : "",
 
-          <mj-text font-size="14px" color="#555555" line-height="2.2">
-            ${data.serviceType ? `<span class="detail-label">Service Type:</span> <span class="detail-value">${data.serviceType}</span><br/>` : ""}
-            ${data.initialDeliveryZip ? `<span class="detail-label">Delivery Zip Code:</span> <span class="detail-value">${data.initialDeliveryZip}</span><br/>` : ""}
-            ${data.finalDeliveryZip ? `<span class="detail-label">Final Delivery Zip:</span> <span class="detail-value">${data.finalDeliveryZip}</span><br/>` : ""}
-            ${data.deliveryDate ? `<span class="detail-label">Delivery Date:</span> <span class="detail-value">${formatDate(data.deliveryDate)}</span><br/>` : ""}
-            ${data.storeItType ? `<span class="detail-label">Storage Type:</span> <span class="detail-value">${data.storeItType}</span><br/>` : ""}
-          </mj-text>
-        </mj-column>
-      </mj-section>
+        section(
+          text(
+            "<em>Please follow up with this customer as soon as possible to provide a quote and discuss their needs.</em>",
+            { fontSize: "14px", color: "#666666", paddingTop: "10px" },
+          ) +
+            button("Reply to Customer", `mailto:${data.email}`, {
+              backgroundColor: ADMIN_RED,
+              color: "#ffffff",
+            }),
+          { borderRadius: "0 0 8px 8px" },
+        ),
 
-      <!-- Promo Code Section -->
-      ${data.promoCode ? `
-      <mj-section background-color="#fff3cd" padding="20px 30px">
-        <mj-column>
-          <mj-text font-size="16px" font-weight="bold" color="#333333" padding-bottom="10px">
-            🎉 Promo Code Used:
-          </mj-text>
-
-          <mj-text font-size="18px" font-weight="bold" color="#d32f2f">
-            ${data.promoCode}
-          </mj-text>
-        </mj-column>
-      </mj-section>
-      ` : ""}
-
-      <!-- Action Section -->
-      <mj-section background-color="#ffffff" padding="20px 30px" border-radius="0 0 8px 8px">
-        <mj-column>
-          <mj-text font-size="14px" color="#666666" line-height="1.8" padding-top="10px">
-            <em>Please follow up with this customer as soon as possible to provide a quote and discuss their needs.</em>
-          </mj-text>
-
-          <mj-button
-            background-color="#d32f2f"
-            color="#ffffff"
-            href="mailto:${data.email}"
-            font-family="Arial, sans-serif"
-            padding="15px 30px"
-            font-weight="bold"
-          >
-            Reply to Customer
-          </mj-button>
-        </mj-column>
-      </mj-section>
-
-      <!-- Footer Section -->
-      <mj-section background-color="#333333" padding="20px" text-align="center">
-        <mj-column>
-          <mj-text
-            align="center"
-            color="#ffffff"
-            font-size="12px"
-            line-height="1.6"
-          >
-            Box Rental Now<br/>
-            ${emailGlobal.phone_number}
-          </mj-text>
-        </mj-column>
-      </mj-section>
-    </mj-body>
-  </mjml>
-  `,
+        section(
+          text(
+            ["Box Rental Now", escapeHtml(emailGlobal.phone_number)].join("<br/>"),
+            {
+              fontSize: "12px",
+              color: "#ffffff",
+              lineHeight: "1.6",
+              align: "center",
+            },
+          ),
+          { backgroundColor: "#333333", padding: "20px" },
+        ),
+      ].join(""),
+    }),
 };

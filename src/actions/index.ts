@@ -1,10 +1,14 @@
 import { defineAction } from "astro:actions";
 import { z } from "astro:schema";
-import mjml2html from "mjml";
-import * as postmark from "postmark";
+import { sendEmail } from "virtual:getoutsend";
 import { getGlobal } from "../lib/getPageData";
 import { formSubmissionAdminEmail } from "./email-templates/formSubmissionAdminEmail";
 import { formSubmissionClientEmail } from "./email-templates/formSubmissionClientEmail";
+
+/** Flatten a CMS recipient list into the address array getoutsend expects. */
+const toAddresses = (
+  recipients: Array<{ email: string }> | undefined | null,
+): string[] => (recipients ?? []).map((recipient) => recipient.email);
 
 export const server = {
   quoteForm: defineAction({
@@ -63,41 +67,29 @@ export const server = {
         );
         const zohoResponse = await zohoRequest.json();
 
-        // // Prepare email templates
-        // const { html: clientEmailBody } = mjml2html(
-        //   formSubmissionClientEmail.html(input, globalData),
-        // );
-        // const { html: adminEmailBody } = mjml2html(
-        //   formSubmissionAdminEmail.html(input, globalData),
-        // );
-
-        // Send emails
-        const client = new postmark.ServerClient(
-          import.meta.env.POSTMARK_SERVER_TOKEN,
+        // Prepare email templates
+        const clientEmailBody = formSubmissionClientEmail.html(
+          input,
+          globalData,
         );
+        const adminEmailBody = formSubmissionAdminEmail.html(input, globalData);
 
-        // // Send email to client
-        // await client.sendEmail({
-        //   From: globalData.fromEmail,
-        //   To: input.email,
-        //   Cc: globalData.clientEmailRecipientsBcc
-        //     .map((recipient: { email: string }) => recipient.email)
-        //     .join(", "),
-        //   Subject: "Thank You for Your Submission - We'll Be In Touch Soon",
-        //   HtmlBody: clientEmailBody,
-        //   MessageStream: "outbound",
-        // });
+        // Send email to client
+        await sendEmail({
+          fromEmail: globalData.fromEmail,
+          to: input.email,
+          cc: toAddresses(globalData.clientEmailRecipientsBcc),
+          subject: "Thank You for Your Submission - We'll Be In Touch Soon",
+          html: clientEmailBody,
+        });
 
-        // // Send email to admin
-        // await client.sendEmail({
-        //   From: globalData.fromEmail,
-        //   To: globalData.adminEmailRecipients
-        //     .map((recipient: { email: string }) => recipient.email)
-        //     .join(", "),
-        //   Subject: "New Form Submission - Follow Up Required",
-        //   HtmlBody: adminEmailBody,
-        //   MessageStream: "outbound",
-        // });
+        // Send email to admin
+        await sendEmail({
+          fromEmail: globalData.fromEmail,
+          to: toAddresses(globalData.adminEmailRecipients),
+          subject: "New Form Submission - Follow Up Required",
+          html: adminEmailBody,
+        });
 
         const successUrl = `https://app.miboxmovingandstorage.com/?container_types=${input.serviceType}&email=${input.email}&new_zipcode=${input.finalDeliveryZip}&phone_number=${input.phone}&start_date=${input.deliveryDate}&zipcode=${input.initialDeliveryZip}&promocode=${input.promoCode}&type=${input.storeItType}`;
 
@@ -170,39 +162,27 @@ export const server = {
         }
 
         // Prepare email templates
-        const { html: clientEmailBody } = mjml2html(
-          formSubmissionClientEmail.html(input, globalData),
+        const clientEmailBody = formSubmissionClientEmail.html(
+          input,
+          globalData,
         );
-        const { html: adminEmailBody } = mjml2html(
-          formSubmissionAdminEmail.html(input, globalData),
-        );
-
-        // Send emails
-        const client = new postmark.ServerClient(
-          import.meta.env.POSTMARK_SERVER_TOKEN,
-        );
+        const adminEmailBody = formSubmissionAdminEmail.html(input, globalData);
 
         // Send email to client
-        await client.sendEmail({
-          From: globalData.fromEmail,
-          To: input.email,
-          Cc: globalData.clientEmailRecipientsBcc
-            .map((recipient: { email: string }) => recipient.email)
-            .join(", "),
-          Subject: "Thank You for Your Cold Storage Quote Request",
-          HtmlBody: clientEmailBody,
-          MessageStream: "outbound",
+        await sendEmail({
+          fromEmail: globalData.fromEmail,
+          to: input.email,
+          cc: toAddresses(globalData.clientEmailRecipientsBcc),
+          subject: "Thank You for Your Cold Storage Quote Request",
+          html: clientEmailBody,
         });
 
         // Send email to admin
-        await client.sendEmail({
-          From: globalData.fromEmail,
-          To: globalData.adminEmailRecipients
-            .map((recipient: { email: string }) => recipient.email)
-            .join(", "),
-          Subject: "New Cold Storage Quote Request",
-          HtmlBody: adminEmailBody,
-          MessageStream: "outbound",
+        await sendEmail({
+          fromEmail: globalData.fromEmail,
+          to: toAddresses(globalData.adminEmailRecipients),
+          subject: "New Cold Storage Quote Request",
+          html: adminEmailBody,
         });
 
         return {
